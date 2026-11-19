@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Orelli Coffee: Café coffee, one capsule away</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { bg:'var(--bg)', surface:'var(--surface)', ink:'var(--ink)', mute:'var(--mute)', brand:'var(--brand)', brandink:'var(--brandink)', accent:'var(--accent)', line:'var(--line)' },
+  fontFamily: { display:['"Bricolage Grotesque"','Helvetica Neue','Arial','sans-serif'], body:['"DM Sans"','Helvetica Neue','Arial','sans-serif'] }
+}}};
+</script>
+<style>
+/* Palette tokens: replace these with Orelli brand colours */
+:root{ --bg:#EEF1EA; --surface:#FFFFFF; --ink:#1C2A22; --mute:#5B6B61; --brand:#1F4A37; --brandink:#F4F7F1; --accent:#E3A21A; --line:#D5DBD0;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); color-scheme:light; }
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --bg:#121A15; --surface:#1A251E; --ink:#EAF0E8; --mute:#9DB0A3; --brand:#7FC4A0; --brandink:#0F1A14; --accent:#F0B840; --line:#2B3A31; color-scheme:dark; }
+}
+:root[data-theme="dark"]{ --bg:#121A15; --surface:#1A251E; --ink:#EAF0E8; --mute:#9DB0A3; --brand:#7FC4A0; --brandink:#0F1A14; --accent:#F0B840; --line:#2B3A31; color-scheme:dark; }
+html{ scroll-padding-top:env(safe-area-inset-top,0px); scroll-behavior:smooth; }
+body{ background:var(--bg); color:var(--ink); font-family:'DM Sans','Helvetica Neue',Arial,sans-serif; }
+.pod{ border-radius:9999px; background:radial-gradient(circle at 35% 30%, var(--accent) 0 14%, var(--brand) 15% 55%, var(--ink) 56% 100%); }
+.chip{border:1.5px solid var(--line);border-radius:9999px;padding:.2rem .7rem;font-size:.8rem;font-weight:700;background:var(--bg);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.opt{border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:.7rem 1rem;text-align:left;transition:border-color .15s}
+.opt[aria-pressed="true"]{border-color:var(--brand);box-shadow:inset 0 0 0 1px var(--brand)}
+:root{--bx:#1F4A37}
+.img-hero,.img-box1,.img-box2,.img-box3,.img-box4{background-size:cover;background-position:center;background-repeat:no-repeat}
+.img-hero{background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'><rect width='800' height='600' fill='%231F4A37'/><circle cx='520' cy='230' r='210' fill='%23E3A21A'/><ellipse cx='400' cy='470' rx='260' ry='46' fill='%23F4F7F1'/><ellipse cx='400' cy='455' rx='200' ry='32' fill='%23D7E3D3'/><path d='M250 270h300v70c0 80-60 130-150 130s-150-50-150-130z' fill='%23FFFFFF'/><ellipse cx='400' cy='270' rx='150' ry='30' fill='%235A3A2A'/><path d='M550 300c60 0 70 90-10 100' fill='none' stroke='%23FFFFFF' stroke-width='22'/><path d='M350 220c-30-40 30-60 0-100M410 220c-30-40 30-60 0-100M470 220c-30-40 30-60 0-100' fill='none' stroke='%23F4F7F1' stroke-width='10' stroke-linecap='round' opacity='.7'/></svg>")}
+.img-box1{background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23EEF1EA'/><circle cx='300' cy='110' r='70' fill='%23E3A21A' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%231F4A37'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><circle cx='200' cy='245' r='34' fill='%23F4F7F1'/><circle cx='200' cy='245' r='14' fill='%231F4A37'/><circle cx='330' cy='330' r='26' fill='%231F4A37'/><circle cx='330' cy='330' r='9' fill='%23E3A21A'/></svg>")}
+.img-box2{background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23EEF1EA'/><circle cx='300' cy='110' r='70' fill='%231F4A37' opacity='.25'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%23B97A0F'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><circle cx='200' cy='245' r='34' fill='%23F4F7F1'/><circle cx='200' cy='245' r='14' fill='%23B97A0F'/><circle cx='330' cy='330' r='26' fill='%23B97A0F'/><circle cx='330' cy='330' r='9' fill='%231F4A37'/></svg>")}
+.img-box3{background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23EEF1EA'/><circle cx='300' cy='110' r='70' fill='%23E3A21A' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%235A3A2A'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><circle cx='200' cy='245' r='34' fill='%23F4F7F1'/><circle cx='200' cy='245' r='14' fill='%235A3A2A'/><circle cx='330' cy='330' r='26' fill='%235A3A2A'/><circle cx='330' cy='330' r='9' fill='%23E3A21A'/></svg>")}
+.img-box4{background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23EEF1EA'/><circle cx='300' cy='110' r='70' fill='%23E3A21A' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%236B3B55'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><circle cx='200' cy='245' r='34' fill='%23F4F7F1'/><circle cx='200' cy='245' r='14' fill='%236B3B55'/><circle cx='330' cy='330' r='26' fill='%236B3B55'/><circle cx='330' cy='330' r='9' fill='%23E3A21A'/></svg>")}
+:focus-visible{ outline:3px solid var(--accent); outline-offset:3px; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="v1" viewBox="0 0 400 400"><rect width="400" height="400" fill="#EEF1EA"/><circle cx="300" cy="110" r="70" fill="#E3A21A" opacity=".35"/><rect x="90" y="120" width="220" height="200" rx="14" fill="var(--bx)"/><rect x="90" y="120" width="220" height="56" rx="14" fill="#000" opacity=".15"/><circle cx="200" cy="245" r="34" fill="#F4F7F1"/><circle cx="200" cy="245" r="14" fill="var(--bx)"/></symbol>
+  <symbol id="v2" viewBox="0 0 400 400"><rect width="400" height="400" fill="#D7E3D3"/><circle cx="200" cy="200" r="120" fill="var(--bx)"/><circle cx="200" cy="200" r="86" fill="#000" opacity=".18"/><circle cx="200" cy="200" r="40" fill="#E3A21A"/><circle cx="170" cy="165" r="14" fill="#fff" opacity=".5"/></symbol>
+  <symbol id="v3" viewBox="0 0 400 400"><rect width="400" height="400" fill="var(--bx)"/><circle cx="260" cy="150" r="105" fill="#E3A21A"/><ellipse cx="200" cy="320" rx="140" ry="26" fill="#F4F7F1"/><path d="M110 170h180v40c0 50-36 82-90 82s-90-32-90-82z" fill="#fff"/><ellipse cx="200" cy="170" rx="90" ry="18" fill="#5A3A2A"/><path d="M290 190c36 0 42 54-6 60" fill="none" stroke="#fff" stroke-width="14"/></symbol>
+</svg>
+<div class="bg-brand text-brandink text-sm text-center py-2 px-4">Free shipping on orders above ₹999. Build your own pack and save 10%.</div>
+
+<header class="sticky top-0 z-20 bg-bg border-b border-line">
+  <div class="max-w-6xl mx-auto flex items-center justify-between px-5 py-4">
+    <a href="#" class="font-display font-extrabold text-2xl tracking-tight">Orelli</a>
+    <nav class="hidden md:flex gap-8 text-sm font-medium">
+      <a href="#series" class="hover:text-brand">Coffee</a>
+      <a href="#machines" class="hover:text-brand">Machines</a>
+      <a href="#story" class="hover:text-brand">Our story</a>
+      <a href="#business" class="hover:text-brand">For business</a>
+    </nav>
+    <div class="flex items-center gap-4 text-sm font-medium">
+      <a href="#" class="hidden sm:inline hover:text-brand">Log in</a>
+      <a href="#" class="bg-ink text-bg rounded-full px-4 py-2">Cart (0)</a>
+    </div>
+  </div>
+</header>
+
+<main id="homeView">
+<!-- Hero -->
+<section class="max-w-6xl mx-auto px-5 pt-14 pb-16 grid md:grid-cols-2 gap-10 items-center">
+  <div>
+    <h1 class="font-display font-extrabold text-5xl sm:text-6xl leading-[1.02] tracking-tight">Your 11 AM café break, at home.</h1>
+    <p class="mt-5 text-lg text-mute max-w-md leading-relaxed">Specialty coffee, roasted in small batches and sealed in recyclable capsules. Fits every Nespresso® Original machine. Ready in 30 seconds.</p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="#series" class="bg-brand text-brandink font-bold rounded-full px-7 py-3.5">Shop capsules</a>
+      <a href="#builder" class="border-2 border-ink rounded-full px-7 py-3.5 font-bold">Build your own pack</a>
+    </div>
+  </div>
+  <div class="img-hero relative h-72 sm:h-96 rounded-3xl" role="img" aria-label="Placeholder: a cup of coffee with steam">
+    <div class="absolute right-3 bottom-4 bg-accent text-ink font-bold rounded-full px-5 py-3 -rotate-6 shadow-md">10 pods + 1 on us</div>
+  </div>
+</section>
+
+<!-- Trust strip -->
+<section class="border-y border-line bg-surface">
+  <ul class="max-w-6xl mx-auto px-5 py-5 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm font-medium text-center">
+    <li>Nespresso® compatible</li>
+    <li>Recyclable aluminium capsules</li>
+    <li>Nitrogen-sealed for freshness</li>
+    <li>Pan-India delivery</li>
+  </ul>
+</section>
+
+<!-- Series -->
+<section id="series" class="max-w-6xl mx-auto px-5 py-16">
+  <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight">Pick your kind of coffee</h2>
+  <p class="mt-2 text-mute">Four ranges, one simple choice.</p>
+  <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    <a href="#" class="group rounded-3xl bg-brand text-brandink p-6 min-h-56 flex flex-col justify-between">
+      <div class="pod w-14 h-14"></div>
+      <div><h3 class="font-display font-bold text-xl">Specialty</h3><p class="text-sm mt-1 opacity-90">Daily comfort. Arabica and Robusta.</p></div>
+    </a>
+    <a href="#" class="group rounded-3xl bg-accent text-ink p-6 min-h-56 flex flex-col justify-between">
+      <div class="pod w-14 h-14"></div>
+      <div><h3 class="font-display font-bold text-xl">Single origin</h3><p class="text-sm mt-1">Estate-grown, with a story in every cup.</p></div>
+    </a>
+    <a href="#" class="group rounded-3xl bg-surface border border-line p-6 min-h-56 flex flex-col justify-between">
+      <div class="pod w-14 h-14"></div>
+      <div><h3 class="font-display font-bold text-xl">Flavoured</h3><p class="text-sm mt-1 text-mute">Vanilla, hazelnut and more, made with real extracts.</p></div>
+    </a>
+    <a href="#" class="group rounded-3xl bg-surface border border-line p-6 min-h-56 flex flex-col justify-between">
+      <div class="pod w-14 h-14"></div>
+      <div><h3 class="font-display font-bold text-xl">Decaf</h3><p class="text-sm mt-1 text-mute">All the taste, none of the buzz.</p></div>
+    </a>
+  </div>
+</section>
+
+<!-- Best sellers -->
+<section class="bg-surface border-y border-line">
+  <div class="max-w-6xl mx-auto px-5 py-16">
+    <div class="flex items-end justify-between gap-4">
+      <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight">Best sellers</h2>
+      <a href="#" class="text-sm font-bold underline underline-offset-4">View all</a>
+    </div>
+    <div class="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-5">
+      <article class="rounded-2xl border border-line bg-bg p-4">
+        <div class="aspect-square rounded-xl bg-surface grid place-items-center"><div class="img-box1 w-full h-full rounded-xl" role="img" aria-label="Placeholder: capsule box"></div></div>
+        <h3 class="mt-4 font-bold">Product name 1</h3><p class="text-sm text-mute">Bold, dark chocolate</p>
+        <div class="mt-3 flex items-center justify-between"><span class="font-bold">₹499</span><button class="bg-ink text-bg text-sm font-bold rounded-full px-4 py-2">Add</button></div>
+      </article>
+      <article class="rounded-2xl border border-line bg-bg p-4">
+        <div class="aspect-square rounded-xl bg-surface grid place-items-center"><div class="img-box2 w-full h-full rounded-xl" role="img" aria-label="Placeholder: capsule box"></div></div>
+        <h3 class="mt-4 font-bold">Product name 2</h3><p class="text-sm text-mute">Smooth, caramel</p>
+        <div class="mt-3 flex items-center justify-between"><span class="font-bold">₹519</span><button class="bg-ink text-bg text-sm font-bold rounded-full px-4 py-2">Add</button></div>
+      </article>
+      <article class="rounded-2xl border border-line bg-bg p-4">
+        <div class="aspect-square rounded-xl bg-surface grid place-items-center"><div class="img-box3 w-full h-full rounded-xl" role="img" aria-label="Placeholder: capsule box"></div></div>
+        <h3 class="mt-4 font-bold">Product name 3</h3><p class="text-sm text-mute">Fruity, bright</p>
+        <div class="mt-3 flex items-center justify-between"><span class="font-bold">₹549</span><button class="bg-ink text-bg text-sm font-bold rounded-full px-4 py-2">Add</button></div>
+      </article>
+      <article class="rounded-2xl border border-line bg-bg p-4">
+        <div class="aspect-square rounded-xl bg-surface grid place-items-center"><div class="img-box4 w-full h-full rounded-xl" role="img" aria-label="Placeholder: capsule box"></div></div>
+        <h3 class="mt-4 font-bold">Product name 4</h3><p class="text-sm text-mute">Vanilla, creamy</p>
+        <div class="mt-3 flex items-center justify-between"><span class="font-bold">₹499</span><button class="bg-ink text-bg text-sm font-bold rounded-full px-4 py-2">Add</button></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Build your own -->
+<section id="build" class="max-w-6xl mx-auto px-5 py-16">
+  <div class="rounded-3xl bg-brand text-brandink p-8 sm:p-14 grid md:grid-cols-2 gap-8 items-center">
+    <div>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight">Build your own pack</h2>
+      <p class="mt-3 opacity-90 max-w-md">Choose any 30 capsules from every range. Mix mornings and evenings, save 10%.</p>
+      <a href="#builder" class="inline-block mt-6 bg-accent text-ink font-bold rounded-full px-7 py-3.5">Start building</a>
+    </div>
+    <div class="flex justify-center gap-3" aria-hidden="true">
+      <div class="pod w-20 h-20 sm:w-28 sm:h-28"></div><div class="pod w-20 h-20 sm:w-28 sm:h-28 mt-8"></div><div class="pod w-20 h-20 sm:w-28 sm:h-28"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Orelli -->
+<section id="story" class="max-w-6xl mx-auto px-5 pb-16">
+  <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight">Why Orelli</h2>
+  <div class="mt-8 grid md:grid-cols-3 gap-5">
+    <div class="border-t-2 border-ink pt-4"><h3 class="font-bold text-lg">Roasted in small batches</h3><p class="mt-2 text-mute leading-relaxed">Every lot is roasted to bring out its own flavour, then packed within days.</p></div>
+    <div class="border-t-2 border-ink pt-4"><h3 class="font-bold text-lg">Sourced from named estates</h3><p class="mt-2 text-mute leading-relaxed">You can see where your coffee grew and who grew it.</p></div>
+    <div class="border-t-2 border-ink pt-4"><h3 class="font-bold text-lg">Made to be recycled</h3><p class="mt-2 text-mute leading-relaxed">Aluminium capsules you can send back to us once you’re done.</p></div>
+  </div>
+</section>
+
+<!-- Machines + Business -->
+<section class="max-w-6xl mx-auto px-5 pb-16 grid md:grid-cols-2 gap-5">
+  <div id="machines" class="rounded-3xl bg-surface border border-line p-8">
+    <h2 class="font-display font-bold text-2xl">No machine yet?</h2>
+    <p class="mt-2 text-mute">Start with a machine and a few packs of capsules.</p>
+    <a href="#" class="inline-block mt-5 border-2 border-ink rounded-full px-6 py-3 font-bold">See starter kits</a>
+  </div>
+  <div id="business" class="rounded-3xl bg-accent text-ink p-8">
+    <h2 class="font-display font-bold text-2xl">Coffee for your office or café</h2>
+    <p class="mt-2">Bulk capsules and white-label options for teams and businesses.</p>
+    <a href="#" class="inline-block mt-5 bg-ink text-bg rounded-full px-6 py-3 font-bold">Get a bulk quote</a>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="bg-surface border-t border-line">
+  <div class="max-w-2xl mx-auto px-5 py-14 text-center">
+    <h2 class="font-display font-bold text-3xl tracking-tight">Get 10% off your first order</h2>
+    <p class="mt-2 text-mute">New flavours and offers, once a month.</p>
+    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <input type="email" aria-label="Email address" placeholder="Your email address" class="flex-1 rounded-full border border-line bg-bg px-5 py-3.5">
+      <button type="button" class="bg-brand text-brandink font-bold rounded-full px-7 py-3.5">Subscribe</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<main id="productView" hidden class="max-w-6xl mx-auto px-5 py-8">
+  <p class="text-sm text-mute mb-6"><a href="#" class="underline">Home</a> / <a href="#series" class="underline">Specialty</a> / <span id="pCrumb">Bold Dark</span></p>
+  <div class="grid md:grid-cols-2 gap-10">
+    <div>
+      <div class="aspect-square rounded-3xl overflow-hidden border border-line"><svg id="pMain" class="w-full h-full" viewBox="0 0 400 400" role="img" aria-label="Placeholder product image"><use href="#v1"/></svg></div>
+      <div class="mt-3 grid grid-cols-3 gap-3">
+        <button class="pthumb rounded-xl overflow-hidden border-2 border-line" data-v="v1" aria-label="View 1"><svg viewBox="0 0 400 400" class="w-full"><use href="#v1"/></svg></button>
+        <button class="pthumb rounded-xl overflow-hidden border-2 border-line" data-v="v2" aria-label="View 2"><svg viewBox="0 0 400 400" class="w-full"><use href="#v2"/></svg></button>
+        <button class="pthumb rounded-xl overflow-hidden border-2 border-line" data-v="v3" aria-label="View 3"><svg viewBox="0 0 400 400" class="w-full"><use href="#v3"/></svg></button>
+      </div>
+    </div>
+    <div>
+      <h1 id="pTitle" class="font-display font-extrabold text-4xl leading-tight">Bold Dark</h1>
+      <p id="pNotes" class="mt-2 text-mute"></p>
+      <div class="mt-5 flex items-end gap-3"><span id="pPrice" class="font-display font-bold text-4xl"></span><span id="pWas" class="text-mute line-through hidden"></span><span id="pPer" class="text-sm text-mute pb-1"></span></div>
+      <fieldset class="mt-6"><legend class="font-bold mb-2">Blend</legend><div id="pBlends" class="grid grid-cols-2 gap-3"></div></fieldset>
+      <fieldset class="mt-6"><legend class="font-bold mb-2">Pack size</legend><div id="pPacks" class="grid grid-cols-3 gap-3"></div></fieldset>
+      <fieldset class="mt-6"><legend class="font-bold mb-2">Purchase type</legend>
+        <div class="grid gap-3">
+          <button class="opt" data-buy="once" aria-pressed="true"><span class="font-bold">One-time purchase</span></button>
+          <button class="opt" data-buy="sub" aria-pressed="false"><span class="font-bold">Subscribe and save 10%</span><span class="block text-sm text-mute">Skip or cancel any time.</span></button>
+        </div>
+        <label id="pFreqWrap" class="hidden mt-3 block text-sm">Deliver every <select id="pFreq" class="ml-2 rounded-lg border border-line bg-surface px-3 py-2"><option>2 weeks</option><option selected>4 weeks</option><option>8 weeks</option></select></label>
+      </fieldset>
+      <div class="mt-6 flex items-center gap-4">
+        <div class="flex items-center border-2 border-line rounded-full bg-surface"><button id="pMinus" class="w-11 h-11 text-xl" aria-label="Decrease quantity">−</button><span id="pQty" class="w-8 text-center font-bold">1</span><button id="pPlus" class="w-11 h-11 text-xl" aria-label="Increase quantity">+</button></div>
+        <button id="pCta" class="flex-1 bg-brand text-brandink font-bold rounded-full py-3.5">Add to cart</button>
+      </div>
+      <p id="pMsg" class="mt-3 text-sm text-mute min-h-[1.25rem]" role="status"></p>
+      <div class="mt-6 border-t border-line pt-5"><p class="font-bold">Intensity <span id="pInt" class="text-mute font-normal"></span></p><div class="mt-2 flex gap-1" id="pBar" aria-hidden="true"></div></div>
+      <dl class="mt-6 divide-y divide-line border-y border-line text-sm">
+        <div class="py-3 flex justify-between"><dt class="font-bold">Roast</dt><dd id="pRoast"></dd></div>
+        <div class="py-3 flex justify-between"><dt class="font-bold">Origin</dt><dd>Karnataka and Kerala, India</dd></div>
+        <div class="py-3 flex justify-between"><dt class="font-bold">Compatible with</dt><dd>Nespresso® Original machines</dd></div>
+        <div class="py-3 flex justify-between"><dt class="font-bold">Delivery</dt><dd>2 to 5 working days</dd></div>
+      </dl>
+    </div>
+  </div>
+</main>
+
+<main id="builderView" hidden class="max-w-6xl mx-auto px-5 py-8 pb-40 lg:pb-8">
+  <p class="text-sm text-mute mb-6"><a href="#" class="underline">Home</a> / Build your own pack</p>
+  <h1 class="font-display font-extrabold text-4xl sm:text-5xl leading-tight">Build your own pack</h1>
+  <p class="mt-2 text-mute max-w-xl">Pick a pack size, then mix any blends you like. Bigger packs save more.</p>
+  <div class="mt-8 grid lg:grid-cols-3 gap-8">
+    <div class="lg:col-span-2">
+      <h2 class="font-display font-bold text-xl">Step 1: Choose your pack size</h2>
+      <div id="bSizes" class="mt-3 grid grid-cols-3 gap-3"></div>
+      <div class="mt-10 flex flex-wrap items-center justify-between gap-3">
+        <h2 class="font-display font-bold text-xl">Step 2: Pick your blends</h2>
+        <div class="flex gap-2"><button type="button" data-act="fill" class="chip">Auto-fill for me</button><button type="button" data-act="clear" class="chip">Clear all</button></div>
+      </div>
+      <div id="bList" class="mt-2 border-t border-line"></div>
+    </div>
+    <aside class="lg:col-span-1">
+      <div class="lg:sticky lg:top-24 rounded-3xl border border-line bg-surface p-6">
+        <h2 class="font-display font-bold text-xl">Your pack</h2>
+        <p id="bCount" class="mt-3 font-bold"></p>
+        <div class="mt-2 h-2 rounded-full bg-bg overflow-hidden"><div id="bFill" class="h-2 rounded-full bg-brand" style="width:0;transition:width .3s"></div></div>
+        <p id="bSel" class="mt-3 text-sm text-mute min-h-[2.5rem]"></p>
+        <dl class="mt-4 text-sm space-y-2 border-t border-line pt-4">
+          <div class="flex justify-between"><dt>Subtotal</dt><dd id="bSub"></dd></div>
+          <div class="flex justify-between text-brand font-bold"><dt id="bDiscLbl"></dt><dd id="bDisc"></dd></div>
+          <div class="flex justify-between text-lg font-bold border-t border-line pt-3"><dt>Total</dt><dd id="bTotal"></dd></div>
+          <div class="flex justify-between text-mute"><dt>Per capsule</dt><dd id="bPer"></dd></div>
+        </dl>
+        <p id="bShip" class="mt-3 text-xs text-mute"></p>
+        <button type="button" data-act="add" class="bCta mt-4 w-full bg-brand text-brandink font-bold rounded-full py-3.5 disabled:opacity-50 disabled:cursor-not-allowed"></button>
+        <p id="bMsg" class="mt-3 text-sm text-mute min-h-[1.25rem]" role="status"></p>
+      </div>
+    </aside>
+  </div>
+  <div class="lg:hidden fixed bottom-0 inset-x-0 z-30 bg-surface border-t border-line px-5 pt-3 flex items-center gap-3" style="padding-bottom:calc(.75rem + env(safe-area-inset-bottom,0px))">
+    <div class="flex-1"><p id="bMobCount" class="text-sm font-bold"></p><p id="bMobTotal" class="text-sm text-mute"></p></div>
+    <button type="button" data-act="add" class="bCta bg-brand text-brandink font-bold rounded-full px-6 py-3 disabled:opacity-50 disabled:cursor-not-allowed"></button>
+  </div>
+</main>
+
+<footer class="bg-ink text-bg">
+  <div class="max-w-6xl mx-auto px-5 py-12 grid sm:grid-cols-3 gap-8 text-sm">
+    <div><p class="font-display font-extrabold text-2xl">Orelli</p><p class="mt-2 opacity-80">Café coffee, one capsule away.</p></div>
+    <div><p class="font-bold mb-2">Help</p><ul class="space-y-1 opacity-80"><li>FAQs</li><li>Shipping and refunds</li><li>Contact us</li><li>WhatsApp: +91 00000 00000</li></ul></div>
+    <div><p class="font-bold mb-2">Company</p><ul class="space-y-1 opacity-80"><li>Our story</li><li>Pod recycling</li><li>Privacy policy</li><li>Terms of service</li></ul></div>
+  </div>
+  <p class="max-w-6xl mx-auto px-5 pb-8 text-xs opacity-70">© 2026 Orelli Coffee. Nespresso® is a registered trademark of Société des Produits Nestlé S.A. Orelli is not affiliated with Nespresso.</p>
+</footer>
+
+<script>
+(function(){
+  var packs=[{n:10,m:1},{n:30,m:2.7},{n:55,m:4.5}];
+  var count=0,cartLink=document.querySelector('header a.bg-ink');
+  function inr(x){return '₹'+Math.round(x).toLocaleString('en-IN')}
+  document.querySelectorAll('main article').forEach(function(a){
+    var row=a.querySelector('.mt-3'),priceEl=row.querySelector('span'),btn=row.querySelector('button');
+    var base=parseInt(priceEl.textContent.replace(/[^0-9]/g,''),10),st={k:0,sub:false},timer;
+    var box=document.createElement('div');box.className='mt-3';
+    box.innerHTML='<div class="flex flex-wrap gap-2" role="group" aria-label="Pack size">'+packs.map(function(p,j){return '<button type="button" class="chip" data-k="'+j+'" aria-pressed="'+(j===0)+'">'+p.n+' pods</button>'}).join('')+'</div><label class="mt-2 flex items-center gap-2 text-xs text-mute"><input type="checkbox"> Subscribe and save 10%</label><p class="per mt-1 text-xs text-mute"></p>';
+    row.parentNode.insertBefore(box,row);
+    function upd(){
+      var p=packs[st.k],price=base*p.m*(st.sub?0.9:1);
+      priceEl.textContent=inr(price);
+      box.querySelector('.per').textContent=inr(price/p.n)+' per capsule';
+      box.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-pressed',+c.dataset.k===st.k)});
+    }
+    box.addEventListener('click',function(e){var c=e.target.closest('.chip');if(c){st.k=+c.dataset.k;upd()}});
+    box.querySelector('input').addEventListener('change',function(e){st.sub=e.target.checked;upd()});
+    btn.addEventListener('click',function(){
+      window.addToCart(1);
+      btn.textContent='Added';clearTimeout(timer);timer=setTimeout(function(){btn.textContent='Add'},1500);
+    });
+    upd();
+  });
+})();
+</script>
+<script>
+(function(){
+  var blends=[
+   {n:'Bold Dark',c:'#1F4A37',p:499,i:10,r:'Dark',t:'Dark chocolate, toasted nuts, long finish.',s:true},
+   {n:'Smooth Caramel',c:'#B97A0F',p:519,i:6,r:'Medium',t:'Soft caramel, milk chocolate, round body.',s:true},
+   {n:'Fruity Bright',c:'#8A2F3F',p:549,i:7,r:'Light-medium',t:'Red berries, citrus lift, clean finish.',s:true},
+   {n:'Vanilla Creamy',c:'#6B3B55',p:499,i:5,r:'Medium',t:'Real vanilla, cream, gentle sweetness.',s:true},
+   {n:'Decaf Smooth',c:'#3F5F73',p:519,i:5,r:'Medium',t:'Cocoa and almond, no caffeine.',s:false}
+  ];
+  var packs=[{n:10,m:1},{n:30,m:2.7},{n:55,m:4.5}];
+  var S={b:0,k:0,buy:'once',q:1,v:'v1'},cart=0;
+  var $=function(id){return document.getElementById(id)};
+  var home=$('homeView'),pv=$('productView');
+  function inr(x){return '₹'+Math.round(x).toLocaleString('en-IN')}
+  window.addToCart=function(n){cart+=n;var l=document.querySelector('header a.bg-ink');if(l)l.textContent='Cart ('+cart+')'};
+
+  // Link home cards to the product page and match their names to the blends
+  document.querySelectorAll('#homeView article').forEach(function(a,idx){
+    var b=blends[idx];if(!b)return;
+    var h=a.querySelector('h3'),sub=h.nextElementSibling;
+    h.innerHTML='<a href="#product" class="hover:underline underline-offset-4">'+b.n+'</a>';
+    if(sub)sub.textContent=b.t.split(',')[0];
+    a.addEventListener('click',function(e){if(e.target.closest('a[href="#product"]')||e.target.closest('.aspect-square')){S.b=idx;S.k=0;S.buy='once';S.q=1;S.v='v1';$('pMsg').textContent='';if(location.hash!=='#product')location.hash='product';else render()}});
+    var im=a.querySelector('.aspect-square');if(im)im.style.cursor='pointer';
+  });
+
+  function render(){
+    var b=blends[S.b],pk=packs[S.k];
+    document.documentElement.style.setProperty('--bx',b.c);
+    $('pTitle').textContent=b.n;$('pCrumb').textContent=b.n;$('pNotes').textContent=b.t;$('pRoast').textContent=b.r;
+    $('pInt').textContent=b.i+' of 12';
+    $('pBar').innerHTML=Array.from({length:12},function(_,j){return '<span class="h-2 flex-1 rounded-full" style="background:'+(j<b.i?'var(--brand)':'var(--line)')+'"></span>'}).join('');
+    var full=b.p*pk.m,base10=b.p*pk.n/10,price=(S.buy==='sub'?full*0.9:full)*S.q,was=base10*S.q;
+    $('pPrice').textContent=inr(price);$('pWas').textContent=inr(was);$('pWas').classList.toggle('hidden',Math.round(was)<=Math.round(price));
+    $('pPer').textContent=inr(price/S.q/pk.n)+' per capsule';
+    $('pBlends').innerHTML=blends.map(function(x,j){return '<button class="opt" data-b="'+j+'" aria-pressed="'+(j===S.b)+'"><span class="inline-block w-3 h-3 rounded-full mr-2" style="background:'+x.c+'"></span><span class="font-bold">'+x.n+'</span>'+(x.s?'':'<span class="block text-xs text-mute">Sold out</span>')+'</button>'}).join('');
+    $('pPacks').innerHTML=packs.map(function(x,j){return '<button class="opt" data-k="'+j+'" aria-pressed="'+(j===S.k)+'"><span class="font-bold">'+x.n+' pods</span><span class="block text-sm text-mute">'+inr(b.p*x.m)+'</span></button>'}).join('');
+    pv.querySelectorAll('[data-buy]').forEach(function(e){e.setAttribute('aria-pressed',e.dataset.buy===S.buy)});
+    $('pFreqWrap').classList.toggle('hidden',S.buy!=='sub');
+    $('pQty').textContent=S.q;
+    $('pCta').textContent=b.s?'Add to cart':'Notify me when back in stock';
+    $('pCta').className='flex-1 font-bold rounded-full py-3.5 '+(b.s?'bg-brand text-brandink':'bg-accent text-ink');
+    $('pMain').innerHTML='<use href="#'+S.v+'"/>';
+    pv.querySelectorAll('.pthumb').forEach(function(t){t.style.borderColor=t.dataset.v===S.v?'var(--brand)':'var(--line)'});
+  }
+  pv.addEventListener('click',function(e){
+    var t=e.target.closest('button');if(!t)return;
+    if(t.dataset.b!==undefined){S.b=+t.dataset.b;$('pMsg').textContent=''}
+    else if(t.dataset.k!==undefined){S.k=+t.dataset.k}
+    else if(t.dataset.buy){S.buy=t.dataset.buy}
+    else if(t.dataset.v){S.v=t.dataset.v}
+    else if(t.id==='pMinus'){S.q=Math.max(1,S.q-1)}
+    else if(t.id==='pPlus'){S.q=Math.min(10,S.q+1)}
+    else if(t.id==='pCta'){
+      var b=blends[S.b];
+      if(b.s){window.addToCart(S.q);$('pMsg').textContent='Added: '+S.q+' × '+b.n+', '+packs[S.k].n+' pods'+(S.buy==='sub'?', every '+$('pFreq').value:'')+'.'}
+      else{$('pMsg').textContent='Thanks, we will email you when '+b.n+' is back.'}
+    } else return;
+    render();
+  });
+
+  function route(){
+    var h=location.hash,showP=(h==='#product'),showB=(h==='#builder');
+    home.hidden=showP||showB;pv.hidden=!showP;
+    document.getElementById('builderView').hidden=!showB;
+    if(showB){window.scrollTo(0,0)}
+    else if(showP){render();window.scrollTo(0,0)}
+    else if(h.length>1){var el=document.getElementById(h.slice(1));if(el)el.scrollIntoView()}
+    else window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',route);
+  route();
+})();
+</script>
+<script>
+(function(){
+  var bl=[
+   {n:'Bold Dark',c:'#1F4A37',p:499,t:'Dark chocolate, toasted nuts',s:1},
+   {n:'Smooth Caramel',c:'#B97A0F',p:519,t:'Soft caramel, milk chocolate',s:1},
+   {n:'Fruity Bright',c:'#8A2F3F',p:549,t:'Red berries, citrus lift',s:1},
+   {n:'Vanilla Creamy',c:'#6B3B55',p:499,t:'Real vanilla, gentle sweetness',s:1},
+   {n:'Decaf Smooth',c:'#3F5F73',p:519,t:'Cocoa and almond, no caffeine',s:0}
+  ];
+  var sizes=[{n:20,d:.05},{n:30,d:.10},{n:50,d:.15}];
+  var B={k:1,q:[0,0,0,0,0]},built=false;
+  var $=function(id){return document.getElementById(id)};
+  var view=$('builderView');
+  function inr(x){return '₹'+Math.round(x).toLocaleString('en-IN')}
+  function sum(){return B.q.reduce(function(a,b){return a+b},0)}
+  function build(){
+    if(built)return;built=true;
+    $('bSizes').innerHTML=sizes.map(function(s,j){return '<button type="button" class="opt" data-size="'+j+'" aria-pressed="false"><span class="font-bold">'+s.n+' capsules</span><span class="block text-sm text-brand font-bold">Save '+Math.round(s.d*100)+'%</span></button>'}).join('');
+    $('bList').innerHTML=bl.map(function(b,i){
+      return '<div class="flex items-center gap-4 py-4 border-b border-line"><svg viewBox="0 0 400 400" class="w-16 h-16 rounded-xl shrink-0" style="--bx:'+b.c+'" role="img" aria-label="Placeholder capsule box"><use href="#v1"/></svg>'+
+      '<div class="flex-1 min-w-0"><p class="font-bold">'+b.n+'</p><p class="text-sm text-mute">'+b.t+'</p><p class="text-xs text-mute mt-0.5">'+inr(b.p/10)+' per capsule</p></div>'+
+      (b.s?'<div class="flex items-center border-2 border-line rounded-full bg-bg"><button type="button" class="w-10 h-10 text-xl disabled:opacity-40" data-i="'+i+'" data-d="-1" aria-label="Remove one '+b.n+'">−</button><span class="bq w-8 text-center font-bold" data-q="'+i+'">0</span><button type="button" class="w-10 h-10 text-xl disabled:opacity-40" data-i="'+i+'" data-d="1" aria-label="Add one '+b.n+'">+</button></div>':'<span class="text-sm font-bold text-mute">Sold out</span>')+'</div>';
+    }).join('');
+  }
+  function update(){
+    build();
+    var sz=sizes[B.k],size=sz.n,tot=sum(),rest=size-tot;
+    view.querySelectorAll('[data-size]').forEach(function(e){e.setAttribute('aria-pressed',+e.dataset.size===B.k)});
+    view.querySelectorAll('[data-q]').forEach(function(e){e.textContent=B.q[+e.dataset.q]});
+    view.querySelectorAll('[data-d]').forEach(function(e){var i=+e.dataset.i,d=+e.dataset.d;e.disabled=d>0?rest<=0:B.q[i]<=0});
+    var sub=0;B.q.forEach(function(q,i){sub+=q*bl[i].p/10});
+    var disc=sub*sz.d,total=sub-disc;
+    $('bCount').textContent=tot+' of '+size+' selected';
+    $('bMobCount').textContent=tot+' of '+size+' selected';
+    $('bFill').style.width=(tot/size*100)+'%';
+    var sel=[];B.q.forEach(function(q,i){if(q)sel.push(q+' × '+bl[i].n)});
+    $('bSel').textContent=sel.length?sel.join(', '):'Nothing added yet.';
+    $('bSub').textContent=inr(sub);
+    $('bDiscLbl').textContent='Pack discount ('+Math.round(sz.d*100)+'%)';
+    $('bDisc').textContent='−'+inr(disc);
+    $('bTotal').textContent=inr(total);$('bMobTotal').textContent=inr(total);
+    $('bPer').textContent=tot?inr(total/tot):'—';
+    $('bShip').textContent=total>=999?'Free shipping applied.':'Add '+inr(999-total)+' more to get free shipping.';
+    view.querySelectorAll('.bCta').forEach(function(c){c.disabled=rest!==0;c.textContent=rest>0?'Add '+rest+' more':'Add pack to cart'});
+  }
+  view.addEventListener('click',function(e){
+    var t=e.target.closest('button');if(!t)return;
+    if(t.dataset.size!==undefined){
+      B.k=+t.dataset.size;$('bMsg').textContent='';
+      while(sum()>sizes[B.k].n){for(var i=B.q.length-1;i>=0;i--){if(B.q[i]>0){B.q[i]--;break}}}
+    } else if(t.dataset.i!==undefined){
+      var i2=+t.dataset.i,d=+t.dataset.d;
+      if(d>0&&sum()>=sizes[B.k].n)return;
+      if(d<0&&B.q[i2]<=0)return;
+      B.q[i2]+=d;$('bMsg').textContent='';
+    } else if(t.dataset.act==='clear'){B.q=[0,0,0,0,0];$('bMsg').textContent=''}
+    else if(t.dataset.act==='fill'){
+      var avail=[];bl.forEach(function(b,i){if(b.s)avail.push(i)});
+      var n=0;while(sum()<sizes[B.k].n){B.q[avail[n%avail.length]]++;n++}
+    } else if(t.dataset.act==='add'){
+      if(sum()!==sizes[B.k].n)return;
+      window.addToCart(1);
+      $('bMsg').textContent='Added: your '+sizes[B.k].n+'-capsule custom pack.';
+    } else return;
+    update();
+  });
+  function show(){if(location.hash==='#builder')update()}
+  window.addEventListener('hashchange',show);
+  show();
+})();
+</script>
+</body>
+</html>

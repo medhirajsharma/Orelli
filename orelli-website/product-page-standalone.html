@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Orelli Coffee: Product page with variants</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{bg:'var(--bg)',surface:'var(--surface)',ink:'var(--ink)',mute:'var(--mute)',brand:'var(--brand)',brandink:'var(--brandink)',accent:'var(--accent)',line:'var(--line)'},fontFamily:{display:['"Bricolage Grotesque"','Helvetica Neue','Arial','sans-serif']}}}};
+</script>
+<style>
+/* Palette tokens: replace with Orelli brand colours */
+:root{--bg:#EEF1EA;--surface:#FFFFFF;--ink:#1C2A22;--mute:#5B6B61;--brand:#1F4A37;--brandink:#F4F7F1;--accent:#E3A21A;--line:#D5DBD0;--bx:#1F4A37;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121A15;--surface:#1A251E;--ink:#EAF0E8;--mute:#9DB0A3;--brand:#7FC4A0;--brandink:#0F1A14;--accent:#F0B840;--line:#2B3A31;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121A15;--surface:#1A251E;--ink:#EAF0E8;--mute:#9DB0A3;--brand:#7FC4A0;--brandink:#0F1A14;--accent:#F0B840;--line:#2B3A31;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans','Helvetica Neue',Arial,sans-serif}
+.opt{border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:.7rem 1rem;text-align:left;transition:border-color .15s}
+.opt[aria-pressed="true"]{border-color:var(--brand);box-shadow:inset 0 0 0 1px var(--brand)}
+.opt[disabled]{opacity:.55}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="v1" viewBox="0 0 400 400"><rect width="400" height="400" fill="#EEF1EA"/><circle cx="300" cy="110" r="70" fill="#E3A21A" opacity=".35"/><rect x="90" y="120" width="220" height="200" rx="14" fill="var(--bx)"/><rect x="90" y="120" width="220" height="56" rx="14" fill="#000" opacity=".15"/><circle cx="200" cy="245" r="34" fill="#F4F7F1"/><circle cx="200" cy="245" r="14" fill="var(--bx)"/></symbol>
+  <symbol id="v2" viewBox="0 0 400 400"><rect width="400" height="400" fill="#D7E3D3"/><circle cx="200" cy="200" r="120" fill="var(--bx)"/><circle cx="200" cy="200" r="86" fill="#000" opacity=".18"/><circle cx="200" cy="200" r="40" fill="#E3A21A"/><circle cx="170" cy="165" r="14" fill="#fff" opacity=".5"/></symbol>
+  <symbol id="v3" viewBox="0 0 400 400"><rect width="400" height="400" fill="var(--bx)"/><circle cx="260" cy="150" r="105" fill="#E3A21A"/><ellipse cx="200" cy="320" rx="140" ry="26" fill="#F4F7F1"/><path d="M110 170h180v40c0 50-36 82-90 82s-90-32-90-82z" fill="#fff"/><ellipse cx="200" cy="170" rx="90" ry="18" fill="#5A3A2A"/><path d="M290 190c36 0 42 54-6 60" fill="none" stroke="#fff" stroke-width="14"/></symbol>
+</svg>
+
+<div class="bg-brand text-brandink text-sm text-center py-2 px-4">Free shipping on orders above ₹999.</div>
+<header class="border-b border-line bg-bg">
+  <div class="max-w-6xl mx-auto flex items-center justify-between px-5 py-4">
+    <a href="#" class="font-display font-extrabold text-2xl">Orelli</a>
+    <a href="#" class="bg-ink text-bg rounded-full px-4 py-2 text-sm font-medium">Cart (<span id="cartCount">0</span>)</a>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-5 py-8">
+  <p class="text-sm text-mute mb-6"><a href="#" class="underline">Home</a> / <a href="#" class="underline">Specialty</a> / <span id="crumb">Bold Dark</span></p>
+  <div class="grid md:grid-cols-2 gap-10">
+
+    <!-- Gallery -->
+    <div>
+      <div class="aspect-square rounded-3xl overflow-hidden border border-line"><svg id="mainImg" class="w-full h-full" viewBox="0 0 400 400" role="img" aria-label="Placeholder product image"><use href="#v1"/></svg></div>
+      <div class="mt-3 grid grid-cols-3 gap-3">
+        <button class="thumb rounded-xl overflow-hidden border-2 border-line" data-v="v1" aria-label="View 1"><svg viewBox="0 0 400 400" class="w-full"><use href="#v1"/></svg></button>
+        <button class="thumb rounded-xl overflow-hidden border-2 border-line" data-v="v2" aria-label="View 2"><svg viewBox="0 0 400 400" class="w-full"><use href="#v2"/></svg></button>
+        <button class="thumb rounded-xl overflow-hidden border-2 border-line" data-v="v3" aria-label="View 3"><svg viewBox="0 0 400 400" class="w-full"><use href="#v3"/></svg></button>
+      </div>
+    </div>
+
+    <!-- Details -->
+    <div>
+      <h1 id="title" class="font-display font-extrabold text-4xl leading-tight">Bold Dark</h1>
+      <p id="notes" class="mt-2 text-mute">Dark chocolate, toasted nuts, long finish.</p>
+      <div class="mt-5 flex items-end gap-3">
+        <span id="price" class="font-display font-bold text-4xl">₹499</span>
+        <span id="was" class="text-mute line-through hidden"></span>
+        <span id="per" class="text-sm text-mute pb-1"></span>
+      </div>
+
+      <fieldset class="mt-6"><legend class="font-bold mb-2">Blend</legend><div id="blends" class="grid grid-cols-2 gap-3"></div></fieldset>
+      <fieldset class="mt-6"><legend class="font-bold mb-2">Pack size</legend><div id="packs" class="grid grid-cols-3 gap-3"></div></fieldset>
+      <fieldset class="mt-6"><legend class="font-bold mb-2">Purchase type</legend>
+        <div class="grid gap-3">
+          <button class="opt" data-buy="once" aria-pressed="true"><span class="font-bold">One-time purchase</span></button>
+          <button class="opt" data-buy="sub" aria-pressed="false"><span class="font-bold">Subscribe and save 10%</span><span class="block text-sm text-mute">Skip or cancel any time.</span></button>
+        </div>
+        <label id="freqWrap" class="hidden mt-3 block text-sm">Deliver every
+          <select id="freq" class="ml-2 rounded-lg border border-line bg-surface px-3 py-2"><option>2 weeks</option><option selected>4 weeks</option><option>8 weeks</option></select>
+        </label>
+      </fieldset>
+
+      <div class="mt-6 flex items-center gap-4">
+        <div class="flex items-center border-2 border-line rounded-full bg-surface">
+          <button id="minus" class="w-11 h-11 text-xl" aria-label="Decrease quantity">−</button>
+          <span id="qty" class="w-8 text-center font-bold">1</span>
+          <button id="plus" class="w-11 h-11 text-xl" aria-label="Increase quantity">+</button>
+        </div>
+        <button id="cta" class="flex-1 bg-brand text-brandink font-bold rounded-full py-3.5">Add to cart</button>
+      </div>
+      <p id="msg" class="mt-3 text-sm text-mute min-h-[1.25rem]" role="status"></p>
+
+      <div class="mt-6 border-t border-line pt-5">
+        <p class="font-bold">Intensity <span id="intNum" class="text-mute font-normal"></span></p>
+        <div class="mt-2 flex gap-1" id="intBar" aria-hidden="true"></div>
+      </div>
+      <dl class="mt-6 divide-y divide-line border-y border-line text-sm">
+        <div class="py-3 flex justify-between"><dt class="font-bold">Roast</dt><dd id="roast">Dark</dd></div>
+        <div class="py-3 flex justify-between"><dt class="font-bold">Origin</dt><dd>Karnataka and Kerala, India</dd></div>
+        <div class="py-3 flex justify-between"><dt class="font-bold">Compatible with</dt><dd>Nespresso® Original machines</dd></div>
+        <div class="py-3 flex justify-between"><dt class="font-bold">Delivery</dt><dd>2 to 5 working days</dd></div>
+      </dl>
+    </div>
+  </div>
+</main>
+
+<footer class="border-t border-line mt-10">
+  <p class="max-w-6xl mx-auto px-5 py-8 text-xs text-mute">© 2026 Orelli Coffee. Nespresso® is a registered trademark of Société des Produits Nestlé S.A. Orelli is not affiliated with Nespresso. Product details and prices are placeholders.</p>
+</footer>
+
+<script>
+var blends=[
+ {n:'Bold Dark',c:'#1F4A37',p:499,i:10,r:'Dark',t:'Dark chocolate, toasted nuts, long finish.',s:true},
+ {n:'Smooth Caramel',c:'#B97A0F',p:519,i:6,r:'Medium',t:'Soft caramel, milk chocolate, round body.',s:true},
+ {n:'Fruity Bright',c:'#8A2F3F',p:549,i:7,r:'Light-medium',t:'Red berries, citrus lift, clean finish.',s:true},
+ {n:'Vanilla Creamy',c:'#6B3B55',p:499,i:5,r:'Medium',t:'Real vanilla, cream, gentle sweetness.',s:true},
+ {n:'Decaf Smooth',c:'#3F5F73',p:519,i:5,r:'Medium',t:'Cocoa and almond, no caffeine.',s:false}
+];
+var packs=[{n:10,m:1},{n:30,m:2.7},{n:55,m:4.5}];
+var S={b:0,k:0,buy:'once',q:1,v:'v1'};
+var $=function(id){return document.getElementById(id)};
+var cart=0;
+function inr(x){return '₹'+Math.round(x).toLocaleString('en-IN')}
+function render(){
+  var b=blends[S.b],pk=packs[S.k];
+  document.documentElement.style.setProperty('--bx',b.c);
+  $('title').textContent=b.n;$('crumb').textContent=b.n;$('notes').textContent=b.t;$('roast').textContent=b.r;
+  $('intNum').textContent=b.i+' of 12';
+  $('intBar').innerHTML=Array.from({length:12},function(_,j){return '<span class="h-2 flex-1 rounded-full" style="background:'+(j<b.i?'var(--brand)':'var(--line)')+'"></span>'}).join('');
+  var full=b.p*pk.m, base10=b.p*pk.n/10, save=base10-full;
+  var price=S.buy==='sub'?full*0.9:full;
+  $('price').textContent=inr(price*S.q);
+  var was=base10*S.q, showWas=(S.buy==='sub')||pk.m!==pk.n/10;
+  $('was').textContent=inr(was);$('was').classList.toggle('hidden',!(Math.round(was)>Math.round(price*S.q)));
+  $('per').textContent=inr(price/pk.n)+' per capsule';
+  $('blends').innerHTML=blends.map(function(x,j){return '<button class="opt" data-b="'+j+'" aria-pressed="'+(j===S.b)+'"><span class="inline-block w-3 h-3 rounded-full mr-2" style="background:'+x.c+'"></span><span class="font-bold">'+x.n+'</span>'+(x.s?'':'<span class="block text-xs text-mute">Sold out</span>')+'</button>'}).join('');
+  $('packs').innerHTML=packs.map(function(x,j){var pr=b.p*x.m;return '<button class="opt" data-k="'+j+'" aria-pressed="'+(j===S.k)+'"><span class="font-bold">'+x.n+' pods</span><span class="block text-sm text-mute">'+inr(pr)+'</span></button>'}).join('');
+  document.querySelectorAll('[data-buy]').forEach(function(e){e.setAttribute('aria-pressed',e.dataset.buy===S.buy)});
+  $('freqWrap').classList.toggle('hidden',S.buy!=='sub');
+  $('qty').textContent=S.q;
+  $('cta').textContent=b.s?'Add to cart':'Notify me when back in stock';
+  $('cta').className='flex-1 font-bold rounded-full py-3.5 '+(b.s?'bg-brand text-brandink':'bg-accent text-ink');
+  $('mainImg').innerHTML='<use href="#'+S.v+'"/>';
+  document.querySelectorAll('.thumb').forEach(function(t){t.style.borderColor=t.dataset.v===S.v?'var(--brand)':'var(--line)'});
+}
+document.addEventListener('click',function(e){
+  var t=e.target.closest('button');if(!t)return;
+  if(t.dataset.b!==undefined){S.b=+t.dataset.b;$('msg').textContent='';}
+  else if(t.dataset.k!==undefined){S.k=+t.dataset.k}
+  else if(t.dataset.buy){S.buy=t.dataset.buy}
+  else if(t.dataset.v){S.v=t.dataset.v}
+  else if(t.id==='minus'){S.q=Math.max(1,S.q-1)}
+  else if(t.id==='plus'){S.q=Math.min(10,S.q+1)}
+  else if(t.id==='cta'){
+    var b=blends[S.b];
+    if(b.s){cart+=S.q;$('cartCount').textContent=cart;$('msg').textContent='Added: '+S.q+' × '+b.n+', '+packs[S.k].n+' pods'+(S.buy==='sub'?', every '+$('freq').value:'')+'.'}
+    else{$('msg').textContent='Thanks, we will email you when '+b.n+' is back.'}
+  } else return;
+  render();
+});
+render();
+</script>
+</body>
+</html>
