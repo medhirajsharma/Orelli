@@ -25,15 +25,15 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        bg: 'var(--bg)',
-        surface: 'var(--surface)',
-        ink: 'var(--ink)',
-        mute: 'var(--mute)',
-        brand: 'var(--brand)',
-        brandink: 'var(--brandink)',
-        accent: 'var(--accent)',
-        brandred: 'var(--brandred)',
-        line: 'var(--line)'
+        bg: 'rgb(var(--bg-rgb) / <alpha-value>)',
+        surface: 'rgb(var(--surface-rgb) / <alpha-value>)',
+        ink: 'rgb(var(--ink-rgb) / <alpha-value>)',
+        mute: 'rgb(var(--mute-rgb) / <alpha-value>)',
+        brand: 'rgb(var(--brand-rgb) / <alpha-value>)',
+        brandink: 'rgb(var(--brandink-rgb) / <alpha-value>)',
+        accent: 'rgb(var(--accent-rgb) / <alpha-value>)',
+        brandred: 'rgb(var(--brandred-rgb) / <alpha-value>)',
+        line: 'rgb(var(--line-rgb) / <alpha-value>)'
       },
       fontFamily: {
         display: ['"Gilden"', '"Gilda Display"', '"Playfair Display"', 'Georgia', 'serif'],
@@ -52,6 +52,16 @@ tailwind.config = {
 }
 
 :root {
+  --brand-rgb: 21 71 52;
+  --accent-rgb: 216 165 0;
+  --brandred-rgb: 168 43 17;
+  --bg-rgb: 245 247 243;
+  --surface-rgb: 255 255 255;
+  --ink-rgb: 17 34 26;
+  --mute-rgb: 84 104 93;
+  --brandink-rgb: 247 250 245;
+  --line-rgb: 213 223 217;
+
   --brand: #154734;       /* Official Green: HEX #154734 */
   --accent: #D8A500;      /* Official Gold: HEX #D8A500 */
   --brandred: #A82B11;    /* Official Red: HEX #A82B11 */
@@ -67,6 +77,16 @@ tailwind.config = {
 }
 
 :root[data-theme="dark"] {
+  --brand-rgb: 98 184 147;
+  --accent-rgb: 229 180 37;
+  --brandred-rgb: 230 78 48;
+  --bg-rgb: 13 25 19;
+  --surface-rgb: 20 37 29;
+  --ink-rgb: 234 242 236;
+  --mute-rgb: 148 170 158;
+  --brandink-rgb: 7 20 14;
+  --line-rgb: 34 56 45;
+
   --brand: #62B893;
   --accent: #E5B425;
   --brandred: #E64E30;
@@ -82,6 +102,16 @@ tailwind.config = {
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    --brand-rgb: 98 184 147;
+    --accent-rgb: 229 180 37;
+    --brandred-rgb: 230 78 48;
+    --bg-rgb: 13 25 19;
+    --surface-rgb: 20 37 29;
+    --ink-rgb: 234 242 236;
+    --mute-rgb: 148 170 158;
+    --brandink-rgb: 7 20 14;
+    --line-rgb: 34 56 45;
+
     --brand: #62B893;
     --accent: #E5B425;
     --brandred: #E64E30;
@@ -2521,18 +2551,13 @@ body {
               
               <!-- Badges on image -->
               <div class="absolute top-2 left-2 flex items-center gap-1.5">
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand text-brandink shadow-sm">
+                <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-brand text-brandink shadow-sm">
                   ${b.tag}
                 </span>
-                <span class="w-4 h-4 bg-surface/90 border border-green-600 rounded flex items-center justify-center p-0.5" title="100% Vegetarian">
+                <span class="w-4 h-4 bg-surface border border-green-600 rounded flex items-center justify-center p-0.5 shadow-sm" title="100% Vegetarian">
                   <span class="w-2 h-2 rounded-full bg-green-600"></span>
                 </span>
               </div>
-
-              <!-- Intensity Pill on top right -->
-              <span class="absolute top-2 right-2 bg-surface/95 border border-line text-ink text-[10px] font-extrabold px-2 py-0.5 rounded-full shadow-sm">
-                ${b.i}/13
-              </span>
             </div>
             
             <div class="mt-3.5">
@@ -2542,19 +2567,33 @@ body {
               </div>
               <p class="text-xs text-mute mt-0.5 line-clamp-1">${b.t}</p>
 
-              <!-- Intensity Scale Mini Indicator -->
+              <!-- Intensity Scale 13-Point Indicator -->
               <div class="mt-2.5">
                 <div class="flex justify-between items-center text-[10px] text-mute font-bold mb-1">
                   <span>Intensity Scale</span>
-                  <span class="text-brand">${b.i}/13</span>
+                  <span class="text-brand font-extrabold">${b.i}/13</span>
                 </div>
                 <div class="flex gap-0.5">${miniBar}</div>
               </div>
 
-              <!-- Serving suggestions on card -->
-              <div class="mt-2 text-[10px] text-mute flex items-center gap-1 font-medium bg-surface/80 border border-line px-2 py-1 rounded-lg">
-                <span class="font-bold text-ink">Best as:</span>
-                <span class="truncate">${b.serve.join(' • ')}</span>
+              <!-- Serving Suggestions Icons (Ready for this) -->
+              <div class="mt-3 pt-2.5 border-t border-line">
+                <span class="block text-[10px] font-bold text-mute uppercase tracking-wider mb-1.5">Serving Suggestions:</span>
+                <div class="flex flex-wrap gap-1.5">
+                  ${b.serveIcons.map(function(sKey) {
+                    var sObj = SERVING_TYPES.find(function(s) { return s.key === sKey; });
+                    if (!sObj) return '';
+                    return `
+                      <span class="inline-flex items-center gap-1.5 bg-surface border border-line text-ink text-[10px] font-bold px-2 py-1 rounded-md shadow-2xs hover:border-brand transition" title="${sObj.name} (${sObj.vol}) - ${sObj.desc}">
+                        <span class="text-brand shrink-0">
+                          ${sObj.iconSvg.replace('w-6 h-6 mx-auto', 'w-3 h-3')}
+                        </span>
+                        <span>${sObj.name}</span>
+                        <span class="text-mute font-medium text-[9px]">(${sObj.vol})</span>
+                      </span>
+                    `;
+                  }).join('')}
+                </div>
               </div>
             </div>
 
