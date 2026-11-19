@@ -511,35 +511,91 @@ body {
     </div>
   </section>
 
-  <!-- Best Sellers Grid -->
-  <section class="bg-surface border-y border-line">
-    <div class="max-w-6xl mx-auto px-5 py-16">
+    <!-- ========================================== -->
+  <!-- 3 SEPARATE UI VARIANT SECTIONS (FOR COMPARISON) -->
+  <!-- ========================================== -->
+
+  <!-- Sticky / Quick Jump Bar for the 3 Variants -->
+  <div class="bg-surface/95 backdrop-blur border-y border-line sticky top-16 z-20 py-3 shadow-xs">
+    <div class="max-w-6xl mx-auto px-5 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-accent animate-ping"></span>
+        <span class="font-bold text-xs uppercase tracking-wider text-ink">Compare UI Variants:</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <a href="#variant-1-section" class="px-3.5 py-1.5 rounded-xl text-xs font-bold border border-line bg-bg hover:border-brand text-ink transition">
+          1️⃣ Variant 1 (Wrap)
+        </a>
+        <a href="#variant-2-section" class="px-3.5 py-1.5 rounded-xl text-xs font-bold border-2 border-brand bg-brand/10 text-brand transition shadow-xs">
+          2️⃣ Variant 2 (Fixed & Scroll Strip) ★
+        </a>
+        <a href="#variant-3-section" class="px-3.5 py-1.5 rounded-xl text-xs font-bold border border-line bg-bg hover:border-brand text-ink transition">
+          3️⃣ Variant 3 (Boutique Luxe)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: VARIANT 1 (STANDARD MULTI-LINE WRAP) -->
+  <section id="variant-1-section" class="bg-surface border-b border-line py-16 scroll-mt-28">
+    <div class="max-w-6xl mx-auto px-5">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 pb-4 border-b border-line">
         <div>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">Shop Capsules</h2>
-          <p class="mt-1 text-sm text-mute">100% Recyclable Aluminium • Vegetarian • Pan India Express 1-2 Days</p>
-        </div>
-        
-        <!-- Interactive UI Variant Switcher -->
-        <div class="flex flex-wrap items-center gap-3">
-          <div class="inline-flex items-center p-1 bg-bg border border-line rounded-2xl shadow-xs">
-            <span class="text-[10px] font-bold text-mute px-2 uppercase tracking-wider hidden sm:inline">Card Style:</span>
-            <button type="button" onclick="window.setCardVariant('v1')" id="vBtn-v1" class="variant-toggle-btn px-3 py-1.5 rounded-xl text-xs font-bold transition">
-              Variant 1 (Wrap)
-            </button>
-            <button type="button" onclick="window.setCardVariant('v2')" id="vBtn-v2" class="variant-toggle-btn px-3 py-1.5 rounded-xl text-xs font-bold transition">
-              Variant 2 (Fixed & Scroll)
-            </button>
-            <button type="button" onclick="window.setCardVariant('v3')" id="vBtn-v3" class="variant-toggle-btn px-3 py-1.5 rounded-xl text-xs font-bold transition">
-              Variant 3 (Boutique Luxe)
-            </button>
+          <div class="inline-flex items-center gap-2 bg-bg border border-line px-3 py-1 rounded-full text-xs font-bold text-mute mb-2">
+            <span>UI Option 1</span> • <span>Standard Wrap</span>
           </div>
-          <a href="#builder" class="text-xs font-bold text-brand hover:underline shrink-0 hidden lg:inline-block">Build a custom pack &rarr;</a>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">Shop Capsules — Variant 1 (Wrap)</h2>
+          <p class="mt-1 text-xs sm:text-sm text-mute">Pehle wala default layout: Isme serving suggestions aur pack sizes normal wrap hote hain, jis wajah se card height dynamic rehti hai.</p>
         </div>
+        <a href="#builder" class="text-xs font-bold text-brand hover:underline shrink-0">Build custom pack &rarr;</a>
       </div>
 
-      <div id="homeProductsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-        <!-- Rendered dynamically by JavaScript -->
+      <div id="homeProductsGrid-v1" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 items-start">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: VARIANT 2 (FIXED HEIGHT & HORIZONTAL SCROLL STRIP) -->
+  <section id="variant-2-section" class="bg-bg border-b border-line py-16 scroll-mt-28">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 pb-4 border-b border-line">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-brand/10 border border-brand/20 px-3 py-1 rounded-full text-xs font-bold text-brand mb-2">
+            <span>UI Option 2</span> • <span>Aapke Request Par (Fixed Height & Scroll Strip)</span>
+          </div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">Shop Capsules — Variant 2 (Fixed & Scroll Strip)</h2>
+          <p class="mt-1 text-xs sm:text-sm text-mute">Cards ki height exactly 585px fix hai. Serving suggestions aur pack size single line mein horizontal scroll hote hain (no vertical wrapping).</p>
+        </div>
+        <span class="text-xs font-bold bg-brand text-brandink px-3 py-1.5 rounded-full shrink-0">
+          ★ Uniform Height & Baseline
+        </span>
+      </div>
+
+      <div id="homeProductsGrid-v2" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 items-stretch">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: VARIANT 3 (BOUTIQUE LUXE & SEGMENTED CONTROL) -->
+  <section id="variant-3-section" class="bg-surface border-b border-line py-16 scroll-mt-28">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 pb-4 border-b border-line">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-accent/20 border border-accent/40 px-3 py-1 rounded-full text-xs font-bold text-ink mb-2">
+            <span>UI Option 3</span> • <span>Boutique Luxe (Segmented Control & Smart CTA)</span>
+          </div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">Shop Capsules — Variant 3 (Boutique Luxe)</h2>
+          <p class="mt-1 text-xs sm:text-sm text-mute">Modern luxury coffee boutique design: Apple-style segmented slider for pack sizes (10 | 30 | 55 pods), extraction icons grid, and full-width smart Add-to-Cart pill button.</p>
+        </div>
+        <span class="text-xs font-bold bg-accent text-ink px-3 py-1.5 rounded-full shrink-0">
+          ✨ Luxury Boutique Style
+        </span>
+      </div>
+
+      <div id="homeProductsGrid-v3" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 items-stretch">
+        <!-- Rendered by JS -->
       </div>
     </div>
   </section>
@@ -3001,39 +3057,84 @@ body {
   // -------------------------------------------------------------
   // HOME VIEW CARDS & PRODUCTS RENDERING
   // -------------------------------------------------------------
-  // Initialize card variant from storage or default to Variant 2 (Fixed Height & Scroll)
-  state.cardVariant = localStorage.getItem('orelli_card_variant') || 'v2';
+  // Separate state tracking for each of the 3 variant sections
+  var homeCardState = {
+    v1: BLENDS.map(function() { return { pk: 0, sub: false }; }),
+    v2: BLENDS.map(function() { return { pk: 0, sub: false }; }),
+    v3: BLENDS.map(function() { return { pk: 0, sub: false }; })
+  };
 
-  function updateVariantButtons() {
-    var v = state.cardVariant;
-    ['v1', 'v2', 'v3'].forEach(function(key) {
-      var btn = $('vBtn-' + key);
-      if (btn) {
-        if (key === v) {
-          btn.className = 'variant-toggle-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-brand text-brandink shadow-xs';
+  window.updateHomeCardPack = function(e, variantKey, bIdx, pkIdx) {
+    e.stopPropagation();
+    homeCardState[variantKey][bIdx].pk = pkIdx;
+
+    var container = $('homePacks-' + variantKey + '-' + bIdx);
+    if (container) {
+      container.querySelectorAll('button').forEach(function(btn, i) {
+        if (variantKey === 'v3') {
+          btn.className = (i === pkIdx) 
+            ? 'flex-1 py-1.5 text-center text-[11px] font-bold rounded-lg transition bg-brand text-brandink shadow-xs' 
+            : 'flex-1 py-1.5 text-center text-[11px] font-bold rounded-lg transition text-mute hover:text-ink';
         } else {
-          btn.className = 'variant-toggle-btn px-3 py-1.5 rounded-xl text-xs font-bold transition text-mute hover:text-ink';
+          btn.className = (i === pkIdx)
+            ? 'chip text-[11px] shrink-0 whitespace-nowrap bg-brand text-brandink border-brand'
+            : 'chip text-[11px] shrink-0 whitespace-nowrap';
         }
-      }
-    });
-  }
+      });
+    }
+    updateHomeCardPrice(variantKey, bIdx);
+  };
 
-  window.setCardVariant = function(variantKey) {
-    state.cardVariant = variantKey;
-    localStorage.setItem('orelli_card_variant', variantKey);
-    renderHomeProducts();
-    updateVariantButtons();
-    showToast('Switched to ' + (variantKey === 'v1' ? 'Variant 1 (Wrap)' : variantKey === 'v2' ? 'Variant 2 (Fixed & Scroll)' : 'Variant 3 (Boutique Luxe)'));
+  window.updateHomeCardPrice = function(variantKey, bIdx) {
+    var st = homeCardState[variantKey][bIdx];
+    var subCheckbox = $('homeSub-' + variantKey + '-' + bIdx);
+    var isSub = subCheckbox ? subCheckbox.checked : false;
+    st.sub = isSub;
+
+    var b = BLENDS[bIdx];
+    var pk = PACKS[st.pk];
+    var basePrice = b.p * pk.m;
+    var finalPrice = isSub ? Math.round(basePrice * 0.9) : basePrice;
+
+    var priceEl = $('homePrice-' + variantKey + '-' + bIdx);
+    var perEl = $('homePer-' + variantKey + '-' + bIdx);
+
+    if (priceEl) priceEl.textContent = inr(finalPrice);
+    if (perEl) perEl.textContent = inr(finalPrice / pk.n) + ' / pod';
+  };
+
+  window.addHomeCardToCart = function(variantKey, bIdx) {
+    var st = homeCardState[variantKey][bIdx];
+    var b = BLENDS[bIdx];
+    var pk = PACKS[st.pk];
+    var basePrice = b.p * pk.m;
+    var finalPrice = st.sub ? Math.round(basePrice * 0.9) : basePrice;
+
+    var item = {
+      id: 'blend-' + b.id + '-' + pk.n + (st.sub ? '-sub' : ''),
+      title: b.n,
+      variant: pk.n + ' pods (' + b.i + '/13 Intensity)' + (st.sub ? ' (Monthly Sub)' : ' (One-time)'),
+      price: finalPrice,
+      qty: 1,
+      color: b.c,
+      isSub: st.sub
+    };
+
+    addItemToCart(item);
+    showToast(b.n + ' (' + pk.n + ' pods) added to cart');
   };
 
   // -------------------------------------------------------------
-  // HOME VIEW CARDS & PRODUCTS RENDERING (VARIANTS 1, 2, 3)
+  // RENDER ALL 3 UI VARIANT SECTIONS CONCURRENTLY
   // -------------------------------------------------------------
-  function renderHomeProducts() {
-    var grid = $('homeProductsGrid');
-    if (!grid) return;
+  function renderAllHomeProductVariants() {
+    renderVariantGrid('v1', $('homeProductsGrid-v1'));
+    renderVariantGrid('v2', $('homeProductsGrid-v2'));
+    renderVariantGrid('v3', $('homeProductsGrid-v3'));
+  }
 
-    updateVariantButtons();
+  function renderVariantGrid(variantKey, grid) {
+    if (!grid) return;
 
     grid.innerHTML = BLENDS.map(function(b, idx) {
       // 13-point intensity mini bar
@@ -3041,17 +3142,14 @@ body {
         return `<span class="h-1.5 flex-1 rounded-full ${j < b.i ? 'bg-brand' : 'bg-line'}"></span>`;
       }).join('');
 
-      var v = state.cardVariant;
-
       // ========================================================
-      // VARIANT 2: FIXED HEIGHT & HORIZONTAL SCROLL STRIP
-      // (User request: height fix rakho aur uper niche content ko ek line me scroll bana do)
+      // VARIANT 2: FIXED HEIGHT (585px) & HORIZONTAL SCROLL STRIP
       // ========================================================
-      if (v === 'v2') {
+      if (variantKey === 'v2') {
         return `
-          <article class="rounded-2xl border border-line bg-bg p-4 flex flex-col justify-between h-[585px] shadow-sm hover:shadow-md transition">
+          <article class="rounded-2xl border-2 border-line hover:border-brand bg-surface p-4 flex flex-col justify-between h-[585px] shadow-sm hover:shadow-md transition">
             <div>
-              <div class="aspect-square rounded-xl bg-surface relative overflow-hidden cursor-pointer shrink-0" onclick="window.selectBlendAndGo(${idx})">
+              <div class="aspect-square rounded-xl bg-bg relative overflow-hidden cursor-pointer shrink-0" onclick="window.selectBlendAndGo(${idx})">
                 <div class="${b.bgClass} w-full h-full rounded-xl transition-transform duration-300 hover:scale-105" role="img" aria-label="${b.n}"></div>
                 <div class="absolute top-2 left-2 flex items-center gap-1.5">
                   <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-brand text-brandink shadow-sm">
@@ -3090,7 +3188,7 @@ body {
                       var sObj = SERVING_TYPES.find(function(s) { return s.key === sKey; });
                       if (!sObj) return '';
                       return `
-                        <span class="inline-flex items-center gap-1.5 bg-surface border border-line text-ink text-[10px] font-bold px-2 py-1 rounded-md shadow-2xs hover:border-brand shrink-0 transition" title="${sObj.name} (${sObj.vol}) - ${sObj.desc}">
+                        <span class="inline-flex items-center gap-1.5 bg-bg border border-line text-ink text-[10px] font-bold px-2 py-1 rounded-md shadow-2xs hover:border-brand shrink-0 transition" title="${sObj.name} (${sObj.vol}) - ${sObj.desc}">
                           <span class="text-brand shrink-0">
                             ${sObj.iconSvg.replace('w-6 h-6 mx-auto', 'w-3.5 h-3.5')}
                           </span>
@@ -3105,11 +3203,11 @@ body {
 
               <!-- Pack Selection: Single Line Horizontal Scroll -->
               <div class="mt-2.5">
-                <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 whitespace-nowrap scroll-smooth" id="homePacks-${idx}">
+                <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 whitespace-nowrap scroll-smooth" id="homePacks-v2-${idx}">
                   ${PACKS.map(function(p, pkIdx) {
                     return `
                       <button type="button" class="chip text-[11px] shrink-0 whitespace-nowrap ${pkIdx === 0 ? 'bg-brand text-brandink border-brand' : ''}" 
-                        data-bidx="${idx}" data-pkidx="${pkIdx}" onclick="window.updateHomeCardPack(event, ${idx}, ${pkIdx})">
+                        onclick="window.updateHomeCardPack(event, 'v2', ${idx}, ${pkIdx})">
                         ${p.n} pods
                       </button>
                     `;
@@ -3118,7 +3216,7 @@ body {
               </div>
 
               <label class="mt-2 flex items-center gap-1.5 text-[11px] text-mute cursor-pointer font-medium select-none">
-                <input type="checkbox" id="homeSub-${idx}" class="accent-brand" onchange="window.updateHomeCardPrice(${idx})">
+                <input type="checkbox" id="homeSub-v2-${idx}" class="accent-brand" onchange="window.updateHomeCardPrice('v2', ${idx})">
                 <span>Subscribe & Save 10%</span>
               </label>
             </div>
@@ -3126,11 +3224,11 @@ body {
             <!-- Pinned Bottom Price & Action Row -->
             <div class="mt-3 pt-3 border-t border-line flex items-center justify-between shrink-0">
               <div>
-                <span id="homePrice-${idx}" class="font-bold text-base text-ink">${inr(b.p)}</span>
-                <span id="homePer-${idx}" class="block text-[10px] text-mute">${inr(b.p / 10)} / pod</span>
+                <span id="homePrice-v2-${idx}" class="font-bold text-base text-ink">${inr(b.p)}</span>
+                <span id="homePer-v2-${idx}" class="block text-[10px] text-mute">${inr(b.p / 10)} / pod</span>
               </div>
               ${b.s ? `
-                <button type="button" onclick="window.addHomeCardToCart(${idx})" class="bg-brand text-brandink text-xs font-bold rounded-full px-4 py-2 hover:opacity-90 shadow-sm transition">
+                <button type="button" onclick="window.addHomeCardToCart('v2', ${idx})" class="bg-brand text-brandink text-xs font-bold rounded-full px-4 py-2 hover:opacity-90 shadow-sm transition">
                   + Add
                 </button>
               ` : `
@@ -3144,10 +3242,9 @@ body {
       }
 
       // ========================================================
-      // VARIANT 3: BOUTIQUE LUXE / MINIMALIST SPECIALTY
-      // (Custom segmented pack controller + extraction icon bar + full width smart CTA)
+      // VARIANT 3: BOUTIQUE LUXE & SEGMENTED CONTROL
       // ========================================================
-      if (v === 'v3') {
+      if (variantKey === 'v3') {
         return `
           <article class="rounded-3xl border border-line bg-surface/70 hover:bg-surface p-4 flex flex-col justify-between h-[585px] shadow-sm hover:shadow-xl hover:border-brand transition-all duration-300 group">
             <div>
@@ -3198,11 +3295,11 @@ body {
 
               <!-- Segmented Pack Controller (Apple / Boutique style single-row) -->
               <div class="mt-3">
-                <div class="bg-bg border border-line p-0.5 rounded-xl flex items-center justify-between text-xs" id="homePacks-${idx}">
+                <div class="bg-bg border border-line p-0.5 rounded-xl flex items-center justify-between text-xs" id="homePacks-v3-${idx}">
                   ${PACKS.map(function(p, pkIdx) {
                     return `
                       <button type="button" class="flex-1 py-1.5 text-center text-[11px] font-bold rounded-lg transition ${pkIdx === 0 ? 'bg-brand text-brandink shadow-xs' : 'text-mute hover:text-ink'}"
-                        data-bidx="${idx}" data-pkidx="${pkIdx}" onclick="window.updateHomeCardPack(event, ${idx}, ${pkIdx})">
+                        onclick="window.updateHomeCardPack(event, 'v3', ${idx}, ${pkIdx})">
                         ${p.n} pods
                       </button>
                     `;
@@ -3211,7 +3308,7 @@ body {
               </div>
 
               <label class="mt-2 flex items-center gap-1.5 text-[11px] text-mute cursor-pointer font-medium select-none">
-                <input type="checkbox" id="homeSub-${idx}" class="accent-brand" onchange="window.updateHomeCardPrice(${idx})">
+                <input type="checkbox" id="homeSub-v3-${idx}" class="accent-brand" onchange="window.updateHomeCardPrice('v3', ${idx})">
                 <span>Subscribe & Save 10%</span>
               </label>
             </div>
@@ -3219,9 +3316,9 @@ body {
             <!-- Integrated Luxury Buy CTA Button with Instant Price Pill -->
             <div class="mt-3 pt-3 border-t border-line shrink-0">
               ${b.s ? `
-                <button type="button" onclick="window.addHomeCardToCart(${idx})" class="w-full bg-brand text-brandink py-2.5 px-3.5 rounded-xl text-xs font-bold flex items-center justify-between shadow hover:opacity-95 transition">
+                <button type="button" onclick="window.addHomeCardToCart('v3', ${idx})" class="w-full bg-brand text-brandink py-2.5 px-3.5 rounded-xl text-xs font-bold flex items-center justify-between shadow hover:opacity-95 transition">
                   <span class="flex items-center gap-1"><span>🛒</span> + Add to Cart</span>
-                  <span id="homePrice-${idx}" class="bg-accent text-ink font-extrabold px-2 py-0.5 rounded-md text-[11px] shadow-xs">
+                  <span id="homePrice-v3-${idx}" class="bg-accent text-ink font-extrabold px-2 py-0.5 rounded-md text-[11px] shadow-xs">
                     ${inr(b.p)}
                   </span>
                 </button>
@@ -3230,7 +3327,7 @@ body {
                   Sold Out • Notify Me
                 </button>
               `}
-              <span id="homePer-${idx}" class="block text-center text-[10px] text-mute mt-1 font-medium">
+              <span id="homePer-v3-${idx}" class="block text-center text-[10px] text-mute mt-1 font-medium">
                 ${inr(b.p / 10)} / pod • 1-2 day express
               </span>
             </div>
@@ -3239,7 +3336,7 @@ body {
       }
 
       // ========================================================
-      // VARIANT 1: STANDARD (WRAP MULTI-LINE)
+      // VARIANT 1: STANDARD (MULTI-LINE WRAP)
       // ========================================================
       return `
         <article class="rounded-2xl border border-line bg-bg p-4 flex flex-col justify-between shadow-sm hover:shadow-md transition">
@@ -3272,7 +3369,7 @@ body {
                 <div class="flex gap-0.5">${miniBar}</div>
               </div>
 
-              <!-- Serving Suggestions Icons (Ready for this) -->
+              <!-- Serving Suggestions Icons (Wrap) -->
               <div class="mt-3 pt-2.5 border-t border-line">
                 <span class="block text-[10px] font-bold text-mute uppercase tracking-wider mb-1.5">Serving Suggestions:</span>
                 <div class="flex flex-wrap gap-1.5">
@@ -3293,12 +3390,12 @@ body {
               </div>
             </div>
 
-            <!-- Pack Selection Chips -->
-            <div class="mt-3 flex flex-wrap gap-1.5" id="homePacks-${idx}">
+            <!-- Pack Selection Chips (Wrap) -->
+            <div class="mt-3 flex flex-wrap gap-1.5" id="homePacks-v1-${idx}">
               ${PACKS.map(function(p, pkIdx) {
                 return `
                   <button type="button" class="chip text-[11px] ${pkIdx === 0 ? 'bg-brand text-brandink border-brand' : ''}" 
-                    data-bidx="${idx}" data-pkidx="${pkIdx}" onclick="window.updateHomeCardPack(event, ${idx}, ${pkIdx})">
+                    onclick="window.updateHomeCardPack(event, 'v1', ${idx}, ${pkIdx})">
                     ${p.n} pods
                   </button>
                 `;
@@ -3306,18 +3403,18 @@ body {
             </div>
 
             <label class="mt-2.5 flex items-center gap-1.5 text-[11px] text-mute cursor-pointer font-medium">
-              <input type="checkbox" id="homeSub-${idx}" class="accent-brand" onchange="window.updateHomeCardPrice(${idx})">
+              <input type="checkbox" id="homeSub-v1-${idx}" class="accent-brand" onchange="window.updateHomeCardPrice('v1', ${idx})">
               <span>Subscribe & Save 10%</span>
             </label>
           </div>
 
           <div class="mt-4 pt-3 border-t border-line flex items-center justify-between">
             <div>
-              <span id="homePrice-${idx}" class="font-bold text-base text-ink">${inr(b.p)}</span>
-              <span id="homePer-${idx}" class="block text-[10px] text-mute">${inr(b.p / 10)} / pod</span>
+              <span id="homePrice-v1-${idx}" class="font-bold text-base text-ink">${inr(b.p)}</span>
+              <span id="homePer-v1-${idx}" class="block text-[10px] text-mute">${inr(b.p / 10)} / pod</span>
             </div>
             ${b.s ? `
-              <button type="button" onclick="window.addHomeCardToCart(${idx})" class="bg-brand text-brandink text-xs font-bold rounded-full px-4 py-2 hover:opacity-90 shadow-sm transition">
+              <button type="button" onclick="window.addHomeCardToCart('v1', ${idx})" class="bg-brand text-brandink text-xs font-bold rounded-full px-4 py-2 hover:opacity-90 shadow-sm transition">
                 + Add
               </button>
             ` : `
@@ -3331,7 +3428,12 @@ body {
     }).join('');
   }
 
-  var homeCardState = BLENDS.map(function() { return { pk: 0, sub: false }; });
+  // Alias for backward compatibility
+  function renderHomeProducts() {
+    renderAllHomeProductVariants();
+  }
+
+  var homeCardLegacy = BLENDS.map(function() { return { pk: 0, sub: false }; });
 
   window.updateHomeCardPack = function(e, bIdx, pkIdx) {
     e.stopPropagation();
