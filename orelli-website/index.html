@@ -3065,55 +3065,98 @@ body {
   };
 
   window.updateHomeCardPack = function(e, variantKey, bIdx, pkIdx) {
-    e.stopPropagation();
+    if (e && e.stopPropagation) e.stopPropagation();
+    // Allow backwards compatibility if called with (e, bIdx, pkIdx)
+    if (pkIdx === undefined && typeof variantKey === 'number') {
+      pkIdx = bIdx;
+      bIdx = variantKey;
+      variantKey = 'v1';
+    }
+    if (!homeCardState[variantKey]) {
+      homeCardState[variantKey] = BLENDS.map(function() { return { pk: 0, sub: false }; });
+    }
+    if (!homeCardState[variantKey][bIdx]) {
+      homeCardState[variantKey][bIdx] = { pk: 0, sub: false };
+    }
+
     homeCardState[variantKey][bIdx].pk = pkIdx;
 
-    var container = $('homePacks-' + variantKey + '-' + bIdx);
+    var container = $('homePacks-' + variantKey + '-' + bIdx) || $('homePacks-' + bIdx);
     if (container) {
       container.querySelectorAll('button').forEach(function(btn, i) {
+        var isSelected = (i === pkIdx);
+        btn.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
         if (variantKey === 'v3') {
-          btn.className = (i === pkIdx) 
-            ? 'flex-1 py-1.5 text-center text-[11px] font-bold rounded-lg transition bg-brand text-brandink shadow-xs' 
-            : 'flex-1 py-1.5 text-center text-[11px] font-bold rounded-lg transition text-mute hover:text-ink';
-        } else {
-          btn.className = (i === pkIdx)
-            ? 'chip text-[11px] shrink-0 whitespace-nowrap bg-brand text-brandink border-brand'
+          btn.className = isSelected 
+            ? 'flex-1 py-1 text-center text-[11px] font-bold rounded-lg transition bg-brand text-brandink shadow-xs' 
+            : 'flex-1 py-1 text-center text-[11px] font-bold rounded-lg transition text-mute hover:text-ink';
+        } else if (variantKey === 'v2') {
+          btn.className = isSelected
+            ? 'chip text-[11px] shrink-0 whitespace-nowrap bg-brand text-brandink border-brand font-bold'
             : 'chip text-[11px] shrink-0 whitespace-nowrap';
+        } else {
+          btn.className = isSelected
+            ? 'chip text-[11px] bg-brand text-brandink border-brand font-bold'
+            : 'chip text-[11px]';
         }
       });
     }
-    updateHomeCardPrice(variantKey, bIdx);
+    window.updateHomeCardPrice(variantKey, bIdx);
   };
 
   window.updateHomeCardPrice = function(variantKey, bIdx) {
+    // Backwards compatibility if called with (bIdx)
+    if (bIdx === undefined && typeof variantKey === 'number') {
+      bIdx = variantKey;
+      variantKey = 'v1';
+    }
+    if (!homeCardState[variantKey]) return;
     var st = homeCardState[variantKey][bIdx];
-    var subCheckbox = $('homeSub-' + variantKey + '-' + bIdx);
+    if (!st) return;
+
+    var subCheckbox = $('homeSub-' + variantKey + '-' + bIdx) || $('homeSub-' + bIdx);
     var isSub = subCheckbox ? subCheckbox.checked : false;
     st.sub = isSub;
 
     var b = BLENDS[bIdx];
-    var pk = PACKS[st.pk];
+    if (!b) return;
+    var pk = PACKS[st.pk] || PACKS[0];
     var basePrice = b.p * pk.m;
     var finalPrice = isSub ? Math.round(basePrice * 0.9) : basePrice;
 
-    var priceEl = $('homePrice-' + variantKey + '-' + bIdx);
-    var perEl = $('homePer-' + variantKey + '-' + bIdx);
+    var priceEl = $('homePrice-' + variantKey + '-' + bIdx) || $('homePrice-' + bIdx);
+    var perEl = $('homePer-' + variantKey + '-' + bIdx) || $('homePer-' + bIdx);
 
     if (priceEl) priceEl.textContent = inr(finalPrice);
-    if (perEl) perEl.textContent = inr(finalPrice / pk.n) + ' / pod';
+    if (perEl) {
+      if (variantKey === 'v3') {
+        perEl.textContent = inr(Math.round(finalPrice / pk.n)) + ' / pod • 1-2 day express';
+      } else {
+        perEl.textContent = inr(Math.round(finalPrice / pk.n)) + ' / pod';
+      }
+    }
   };
 
   window.addHomeCardToCart = function(variantKey, bIdx) {
-    var st = homeCardState[variantKey][bIdx];
+    // Backwards compatibility if called with (bIdx)
+    if (bIdx === undefined && typeof variantKey === 'number') {
+      bIdx = variantKey;
+      variantKey = 'v1';
+    }
+    if (!homeCardState[variantKey]) {
+      homeCardState[variantKey] = BLENDS.map(function() { return { pk: 0, sub: false }; });
+    }
+    var st = homeCardState[variantKey][bIdx] || { pk: 0, sub: false };
     var b = BLENDS[bIdx];
-    var pk = PACKS[st.pk];
+    if (!b) return;
+    var pk = PACKS[st.pk] || PACKS[0];
     var basePrice = b.p * pk.m;
     var finalPrice = st.sub ? Math.round(basePrice * 0.9) : basePrice;
 
     var item = {
       id: 'blend-' + b.id + '-' + pk.n + (st.sub ? '-sub' : ''),
       title: b.n,
-      variant: pk.n + ' pods (' + b.i + '/13 Intensity)' + (st.sub ? ' (Monthly Sub)' : ' (One-time)'),
+      variant: pk.n + ' pods (' + b.i + '/13 Intensity)' + (st.sub ? ' (Monthly Sub • 10% Off)' : ' (One-time)'),
       price: finalPrice,
       qty: 1,
       color: b.c,
@@ -3121,7 +3164,10 @@ body {
     };
 
     addItemToCart(item);
-    showToast(b.n + ' (' + pk.n + ' pods) added to cart');
+    showToast('✓ ' + b.n + ' (' + pk.n + ' pods) added to cart');
+    if (window.openCart) {
+      window.openCart();
+    }
   };
 
   // -------------------------------------------------------------
@@ -3436,53 +3482,7 @@ body {
     renderAllHomeProductVariants();
   }
 
-  var homeCardLegacy = BLENDS.map(function() { return { pk: 0, sub: false }; });
 
-  window.updateHomeCardPack = function(e, bIdx, pkIdx) {
-    e.stopPropagation();
-    homeCardState[bIdx].pk = pkIdx;
-    var container = $('homePacks-' + bIdx);
-    container.querySelectorAll('.chip').forEach(function(btn, i) {
-      btn.classList.toggle('bg-brand', i === pkIdx);
-      btn.classList.toggle('text-brandink', i === pkIdx);
-      btn.classList.toggle('border-brand', i === pkIdx);
-    });
-    window.updateHomeCardPrice(bIdx);
-  };
-
-  window.updateHomeCardPrice = function(bIdx) {
-    var b = BLENDS[bIdx];
-    var st = homeCardState[bIdx];
-    var subChecked = $('homeSub-' + bIdx) ? $('homeSub-' + bIdx).checked : false;
-    st.sub = subChecked;
-
-    var pk = PACKS[st.pk];
-    var fullPrice = b.p * pk.m;
-    var finalPrice = st.sub ? fullPrice * 0.9 : fullPrice;
-
-    $('homePrice-' + bIdx).textContent = inr(finalPrice);
-    $('homePer-' + bIdx).textContent = inr(finalPrice / pk.n) + ' / pod';
-  };
-
-  window.addHomeCardToCart = function(bIdx) {
-    var b = BLENDS[bIdx];
-    var st = homeCardState[bIdx];
-    var pk = PACKS[st.pk];
-    var unitPrice = Math.round(st.sub ? (b.p * pk.m * 0.9) : (b.p * pk.m));
-
-    var item = {
-      id: 'blend-' + b.id + '-' + pk.n + (st.sub ? '-sub' : ''),
-      title: b.n,
-      variant: pk.n + ' pods (' + b.i + '/13 Intensity)' + (st.sub ? ' (Subscription • Every 4 weeks)' : ' (One-time)'),
-      price: unitPrice,
-      qty: 1,
-      color: b.c,
-      isSub: st.sub
-    };
-
-    addItemToCart(item);
-    showToast('Added ' + b.n + ' (' + pk.n + ' pods) to cart');
-  };
 
   window.selectBlendAndGo = function(idx) {
     state.product.b = idx;
