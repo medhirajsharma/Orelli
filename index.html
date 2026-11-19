@@ -273,7 +273,7 @@ body {
       <a href="#story" class="hover:text-brand transition-colors">Our Story</a>
       <a href="#contact" class="hover:text-brand transition-colors">Contact</a>
       <button type="button" onclick="window.openModal('businessModal')" class="hover:text-brand transition-colors">For Business</button>
-      <button type="button" onclick="window.openModal('faqModal')" class="hover:text-brand transition-colors">FAQs</button>
+      <a href="#faqs" class="hover:text-brand transition-colors">FAQs</a>
     </nav>
 
     <!-- Header Actions -->
@@ -317,7 +317,7 @@ body {
     <a href="#story" class="block py-2 hover:text-brand" onclick="window.closeMobileMenu()">Our Story</a>
     <a href="#contact" class="block py-2 hover:text-brand" onclick="window.closeMobileMenu()">Contact Us</a>
     <button type="button" onclick="window.openModal('businessModal'); window.closeMobileMenu();" class="block w-full text-left py-2 hover:text-brand">For Business</button>
-    <button type="button" onclick="window.openModal('faqModal'); window.closeMobileMenu();" class="block w-full text-left py-2 hover:text-brand">FAQs</button>
+    <a href="#faqs" class="block py-2 hover:text-brand font-medium" onclick="window.closeMobileMenu()">FAQs</a>
   </div>
 </header>
 
@@ -540,6 +540,79 @@ body {
           Zero plastic waste. Send your empty pods back in our prepaid return pouches for closed-loop recycling into new aluminium products.
         </p>
       </div>
+    </div>
+  </section>
+
+  <!-- FAQs Showcase on Home -->
+  <section class="max-w-6xl mx-auto px-5 py-16">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="inline-block bg-accent text-ink text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Clear Answers</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink">Frequently Asked Questions</h2>
+      <p class="mt-2 text-mute text-sm">Everything you need to know about Orelli coffee capsules, compatibility, delivery, and subscriptions.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto items-start">
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="all" open>
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Will Orelli capsules work with my Nespresso machine?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Yes. Orelli capsules are engineered to be 100% compatible with all original Nespresso® machine models (including Inissia, Pixie, Essenza Mini, Citiz, Lattissima, and Atelier). Technically, any capsule machine designed for Nespresso® OriginalLine pods will work seamlessly with Orelli.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="all">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Can I make both black and milk-based coffee?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Absolutely. Enjoy your coffee as an espresso or lungo, drink it black, or add milk to make your favourite cappuccino, latte or flat white. Check each blend's recommended serving size.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="all">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>How long will my order take to arrive?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Delivery timelines depend on your location. You'll find the estimated delivery time at checkout or in your order confirmation.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="all">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Can I subscribe to my favourite coffee pods?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          If a subscription option is available, you can choose a delivery frequency that suits your routine and enjoy regular coffee deliveries.
+        </div>
+      </details>
+    </div>
+
+    <div class="mt-8 text-center flex flex-wrap items-center justify-center gap-4">
+      <a href="#faqs" class="inline-flex items-center gap-2 bg-brand text-brandink rounded-full px-7 py-3.5 text-xs sm:text-sm font-bold shadow hover:opacity-95 transition">
+        <span>View All 11 FAQs & Categories</span> &rarr;
+      </a>
+      <a href="#contact" class="inline-flex items-center gap-2 border border-line bg-surface text-ink hover:border-brand rounded-full px-6 py-3.5 text-xs sm:text-sm font-bold shadow-sm transition">
+        <span>Ask Our Roasters</span> &rarr;
+      </a>
     </div>
   </section>
 
@@ -1022,6 +1095,231 @@ body {
 
 
 <!-- ========================================== -->
+<!-- 5. FAQS PAGE VIEW (Dedicated View)         -->
+<!-- ========================================== -->
+<main id="faqsView" hidden class="flex-1 max-w-5xl mx-auto px-5 py-10 w-full animate-fade-in">
+  <!-- Breadcrumb -->
+  <p class="text-sm text-mute mb-6 flex items-center gap-2">
+    <a href="#" class="underline hover:text-ink">Home</a>
+    <span>/</span>
+    <span class="text-ink font-bold">Frequently Asked Questions</span>
+  </p>
+
+  <div class="max-w-2xl mb-8">
+    <span class="inline-block bg-accent text-ink text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Help & Guidance</span>
+    <h1 class="font-display font-bold text-3xl sm:text-5xl leading-tight text-ink">Frequently Asked Questions</h1>
+    <p class="mt-3 text-mute text-sm sm:text-base leading-relaxed">
+      Find quick answers to common questions about our Nespresso® compatible pods, brewing suggestions, Pan-India delivery, and flexible subscriptions.
+    </p>
+  </div>
+
+  <!-- Category Filter Pills -->
+  <div class="flex flex-wrap gap-2.5 pb-6 border-b border-line mb-8">
+    <button type="button" onclick="window.filterFaqCategory('all')" class="faq-filter-btn active px-4 py-2 rounded-full text-xs font-bold border transition bg-brand text-brandink border-brand" data-category="all">All Questions (11)</button>
+    <button type="button" onclick="window.filterFaqCategory('coffee')" class="faq-filter-btn px-4 py-2 rounded-full text-xs font-bold border border-line bg-surface hover:border-brand text-ink transition" data-category="coffee">☕ The Coffee Stuff (6)</button>
+    <button type="button" onclick="window.filterFaqCategory('orders')" class="faq-filter-btn px-4 py-2 rounded-full text-xs font-bold border border-line bg-surface hover:border-brand text-ink transition" data-category="orders">📦 Orders & Delivery (3)</button>
+    <button type="button" onclick="window.filterFaqCategory('subs')" class="faq-filter-btn px-4 py-2 rounded-full text-xs font-bold border border-line bg-surface hover:border-brand text-ink transition" data-category="subs">🔄 Subscriptions (2)</button>
+  </div>
+
+  <!-- FAQs List with Categories -->
+  <div class="space-y-10">
+    <div class="faq-cat-group space-y-4" data-category="coffee">
+      <div class="flex items-center gap-2.5 pb-2 border-b border-line">
+        <span class="text-xl">☕</span>
+        <h2 class="font-display font-bold text-xl sm:text-2xl text-ink">The Coffee Stuff</h2>
+        <span class="text-xs bg-bg text-mute font-bold px-2 py-0.5 rounded-full border border-line">6 questions</span>
+      </div>
+      <div class="space-y-3">
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="coffee" open>
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Will Orelli capsules work with my Nespresso machine?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Yes. Orelli capsules are engineered to be 100% compatible with all original Nespresso® machine models (including Inissia, Pixie, Essenza Mini, Citiz, Lattissima, and Atelier). Technically, any capsule machine designed for Nespresso® OriginalLine pods will work seamlessly with Orelli.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="coffee">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Can I make both black and milk-based coffee?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Absolutely. Enjoy your coffee as an espresso or lungo, drink it black, or add milk to make your favourite cappuccino, latte or flat white. Check each blend's recommended serving size.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="coffee">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>How do I choose the right coffee?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Start with your taste. Prefer something smooth and mellow, or bold and intense? Explore our blend descriptions and intensity guides to find your match.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="coffee">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>How should I store my coffee pods?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Keep your pods in a cool, dry place away from direct sunlight and strong odours. Follow the storage instructions on the packaging.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="coffee">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Can I reuse a coffee pod?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Our pods are designed for single use. Reusing a pod can result in a weaker, less consistent cup.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="coffee">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Are your pods recyclable or compostable?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Please refer to the packaging and product page for the specific pod material and disposal instructions. Recycling and compostability depend on the material and available local facilities.
+        </div>
+      </details>
+      </div>
+    </div>
+
+    <div class="faq-cat-group space-y-4" data-category="orders">
+      <div class="flex items-center gap-2.5 pb-2 border-b border-line">
+        <span class="text-xl">📦</span>
+        <h2 class="font-display font-bold text-xl sm:text-2xl text-ink">Orders & Delivery</h2>
+        <span class="text-xs bg-bg text-mute font-bold px-2 py-0.5 rounded-full border border-line">3 questions</span>
+      </div>
+      <div class="space-y-3">
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="orders">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>How long will my order take to arrive?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Delivery timelines depend on your location. You'll find the estimated delivery time at checkout or in your order confirmation.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="orders">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Can I track my order?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          If tracking is available for your shipment, we'll share the tracking details once your order has been dispatched.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="orders">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Can I return or exchange my order?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          For food-safety reasons, returns of opened coffee products may be restricted. Please refer to our Returns Policy for eligibility and details on damaged or incorrect orders.
+        </div>
+      </details>
+      </div>
+    </div>
+
+    <div class="faq-cat-group space-y-4" data-category="subs">
+      <div class="flex items-center gap-2.5 pb-2 border-b border-line">
+        <span class="text-xl">🔄</span>
+        <h2 class="font-display font-bold text-xl sm:text-2xl text-ink">Subscriptions</h2>
+        <span class="text-xs bg-bg text-mute font-bold px-2 py-0.5 rounded-full border border-line">2 questions</span>
+      </div>
+      <div class="space-y-3">
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="subs">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Can I subscribe to my favourite coffee pods?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          If a subscription option is available, you can choose a delivery frequency that suits your routine and enjoy regular coffee deliveries.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="subs">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Can I skip or pause a delivery?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Yes, subject to the terms of your subscription. Manage your upcoming deliveries through your account before the stated cut-off time.
+        </div>
+      </details>
+      </div>
+    </div>
+  </div>
+
+  <!-- Still Curious Banner -->
+  <div class="mt-14 rounded-3xl bg-brand text-brandink p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl relative overflow-hidden">
+    <div class="space-y-2 text-center md:text-left z-10">
+      <span class="inline-block bg-accent text-ink text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Still Curious?</span>
+      <h2 class="font-display font-bold text-2xl sm:text-3xl text-brandink">Can't find what you're looking for?</h2>
+      <p class="text-sm opacity-90 max-w-lg leading-relaxed">
+        We're happy to help you find your perfect cup.
+      </p>
+    </div>
+    <div class="z-10 shrink-0 flex flex-wrap items-center justify-center gap-3">
+      <a href="#contact" class="inline-flex items-center gap-2 bg-accent text-ink font-bold text-sm px-6 py-3.5 rounded-full shadow hover:opacity-95 transition">
+        <span>Get in touch with our team</span> &rarr;
+      </a>
+      <a href="https://wa.me/919876543210?text=Hello%20Orelli%20Team%2C%20I%20have%20a%20question%20about%20your%20coffee" target="_blank" class="inline-flex items-center gap-2 border-2 border-white/40 text-brandink hover:bg-white/10 font-bold text-xs px-5 py-3.5 rounded-full transition">
+        <span>💬</span> WhatsApp Us
+      </a>
+    </div>
+    <div class="absolute -right-10 -bottom-10 w-48 h-48 rounded-full bg-white/5 pointer-events-none"></div>
+  </div>
+</main>
+
+
+<!-- ========================================== -->
 <!-- 6. MOBILE NUMBER & OTP LOGIN MODAL        -->
 <!-- ========================================== -->
 <div id="authModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
@@ -1297,34 +1595,195 @@ body {
 <!-- 11. FAQS MODAL                            -->
 <!-- ========================================== -->
 <div id="faqModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
-  <div class="bg-surface rounded-3xl max-w-lg w-full max-h-[85vh] overflow-y-auto border border-line shadow-2xl p-6 sm:p-8 animate-fade-in">
-    <div class="flex items-center justify-between pb-4 border-b border-line">
-      <h2 class="font-display font-bold text-2xl text-ink">Frequently Asked Questions</h2>
+  <div class="bg-surface rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto border border-line shadow-2xl p-6 sm:p-8 animate-fade-in">
+    <div class="flex items-center justify-between pb-4 border-b border-line sticky top-0 bg-surface z-10">
+      <div>
+        <h2 class="font-display font-bold text-2xl text-ink">Frequently Asked Questions</h2>
+        <p class="text-xs text-mute mt-0.5">The Coffee Stuff • Orders & Delivery • Subscriptions</p>
+      </div>
       <button type="button" onclick="window.closeModal('faqModal')" class="p-2 rounded-full hover:bg-bg text-mute hover:text-ink">✕</button>
     </div>
-    <div class="mt-5 space-y-4 text-sm divide-y divide-line">
-      <div class="pt-3">
-        <h3 class="font-bold text-ink">Are Orelli capsules compatible with my Nespresso® machine?</h3>
-        <p class="mt-1 text-xs text-mute leading-relaxed">Yes! Orelli capsules are precision engineered to fit 100% of Nespresso® OriginalLine machines, including Inissia, Essenza Mini, Pixie, Citiz, Lattissima, and Creatista. (Not compatible with Vertuo machines).</p>
+    
+    <div class="mt-6 space-y-6">
+      <div class="space-y-3">
+        <div class="flex items-center gap-2 text-ink font-bold text-sm uppercase tracking-wider text-brand">
+          <span>☕</span>
+          <span>The Coffee Stuff</span>
+        </div>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="coffee">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Will Orelli capsules work with my Nespresso machine?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Yes. Orelli capsules are engineered to be 100% compatible with all original Nespresso® machine models (including Inissia, Pixie, Essenza Mini, Citiz, Lattissima, and Atelier). Technically, any capsule machine designed for Nespresso® OriginalLine pods will work seamlessly with Orelli.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="coffee">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Can I make both black and milk-based coffee?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Absolutely. Enjoy your coffee as an espresso or lungo, drink it black, or add milk to make your favourite cappuccino, latte or flat white. Check each blend's recommended serving size.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="coffee">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>How do I choose the right coffee?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Start with your taste. Prefer something smooth and mellow, or bold and intense? Explore our blend descriptions and intensity guides to find your match.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="coffee">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>How should I store my coffee pods?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Keep your pods in a cool, dry place away from direct sunlight and strong odours. Follow the storage instructions on the packaging.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="coffee">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Can I reuse a coffee pod?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Our pods are designed for single use. Reusing a pod can result in a weaker, less consistent cup.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="coffee">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Are your pods recyclable or compostable?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Please refer to the packaging and product page for the specific pod material and disposal instructions. Recycling and compostability depend on the material and available local facilities.
+        </div>
+      </details>
       </div>
-      <div class="pt-3">
-        <h3 class="font-bold text-ink">Are Orelli capsules 100% Vegetarian?</h3>
-        <p class="mt-1 text-xs text-mute leading-relaxed">Yes, absolutely. All Orelli capsules contain 100% pure roasted coffee beans without any animal derivatives or artificial gelatin additives. Fully certified vegetarian.</p>
+      <div class="space-y-3">
+        <div class="flex items-center gap-2 text-ink font-bold text-sm uppercase tracking-wider text-brand">
+          <span>📦</span>
+          <span>Orders & Delivery</span>
+        </div>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="orders">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>How long will my order take to arrive?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Delivery timelines depend on your location. You'll find the estimated delivery time at checkout or in your order confirmation.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="orders">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Can I track my order?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          If tracking is available for your shipment, we'll share the tracking details once your order has been dispatched.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="orders">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Can I return or exchange my order?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          For food-safety reasons, returns of opened coffee products may be restricted. Please refer to our Returns Policy for eligibility and details on damaged or incorrect orders.
+        </div>
+      </details>
       </div>
-      <div class="pt-3">
-        <h3 class="font-bold text-ink">How do I recycle used capsules?</h3>
-        <p class="mt-1 text-xs text-mute leading-relaxed">Every order comes with a complimentary return pouch. Simply collect your spent aluminium pods and request a doorstep pickup via our website or WhatsApp. 100% recyclable aluminium.</p>
+      <div class="space-y-3">
+        <div class="flex items-center gap-2 text-ink font-bold text-sm uppercase tracking-wider text-brand">
+          <span>🔄</span>
+          <span>Subscriptions</span>
+        </div>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="subs">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Can I subscribe to my favourite coffee pods?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          If a subscription option is available, you can choose a delivery frequency that suits your routine and enjoy regular coffee deliveries.
+        </div>
+      </details>
+      <details class="group faq-item bg-surface rounded-2xl border border-line p-5 transition-all hover:border-brand shadow-sm" data-category="subs">
+        <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-ink select-none cursor-pointer list-none gap-4">
+          <span>Can I skip or pause a delivery?</span>
+          <span class="w-7 h-7 rounded-full bg-bg border border-line flex items-center justify-center shrink-0 text-mute group-open:text-brand group-open:bg-brand/10 group-open:rotate-180 transition-all duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="mt-3 text-xs sm:text-sm text-mute leading-relaxed pt-3 border-t border-line/60">
+          Yes, subject to the terms of your subscription. Manage your upcoming deliveries through your account before the stated cut-off time.
+        </div>
+      </details>
       </div>
-      <div class="pt-3">
-        <h3 class="font-bold text-ink">How does the 1 to 13 Coffee Intensity Scale work?</h3>
-        <p class="mt-1 text-xs text-mute leading-relaxed">Our intensity scale reflects roast depth, body weight, and bitterness/sweetness balance from 1 (delicate) to 13 (ultra-intense dark roast). Lisboa Glaze is 6/13, Nordic Biscotti is 7/13, Sidamo Berry is 9/13, Torino Cacao is 10/13, and Andes Tostado is 11/13.</p>
-      </div>
-      <div class="pt-3">
-        <h3 class="font-bold text-ink">What is Pan-India Express Delivery speed?</h3>
-        <p class="mt-1 text-xs text-mute leading-relaxed">We dispatch all orders via express air logistics. Metro cities receive orders in 1 business day, and other locations in 2 business days. Orders above ₹999 get free express delivery.</p>
+    </div>
+
+    <!-- Modal Still Curious Banner -->
+    <div class="mt-8 p-6 rounded-2xl bg-brand/5 border border-brand/20 text-center space-y-2">
+      <span class="inline-block bg-accent text-ink text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">Still Curious?</span>
+      <h3 class="font-bold text-base text-ink">Can't find what you're looking for?</h3>
+      <p class="text-xs text-mute max-w-md mx-auto">We're happy to help you find your perfect cup.</p>
+      <div class="pt-3 flex flex-wrap items-center justify-center gap-3">
+        <button type="button" onclick="window.closeModal('faqModal'); window.location.hash='#contact';" class="bg-brand text-brandink font-bold text-xs px-5 py-2.5 rounded-full shadow hover:opacity-95 transition">
+          Get in touch with our team &rarr;
+        </button>
+        <button type="button" onclick="window.closeModal('faqModal'); window.location.hash='#faqs';" class="border border-line bg-surface hover:border-brand text-ink font-bold text-xs px-5 py-2.5 rounded-full transition">
+          Open Full FAQ Page &rarr;
+        </button>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 
@@ -1373,7 +1832,7 @@ body {
       <p class="font-bold text-xs uppercase tracking-wider text-accent mb-3">Customer Support</p>
       <ul class="space-y-2 text-xs opacity-80">
         <li><a href="#contact" class="hover:underline">Contact Us Page</a></li>
-        <li><button type="button" onclick="window.openModal('faqModal')" class="hover:underline">Frequently Asked Questions</button></li>
+        <li><a href="#faqs" class="hover:underline">Frequently Asked Questions</a></li>
         <li><a href="https://wa.me/919876543210?text=Hello%20Orelli%20Team%2C%20I%20have%20a%20question" target="_blank" class="hover:underline">WhatsApp: +91 98765 43210</a></li>
         <li><span>Email: help@orelli.coffee</span></li>
       </ul>
@@ -2606,13 +3065,16 @@ body {
     var showProduct = (h === '#product');
     var showBuilder = (h === '#builder');
     var showContact = (h === '#contact');
+    var showFaqs = (h === '#faqs');
 
-    $('homeView').hidden = showProduct || showBuilder || showContact;
+    $('homeView').hidden = showProduct || showBuilder || showContact || showFaqs;
     $('productView').hidden = !showProduct;
     $('builderView').hidden = !showBuilder;
     $('contactView').hidden = !showContact;
+    var fv = $('faqsView');
+    if (fv) fv.hidden = !showFaqs;
 
-    if (showContact) {
+    if (showContact || showFaqs) {
       window.scrollTo(0, 0);
     } else if (showBuilder) {
       renderBuilderView();
@@ -2627,6 +3089,37 @@ body {
       window.scrollTo(0, 0);
     }
   }
+
+  // Category filter for dedicated FAQ page
+  window.filterFaqCategory = function(cat) {
+    var cards = document.querySelectorAll('.faq-item');
+    var groupTitles = document.querySelectorAll('.faq-cat-group');
+    var buttons = document.querySelectorAll('.faq-filter-btn');
+
+    buttons.forEach(function(btn) {
+      if (btn.getAttribute('data-category') === cat) {
+        btn.className = 'faq-filter-btn active px-4 py-2 rounded-full text-xs font-bold border transition bg-brand text-brandink border-brand';
+      } else {
+        btn.className = 'faq-filter-btn px-4 py-2 rounded-full text-xs font-bold border border-line bg-surface hover:border-brand text-ink transition';
+      }
+    });
+
+    cards.forEach(function(card) {
+      if (cat === 'all' || card.getAttribute('data-category') === cat) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    groupTitles.forEach(function(grp) {
+      if (cat === 'all' || grp.getAttribute('data-category') === cat) {
+        grp.style.display = '';
+      } else {
+        grp.style.display = 'none';
+      }
+    });
+  };
 
   window.addEventListener('hashchange', route);
 
