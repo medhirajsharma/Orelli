@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Orelli Coffee: Café-Quality Coffee, One Capsule Away</title>
-<meta name="description" content="Artisanal specialty coffee roasted in small batches, sealed in recyclable aluminium capsules for Nespresso® Original machines. Pan-India shipping.">
+<title>Orelli Coffee: Nespresso® Compatible Recyclable Aluminium Capsules</title>
+<meta name="description" content="Artisanal specialty coffee in 100% recyclable aluminium capsules for Nespresso® Original machines. 100% Vegetarian. Pan-India express 1-2 day delivery.">
 <meta name="theme-color" content="#154734">
 
 <!-- OpenGraph / Social Meta -->
-<meta property="og:title" content="Orelli Coffee: Café-Quality Coffee, One Capsule Away">
-<meta property="og:description" content="Specialty coffee capsules roasted in small batches. Fits Nespresso® Original machines.">
+<meta property="og:title" content="Orelli Coffee: Nespresso® Compatible Recyclable Aluminium Capsules">
+<meta property="og:description" content="Specialty coffee capsules calibrated on a 1-13 intensity scale. 100% Vegetarian. 1-2 Day Pan-India Express Delivery.">
 <meta property="og:type" content="website">
 
 <!-- Favicon (Inline SVG Coffee Bean / Pod with Official Brand Colors) -->
@@ -45,18 +45,16 @@ tailwind.config = {
 };
 </script>
 <style>
-/* Font-face declaration for Gilden with graceful web fallbacks */
 @font-face {
   font-family: 'Gilden';
   src: local('Gilden'), local('Gilda Display'), url('https://fonts.gstatic.com/s/gildadisplay/v17/m8JWjf1WiWJg9_H673e4bZq1kU-h.woff2') format('woff2');
   font-display: swap;
 }
 
-/* Official Brand Palette Tokens */
 :root {
-  --brand: #154734;       /* Official Green: HEX #154734, RGB(21, 71, 52) */
-  --accent: #D8A500;      /* Official Gold: HEX #D8A500, RGB(216, 165, 0) */
-  --brandred: #A82B11;    /* Official Red: HEX #A82B11, RGB(168, 43, 17) */
+  --brand: #154734;       /* Official Green: HEX #154734 */
+  --accent: #D8A500;      /* Official Gold: HEX #D8A500 */
+  --brandred: #A82B11;    /* Official Red: HEX #A82B11 */
   --bg: #F5F7F3;
   --surface: #FFFFFF;
   --ink: #11221A;
@@ -164,7 +162,6 @@ body {
   outline-offset: 3px;
 }
 
-/* Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
@@ -173,7 +170,6 @@ body {
   animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -199,19 +195,19 @@ body {
   background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'><rect width='800' height='600' fill='%23154734'/><circle cx='520' cy='230' r='210' fill='%23D8A500'/><ellipse cx='400' cy='470' rx='260' ry='46' fill='%23F7FAF5'/><ellipse cx='400' cy='455' rx='200' ry='32' fill='%23D5DFD9'/><path d='M250 270h300v70c0 80-60 130-150 130s-150-50-150-130z' fill='%23FFFFFF'/><ellipse cx='400' cy='270' rx='150' ry='30' fill='%2338241B'/><path d='M550 300c60 0 70 90-10 100' fill='none' stroke='%23FFFFFF' stroke-width='22'/><path d='M350 220c-30-40 30-60 0-100M410 220c-30-40 30-60 0-100M470 220c-30-40 30-60 0-100' fill='none' stroke='%23F7FAF5' stroke-width='10' stroke-linecap='round' opacity='.7'/></svg>");
 }
 .img-box1 {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23F5F7F3'/><circle cx='300' cy='110' r='70' fill='%23D8A500' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%23154734'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F7FAF5' font-family='serif' font-weight='bold' font-size='17' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F7FAF5'/><circle cx='200' cy='245' r='14' fill='%23154734'/><circle cx='330' cy='330' r='26' fill='%23154734'/><circle cx='330' cy='330' r='9' fill='%23D8A500'/></svg>");
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23F5F7F3'/><circle cx='300' cy='110' r='70' fill='%23D8A500' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%23154734'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F7FAF5' font-family='serif' font-weight='bold' font-size='16' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F7FAF5'/><circle cx='200' cy='245' r='14' fill='%23154734'/><circle cx='330' cy='330' r='26' fill='%23154734'/><circle cx='330' cy='330' r='9' fill='%23D8A500'/></svg>");
 }
 .img-box2 {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23F5F7F3'/><circle cx='300' cy='110' r='70' fill='%23154734' opacity='.25'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%23D8A500'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23154734' font-family='serif' font-weight='bold' font-size='17' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F7FAF5'/><circle cx='200' cy='245' r='14' fill='%23D8A500'/><circle cx='330' cy='330' r='26' fill='%23D8A500'/><circle cx='330' cy='330' r='9' fill='%23154734'/></svg>");
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23F5F7F3'/><circle cx='300' cy='110' r='70' fill='%23154734' opacity='.25'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%23D8A500'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23154734' font-family='serif' font-weight='bold' font-size='16' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F7FAF5'/><circle cx='200' cy='245' r='14' fill='%23D8A500'/><circle cx='330' cy='330' r='26' fill='%23D8A500'/><circle cx='330' cy='330' r='9' fill='%23154734'/></svg>");
 }
 .img-box3 {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23F5F7F3'/><circle cx='300' cy='110' r='70' fill='%23D8A500' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%23A82B11'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F7FAF5' font-family='serif' font-weight='bold' font-size='17' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F7FAF5'/><circle cx='200' cy='245' r='14' fill='%23A82B11'/><circle cx='330' cy='330' r='26' fill='%23A82B11'/><circle cx='330' cy='330' r='9' fill='%23D8A500'/></svg>");
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23F5F7F3'/><circle cx='300' cy='110' r='70' fill='%23D8A500' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%23C67D28'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F7FAF5' font-family='serif' font-weight='bold' font-size='16' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F7FAF5'/><circle cx='200' cy='245' r='14' fill='%23C67D28'/><circle cx='330' cy='330' r='26' fill='%23C67D28'/><circle cx='330' cy='330' r='9' fill='%23D8A500'/></svg>");
 }
 .img-box4 {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23F5F7F3'/><circle cx='300' cy='110' r='70' fill='%23D8A500' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%236B3B55'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F7FAF5' font-family='serif' font-weight='bold' font-size='17' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F7FAF5'/><circle cx='200' cy='245' r='14' fill='%236B3B55'/><circle cx='330' cy='330' r='26' fill='%236B3B55'/><circle cx='330' cy='330' r='9' fill='%23D8A500'/></svg>");
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23F5F7F3'/><circle cx='300' cy='110' r='70' fill='%23D8A500' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%23A82B11'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F7FAF5' font-family='serif' font-weight='bold' font-size='16' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F7FAF5'/><circle cx='200' cy='245' r='14' fill='%23A82B11'/><circle cx='330' cy='330' r='26' fill='%23A82B11'/><circle cx='330' cy='330' r='9' fill='%23D8A500'/></svg>");
 }
 .img-box5 {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23F5F7F3'/><circle cx='300' cy='110' r='70' fill='%23D8A500' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%232D556E'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F7FAF5' font-family='serif' font-weight='bold' font-size='17' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F7FAF5'/><circle cx='200' cy='245' r='14' fill='%232D556E'/><circle cx='330' cy='330' r='26' fill='%232D556E'/><circle cx='330' cy='330' r='9' fill='%23D8A500'/></svg>");
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23F5F7F3'/><circle cx='300' cy='110' r='70' fill='%23D8A500' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%23202B24'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F7FAF5' font-family='serif' font-weight='bold' font-size='16' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F7FAF5'/><circle cx='200' cy='245' r='14' fill='%23202B24'/><circle cx='330' cy='330' r='26' fill='%23202B24'/><circle cx='330' cy='330' r='9' fill='%23D8A500'/></svg>");
 }
 </style>
 </head>
@@ -258,14 +254,14 @@ body {
 
 <!-- Top Announcement Banner -->
 <div class="bg-brand text-brandink text-xs sm:text-sm py-2 px-4 text-center font-medium transition-colors">
-  Free shipping on orders above ₹999. Use code <span class="bg-accent text-ink px-2 py-0.5 rounded font-bold">WELCOME10</span> for 10% off.
+  ⚡ <span class="font-bold">Pan India Express Shipping 1-2 Business Days</span> • Free delivery above ₹999 • Code <span class="bg-accent text-ink px-2 py-0.5 rounded font-bold">WELCOME10</span>
 </div>
 
 <!-- Header -->
 <header class="sticky top-0 z-40 bg-bg/95 backdrop-blur border-b border-line">
   <div class="max-w-6xl mx-auto flex items-center justify-between px-5 py-4">
     <!-- Logo with Gilden Typography -->
-    <a href="#" class="flex items-center gap-2.5 font-display font-extrabold text-2xl sm:text-3xl tracking-tight text-brand">
+    <a href="#" class="flex items-center gap-2.5 font-display font-bold text-2xl sm:text-3xl tracking-tight text-brand">
       <span class="w-8 h-8 rounded-full bg-brand text-accent flex items-center justify-center text-base font-bold shadow-sm">O</span>
       <span>Orelli</span>
     </a>
@@ -332,21 +328,32 @@ body {
   <!-- Hero Section -->
   <section class="max-w-6xl mx-auto px-5 pt-12 pb-16 grid md:grid-cols-2 gap-10 items-center">
     <div>
-      <div class="inline-flex items-center gap-2 bg-surface border border-line rounded-full px-3.5 py-1 text-xs font-bold text-mute mb-4 shadow-sm">
-        <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-        Estate Sourced in Coorg & Chikmagalur
+      <!-- Badges Row: Nespresso + Vegetarian + Express -->
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="inline-flex items-center gap-1.5 bg-surface border border-line rounded-full px-3 py-1 text-xs font-bold text-ink shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+          Nespresso® Compatible
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-surface border border-line rounded-full px-3 py-1 text-xs font-bold text-ink shadow-sm">
+          <span class="w-3.5 h-3.5 border-2 border-green-600 rounded flex items-center justify-center p-0.5"><span class="w-1.5 h-1.5 rounded-full bg-green-600"></span></span>
+          Vegetarian
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-brand/10 text-brand border border-brand/20 rounded-full px-3 py-1 text-xs font-bold shadow-sm">
+          ⚡ 1-2 Day Express Delivery
+        </span>
       </div>
+
       <h1 class="font-display font-bold text-4xl sm:text-6xl leading-[1.08] tracking-tight text-ink">
         Your 11 AM café break, <span class="italic text-brand font-normal">at home.</span>
       </h1>
       <p class="mt-5 text-base sm:text-lg text-mute max-w-md leading-relaxed font-normal">
-        Artisanal specialty coffee roasted in small batches, nitrogen-sealed in 100% recyclable aluminium capsules. Fits all Nespresso® Original machines. Ready in 30 seconds.
+        Artisanal specialty coffee roasted in small batches, nitrogen-sealed in 100% recyclable aluminium capsules. Precision 1-13 intensity calibrated. Ready in 30 seconds.
       </p>
       <div class="mt-8 flex flex-wrap gap-4">
         <a href="#series" class="bg-brand text-brandink font-bold rounded-full px-7 py-3.5 shadow-sm hover:opacity-95 transition">Shop Capsules</a>
         <a href="#builder" class="border-2 border-brand text-brand rounded-full px-7 py-3.5 font-bold hover:bg-brand hover:text-brandink transition">Build Custom Pack</a>
       </div>
-      <p class="mt-4 text-xs text-mute font-medium">☕ Over 250,000+ capsules brewed across India</p>
+      <p class="mt-4 text-xs text-mute font-medium">☕ Over 250,000+ recyclable capsules brewed across India</p>
     </div>
     
     <div class="img-hero relative h-72 sm:h-96 rounded-3xl shadow-md border border-line" role="img" aria-label="A steaming cup of fresh artisanal coffee with crema">
@@ -356,80 +363,115 @@ body {
     </div>
   </section>
 
-  <!-- Trust Strip -->
+  <!-- Core Value Propositions: 5 Pillars Trust Strip -->
   <section class="border-y border-line bg-surface">
-    <div class="max-w-6xl mx-auto px-5 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm font-medium text-center">
+    <div class="max-w-6xl mx-auto px-5 py-6 grid grid-cols-2 md:grid-cols-5 gap-6 text-sm font-medium text-center">
+      <!-- 1. Nespresso Compatible -->
       <div class="flex flex-col items-center gap-1">
-        <span class="text-xl">☕</span>
+        <span class="text-2xl">☕</span>
         <span class="font-bold text-ink">Nespresso® Compatible</span>
         <span class="text-xs text-mute">Fits all OriginalLine machines</span>
       </div>
+      <!-- 2. Recyclable Aluminium -->
       <div class="flex flex-col items-center gap-1">
-        <span class="text-xl">♻️</span>
+        <span class="text-2xl">♻️</span>
         <span class="font-bold text-ink">Recyclable Aluminium</span>
-        <span class="text-xs text-mute">Free return recycling bag</span>
+        <span class="text-xs text-mute">Airtight aroma • Zero plastic</span>
       </div>
+      <!-- 3. Vegetarian -->
       <div class="flex flex-col items-center gap-1">
-        <span class="text-xl">🌿</span>
-        <span class="font-bold text-ink">Nitrogen Sealed</span>
-        <span class="text-xs text-mute">Peak crema and aroma locked</span>
+        <span class="w-6 h-6 border-2 border-green-600 rounded flex items-center justify-center my-0.5"><span class="w-3 h-3 rounded-full bg-green-600"></span></span>
+        <span class="font-bold text-ink">100% Vegetarian</span>
+        <span class="text-xs text-mute">Pure roasted certified beans</span>
       </div>
+      <!-- 4. Express Shipping -->
       <div class="flex flex-col items-center gap-1">
-        <span class="text-xl">🚚</span>
-        <span class="font-bold text-ink">Pan-India Express</span>
-        <span class="text-xs text-mute">2 to 5 business days</span>
+        <span class="text-2xl">⚡🚚</span>
+        <span class="font-bold text-ink">Pan India Express</span>
+        <span class="text-xs text-brand font-bold">1–2 Business Days</span>
+      </div>
+      <!-- 5. Intensity Scale -->
+      <div class="flex flex-col items-center gap-1">
+        <span class="text-2xl">📊</span>
+        <span class="font-bold text-ink">Coffee Intensity Scale</span>
+        <span class="text-xs text-mute">Calibrated 1 to 13 rating</span>
       </div>
     </div>
   </section>
 
-  <!-- Series Section -->
+  <!-- Series & Blends Showcase -->
   <section id="series" class="max-w-6xl mx-auto px-5 py-16">
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
       <div>
-        <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">Pick your kind of coffee</h2>
-        <p class="mt-2 text-mute">Four distinct profiles, crafted for espresso lovers and milk drinkers alike.</p>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">Our 5 Signature Blends</h2>
+        <p class="mt-2 text-mute">Crafted for distinct flavour notes, exact intensity scales (1 to 13), and optimal serving extractions.</p>
       </div>
-      <a href="#builder" class="text-sm font-bold text-brand hover:underline">Or mix all in a custom pack &rarr;</a>
+      <a href="#builder" class="text-sm font-bold text-brand hover:underline">Or mix any in a custom pack &rarr;</a>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      <!-- Card 1: Official Brand Green (#154734) -->
-      <div class="rounded-3xl bg-brand text-brandink p-6 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(0)">
-        <div class="pod w-14 h-14"></div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <!-- 1. Torino Cacao (10/13) -->
+      <div class="rounded-3xl bg-brand text-brandink p-5 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(0)">
+        <div class="flex items-center justify-between">
+          <div class="pod w-12 h-12"></div>
+          <span class="bg-accent text-ink text-[10px] font-bold px-2 py-0.5 rounded-full">10 / 13</span>
+        </div>
         <div>
-          <span class="text-xs uppercase tracking-wider font-bold text-accent">Signature</span>
-          <h3 class="font-display font-bold text-2xl mt-0.5">Specialty</h3>
-          <p class="text-xs sm:text-sm mt-1 opacity-90 leading-snug">Daily comfort. Balanced Arabica and Robusta with dark chocolate notes.</p>
+          <span class="text-[11px] uppercase tracking-wider font-bold text-accent">Italian Heritage</span>
+          <h3 class="font-display font-bold text-xl mt-0.5">Torino Cacao</h3>
+          <p class="text-xs mt-1 opacity-90 leading-snug">Dark cocoa, roasted hazelnuts, dense velvet body.</p>
         </div>
       </div>
 
-      <!-- Card 2: Official Brand Gold (#D8A500) -->
-      <div class="rounded-3xl bg-accent text-ink p-6 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(1)">
-        <div class="pod w-14 h-14"></div>
+      <!-- 2. Nordic Biscotti (7/13) -->
+      <div class="rounded-3xl bg-accent text-ink p-5 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(1)">
+        <div class="flex items-center justify-between">
+          <div class="pod w-12 h-12"></div>
+          <span class="bg-brand text-brandink text-[10px] font-bold px-2 py-0.5 rounded-full">7 / 13</span>
+        </div>
         <div>
-          <span class="text-xs uppercase tracking-wider font-bold opacity-80">Estate Grown</span>
-          <h3 class="font-display font-bold text-2xl mt-0.5">Single Origin</h3>
-          <p class="text-xs sm:text-sm mt-1 opacity-90 leading-snug">Estate-grown in Chikmagalur with smooth butterscotch & caramel finish.</p>
+          <span class="text-[11px] uppercase tracking-wider font-bold opacity-80">Nordic Roast</span>
+          <h3 class="font-display font-bold text-xl mt-0.5">Nordic Biscotti</h3>
+          <p class="text-xs mt-1 opacity-90 leading-snug">Toasted almonds, baked biscotti, honey warmth.</p>
         </div>
       </div>
 
-      <!-- Card 3: Flavoured -->
-      <div class="rounded-3xl bg-surface border border-line p-6 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(3)">
-        <div class="pod w-14 h-14"></div>
+      <!-- 3. Lisboa Glaze (6/13) -->
+      <div class="rounded-3xl bg-[#C67D28] text-white p-5 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(2)">
+        <div class="flex items-center justify-between">
+          <div class="pod w-12 h-12"></div>
+          <span class="bg-white text-ink text-[10px] font-bold px-2 py-0.5 rounded-full">6 / 13</span>
+        </div>
         <div>
-          <span class="text-xs uppercase tracking-wider font-bold text-mute">Infused</span>
-          <h3 class="font-display font-bold text-2xl mt-0.5 text-ink">Flavoured</h3>
-          <p class="text-xs sm:text-sm mt-1 text-mute leading-snug">Madagascar vanilla and hazelnut made with 100% natural botanical extracts.</p>
+          <span class="text-[11px] uppercase tracking-wider font-bold text-white/80">Caramel Glaze</span>
+          <h3 class="font-display font-bold text-xl mt-0.5">Lisboa Glaze</h3>
+          <p class="text-xs mt-1 text-white/90 leading-snug">Pastel de nata pastry notes, brown sugar glaze.</p>
         </div>
       </div>
 
-      <!-- Card 4: Decaf -->
-      <div class="rounded-3xl bg-surface border border-line p-6 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(4)">
-        <div class="pod w-14 h-14"></div>
+      <!-- 4. Sidamo Berry (9/13) -->
+      <div class="rounded-3xl bg-brandred text-white p-5 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(3)">
+        <div class="flex items-center justify-between">
+          <div class="pod w-12 h-12"></div>
+          <span class="bg-white text-brandred text-[10px] font-bold px-2 py-0.5 rounded-full">9 / 13</span>
+        </div>
         <div>
-          <span class="text-xs uppercase tracking-wider font-bold text-mute">Swiss Water Process</span>
-          <h3 class="font-display font-bold text-2xl mt-0.5 text-ink">Decaf</h3>
-          <p class="text-xs sm:text-sm mt-1 text-mute leading-snug">All the rich cocoa flavor and crema, none of the caffeine buzz.</p>
+          <span class="text-[11px] uppercase tracking-wider font-bold text-white/80">Single Origin</span>
+          <h3 class="font-display font-bold text-xl mt-0.5">Sidamo Berry</h3>
+          <p class="text-xs mt-1 text-white/90 leading-snug">Wild berries, jasmine blossom, citrus lift.</p>
+        </div>
+      </div>
+
+      <!-- 5. Andes Tostado (11/13) -->
+      <div class="rounded-3xl bg-[#202B24] text-white p-5 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(4)">
+        <div class="flex items-center justify-between">
+          <div class="pod w-12 h-12"></div>
+          <span class="bg-accent text-ink text-[10px] font-bold px-2 py-0.5 rounded-full">11 / 13</span>
+        </div>
+        <div>
+          <span class="text-[11px] uppercase tracking-wider font-bold text-accent">High Intensity</span>
+          <h3 class="font-display font-bold text-xl mt-0.5">Andes Tostado</h3>
+          <p class="text-xs mt-1 text-white/90 leading-snug">Smoky molasses, dark chocolate, thick crema.</p>
         </div>
       </div>
     </div>
@@ -440,14 +482,14 @@ body {
     <div class="max-w-6xl mx-auto px-5 py-16">
       <div class="flex items-end justify-between gap-4 mb-8">
         <div>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">Best sellers</h2>
-          <p class="mt-1 text-sm text-mute">Freshly roasted small batches ready to ship.</p>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">Shop Capsules</h2>
+          <p class="mt-1 text-sm text-mute">100% Recyclable Aluminium • Vegetarian • Pan India Express 1-2 Days</p>
         </div>
-        <a href="#builder" class="text-sm font-bold underline underline-offset-4 hover:text-brand">Build a mixed box</a>
+        <a href="#builder" class="text-sm font-bold underline underline-offset-4 hover:text-brand">Build a custom pack</a>
       </div>
 
       <div id="homeProductsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-        <!-- Rendered by JavaScript -->
+        <!-- Rendered dynamically by JavaScript -->
       </div>
     </div>
   </section>
@@ -459,7 +501,7 @@ body {
         <span class="inline-block bg-accent text-ink text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Save up to 15%</span>
         <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight">Build your custom capsule box</h2>
         <p class="mt-3 opacity-90 max-w-md text-sm sm:text-base leading-relaxed">
-          Pick any 20, 30 or 50 capsules across all blends. Mix rich morning dark roasts with afternoon vanilla & evening decaf.
+          Pick any 20, 30 or 50 capsules across Torino Cacao, Nordic Biscotti, Lisboa Glaze, Sidamo Berry and Andes Tostado.
         </p>
         <a href="#builder" class="inline-block mt-6 bg-accent text-ink font-bold rounded-full px-7 py-3.5 shadow hover:opacity-95 transition">
           Start Building Your Box &rarr;
@@ -481,21 +523,21 @@ body {
         <span class="text-xs font-bold uppercase tracking-wider text-accent">01 / Craft</span>
         <h3 class="font-display font-bold text-xl mt-1 text-ink">Small Batch Drum Roasting</h3>
         <p class="mt-2 text-mute text-sm leading-relaxed">
-          Unlike industrial pods roasted months ago, each Orelli lot is precision roasted in small batches to preserve sweet aroma and nuanced flavor.
+          Every lot is drum-roasted to bring out nuanced terroir notes, nitrogen-flushed, and sealed in airtight aluminium capsules.
         </p>
       </div>
       <div class="border-t-2 border-brand pt-5">
-        <span class="text-xs font-bold uppercase tracking-wider text-accent">02 / Origin</span>
-        <h3 class="font-display font-bold text-xl mt-1 text-ink">Direct Estate Sourcing</h3>
+        <span class="text-xs font-bold uppercase tracking-wider text-accent">02 / Pure</span>
+        <h3 class="font-display font-bold text-xl mt-1 text-ink">100% Vegetarian Certified</h3>
         <p class="mt-2 text-mute text-sm leading-relaxed">
-          Sourced directly from certified shade-grown estates in Karnataka and Kerala, ensuring fair farmer wages and sustainable biodiversity.
+          Pure estate beans roasted and packed under strict food safety standards. Certified vegetarian with zero artificial fillers.
         </p>
       </div>
       <div class="border-t-2 border-brand pt-5">
         <span class="text-xs font-bold uppercase tracking-wider text-accent">03 / Planet</span>
         <h3 class="font-display font-bold text-xl mt-1 text-ink">Closed-Loop Aluminium Recycling</h3>
         <p class="mt-2 text-mute text-sm leading-relaxed">
-          Zero plastic. Every order includes a prepaid recycling pouch to send used capsules back for recycling into new aluminium products.
+          Zero plastic waste. Send your empty pods back in our prepaid return pouches for closed-loop recycling into new aluminium products.
         </p>
       </div>
     </div>
@@ -565,7 +607,7 @@ body {
     <span>/</span>
     <a href="#series" class="underline hover:text-ink">Blends</a>
     <span>/</span>
-    <span id="pCrumb" class="text-ink font-bold">Bold Dark</span>
+    <span id="pCrumb" class="text-ink font-bold">Torino Cacao</span>
   </p>
 
   <div class="grid md:grid-cols-2 gap-10">
@@ -594,8 +636,8 @@ body {
 
     <!-- Product Details & Purchase Form -->
     <div>
-      <h1 id="pTitle" class="font-display font-bold text-3xl sm:text-4xl leading-tight text-ink">Bold Dark</h1>
-      <p id="pNotes" class="mt-2 text-mute leading-relaxed text-sm sm:text-base">Dark chocolate, toasted nuts, long creamy finish.</p>
+      <h1 id="pTitle" class="font-display font-bold text-3xl sm:text-4xl leading-tight text-ink">Torino Cacao</h1>
+      <p id="pNotes" class="mt-2 text-mute leading-relaxed text-sm sm:text-base">Dark chocolate, roasted hazelnuts, dense velvet body.</p>
       
       <!-- Price -->
       <div class="mt-5 flex items-baseline gap-3">
@@ -660,22 +702,49 @@ body {
 
       <p id="pMsg" class="mt-3 text-xs text-brand font-medium min-h-[1.25rem]" role="status"></p>
 
-      <!-- Intensity Bar -->
+      <!-- Coffee Intensity Scale (Scale of 13) -->
       <div class="mt-6 border-t border-line pt-5">
         <div class="flex justify-between items-center text-sm">
-          <span class="font-bold text-ink">Roast Intensity</span>
-          <span id="pInt" class="text-xs font-bold text-mute">10 of 12</span>
+          <span class="font-bold text-ink">Coffee Intensity Scale</span>
+          <span id="pInt" class="text-xs font-bold text-brand bg-brand/10 border border-brand/20 px-2.5 py-0.5 rounded-full">10 / 13</span>
         </div>
-        <div class="mt-2 flex gap-1" id="pBar" aria-hidden="true"></div>
+        <div class="mt-2.5 flex gap-1" id="pBar" aria-hidden="true"></div>
+      </div>
+
+      <!-- Serving Suggestions Module (Icons Ready) -->
+      <div class="mt-6 border-t border-line pt-5">
+        <div class="flex items-center justify-between mb-2.5">
+          <h4 class="font-bold text-sm text-ink">Serving Suggestions</h4>
+          <span class="text-[11px] text-mute font-medium">Optimal extraction profiles</span>
+        </div>
+        <div id="pServingIcons" class="grid grid-cols-4 gap-2 text-center text-xs">
+          <!-- Populated dynamically by JS -->
+        </div>
+      </div>
+
+      <!-- Dietary & Badges Strip -->
+      <div class="mt-6 flex flex-wrap items-center gap-2">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface border border-line text-xs font-bold text-ink shadow-sm">
+          <span class="w-3.5 h-3.5 border-2 border-green-600 rounded flex items-center justify-center p-0.5"><span class="w-1.5 h-1.5 rounded-full bg-green-600"></span></span>
+          <span>Vegetarian</span>
+        </div>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface border border-line text-xs font-bold text-brand shadow-sm">
+          <span>⚡🚚</span>
+          <span>1-2 Day Express Delivery</span>
+        </div>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface border border-line text-xs font-bold text-ink shadow-sm">
+          <span>♻️</span>
+          <span>Recyclable Aluminium</span>
+        </div>
       </div>
 
       <!-- Specs Accordion/List -->
       <dl class="mt-6 divide-y divide-line border-y border-line text-xs sm:text-sm">
-        <div class="py-3 flex justify-between"><dt class="text-mute">Roast Profile</dt><dd id="pRoast" class="font-bold text-ink">Dark</dd></div>
-        <div class="py-3 flex justify-between"><dt class="text-mute">Origin</dt><dd class="font-bold text-ink">Coorg & Chikmagalur, India</dd></div>
-        <div class="py-3 flex justify-between"><dt class="text-mute">Compatibility</dt><dd class="font-bold text-ink">All Nespresso® OriginalLine machines</dd></div>
-        <div class="py-3 flex justify-between"><dt class="text-mute">Capsule Material</dt><dd class="font-bold text-ink">100% Recyclable Aluminium</dd></div>
-        <div class="py-3 flex justify-between"><dt class="text-mute">Estimated Delivery</dt><dd class="font-bold text-ink">2 to 5 business days</dd></div>
+        <div class="py-3 flex justify-between"><dt class="text-mute">Roast Profile</dt><dd id="pRoast" class="font-bold text-ink">Dark Roast</dd></div>
+        <div class="py-3 flex justify-between"><dt class="text-mute">Dietary Classification</dt><dd class="font-bold text-green-700 flex items-center gap-1.5"><span class="w-3 h-3 border border-green-600 rounded flex items-center justify-center p-0.5"><span class="w-1.5 h-1.5 rounded-full bg-green-600"></span></span> 100% Vegetarian Certified</dd></div>
+        <div class="py-3 flex justify-between"><dt class="text-mute">Capsule Compatibility</dt><dd class="font-bold text-ink">Nespresso® OriginalLine machines</dd></div>
+        <div class="py-3 flex justify-between"><dt class="text-mute">Capsule Material</dt><dd class="font-bold text-ink">100% Recyclable Aluminium (Zero Plastic)</dd></div>
+        <div class="py-3 flex justify-between"><dt class="text-mute">Shipping Speed</dt><dd class="font-bold text-brand flex items-center gap-1"><span>⚡</span> Pan India Express: 1-2 Business Days</dd></div>
       </dl>
     </div>
   </div>
@@ -696,7 +765,7 @@ body {
     <div>
       <h1 class="font-display font-bold text-3xl sm:text-5xl leading-tight text-ink">Build your own pack</h1>
       <p class="mt-2 text-mute text-sm sm:text-base max-w-xl">
-        Pick your favorite combination of beans. Select a target pack size, mix any blends, and unlock bundle discounts.
+        Pick your favorite combination of capsules. Mix Torino Cacao, Nordic Biscotti, Lisboa Glaze, Sidamo Berry and Andes Tostado.
       </p>
     </div>
     <div class="flex gap-2">
@@ -745,7 +814,7 @@ body {
         <dl class="mt-4 text-xs sm:text-sm space-y-2 border-t border-line pt-4">
           <div class="flex justify-between"><dt class="text-mute">Subtotal</dt><dd id="bSub" class="font-bold">₹0</dd></div>
           <div class="flex justify-between text-brand font-bold"><dt id="bDiscLbl">Pack discount (10%)</dt><dd id="bDisc">−₹0</dd></div>
-          <div class="flex justify-between text-mute"><dt>Estimated Shipping</dt><dd id="bShipFee" class="font-bold text-brand">FREE</dd></div>
+          <div class="flex justify-between text-mute"><dt>Pan India Shipping (1-2 Days)</dt><dd id="bShipFee" class="font-bold text-brand">FREE</dd></div>
           <div class="flex justify-between text-base font-bold border-t border-line pt-3 text-ink"><dt>Total Amount</dt><dd id="bTotal">₹0</dd></div>
           <div class="flex justify-between text-xs text-mute"><dt>Cost per capsule</dt><dd id="bPer" class="font-bold">—</dd></div>
         </dl>
@@ -792,9 +861,7 @@ body {
   </div>
 
   <div class="mt-10 grid lg:grid-cols-12 gap-10 items-start">
-    <!-- Contact Info Cards (5 Cols) -->
     <div class="lg:col-span-5 space-y-4">
-      <!-- WhatsApp Card -->
       <div class="p-6 rounded-3xl bg-surface border border-line shadow-sm">
         <div class="flex items-center gap-3 mb-2">
           <span class="w-10 h-10 rounded-full bg-[#25D366]/20 text-[#128C7E] flex items-center justify-center text-xl">💬</span>
@@ -809,7 +876,6 @@ body {
         </a>
       </div>
 
-      <!-- Email Card -->
       <div class="p-6 rounded-3xl bg-surface border border-line shadow-sm">
         <div class="flex items-center gap-3 mb-2">
           <span class="w-10 h-10 rounded-full bg-brand/10 text-brand flex items-center justify-center text-xl">✉️</span>
@@ -822,7 +888,6 @@ body {
         <p class="text-xs text-mute mt-1">For corporate: wholesale@orelli.coffee</p>
       </div>
 
-      <!-- Roastery & Address -->
       <div class="p-6 rounded-3xl bg-surface border border-line shadow-sm">
         <div class="flex items-center gap-3 mb-2">
           <span class="w-10 h-10 rounded-full bg-accent/20 text-ink flex items-center justify-center text-xl">📍</span>
@@ -842,7 +907,6 @@ body {
       </div>
     </div>
 
-    <!-- Contact Form (7 Cols) -->
     <div class="lg:col-span-7 bg-surface rounded-3xl border border-line p-6 sm:p-8 shadow-sm">
       <h2 class="font-display font-bold text-2xl text-ink">Send us a message</h2>
       <p class="text-xs text-mute mt-1">Fill out the form below and our team will get back to you promptly.</p>
@@ -867,11 +931,11 @@ body {
           <div>
             <label class="block text-xs font-bold text-mute mb-1">Inquiry Topic</label>
             <select id="cntTopic" class="w-full rounded-xl border border-line bg-bg px-4 py-2.5 text-sm focus:outline-none focus:border-brand">
-              <option>Order & Delivery Status</option>
-              <option>Blend Recommendations</option>
+              <option>Order & Delivery Status (1-2 Days)</option>
+              <option>Blend & Intensity Recommendations</option>
+              <option>Serving Suggestions & Milk Pairing</option>
               <option>Capsule Recycling Pickup</option>
               <option>Corporate / Wholesale Orders</option>
-              <option>Roastery Visit & Tasting</option>
               <option>Other Feedback</option>
             </select>
           </div>
@@ -907,7 +971,6 @@ body {
 <!-- ========================================== -->
 <div id="cartDrawerBackdrop" class="fixed inset-0 bg-black/50 z-50 hidden opacity-0 transition-opacity duration-300" onclick="window.closeCart()"></div>
 <aside id="cartDrawer" class="fixed top-0 right-0 bottom-0 w-full sm:w-[440px] bg-surface z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out border-l border-line">
-  <!-- Cart Header -->
   <div class="p-5 border-b border-line flex items-center justify-between">
     <div class="flex items-center gap-2">
       <h2 class="font-display font-bold text-xl text-ink">Your Shopping Cart</h2>
@@ -918,10 +981,9 @@ body {
     </button>
   </div>
 
-  <!-- Free Shipping Progress -->
   <div class="px-5 py-3 bg-bg border-b border-line text-xs">
     <div class="flex justify-between font-bold mb-1">
-      <span id="freeShipText">Add ₹999 for free shipping</span>
+      <span id="freeShipText">Add ₹999 for free express shipping</span>
       <span id="freeShipStatus">🚚</span>
     </div>
     <div class="h-2 rounded-full bg-surface border border-line overflow-hidden">
@@ -929,29 +991,24 @@ body {
     </div>
   </div>
 
-  <!-- Cart Items List -->
   <div id="cartItemsList" class="flex-1 overflow-y-auto p-5 divide-y divide-line">
     <!-- Populated by JS -->
   </div>
 
-  <!-- Cart Footer -->
   <div class="p-5 border-t border-line bg-surface space-y-3">
-    <!-- Coupon Form -->
     <div class="flex gap-2">
       <input type="text" id="couponInput" placeholder="Discount code (e.g. WELCOME10)" class="flex-1 rounded-xl border border-line bg-bg px-3.5 py-2 text-xs uppercase focus:outline-none focus:border-brand">
       <button type="button" onclick="window.applyCoupon()" class="bg-brand text-brandink px-4 py-2 rounded-xl text-xs font-bold hover:opacity-90 transition">Apply</button>
     </div>
     <p id="couponMsg" class="text-xs font-bold min-h-[1rem]"></p>
 
-    <!-- Pricing Summary -->
     <dl class="text-xs sm:text-sm space-y-1.5 pt-2 border-t border-line">
       <div class="flex justify-between text-mute"><dt>Subtotal</dt><dd id="cartSubtotal" class="font-bold text-ink">₹0</dd></div>
       <div id="cartDiscountRow" class="flex justify-between text-brand font-bold hidden"><dt id="cartDiscountLbl">Discount</dt><dd id="cartDiscountVal">−₹0</dd></div>
-      <div class="flex justify-between text-mute"><dt>Shipping</dt><dd id="cartShippingVal" class="font-bold text-ink">₹99</dd></div>
+      <div class="flex justify-between text-mute"><dt>Pan-India Express (1-2 Days)</dt><dd id="cartShippingVal" class="font-bold text-ink">₹99</dd></div>
       <div class="flex justify-between text-base font-extrabold text-ink pt-2 border-t border-line"><dt>Estimated Total</dt><dd id="cartTotalVal">₹0</dd></div>
     </dl>
 
-    <!-- Checkout Buttons -->
     <div class="pt-2 space-y-2">
       <button type="button" onclick="window.openCheckout()" class="w-full bg-brand text-brandink font-bold py-3.5 rounded-full text-sm shadow hover:opacity-95 transition">
         Proceed to Checkout &rarr;
@@ -971,7 +1028,6 @@ body {
   <div class="bg-surface rounded-3xl max-w-md w-full border border-line shadow-2xl p-6 sm:p-8 animate-fade-in relative">
     <button type="button" onclick="window.closeModal('authModal')" class="absolute top-5 right-5 p-2 rounded-full hover:bg-bg text-mute hover:text-ink">✕</button>
 
-    <!-- Step 1: Mobile Number Input -->
     <div id="authStep1">
       <div class="w-12 h-12 rounded-2xl bg-brand text-brandink flex items-center justify-center text-xl font-bold mb-4 shadow-sm">
         📱
@@ -998,7 +1054,6 @@ body {
       </form>
     </div>
 
-    <!-- Step 2: OTP Verification -->
     <div id="authStep2" class="hidden">
       <div class="w-12 h-12 rounded-2xl bg-accent text-ink flex items-center justify-center text-xl font-bold mb-4 shadow-sm">
         🔒
@@ -1014,7 +1069,6 @@ body {
       </div>
 
       <form onsubmit="window.handleVerifyOtp(event)" class="space-y-4">
-        <!-- 4 Digit OTP Inputs -->
         <div class="flex justify-center gap-3 my-4">
           <input type="text" maxlength="1" id="otp1" class="otp-box w-12 h-14 text-center font-display font-extrabold text-2xl rounded-2xl border-2 border-line bg-bg focus:outline-none focus:border-brand" autofocus>
           <input type="text" maxlength="1" id="otp2" class="otp-box w-12 h-14 text-center font-display font-extrabold text-2xl rounded-2xl border-2 border-line bg-bg focus:outline-none focus:border-brand">
@@ -1056,7 +1110,6 @@ body {
       <button type="button" onclick="window.closeModal('accountModal')" class="p-2 rounded-full hover:bg-bg text-mute hover:text-ink">✕</button>
     </div>
 
-    <!-- Bean Points Loyalty -->
     <div class="mt-5 p-4 rounded-2xl bg-bg border border-line flex items-center justify-between">
       <div>
         <p class="text-xs text-mute font-bold">Orelli Bean Balance</p>
@@ -1067,7 +1120,6 @@ body {
       </span>
     </div>
 
-    <!-- Recent Orders Section -->
     <div class="mt-6">
       <h3 class="font-bold text-sm text-ink mb-3">Recent Orders</h3>
       <div id="accOrdersList" class="space-y-3">
@@ -1075,7 +1127,6 @@ body {
       </div>
     </div>
 
-    <!-- Saved Address Section -->
     <div class="mt-6">
       <h3 class="font-bold text-sm text-ink mb-2">Saved Delivery Address</h3>
       <div class="p-4 rounded-2xl bg-bg border border-line text-xs space-y-1">
@@ -1084,7 +1135,6 @@ body {
       </div>
     </div>
 
-    <!-- Logout Action -->
     <div class="mt-6 pt-4 border-t border-line flex items-center justify-between">
       <button type="button" onclick="window.logout()" class="text-xs font-bold text-brandred hover:underline flex items-center gap-1.5">
         <span>🚪</span> Log out from this device
@@ -1105,7 +1155,7 @@ body {
     <div class="flex items-center justify-between pb-4 border-b border-line">
       <div>
         <h2 class="font-display font-bold text-2xl text-ink">Complete Your Order</h2>
-        <p class="text-xs text-mute">Fast pan-India delivery</p>
+        <p class="text-xs text-mute">Pan-India Express Delivery (1-2 Days)</p>
       </div>
       <button type="button" onclick="window.closeModal('checkoutModal')" class="p-2 rounded-full hover:bg-bg text-mute hover:text-ink">✕</button>
     </div>
@@ -1163,7 +1213,7 @@ body {
 
       <div class="p-4 rounded-2xl bg-bg border border-line text-xs space-y-1">
         <div class="flex justify-between font-bold"><span>Total to Pay:</span><span id="checkoutTotalAmount">₹0</span></div>
-        <p class="text-mute">Includes all taxes and free express shipping.</p>
+        <p class="text-mute">Includes all taxes and free Pan-India Express shipping (1-2 days).</p>
       </div>
 
       <button type="submit" class="w-full bg-brand text-brandink font-bold py-3.5 rounded-full text-sm shadow hover:opacity-95 transition">
@@ -1184,7 +1234,7 @@ body {
     </div>
     <h2 class="font-display font-bold text-2xl text-ink">Order Confirmed!</h2>
     <p class="mt-2 text-sm text-mute">
-      Thank you for shopping with Orelli. We are freshly packing your coffee capsules.
+      Thank you for shopping with Orelli. We are express-dispatching your fresh coffee capsules (1-2 days delivery).
     </p>
     <div class="my-5 p-4 rounded-2xl bg-bg border border-line text-left text-xs space-y-1">
       <p><span class="font-bold">Order ID:</span> <span id="confOrderId" class="font-mono text-brand font-bold">ORL-8823</span></p>
@@ -1258,16 +1308,20 @@ body {
         <p class="mt-1 text-xs text-mute leading-relaxed">Yes! Orelli capsules are precision engineered to fit 100% of Nespresso® OriginalLine machines, including Inissia, Essenza Mini, Pixie, Citiz, Lattissima, and Creatista. (Not compatible with Vertuo machines).</p>
       </div>
       <div class="pt-3">
+        <h3 class="font-bold text-ink">Are Orelli capsules 100% Vegetarian?</h3>
+        <p class="mt-1 text-xs text-mute leading-relaxed">Yes, absolutely. All Orelli capsules contain 100% pure roasted coffee beans without any animal derivatives or artificial gelatin additives. Fully certified vegetarian.</p>
+      </div>
+      <div class="pt-3">
         <h3 class="font-bold text-ink">How do I recycle used capsules?</h3>
-        <p class="mt-1 text-xs text-mute leading-relaxed">Every order above 30 capsules comes with a complimentary return pouch. Simply collect your spent aluminium pods and request a doorstep pickup via our website or WhatsApp.</p>
+        <p class="mt-1 text-xs text-mute leading-relaxed">Every order comes with a complimentary return pouch. Simply collect your spent aluminium pods and request a doorstep pickup via our website or WhatsApp. 100% recyclable aluminium.</p>
       </div>
       <div class="pt-3">
-        <h3 class="font-bold text-ink">How fresh is the coffee?</h3>
-        <p class="mt-1 text-xs text-mute leading-relaxed">We roast weekly in small batches and flush every pod with food-grade nitrogen before sealing with aluminium foil. This ensures zero oxidation and barista-fresh aroma for up to 12 months.</p>
+        <h3 class="font-bold text-ink">How does the 1 to 13 Coffee Intensity Scale work?</h3>
+        <p class="mt-1 text-xs text-mute leading-relaxed">Our intensity scale reflects roast depth, body weight, and bitterness/sweetness balance from 1 (delicate) to 13 (ultra-intense dark roast). Lisboa Glaze is 6/13, Nordic Biscotti is 7/13, Sidamo Berry is 9/13, Torino Cacao is 10/13, and Andes Tostado is 11/13.</p>
       </div>
       <div class="pt-3">
-        <h3 class="font-bold text-ink">What are the delivery times and charges?</h3>
-        <p class="mt-1 text-xs text-mute leading-relaxed">All orders above ₹999 qualify for FREE Pan-India express delivery (2-4 business days for metros, 3-5 days for other regions). Orders below ₹999 incur a flat ₹99 shipping fee.</p>
+        <h3 class="font-bold text-ink">What is Pan-India Express Delivery speed?</h3>
+        <p class="mt-1 text-xs text-mute leading-relaxed">We dispatch all orders via express air logistics. Metro cities receive orders in 1 business day, and other locations in 2 business days. Orders above ₹999 get free express delivery.</p>
       </div>
     </div>
   </div>
@@ -1290,22 +1344,28 @@ body {
         Orelli
       </div>
       <p class="mt-3 text-xs opacity-80 leading-relaxed font-normal">
-        Specialty café coffee, one capsule away. Precision small batch roasting for Indian coffee enthusiasts.
+        Nespresso® compatible recyclable aluminium coffee capsules. 100% Vegetarian. Pan-India express delivery in 1-2 business days.
       </p>
-      <div class="mt-4 flex gap-3 text-xs opacity-85">
-        <span>🇮🇳 Roasted in India</span>
+      <div class="mt-4 flex flex-wrap gap-2.5 text-xs opacity-85">
+        <span class="inline-flex items-center gap-1">
+          <span class="w-2.5 h-2.5 border border-green-500 rounded flex items-center justify-center p-0.5"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span></span>
+          Vegetarian
+        </span>
         <span>•</span>
-        <span>♻️ 100% Recyclable</span>
+        <span>⚡ 1-2 Day Shipping</span>
+        <span>•</span>
+        <span>♻️ Aluminium</span>
       </div>
     </div>
 
     <div>
-      <p class="font-bold text-xs uppercase tracking-wider text-accent mb-3">Shop & Explore</p>
+      <p class="font-bold text-xs uppercase tracking-wider text-accent mb-3">Our 5 Blends</p>
       <ul class="space-y-2 text-xs opacity-80">
-        <li><a href="#series" class="hover:underline">All Coffee Blends</a></li>
-        <li><a href="#builder" class="hover:underline">Custom Pack Builder</a></li>
-        <li><button type="button" onclick="window.openModal('businessModal')" class="hover:underline">Wholesale / For Offices</button></li>
-        <li><a href="#contact" class="hover:underline">Contact Roastery Team</a></li>
+        <li><button type="button" onclick="window.selectBlendAndGo(0)" class="hover:underline">Torino Cacao (10/13)</button></li>
+        <li><button type="button" onclick="window.selectBlendAndGo(1)" class="hover:underline">Nordic Biscotti (7/13)</button></li>
+        <li><button type="button" onclick="window.selectBlendAndGo(2)" class="hover:underline">Lisboa Glaze (6/13)</button></li>
+        <li><button type="button" onclick="window.selectBlendAndGo(3)" class="hover:underline">Sidamo Berry (9/13)</button></li>
+        <li><button type="button" onclick="window.selectBlendAndGo(4)" class="hover:underline">Andes Tostado (11/13)</button></li>
       </ul>
     </div>
 
@@ -1321,7 +1381,7 @@ body {
 
     <div>
       <p class="font-bold text-xs uppercase tracking-wider text-accent mb-3">Stay Connected</p>
-      <p class="text-xs opacity-80 mb-3">Follow our coffee roasting journeys in Coorg:</p>
+      <p class="text-xs opacity-80 mb-3">Follow our coffee roasting journeys:</p>
       <div class="flex gap-3 text-sm">
         <a href="#" class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition">📷 Instagram</a>
         <a href="#" class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition">💬 WhatsApp</a>
@@ -1330,7 +1390,7 @@ body {
   </div>
 
   <div class="max-w-6xl mx-auto px-5 pb-8 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] opacity-70 gap-4">
-    <p>© 2026 Orelli Coffee Co. All rights reserved. Nespresso® is a registered trademark of Nestlé S.A. Orelli is not affiliated with Nestlé.</p>
+    <p>© 2026 Orelli Coffee Co. All rights reserved. Nespresso® is a registered trademark of Société des Produits Nestlé S.A. Orelli is not affiliated with Nestlé.</p>
     <div class="flex gap-4">
       <a href="#" class="hover:underline">Privacy Policy</a>
       <a href="#" class="hover:underline">Terms of Service</a>
@@ -1347,67 +1407,109 @@ body {
 (function() {
   'use strict';
 
-  // Master Data: 5 Distinct Coffee Blends with Official Brand Colors
+  // Master Data: The 5 Official Coffee Blends with Exact Intensity Scale (out of 13)
   var BLENDS = [
     {
-      id: 'bold-dark',
-      n: 'Bold Dark',
-      c: '#154734', // Official Brand Green
+      id: 'torino-cacao',
+      n: 'Torino Cacao',
+      c: '#154734', // Brand Green
       p: 499,
-      i: 10,
+      i: 10,        // Intensity: 10/13
       r: 'Dark Roast',
-      t: 'Dark chocolate, roasted hazelnuts, heavy body, long finish.',
+      t: 'Intense dark cocoa, roasted hazelnuts, dense velvet Italian body.',
       s: true,
-      tag: 'Best Seller',
-      bgClass: 'img-box1'
+      tag: 'Italian Heritage',
+      bgClass: 'img-box1',
+      serve: ['Espresso (40ml)', 'With Milk / Cappuccino'],
+      serveIcons: ['espresso', 'milk']
     },
     {
-      id: 'smooth-caramel',
-      n: 'Smooth Caramel',
-      c: '#D8A500', // Official Brand Gold
+      id: 'nordic-biscotti',
+      n: 'Nordic Biscotti',
+      c: '#D8A500', // Brand Gold
       p: 519,
-      i: 6,
+      i: 7,         // Intensity: 7/13
       r: 'Medium Roast',
-      t: 'Soft caramel, milk chocolate, round sweetness, velvety crema.',
+      t: 'Toasted almonds, baked golden biscotti, spiced honey warmth, delicate aroma.',
       s: true,
-      tag: 'Customer Favorite',
-      bgClass: 'img-box2'
+      tag: 'Nordic Roast',
+      bgClass: 'img-box2',
+      serve: ['Lungo (110ml)', 'Espresso (40ml)'],
+      serveIcons: ['lungo', 'espresso']
     },
     {
-      id: 'fruity-bright',
-      n: 'Fruity Bright',
-      c: '#A82B11', // Official Brand Red
+      id: 'lisboa-glaze',
+      n: 'Lisboa Glaze',
+      c: '#C67D28', // Caramel Amber
+      p: 499,
+      i: 6,         // Intensity: 6/13
+      r: 'Medium-Light Roast',
+      t: 'Pastel de nata pastry sweetness, caramelized brown sugar, smooth silky glaze.',
+      s: true,
+      tag: 'Smooth & Sweet',
+      bgClass: 'img-box3',
+      serve: ['Lungo (110ml)', 'With Milk / Latte'],
+      serveIcons: ['lungo', 'milk']
+    },
+    {
+      id: 'sidamo-berry',
+      n: 'Sidamo Berry',
+      c: '#A82B11', // Brand Red
       p: 549,
-      i: 7,
-      r: 'Light-Medium',
-      t: 'Wild red berries, citrus zest lift, jasmine aroma, clean finish.',
+      i: 9,         // Intensity: 9/13
+      r: 'Light-Medium Roast',
+      t: 'Wild sun-dried berries, jasmine floral aroma, dark cherry, lively citrus acidity.',
       s: true,
       tag: 'Single Origin',
-      bgClass: 'img-box3'
+      bgClass: 'img-box4',
+      serve: ['Espresso (40ml)', 'Ristretto (25ml)'],
+      serveIcons: ['espresso', 'ristretto']
     },
     {
-      id: 'vanilla-creamy',
-      n: 'Vanilla Creamy',
-      c: '#6B3B55',
-      p: 499,
-      i: 5,
-      r: 'Medium Roast',
-      t: 'Madagascar vanilla, sweet cream, buttery finish, pairs great with milk.',
+      id: 'andes-tostado',
+      n: 'Andes Tostado',
+      c: '#202B24', // Deep Andean Dark
+      p: 529,
+      i: 11,        // Intensity: 11/13
+      r: 'Intense Dark Roast',
+      t: 'High-altitude Andean beans, intense smoky molasses, bold dark chocolate, thick crema.',
       s: true,
-      tag: 'Flavoured',
-      bgClass: 'img-box4'
+      tag: 'High Intensity',
+      bgClass: 'img-box5',
+      serve: ['Ristretto (25ml)', 'Espresso (40ml)', 'Cortado'],
+      serveIcons: ['ristretto', 'espresso', 'milk']
+    }
+  ];
+
+  // Serving Suggestions Master Definitions with SVG Icons
+  var SERVING_TYPES = [
+    {
+      key: 'ristretto',
+      name: 'Ristretto',
+      vol: '25 ml',
+      desc: 'Short & intense shot',
+      iconSvg: '<svg class="w-6 h-6 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v7a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/></svg>'
     },
     {
-      id: 'decaf-smooth',
-      n: 'Decaf Smooth',
-      c: '#2D556E',
-      p: 519,
-      i: 5,
-      r: 'Medium Roast',
-      t: 'Swiss Water process, rich cocoa, toasted almond, zero caffeine.',
-      s: false,
-      tag: 'Sold Out',
-      bgClass: 'img-box5'
+      key: 'espresso',
+      name: 'Espresso',
+      vol: '40 ml',
+      desc: 'Classic cup with crema',
+      iconSvg: '<svg class="w-6 h-6 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v8a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>'
+    },
+    {
+      key: 'lungo',
+      name: 'Lungo',
+      vol: '110 ml',
+      desc: 'Extended smooth cup',
+      iconSvg: '<svg class="w-6 h-6 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 7h1a4 4 0 0 1 0 8h-1"/><path d="M3 6h16v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6z"/><line x1="7" y1="2" x2="7" y2="4"/><line x1="11" y1="2" x2="11" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/></svg>'
+    },
+    {
+      key: 'milk',
+      name: 'With Milk',
+      vol: 'Latte / Cappuccino',
+      desc: 'Blends with warm froth',
+      iconSvg: '<svg class="w-6 h-6 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2h8v4H8z"/><path d="M7 6h10l1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L7 6z"/><path d="M10 13c1 1 3 1 4 0"/></svg>'
     }
   ];
 
@@ -1435,8 +1537,8 @@ body {
       v: 'v1'
     },
     builder: {
-      k: 1, // default 30 pods
-      q: [10, 10, 10, 0, 0]
+      k: 1,
+      q: [10, 5, 5, 5, 5]
     },
     cart: [],
     discountCode: null,
@@ -1444,7 +1546,6 @@ body {
     user: null
   };
 
-  // DOM Helper
   function $(id) {
     return document.getElementById(id);
   }
@@ -1453,7 +1554,6 @@ body {
     return '₹' + Math.round(amount).toLocaleString('en-IN');
   }
 
-  // Toast Notification
   function showToast(msg) {
     var t = $('toast');
     $('toastMsg').textContent = msg;
@@ -1465,7 +1565,7 @@ body {
   }
 
   // -------------------------------------------------------------
-  // USER AUTHENTICATION & OTP SYSTEM
+  // USER AUTH & OTP SYSTEM
   // -------------------------------------------------------------
   var otpCountdownTimer = null;
   var currentPendingPhone = '';
@@ -1616,7 +1716,7 @@ body {
         {
           id: 'ORL-9210',
           date: '18 Nov 2026',
-          items: '30 × Bold Dark Capsules',
+          items: '30 × Torino Cacao Capsules',
           total: '₹1,347',
           status: 'In Transit'
         }
@@ -1663,14 +1763,11 @@ body {
   };
 
   // -------------------------------------------------------------
-  // CONTACT PAGE HANDLING
+  // CONTACT PAGE
   // -------------------------------------------------------------
   window.handleContactSubmit = function(e) {
     e.preventDefault();
-    var name = $('cntName').value;
-    var topic = $('cntTopic').value;
     var tkt = 'ORL-' + Math.floor(2000 + Math.random() * 8000);
-
     $('ticketNum').textContent = '#' + tkt;
     $('contactSuccess').classList.remove('hidden');
     $('contactForm').reset();
@@ -1741,7 +1838,7 @@ body {
         <div class="h-full flex flex-col items-center justify-center text-center p-8 text-mute">
           <span class="text-5xl mb-3">☕</span>
           <p class="font-bold text-base text-ink font-display">Your cart is empty</p>
-          <p class="text-xs mt-1">Explore our artisanal blends and pick your favorites.</p>
+          <p class="text-xs mt-1">Explore our 5 signature blends (100% Vegetarian & Recyclable).</p>
           <button type="button" onclick="window.closeCart(); location.hash='series';" class="mt-4 bg-brand text-brandink px-5 py-2.5 rounded-full text-xs font-bold">
             Shop Capsules
           </button>
@@ -1787,7 +1884,7 @@ body {
       $('cartDiscountRow').classList.add('hidden');
     }
 
-    $('cartShippingVal').textContent = shipping === 0 ? 'FREE' : inr(shipping);
+    $('cartShippingVal').textContent = shipping === 0 ? 'FREE (1-2 Days)' : inr(shipping);
     $('cartTotalVal').textContent = inr(total);
 
     var shipRemain = Math.max(0, 999 - subtotal);
@@ -1795,11 +1892,11 @@ body {
     $('freeShipBar').style.width = shipPct + '%';
 
     if (subtotal === 0) {
-      $('freeShipText').textContent = 'Add items for free delivery';
+      $('freeShipText').textContent = 'Add items for free express 1-2 day delivery';
     } else if (shipRemain > 0) {
-      $('freeShipText').textContent = 'Add ' + inr(shipRemain) + ' more for FREE shipping';
+      $('freeShipText').textContent = 'Add ' + inr(shipRemain) + ' more for FREE Express Shipping (1-2 Days)';
     } else {
-      $('freeShipText').textContent = '🎉 You unlocked FREE Pan-India Shipping!';
+      $('freeShipText').textContent = '🎉 FREE Pan-India Express Shipping (1-2 Days) Unlocked!';
     }
   }
 
@@ -1855,9 +1952,9 @@ body {
 
     lines.push('%0A*Subtotal:* ' + inr(subtotal));
     if (discount > 0) lines.push('*Discount:* -' + inr(discount));
-    lines.push('*Shipping:* ' + (shipping === 0 ? 'FREE' : inr(shipping)));
+    lines.push('*Express Shipping (1-2 Days):* ' + (shipping === 0 ? 'FREE' : inr(shipping)));
     lines.push('*Estimated Total:* ' + inr(total));
-    lines.push('%0APlease let me know the payment details and delivery timeline.');
+    lines.push('%0APlease share payment details for express delivery.');
 
     var url = 'https://wa.me/919876543210?text=' + lines.join('%0A');
     window.open(url, '_blank');
@@ -1904,7 +2001,7 @@ body {
       date: 'Today',
       items: itemsDesc,
       total: total,
-      status: 'Processing'
+      status: 'Processing (Express 1-2 Days)'
     });
     saveAuth();
 
@@ -1945,28 +2042,64 @@ body {
   };
 
   // -------------------------------------------------------------
-  // HOME VIEW CARDS & ACTIONS
+  // HOME VIEW CARDS & PRODUCTS RENDERING
   // -------------------------------------------------------------
   function renderHomeProducts() {
     var grid = $('homeProductsGrid');
     if (!grid) return;
 
     grid.innerHTML = BLENDS.map(function(b, idx) {
+      // 13-point intensity mini bar
+      var miniBar = Array.from({ length: 13 }, function(_, j) {
+        return `<span class="h-1.5 flex-1 rounded-full ${j < b.i ? 'bg-brand' : 'bg-line'}"></span>`;
+      }).join('');
+
       return `
         <article class="rounded-2xl border border-line bg-bg p-4 flex flex-col justify-between shadow-sm hover:shadow-md transition">
           <div>
             <div class="aspect-square rounded-xl bg-surface relative overflow-hidden cursor-pointer" onclick="window.selectBlendAndGo(${idx})">
               <div class="${b.bgClass} w-full h-full rounded-xl transition-transform duration-300 hover:scale-105" role="img" aria-label="${b.n}"></div>
-              <span class="absolute top-2 left-2 text-[10px] font-bold px-2 py-0.5 rounded-full ${b.s ? 'bg-brand text-brandink' : 'bg-mute text-white'}">
-                ${b.tag}
+              
+              <!-- Badges on image -->
+              <div class="absolute top-2 left-2 flex items-center gap-1.5">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand text-brandink shadow-sm">
+                  ${b.tag}
+                </span>
+                <span class="w-4 h-4 bg-surface/90 border border-green-600 rounded flex items-center justify-center p-0.5" title="100% Vegetarian">
+                  <span class="w-2 h-2 rounded-full bg-green-600"></span>
+                </span>
+              </div>
+
+              <!-- Intensity Pill on top right -->
+              <span class="absolute top-2 right-2 bg-surface/95 border border-line text-ink text-[10px] font-extrabold px-2 py-0.5 rounded-full shadow-sm">
+                ${b.i}/13
               </span>
             </div>
             
             <div class="mt-3.5">
-              <h3 class="font-display font-bold text-base text-ink cursor-pointer hover:underline" onclick="window.selectBlendAndGo(${idx})">${b.n}</h3>
-              <p class="text-xs text-mute mt-0.5 line-clamp-1">${b.t.split(',')[0]}</p>
+              <div class="flex items-center justify-between">
+                <h3 class="font-display font-bold text-base text-ink cursor-pointer hover:underline" onclick="window.selectBlendAndGo(${idx})">${b.n}</h3>
+                <span class="text-[10px] font-bold text-mute">${b.r}</span>
+              </div>
+              <p class="text-xs text-mute mt-0.5 line-clamp-1">${b.t}</p>
+
+              <!-- Intensity Scale Mini Indicator -->
+              <div class="mt-2.5">
+                <div class="flex justify-between items-center text-[10px] text-mute font-bold mb-1">
+                  <span>Intensity Scale</span>
+                  <span class="text-brand">${b.i}/13</span>
+                </div>
+                <div class="flex gap-0.5">${miniBar}</div>
+              </div>
+
+              <!-- Serving suggestions on card -->
+              <div class="mt-2 text-[10px] text-mute flex items-center gap-1 font-medium bg-surface/80 border border-line px-2 py-1 rounded-lg">
+                <span class="font-bold text-ink">Best as:</span>
+                <span class="truncate">${b.serve.join(' • ')}</span>
+              </div>
             </div>
 
+            <!-- Pack Selection Chips -->
             <div class="mt-3 flex flex-wrap gap-1.5" id="homePacks-${idx}">
               ${PACKS.map(function(p, pkIdx) {
                 return `
@@ -2041,7 +2174,7 @@ body {
     var item = {
       id: 'blend-' + b.id + '-' + pk.n + (st.sub ? '-sub' : ''),
       title: b.n,
-      variant: pk.n + ' pods' + (st.sub ? ' (Subscription • Every 4 weeks)' : ' (One-time)'),
+      variant: pk.n + ' pods (' + b.i + '/13 Intensity)' + (st.sub ? ' (Subscription • Every 4 weeks)' : ' (One-time)'),
       price: unitPrice,
       qty: 1,
       color: b.c,
@@ -2068,7 +2201,7 @@ body {
   };
 
   // -------------------------------------------------------------
-  // PRODUCT VIEW
+  // PRODUCT DETAIL VIEW RENDERING
   // -------------------------------------------------------------
   function renderProductView() {
     var b = BLENDS[state.product.b];
@@ -2080,10 +2213,24 @@ body {
     $('pCrumb').textContent = b.n;
     $('pNotes').textContent = b.t;
     $('pRoast').textContent = b.r;
-    $('pInt').textContent = b.i + ' of 12';
+    $('pInt').textContent = b.i + ' of 13';
 
-    $('pBar').innerHTML = Array.from({ length: 12 }, function(_, j) {
-      return `<span class="h-2 flex-1 rounded-full ${j < b.i ? 'bg-brand' : 'bg-line'}"></span>`;
+    // 13 segment intensity scale bar
+    $('pBar').innerHTML = Array.from({ length: 13 }, function(_, j) {
+      return `<span class="h-2.5 flex-1 rounded-full ${j < b.i ? 'bg-brand' : 'bg-line'}"></span>`;
+    }).join('');
+
+    // Dynamic Serving Suggestions Rendering with active indicators
+    $('pServingIcons').innerHTML = SERVING_TYPES.map(function(s) {
+      var isRecommended = b.serveIcons.includes(s.key);
+      return `
+        <div class="p-2.5 rounded-2xl border transition-all ${isRecommended ? 'border-brand bg-brand/10 shadow-sm' : 'border-line bg-surface opacity-60'}">
+          <div class="${isRecommended ? 'text-brand' : 'text-mute'}">${s.iconSvg}</div>
+          <p class="font-bold text-xs mt-1 text-ink">${s.name}</p>
+          <p class="text-[10px] text-mute">${s.vol}</p>
+          ${isRecommended ? '<span class="inline-block mt-1 bg-brand text-brandink text-[9px] font-bold px-1.5 py-0.2 rounded-full">Recommended</span>' : '<span class="inline-block mt-1 text-[9px] text-mute">Compatible</span>'}
+        </div>
+      `;
     }).join('');
 
     var badge = $('pStockBadge');
@@ -2114,11 +2261,14 @@ body {
       return `
         <button type="button" class="opt text-xs ${j === state.product.b ? 'border-brand' : ''}" 
           data-b="${j}" aria-pressed="${j === state.product.b}">
-          <div class="flex items-center gap-2">
-            <span class="inline-block w-3 h-3 rounded-full shrink-0" style="background:${x.c}"></span>
-            <span class="font-bold truncate">${x.n}</span>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-3 h-3 rounded-full shrink-0" style="background:${x.c}"></span>
+              <span class="font-bold truncate">${x.n}</span>
+            </div>
+            <span class="text-[10px] font-extrabold text-mute">${x.i}/13</span>
           </div>
-          ${x.s ? '' : '<span class="block text-[10px] text-mute mt-0.5">Sold out</span>'}
+          <span class="block text-[10px] text-mute mt-0.5 truncate">${x.r}</span>
         </button>
       `;
     }).join('');
@@ -2192,7 +2342,7 @@ body {
       var item = {
         id: 'blend-' + b.id + '-' + pk.n + (isSub ? '-sub' : ''),
         title: b.n,
-        variant: pk.n + ' pods' + (isSub ? ' (' + $('pFreq').value + ' Subscription)' : ' (One-time)'),
+        variant: pk.n + ' pods (' + b.i + '/13 Intensity)' + (isSub ? ' (' + $('pFreq').value + ' Subscription)' : ' (One-time)'),
         price: unitPrice,
         qty: state.product.q,
         color: b.c,
@@ -2231,9 +2381,10 @@ body {
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full" style="background:${b.c}"></span>
               <p class="font-bold text-sm sm:text-base text-ink">${b.n}</p>
+              <span class="text-[10px] bg-surface border border-line font-extrabold px-1.5 py-0.2 rounded">${b.i}/13</span>
             </div>
-            <p class="text-xs text-mute mt-0.5 line-clamp-1">${b.t.split(',')[0]}</p>
-            <p class="text-[11px] text-mute font-medium mt-0.5">${inr(b.p / 10)} / capsule</p>
+            <p class="text-xs text-mute mt-0.5 line-clamp-1">${b.t}</p>
+            <p class="text-[11px] text-mute font-medium mt-0.5">${inr(b.p / 10)} / capsule • ${b.serve[0]}</p>
           </div>
           ${b.s ? `
             <div class="flex items-center border-2 border-line rounded-full bg-surface">
@@ -2312,8 +2463,8 @@ body {
     $('bPer').textContent = current > 0 ? inr(total / current) : '—';
 
     $('bShip').textContent = total >= 999 
-      ? '✓ Free shipping unlocked for this pack!' 
-      : 'Add ' + inr(999 - total) + ' more to get free delivery.';
+      ? '✓ Free Pan India Express Shipping (1-2 Days) applied!' 
+      : 'Add ' + inr(999 - total) + ' more to get free express delivery.';
 
     document.querySelectorAll('.bCta').forEach(function(btn) {
       btn.disabled = (remaining !== 0);
@@ -2448,7 +2599,7 @@ body {
   });
 
   // -------------------------------------------------------------
-  // SPA ROUTING (Home, Product, Builder, Contact)
+  // SPA ROUTING
   // -------------------------------------------------------------
   function route() {
     var h = location.hash;
@@ -2479,7 +2630,6 @@ body {
 
   window.addEventListener('hashchange', route);
 
-  // Initialize Application
   renderHomeProducts();
   loadCart();
   loadAuth();
