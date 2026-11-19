@@ -5,19 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Orelli Coffee: Café-Quality Coffee, One Capsule Away</title>
 <meta name="description" content="Artisanal specialty coffee roasted in small batches, sealed in recyclable aluminium capsules for Nespresso® Original machines. Pan-India shipping.">
-<meta name="theme-color" content="#1F4A37">
+<meta name="theme-color" content="#154734">
 
 <!-- OpenGraph / Social Meta -->
 <meta property="og:title" content="Orelli Coffee: Café-Quality Coffee, One Capsule Away">
 <meta property="og:description" content="Specialty coffee capsules roasted in small batches. Fits Nespresso® Original machines.">
 <meta property="og:type" content="website">
 
-<!-- Favicon (Inline SVG Coffee Bean / Pod) -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231F4A37'/%3E%3Ccircle cx='16' cy='16' r='9' fill='%23E3A21A'/%3E%3Cellipse cx='16' cy='16' rx='5' ry='8' fill='%23F4F7F1' transform='rotate(25 16 16)'/%3E%3Cpath d='M15 8c2 4-2 12 0 16' stroke='%231F4A37' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+<!-- Favicon (Inline SVG Coffee Bean / Pod with Official Brand Colors) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23154734'/%3E%3Ccircle cx='16' cy='16' r='9' fill='%23D8A500'/%3E%3Cellipse cx='16' cy='16' rx='5' ry='8' fill='%23F7FAF5' transform='rotate(25 16 16)'/%3E%3Cpath d='M15 8c2 4-2 12 0 16' stroke='%23154734' stroke-width='2' fill='none'/%3E%3C/svg%3E">
 
+<!-- Google Fonts: Figtree (Body/Sans) + Gilda Display / Playfair Display (Gilden Serif fallback) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Gilda+Display&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap">
 <script src="https://cdn.tailwindcss.com/3.4.17"></script>
 <script>
 tailwind.config = {
@@ -31,53 +32,68 @@ tailwind.config = {
         brand: 'var(--brand)',
         brandink: 'var(--brandink)',
         accent: 'var(--accent)',
+        brandred: 'var(--brandred)',
         line: 'var(--line)'
       },
       fontFamily: {
-        display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
-        body: ['"DM Sans"', 'system-ui', 'sans-serif']
+        display: ['"Gilden"', '"Gilda Display"', '"Playfair Display"', 'Georgia', 'serif'],
+        body: ['"Figtree"', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['"Figtree"', 'system-ui', '-apple-system', 'sans-serif']
       }
     }
   }
 };
 </script>
 <style>
+/* Font-face declaration for Gilden with graceful web fallbacks */
+@font-face {
+  font-family: 'Gilden';
+  src: local('Gilden'), local('Gilda Display'), url('https://fonts.gstatic.com/s/gildadisplay/v17/m8JWjf1WiWJg9_H673e4bZq1kU-h.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* Official Brand Palette Tokens */
 :root {
-  --bg: #EEF1EA;
+  --brand: #154734;       /* Official Green: HEX #154734, RGB(21, 71, 52) */
+  --accent: #D8A500;      /* Official Gold: HEX #D8A500, RGB(216, 165, 0) */
+  --brandred: #A82B11;    /* Official Red: HEX #A82B11, RGB(168, 43, 17) */
+  --bg: #F5F7F3;
   --surface: #FFFFFF;
-  --ink: #1C2A22;
-  --mute: #5B6B61;
-  --brand: #1F4A37;
-  --brandink: #F4F7F1;
-  --accent: #E3A21A;
-  --line: #D5DBD0;
-  --bx: #1F4A37;
+  --ink: #11221A;
+  --mute: #54685D;
+  --brandink: #F7FAF5;
+  --line: #D5DFD9;
+  --bx: #154734;
   box-sizing: border-box;
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  --bg: #111A14;
-  --surface: #18241D;
-  --ink: #EAF0E8;
-  --mute: #9BB0A1;
-  --brand: #75C69C;
-  --brandink: #0D1711;
-  --accent: #F2BA42;
-  --line: #29382F;
+  --brand: #62B893;
+  --accent: #E5B425;
+  --brandred: #E64E30;
+  --bg: #0D1913;
+  --surface: #14251D;
+  --ink: #EAF2EC;
+  --mute: #94AA9E;
+  --brandink: #07140E;
+  --line: #22382D;
+  --bx: #62B893;
   color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #111A14;
-    --surface: #18241D;
-    --ink: #EAF0E8;
-    --mute: #9BB0A1;
-    --brand: #75C69C;
-    --brandink: #0D1711;
-    --accent: #F2BA42;
-    --line: #29382F;
+    --brand: #62B893;
+    --accent: #E5B425;
+    --brandred: #E64E30;
+    --bg: #0D1913;
+    --surface: #14251D;
+    --ink: #EAF2EC;
+    --mute: #94AA9E;
+    --brandink: #07140E;
+    --line: #22382D;
+    --bx: #62B893;
     color-scheme: dark;
   }
 }
@@ -90,7 +106,7 @@ html {
 body {
   background-color: var(--bg);
   color: var(--ink);
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
   transition: background-color 0.2s ease, color 0.2s ease;
   min-height: 100vh;
   display: flex;
@@ -100,7 +116,7 @@ body {
 .pod {
   border-radius: 9999px;
   background: radial-gradient(circle at 35% 30%, var(--accent) 0 14%, var(--brand) 15% 55%, var(--ink) 56% 100%);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 14px rgba(21, 71, 52, 0.2);
 }
 
 .chip {
@@ -173,29 +189,29 @@ body {
   background: var(--mute);
 }
 
-/* SVG illustrations */
+/* Official SVG illustrations */
 .img-hero, .img-box1, .img-box2, .img-box3, .img-box4, .img-box5 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 .img-hero {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'><rect width='800' height='600' fill='%231F4A37'/><circle cx='520' cy='230' r='210' fill='%23E3A21A'/><ellipse cx='400' cy='470' rx='260' ry='46' fill='%23F4F7F1'/><ellipse cx='400' cy='455' rx='200' ry='32' fill='%23D7E3D3'/><path d='M250 270h300v70c0 80-60 130-150 130s-150-50-150-130z' fill='%23FFFFFF'/><ellipse cx='400' cy='270' rx='150' ry='30' fill='%235A3A2A'/><path d='M550 300c60 0 70 90-10 100' fill='none' stroke='%23FFFFFF' stroke-width='22'/><path d='M350 220c-30-40 30-60 0-100M410 220c-30-40 30-60 0-100M470 220c-30-40 30-60 0-100' fill='none' stroke='%23F4F7F1' stroke-width='10' stroke-linecap='round' opacity='.7'/></svg>");
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'><rect width='800' height='600' fill='%23154734'/><circle cx='520' cy='230' r='210' fill='%23D8A500'/><ellipse cx='400' cy='470' rx='260' ry='46' fill='%23F7FAF5'/><ellipse cx='400' cy='455' rx='200' ry='32' fill='%23D5DFD9'/><path d='M250 270h300v70c0 80-60 130-150 130s-150-50-150-130z' fill='%23FFFFFF'/><ellipse cx='400' cy='270' rx='150' ry='30' fill='%2338241B'/><path d='M550 300c60 0 70 90-10 100' fill='none' stroke='%23FFFFFF' stroke-width='22'/><path d='M350 220c-30-40 30-60 0-100M410 220c-30-40 30-60 0-100M470 220c-30-40 30-60 0-100' fill='none' stroke='%23F7FAF5' stroke-width='10' stroke-linecap='round' opacity='.7'/></svg>");
 }
 .img-box1 {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23EEF1EA'/><circle cx='300' cy='110' r='70' fill='%23E3A21A' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%231F4A37'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F4F7F1' font-family='sans-serif' font-weight='bold' font-size='16' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F4F7F1'/><circle cx='200' cy='245' r='14' fill='%231F4A37'/><circle cx='330' cy='330' r='26' fill='%231F4A37'/><circle cx='330' cy='330' r='9' fill='%23E3A21A'/></svg>");
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23F5F7F3'/><circle cx='300' cy='110' r='70' fill='%23D8A500' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%23154734'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F7FAF5' font-family='serif' font-weight='bold' font-size='17' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F7FAF5'/><circle cx='200' cy='245' r='14' fill='%23154734'/><circle cx='330' cy='330' r='26' fill='%23154734'/><circle cx='330' cy='330' r='9' fill='%23D8A500'/></svg>");
 }
 .img-box2 {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23EEF1EA'/><circle cx='300' cy='110' r='70' fill='%231F4A37' opacity='.25'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%23B97A0F'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F4F7F1' font-family='sans-serif' font-weight='bold' font-size='16' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F4F7F1'/><circle cx='200' cy='245' r='14' fill='%23B97A0F'/><circle cx='330' cy='330' r='26' fill='%23B97A0F'/><circle cx='330' cy='330' r='9' fill='%231F4A37'/></svg>");
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23F5F7F3'/><circle cx='300' cy='110' r='70' fill='%23154734' opacity='.25'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%23D8A500'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23154734' font-family='serif' font-weight='bold' font-size='17' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F7FAF5'/><circle cx='200' cy='245' r='14' fill='%23D8A500'/><circle cx='330' cy='330' r='26' fill='%23D8A500'/><circle cx='330' cy='330' r='9' fill='%23154734'/></svg>");
 }
 .img-box3 {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23EEF1EA'/><circle cx='300' cy='110' r='70' fill='%23E3A21A' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%238A2F3F'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F4F7F1' font-family='sans-serif' font-weight='bold' font-size='16' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F4F7F1'/><circle cx='200' cy='245' r='14' fill='%238A2F3F'/><circle cx='330' cy='330' r='26' fill='%238A2F3F'/><circle cx='330' cy='330' r='9' fill='%23E3A21A'/></svg>");
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23F5F7F3'/><circle cx='300' cy='110' r='70' fill='%23D8A500' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%23A82B11'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F7FAF5' font-family='serif' font-weight='bold' font-size='17' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F7FAF5'/><circle cx='200' cy='245' r='14' fill='%23A82B11'/><circle cx='330' cy='330' r='26' fill='%23A82B11'/><circle cx='330' cy='330' r='9' fill='%23D8A500'/></svg>");
 }
 .img-box4 {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23EEF1EA'/><circle cx='300' cy='110' r='70' fill='%23E3A21A' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%236B3B55'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F4F7F1' font-family='sans-serif' font-weight='bold' font-size='16' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F4F7F1'/><circle cx='200' cy='245' r='14' fill='%236B3B55'/><circle cx='330' cy='330' r='26' fill='%236B3B55'/><circle cx='330' cy='330' r='9' fill='%23E3A21A'/></svg>");
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23F5F7F3'/><circle cx='300' cy='110' r='70' fill='%23D8A500' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%236B3B55'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F7FAF5' font-family='serif' font-weight='bold' font-size='17' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F7FAF5'/><circle cx='200' cy='245' r='14' fill='%236B3B55'/><circle cx='330' cy='330' r='26' fill='%236B3B55'/><circle cx='330' cy='330' r='9' fill='%23D8A500'/></svg>");
 }
 .img-box5 {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23EEF1EA'/><circle cx='300' cy='110' r='70' fill='%23E3A21A' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%233F5F73'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F4F7F1' font-family='sans-serif' font-weight='bold' font-size='16' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F4F7F1'/><circle cx='200' cy='245' r='14' fill='%233F5F73'/><circle cx='330' cy='330' r='26' fill='%233F5F73'/><circle cx='330' cy='330' r='9' fill='%23E3A21A'/></svg>");
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='%23F5F7F3'/><circle cx='300' cy='110' r='70' fill='%23D8A500' opacity='.35'/><rect x='90' y='120' width='220' height='200' rx='14' fill='%232D556E'/><rect x='90' y='120' width='220' height='56' rx='14' fill='%23000' opacity='.15'/><text x='200' y='155' fill='%23F7FAF5' font-family='serif' font-weight='bold' font-size='17' text-anchor='middle' letter-spacing='2'>ORELLI</text><circle cx='200' cy='245' r='34' fill='%23F7FAF5'/><circle cx='200' cy='245' r='14' fill='%232D556E'/><circle cx='330' cy='330' r='26' fill='%232D556E'/><circle cx='330' cy='330' r='9' fill='%23D8A500'/></svg>");
 }
 </style>
 </head>
@@ -209,9 +225,9 @@ body {
     <circle cx="310" cy="100" r="75" fill="var(--accent)" opacity=".3"/>
     <rect x="85" y="105" width="230" height="220" rx="18" fill="var(--bx)"/>
     <rect x="85" y="105" width="230" height="58" rx="18" fill="#000" opacity=".2"/>
-    <text x="200" y="142" fill="#F4F7F1" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="20" text-anchor="middle" letter-spacing="3">ORELLI</text>
-    <text x="200" y="185" fill="#F4F7F1" font-family="'DM Sans', sans-serif" font-weight="500" font-size="12" text-anchor="middle" opacity=".85">ALUMINIUM CAPSULES</text>
-    <circle cx="200" cy="245" r="38" fill="#F4F7F1"/>
+    <text x="200" y="142" fill="#F7FAF5" font-family="'Gilden', 'Gilda Display', 'Playfair Display', serif" font-weight="700" font-size="22" text-anchor="middle" letter-spacing="3">ORELLI</text>
+    <text x="200" y="185" fill="#F7FAF5" font-family="'Figtree', sans-serif" font-weight="600" font-size="11" text-anchor="middle" opacity=".85" letter-spacing="1.5">ALUMINIUM CAPSULES</text>
+    <circle cx="200" cy="245" r="38" fill="#F7FAF5"/>
     <circle cx="200" cy="245" r="16" fill="var(--bx)"/>
     <circle cx="330" cy="330" r="28" fill="var(--bx)"/>
     <circle cx="330" cy="330" r="10" fill="var(--accent)"/>
@@ -224,19 +240,19 @@ body {
     <circle cx="200" cy="200" r="95" fill="#000" opacity=".18"/>
     <circle cx="200" cy="200" r="48" fill="var(--accent)"/>
     <circle cx="168" cy="162" r="16" fill="#FFF" opacity=".5"/>
-    <text x="200" y="360" fill="var(--ink)" font-family="'DM Sans', sans-serif" font-weight="700" font-size="13" text-anchor="middle" letter-spacing="1">100% RECYCLABLE ALUMINIUM</text>
+    <text x="200" y="360" fill="var(--ink)" font-family="'Figtree', sans-serif" font-weight="700" font-size="12" text-anchor="middle" letter-spacing="1">100% RECYCLABLE ALUMINIUM</text>
   </symbol>
 
   <!-- View 3: Brewed Espresso Cup -->
   <symbol id="v3" viewBox="0 0 400 400">
     <rect width="400" height="400" fill="var(--bx)"/>
     <circle cx="270" cy="140" r="110" fill="var(--accent)"/>
-    <ellipse cx="200" cy="320" rx="140" ry="26" fill="#F4F7F1"/>
+    <ellipse cx="200" cy="320" rx="140" ry="26" fill="#F7FAF5"/>
     <path d="M110 170h180v40c0 50-36 82-90 82s-90-32-90-82z" fill="#FFF"/>
-    <ellipse cx="200" cy="170" rx="90" ry="20" fill="#4A2A1A"/>
-    <ellipse cx="200" cy="170" rx="75" ry="14" fill="#C88E4B" opacity=".7"/>
+    <ellipse cx="200" cy="170" rx="90" ry="20" fill="#38241B"/>
+    <ellipse cx="200" cy="170" rx="75" ry="14" fill="#D8A500" opacity=".7"/>
     <path d="M290 190c36 0 42 54-6 60" fill="none" stroke="#FFF" stroke-width="14" stroke-linecap="round"/>
-    <path d="M175 130c-15-25 15-40 0-65M200 130c-15-25 15-40 0-65M225 130c-15-25 15-40 0-65" fill="none" stroke="#F4F7F1" stroke-width="6" stroke-linecap="round" opacity=".8"/>
+    <path d="M175 130c-15-25 15-40 0-65M200 130c-15-25 15-40 0-65M225 130c-15-25 15-40 0-65" fill="none" stroke="#F7FAF5" stroke-width="6" stroke-linecap="round" opacity=".8"/>
   </symbol>
 </svg>
 
@@ -248,14 +264,14 @@ body {
 <!-- Header -->
 <header class="sticky top-0 z-40 bg-bg/95 backdrop-blur border-b border-line">
   <div class="max-w-6xl mx-auto flex items-center justify-between px-5 py-4">
-    <!-- Logo -->
-    <a href="#" class="flex items-center gap-2 font-display font-extrabold text-2xl tracking-tight text-ink">
-      <span class="w-8 h-8 rounded-full bg-brand text-brandink flex items-center justify-center text-sm font-bold shadow-sm">O</span>
-      Orelli
+    <!-- Logo with Gilden Typography -->
+    <a href="#" class="flex items-center gap-2.5 font-display font-extrabold text-2xl sm:text-3xl tracking-tight text-brand">
+      <span class="w-8 h-8 rounded-full bg-brand text-accent flex items-center justify-center text-base font-bold shadow-sm">O</span>
+      <span>Orelli</span>
     </a>
 
-    <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+    <!-- Desktop Navigation (Figtree) -->
+    <nav class="hidden md:flex items-center gap-7 text-sm font-semibold tracking-wide text-ink">
       <a href="#series" class="hover:text-brand transition-colors">Coffee Blends</a>
       <a href="#builder" class="hover:text-brand transition-colors">Custom Pack</a>
       <a href="#story" class="hover:text-brand transition-colors">Our Story</a>
@@ -279,8 +295,8 @@ body {
       </button>
 
       <!-- Cart Button -->
-      <button id="cartBtn" type="button" class="flex items-center gap-1.5 bg-ink text-bg rounded-full px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold shadow-sm hover:opacity-90 transition-opacity">
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+      <button id="cartBtn" type="button" class="flex items-center gap-1.5 bg-brand text-brandink rounded-full px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold shadow-sm hover:opacity-95 transition-opacity">
+        <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
         <span>Cart</span>
         <span id="cartCountBadge" class="bg-accent text-ink rounded-full px-1.5 py-0.1 text-[11px] font-bold">0</span>
       </button>
@@ -293,19 +309,19 @@ body {
   </div>
 
   <!-- Mobile Dropdown Menu -->
-  <div id="mobileMenu" class="hidden md:hidden border-t border-line bg-surface px-5 py-4 space-y-3 animate-fade-in">
+  <div id="mobileMenu" class="hidden md:hidden border-t border-line bg-surface px-5 py-4 space-y-3 animate-fade-in font-medium">
     <div class="pb-3 border-b border-line flex items-center justify-between">
       <span class="text-xs font-bold text-mute">Account</span>
       <button type="button" onclick="window.handleAuthClick(); window.closeMobileMenu();" class="text-xs font-bold text-brand hover:underline">
-        <span id="mobAuthLabel">Login with Mobile & OTP &rarr;</span>
+        <span id="mobAuthLabel">Login with Mobile & OTP →</span>
       </button>
     </div>
-    <a href="#series" class="block py-2 font-medium hover:text-brand" onclick="window.closeMobileMenu()">Coffee Blends</a>
-    <a href="#builder" class="block py-2 font-medium hover:text-brand" onclick="window.closeMobileMenu()">Build Your Own Pack</a>
-    <a href="#story" class="block py-2 font-medium hover:text-brand" onclick="window.closeMobileMenu()">Our Story</a>
-    <a href="#contact" class="block py-2 font-medium hover:text-brand" onclick="window.closeMobileMenu()">Contact Us</a>
-    <button type="button" onclick="window.openModal('businessModal'); window.closeMobileMenu();" class="block w-full text-left py-2 font-medium hover:text-brand">For Business</button>
-    <button type="button" onclick="window.openModal('faqModal'); window.closeMobileMenu();" class="block w-full text-left py-2 font-medium hover:text-brand">FAQs</button>
+    <a href="#series" class="block py-2 hover:text-brand" onclick="window.closeMobileMenu()">Coffee Blends</a>
+    <a href="#builder" class="block py-2 hover:text-brand" onclick="window.closeMobileMenu()">Build Your Own Pack</a>
+    <a href="#story" class="block py-2 hover:text-brand" onclick="window.closeMobileMenu()">Our Story</a>
+    <a href="#contact" class="block py-2 hover:text-brand" onclick="window.closeMobileMenu()">Contact Us</a>
+    <button type="button" onclick="window.openModal('businessModal'); window.closeMobileMenu();" class="block w-full text-left py-2 hover:text-brand">For Business</button>
+    <button type="button" onclick="window.openModal('faqModal'); window.closeMobileMenu();" class="block w-full text-left py-2 hover:text-brand">FAQs</button>
   </div>
 </header>
 
@@ -316,24 +332,24 @@ body {
   <!-- Hero Section -->
   <section class="max-w-6xl mx-auto px-5 pt-12 pb-16 grid md:grid-cols-2 gap-10 items-center">
     <div>
-      <div class="inline-flex items-center gap-2 bg-surface border border-line rounded-full px-3.5 py-1 text-xs font-bold text-mute mb-4">
+      <div class="inline-flex items-center gap-2 bg-surface border border-line rounded-full px-3.5 py-1 text-xs font-bold text-mute mb-4 shadow-sm">
         <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-        Batch Roasted in Coorg & Chikmagalur
+        Estate Sourced in Coorg & Chikmagalur
       </div>
-      <h1 class="font-display font-extrabold text-4xl sm:text-6xl leading-[1.05] tracking-tight text-ink">
-        Your 11 AM café break, at home.
+      <h1 class="font-display font-bold text-4xl sm:text-6xl leading-[1.08] tracking-tight text-ink">
+        Your 11 AM café break, <span class="italic text-brand font-normal">at home.</span>
       </h1>
-      <p class="mt-5 text-base sm:text-lg text-mute max-w-md leading-relaxed">
+      <p class="mt-5 text-base sm:text-lg text-mute max-w-md leading-relaxed font-normal">
         Artisanal specialty coffee roasted in small batches, nitrogen-sealed in 100% recyclable aluminium capsules. Fits all Nespresso® Original machines. Ready in 30 seconds.
       </p>
       <div class="mt-8 flex flex-wrap gap-4">
         <a href="#series" class="bg-brand text-brandink font-bold rounded-full px-7 py-3.5 shadow-sm hover:opacity-95 transition">Shop Capsules</a>
-        <a href="#builder" class="border-2 border-ink rounded-full px-7 py-3.5 font-bold hover:bg-ink hover:text-bg transition">Build Custom Pack</a>
+        <a href="#builder" class="border-2 border-brand text-brand rounded-full px-7 py-3.5 font-bold hover:bg-brand hover:text-brandink transition">Build Custom Pack</a>
       </div>
-      <p class="mt-4 text-xs text-mute">☕ Over 250,000+ capsules brewed across India</p>
+      <p class="mt-4 text-xs text-mute font-medium">☕ Over 250,000+ capsules brewed across India</p>
     </div>
     
-    <div class="img-hero relative h-72 sm:h-96 rounded-3xl shadow-sm border border-line" role="img" aria-label="A steaming cup of fresh artisanal coffee with crema">
+    <div class="img-hero relative h-72 sm:h-96 rounded-3xl shadow-md border border-line" role="img" aria-label="A steaming cup of fresh artisanal coffee with crema">
       <div class="absolute right-4 bottom-5 bg-accent text-ink font-bold rounded-full px-5 py-2.5 -rotate-3 shadow-lg text-sm sm:text-base">
         10 Pods + 1 on us ✨
       </div>
@@ -345,22 +361,22 @@ body {
     <div class="max-w-6xl mx-auto px-5 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm font-medium text-center">
       <div class="flex flex-col items-center gap-1">
         <span class="text-xl">☕</span>
-        <span class="font-bold">Nespresso® Compatible</span>
+        <span class="font-bold text-ink">Nespresso® Compatible</span>
         <span class="text-xs text-mute">Fits all OriginalLine machines</span>
       </div>
       <div class="flex flex-col items-center gap-1">
         <span class="text-xl">♻️</span>
-        <span class="font-bold">Recyclable Aluminium</span>
+        <span class="font-bold text-ink">Recyclable Aluminium</span>
         <span class="text-xs text-mute">Free return recycling bag</span>
       </div>
       <div class="flex flex-col items-center gap-1">
         <span class="text-xl">🌿</span>
-        <span class="font-bold">Nitrogen Sealed</span>
+        <span class="font-bold text-ink">Nitrogen Sealed</span>
         <span class="text-xs text-mute">Peak crema and aroma locked</span>
       </div>
       <div class="flex flex-col items-center gap-1">
         <span class="text-xl">🚚</span>
-        <span class="font-bold">Pan-India Express</span>
+        <span class="font-bold text-ink">Pan-India Express</span>
         <span class="text-xs text-mute">2 to 5 business days</span>
       </div>
     </div>
@@ -370,45 +386,49 @@ body {
   <section id="series" class="max-w-6xl mx-auto px-5 py-16">
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
       <div>
-        <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight">Pick your kind of coffee</h2>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">Pick your kind of coffee</h2>
         <p class="mt-2 text-mute">Four distinct profiles, crafted for espresso lovers and milk drinkers alike.</p>
       </div>
       <a href="#builder" class="text-sm font-bold text-brand hover:underline">Or mix all in a custom pack &rarr;</a>
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Card 1: Official Brand Green (#154734) -->
       <div class="rounded-3xl bg-brand text-brandink p-6 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(0)">
         <div class="pod w-14 h-14"></div>
         <div>
-          <span class="text-xs uppercase tracking-wider font-bold opacity-75">Signature</span>
+          <span class="text-xs uppercase tracking-wider font-bold text-accent">Signature</span>
           <h3 class="font-display font-bold text-2xl mt-0.5">Specialty</h3>
           <p class="text-xs sm:text-sm mt-1 opacity-90 leading-snug">Daily comfort. Balanced Arabica and Robusta with dark chocolate notes.</p>
         </div>
       </div>
 
+      <!-- Card 2: Official Brand Gold (#D8A500) -->
       <div class="rounded-3xl bg-accent text-ink p-6 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(1)">
         <div class="pod w-14 h-14"></div>
         <div>
-          <span class="text-xs uppercase tracking-wider font-bold opacity-75">Estate Grown</span>
+          <span class="text-xs uppercase tracking-wider font-bold opacity-80">Estate Grown</span>
           <h3 class="font-display font-bold text-2xl mt-0.5">Single Origin</h3>
           <p class="text-xs sm:text-sm mt-1 opacity-90 leading-snug">Estate-grown in Chikmagalur with smooth butterscotch & caramel finish.</p>
         </div>
       </div>
 
+      <!-- Card 3: Flavoured -->
       <div class="rounded-3xl bg-surface border border-line p-6 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(3)">
         <div class="pod w-14 h-14"></div>
         <div>
           <span class="text-xs uppercase tracking-wider font-bold text-mute">Infused</span>
-          <h3 class="font-display font-bold text-2xl mt-0.5">Flavoured</h3>
+          <h3 class="font-display font-bold text-2xl mt-0.5 text-ink">Flavoured</h3>
           <p class="text-xs sm:text-sm mt-1 text-mute leading-snug">Madagascar vanilla and hazelnut made with 100% natural botanical extracts.</p>
         </div>
       </div>
 
+      <!-- Card 4: Decaf -->
       <div class="rounded-3xl bg-surface border border-line p-6 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(4)">
         <div class="pod w-14 h-14"></div>
         <div>
           <span class="text-xs uppercase tracking-wider font-bold text-mute">Swiss Water Process</span>
-          <h3 class="font-display font-bold text-2xl mt-0.5">Decaf</h3>
+          <h3 class="font-display font-bold text-2xl mt-0.5 text-ink">Decaf</h3>
           <p class="text-xs sm:text-sm mt-1 text-mute leading-snug">All the rich cocoa flavor and crema, none of the caffeine buzz.</p>
         </div>
       </div>
@@ -420,7 +440,7 @@ body {
     <div class="max-w-6xl mx-auto px-5 py-16">
       <div class="flex items-end justify-between gap-4 mb-8">
         <div>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight">Best sellers</h2>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">Best sellers</h2>
           <p class="mt-1 text-sm text-mute">Freshly roasted small batches ready to ship.</p>
         </div>
         <a href="#builder" class="text-sm font-bold underline underline-offset-4 hover:text-brand">Build a mixed box</a>
@@ -434,7 +454,7 @@ body {
 
   <!-- Build Your Own Banner -->
   <section id="buildPromo" class="max-w-6xl mx-auto px-5 py-16">
-    <div class="rounded-3xl bg-brand text-brandink p-8 sm:p-14 grid md:grid-cols-2 gap-8 items-center shadow-sm">
+    <div class="rounded-3xl bg-brand text-brandink p-8 sm:p-14 grid md:grid-cols-2 gap-8 items-center shadow-md">
       <div>
         <span class="inline-block bg-accent text-ink text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Save up to 15%</span>
         <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight">Build your custom capsule box</h2>
@@ -455,25 +475,25 @@ body {
 
   <!-- Why Orelli -->
   <section id="story" class="max-w-6xl mx-auto px-5 pb-16">
-    <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight">Why coffee lovers choose Orelli</h2>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">Why coffee lovers choose Orelli</h2>
     <div class="mt-8 grid md:grid-cols-3 gap-6">
-      <div class="border-t-2 border-ink pt-5">
-        <span class="text-xs font-bold uppercase tracking-wider text-mute">01 / Craft</span>
-        <h3 class="font-bold text-xl mt-1">Small Batch Drum Roasting</h3>
+      <div class="border-t-2 border-brand pt-5">
+        <span class="text-xs font-bold uppercase tracking-wider text-accent">01 / Craft</span>
+        <h3 class="font-display font-bold text-xl mt-1 text-ink">Small Batch Drum Roasting</h3>
         <p class="mt-2 text-mute text-sm leading-relaxed">
           Unlike industrial pods roasted months ago, each Orelli lot is precision roasted in small batches to preserve sweet aroma and nuanced flavor.
         </p>
       </div>
-      <div class="border-t-2 border-ink pt-5">
-        <span class="text-xs font-bold uppercase tracking-wider text-mute">02 / Origin</span>
-        <h3 class="font-bold text-xl mt-1">Direct Estate Sourcing</h3>
+      <div class="border-t-2 border-brand pt-5">
+        <span class="text-xs font-bold uppercase tracking-wider text-accent">02 / Origin</span>
+        <h3 class="font-display font-bold text-xl mt-1 text-ink">Direct Estate Sourcing</h3>
         <p class="mt-2 text-mute text-sm leading-relaxed">
           Sourced directly from certified shade-grown estates in Karnataka and Kerala, ensuring fair farmer wages and sustainable biodiversity.
         </p>
       </div>
-      <div class="border-t-2 border-ink pt-5">
-        <span class="text-xs font-bold uppercase tracking-wider text-mute">03 / Planet</span>
-        <h3 class="font-bold text-xl mt-1">Closed-Loop Aluminium Recycling</h3>
+      <div class="border-t-2 border-brand pt-5">
+        <span class="text-xs font-bold uppercase tracking-wider text-accent">03 / Planet</span>
+        <h3 class="font-display font-bold text-xl mt-1 text-ink">Closed-Loop Aluminium Recycling</h3>
         <p class="mt-2 text-mute text-sm leading-relaxed">
           Zero plastic. Every order includes a prepaid recycling pouch to send used capsules back for recycling into new aluminium products.
         </p>
@@ -481,7 +501,7 @@ body {
     </div>
   </section>
 
-  <!-- Business & Contact Action Banners (Machines Removed) -->
+  <!-- Business & Contact Action Banners -->
   <section class="max-w-6xl mx-auto px-5 pb-16 grid md:grid-cols-2 gap-6">
     <div id="business" class="rounded-3xl bg-brand text-brandink p-8 flex flex-col justify-between shadow-sm">
       <div>
@@ -501,13 +521,13 @@ body {
     <div class="rounded-3xl bg-surface border border-line p-8 flex flex-col justify-between shadow-sm">
       <div>
         <span class="text-xs font-bold uppercase tracking-wider text-mute">Dedicated Support</span>
-        <h2 class="font-display font-bold text-2xl sm:text-3xl mt-1">Need help or recommendations?</h2>
+        <h2 class="font-display font-bold text-2xl sm:text-3xl mt-1 text-ink">Need help or recommendations?</h2>
         <p class="mt-2 text-sm text-mute leading-relaxed">
           Chat with our master roasters on WhatsApp, request custom blend grind profiles, or manage your doorstep recycling pickups.
         </p>
       </div>
       <div class="mt-6 flex flex-wrap gap-3">
-        <a href="#contact" class="bg-ink text-bg rounded-full px-6 py-3 font-bold text-sm shadow hover:opacity-90 transition">
+        <a href="#contact" class="bg-brand text-brandink rounded-full px-6 py-3 font-bold text-sm shadow hover:opacity-95 transition">
           Visit Contact Page &rarr;
         </a>
         <a href="https://wa.me/919876543210?text=Hello%20Orelli%20Team%2C%20I%20need%20assistance" target="_blank" class="border-2 border-[#25D366] text-[#128C7E] hover:bg-[#25D366] hover:text-white rounded-full px-5 py-3 font-bold text-xs flex items-center gap-1.5 transition">
@@ -521,7 +541,7 @@ body {
   <section class="bg-surface border-t border-line">
     <div class="max-w-2xl mx-auto px-5 py-16 text-center">
       <span class="text-3xl">☕</span>
-      <h2 class="font-display font-bold text-3xl tracking-tight mt-2">Get 10% off your first box</h2>
+      <h2 class="font-display font-bold text-3xl tracking-tight mt-2 text-ink">Get 10% off your first box</h2>
       <p class="mt-2 text-mute text-sm">Join 15,000+ coffee club members for fresh batch drops and exclusive roast previews.</p>
       <form id="newsletterForm" class="mt-6 flex flex-col sm:flex-row gap-3" onsubmit="window.handleNewsletter(event)">
         <input type="email" id="newsEmail" required placeholder="Enter your email address" class="flex-1 rounded-full border border-line bg-bg px-5 py-3.5 text-sm focus:outline-none focus:border-brand">
@@ -574,7 +594,7 @@ body {
 
     <!-- Product Details & Purchase Form -->
     <div>
-      <h1 id="pTitle" class="font-display font-extrabold text-3xl sm:text-4xl leading-tight">Bold Dark</h1>
+      <h1 id="pTitle" class="font-display font-bold text-3xl sm:text-4xl leading-tight text-ink">Bold Dark</h1>
       <p id="pNotes" class="mt-2 text-mute leading-relaxed text-sm sm:text-base">Dark chocolate, toasted nuts, long creamy finish.</p>
       
       <!-- Price -->
@@ -586,7 +606,7 @@ body {
 
       <!-- Blend Selector -->
       <fieldset class="mt-6">
-        <legend class="font-bold text-sm mb-2">Select Blend</legend>
+        <legend class="font-bold text-sm mb-2 text-ink">Select Blend</legend>
         <div id="pBlends" class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
           <!-- Rendered by JS -->
         </div>
@@ -594,7 +614,7 @@ body {
 
       <!-- Pack Size Selector -->
       <fieldset class="mt-6">
-        <legend class="font-bold text-sm mb-2">Pack Size</legend>
+        <legend class="font-bold text-sm mb-2 text-ink">Pack Size</legend>
         <div id="pPacks" class="grid grid-cols-3 gap-3">
           <!-- Rendered by JS -->
         </div>
@@ -602,7 +622,7 @@ body {
 
       <!-- Purchase Frequency -->
       <fieldset class="mt-6">
-        <legend class="font-bold text-sm mb-2">Purchase Type</legend>
+        <legend class="font-bold text-sm mb-2 text-ink">Purchase Type</legend>
         <div class="grid gap-2.5">
           <button type="button" class="opt flex items-center justify-between" data-buy="once" aria-pressed="true">
             <span class="font-bold text-sm">One-time purchase</span>
@@ -643,7 +663,7 @@ body {
       <!-- Intensity Bar -->
       <div class="mt-6 border-t border-line pt-5">
         <div class="flex justify-between items-center text-sm">
-          <span class="font-bold">Roast Intensity</span>
+          <span class="font-bold text-ink">Roast Intensity</span>
           <span id="pInt" class="text-xs font-bold text-mute">10 of 12</span>
         </div>
         <div class="mt-2 flex gap-1" id="pBar" aria-hidden="true"></div>
@@ -674,7 +694,7 @@ body {
 
   <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
     <div>
-      <h1 class="font-display font-extrabold text-3xl sm:text-5xl leading-tight">Build your own pack</h1>
+      <h1 class="font-display font-bold text-3xl sm:text-5xl leading-tight text-ink">Build your own pack</h1>
       <p class="mt-2 text-mute text-sm sm:text-base max-w-xl">
         Pick your favorite combination of beans. Select a target pack size, mix any blends, and unlock bundle discounts.
       </p>
@@ -688,13 +708,13 @@ body {
   <div class="mt-8 grid lg:grid-cols-3 gap-8 items-start">
     <!-- Left Column: Step 1 & 2 -->
     <div class="lg:col-span-2">
-      <h2 class="font-display font-bold text-lg mb-3">Step 1: Choose pack size</h2>
+      <h2 class="font-display font-bold text-lg mb-3 text-ink">Step 1: Choose pack size</h2>
       <div id="bSizes" class="grid grid-cols-3 gap-3">
         <!-- Rendered by JS -->
       </div>
 
       <div class="mt-10 mb-3 flex items-center justify-between">
-        <h2 class="font-display font-bold text-lg">Step 2: Add your blend quantities</h2>
+        <h2 class="font-display font-bold text-lg text-ink">Step 2: Add your blend quantities</h2>
         <span id="bRemainingBadge" class="text-xs font-bold bg-surface border border-line px-3 py-1 rounded-full"></span>
       </div>
 
@@ -706,7 +726,7 @@ body {
     <!-- Right Column: Sticky Summary (Desktop) -->
     <aside class="lg:col-span-1">
       <div class="lg:sticky lg:top-24 rounded-3xl border border-line bg-surface p-6 shadow-sm">
-        <h2 class="font-display font-bold text-xl">Box Summary</h2>
+        <h2 class="font-display font-bold text-xl text-ink">Box Summary</h2>
         
         <div class="mt-4">
           <div class="flex justify-between text-xs font-bold mb-1.5">
@@ -765,7 +785,7 @@ body {
 
   <div class="max-w-2xl">
     <span class="inline-block bg-accent text-ink text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">We're Here For You</span>
-    <h1 class="font-display font-extrabold text-3xl sm:text-5xl leading-tight">Get in touch with Orelli</h1>
+    <h1 class="font-display font-bold text-3xl sm:text-5xl leading-tight text-ink">Get in touch with Orelli</h1>
     <p class="mt-3 text-mute text-sm sm:text-base leading-relaxed">
       Have a question about our roasts, your delivery, recycling pickup, or customized corporate orders? We’d love to assist you.
     </p>
@@ -824,7 +844,7 @@ body {
 
     <!-- Contact Form (7 Cols) -->
     <div class="lg:col-span-7 bg-surface rounded-3xl border border-line p-6 sm:p-8 shadow-sm">
-      <h2 class="font-display font-bold text-2xl">Send us a message</h2>
+      <h2 class="font-display font-bold text-2xl text-ink">Send us a message</h2>
       <p class="text-xs text-mute mt-1">Fill out the form below and our team will get back to you promptly.</p>
 
       <form id="contactForm" onsubmit="window.handleContactSubmit(event)" class="mt-6 space-y-4">
@@ -873,7 +893,7 @@ body {
       </form>
 
       <div id="contactSuccess" class="hidden mt-6 p-4 rounded-2xl bg-brand/10 border border-brand/30 text-center animate-fade-in">
-        <span class="text-2xl">✓</span>
+        <span class="text-2xl text-brand">✓</span>
         <h4 class="font-bold text-sm text-brand mt-1">Message Received!</h4>
         <p class="text-xs text-mute mt-1">Thank you. Your support ticket <span id="ticketNum" class="font-bold font-mono text-ink">#ORL-9402</span> has been created. We'll reply within 4 hours.</p>
       </div>
@@ -890,7 +910,7 @@ body {
   <!-- Cart Header -->
   <div class="p-5 border-b border-line flex items-center justify-between">
     <div class="flex items-center gap-2">
-      <h2 class="font-display font-bold text-xl">Your Shopping Cart</h2>
+      <h2 class="font-display font-bold text-xl text-ink">Your Shopping Cart</h2>
       <span id="drawerBadge" class="bg-bg text-mute border border-line text-xs font-bold px-2 py-0.5 rounded-full">0</span>
     </div>
     <button type="button" onclick="window.closeCart()" class="p-2 rounded-full hover:bg-bg text-mute hover:text-ink transition" aria-label="Close cart">
@@ -919,7 +939,7 @@ body {
     <!-- Coupon Form -->
     <div class="flex gap-2">
       <input type="text" id="couponInput" placeholder="Discount code (e.g. WELCOME10)" class="flex-1 rounded-xl border border-line bg-bg px-3.5 py-2 text-xs uppercase focus:outline-none focus:border-brand">
-      <button type="button" onclick="window.applyCoupon()" class="bg-ink text-bg px-4 py-2 rounded-xl text-xs font-bold hover:opacity-90 transition">Apply</button>
+      <button type="button" onclick="window.applyCoupon()" class="bg-brand text-brandink px-4 py-2 rounded-xl text-xs font-bold hover:opacity-90 transition">Apply</button>
     </div>
     <p id="couponMsg" class="text-xs font-bold min-h-[1rem]"></p>
 
@@ -1027,7 +1047,7 @@ body {
           ☕
         </div>
         <div>
-          <h2 id="accUserPhone" class="font-display font-bold text-xl">+91 98765 43210</h2>
+          <h2 id="accUserPhone" class="font-display font-bold text-xl text-ink">+91 98765 43210</h2>
           <span class="inline-block bg-accent/20 text-ink text-[11px] font-bold px-2 py-0.5 rounded-full mt-0.5">
             Orelli Coffee Club Member
           </span>
@@ -1066,10 +1086,10 @@ body {
 
     <!-- Logout Action -->
     <div class="mt-6 pt-4 border-t border-line flex items-center justify-between">
-      <button type="button" onclick="window.logout()" class="text-xs font-bold text-red-600 hover:underline flex items-center gap-1.5">
+      <button type="button" onclick="window.logout()" class="text-xs font-bold text-brandred hover:underline flex items-center gap-1.5">
         <span>🚪</span> Log out from this device
       </button>
-      <button type="button" onclick="window.closeModal('accountModal')" class="bg-ink text-bg font-bold px-5 py-2 rounded-full text-xs">
+      <button type="button" onclick="window.closeModal('accountModal')" class="bg-brand text-brandink font-bold px-5 py-2 rounded-full text-xs">
         Close
       </button>
     </div>
@@ -1084,7 +1104,7 @@ body {
   <div class="bg-surface rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-line shadow-2xl p-6 sm:p-8 animate-fade-in">
     <div class="flex items-center justify-between pb-4 border-b border-line">
       <div>
-        <h2 class="font-display font-bold text-2xl">Complete Your Order</h2>
+        <h2 class="font-display font-bold text-2xl text-ink">Complete Your Order</h2>
         <p class="text-xs text-mute">Fast pan-India delivery</p>
       </div>
       <button type="button" onclick="window.closeModal('checkoutModal')" class="p-2 rounded-full hover:bg-bg text-mute hover:text-ink">✕</button>
@@ -1162,7 +1182,7 @@ body {
     <div class="w-16 h-16 bg-brand text-brandink rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
       ✓
     </div>
-    <h2 class="font-display font-bold text-2xl">Order Confirmed!</h2>
+    <h2 class="font-display font-bold text-2xl text-ink">Order Confirmed!</h2>
     <p class="mt-2 text-sm text-mute">
       Thank you for shopping with Orelli. We are freshly packing your coffee capsules.
     </p>
@@ -1186,7 +1206,7 @@ body {
   <div class="bg-surface rounded-3xl max-w-lg w-full border border-line shadow-2xl p-6 sm:p-8 animate-fade-in">
     <div class="flex items-center justify-between pb-4 border-b border-line">
       <div>
-        <h2 class="font-display font-bold text-2xl">Corporate & B2B Inquiry</h2>
+        <h2 class="font-display font-bold text-2xl text-ink">Corporate & B2B Inquiry</h2>
         <p class="text-xs text-mute">Wholesale coffee capsules for teams & hospitality</p>
       </div>
       <button type="button" onclick="window.closeModal('businessModal')" class="p-2 rounded-full hover:bg-bg text-mute hover:text-ink">✕</button>
@@ -1229,7 +1249,7 @@ body {
 <div id="faqModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
   <div class="bg-surface rounded-3xl max-w-lg w-full max-h-[85vh] overflow-y-auto border border-line shadow-2xl p-6 sm:p-8 animate-fade-in">
     <div class="flex items-center justify-between pb-4 border-b border-line">
-      <h2 class="font-display font-bold text-2xl">Frequently Asked Questions</h2>
+      <h2 class="font-display font-bold text-2xl text-ink">Frequently Asked Questions</h2>
       <button type="button" onclick="window.closeModal('faqModal')" class="p-2 rounded-full hover:bg-bg text-mute hover:text-ink">✕</button>
     </div>
     <div class="mt-5 space-y-4 text-sm divide-y divide-line">
@@ -1255,24 +1275,24 @@ body {
 
 
 <!-- Toast Notification -->
-<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-ink text-bg px-5 py-3 rounded-full text-xs font-bold shadow-2xl flex items-center gap-3 hidden transition-all duration-300">
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-brand text-brandink px-5 py-3 rounded-full text-xs font-bold shadow-2xl flex items-center gap-3 hidden transition-all duration-300">
   <span id="toastMsg">Added to cart</span>
   <button type="button" onclick="window.openCart()" class="text-accent underline">View Cart</button>
 </div>
 
 
 <!-- Footer -->
-<footer class="bg-ink text-bg mt-16 border-t border-line">
+<footer class="bg-brand text-brandink mt-16 border-t border-brand/20">
   <div class="max-w-6xl mx-auto px-5 py-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm">
     <div>
-      <div class="flex items-center gap-2 font-display font-extrabold text-2xl tracking-tight text-bg">
-        <span class="w-7 h-7 rounded-full bg-accent text-ink flex items-center justify-center text-xs font-bold">O</span>
+      <div class="flex items-center gap-2.5 font-display font-extrabold text-2xl tracking-tight text-brandink">
+        <span class="w-8 h-8 rounded-full bg-accent text-brand flex items-center justify-center text-sm font-bold">O</span>
         Orelli
       </div>
-      <p class="mt-3 text-xs opacity-75 leading-relaxed">
+      <p class="mt-3 text-xs opacity-80 leading-relaxed font-normal">
         Specialty café coffee, one capsule away. Precision small batch roasting for Indian coffee enthusiasts.
       </p>
-      <div class="mt-4 flex gap-3 text-xs opacity-80">
+      <div class="mt-4 flex gap-3 text-xs opacity-85">
         <span>🇮🇳 Roasted in India</span>
         <span>•</span>
         <span>♻️ 100% Recyclable</span>
@@ -1309,7 +1329,7 @@ body {
     </div>
   </div>
 
-  <div class="max-w-6xl mx-auto px-5 pb-8 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] opacity-60 gap-4">
+  <div class="max-w-6xl mx-auto px-5 pb-8 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] opacity-70 gap-4">
     <p>© 2026 Orelli Coffee Co. All rights reserved. Nespresso® is a registered trademark of Nestlé S.A. Orelli is not affiliated with Nestlé.</p>
     <div class="flex gap-4">
       <a href="#" class="hover:underline">Privacy Policy</a>
@@ -1327,12 +1347,12 @@ body {
 (function() {
   'use strict';
 
-  // Master Data: 5 Distinct Coffee Blends
+  // Master Data: 5 Distinct Coffee Blends with Official Brand Colors
   var BLENDS = [
     {
       id: 'bold-dark',
       n: 'Bold Dark',
-      c: '#1F4A37',
+      c: '#154734', // Official Brand Green
       p: 499,
       i: 10,
       r: 'Dark Roast',
@@ -1344,7 +1364,7 @@ body {
     {
       id: 'smooth-caramel',
       n: 'Smooth Caramel',
-      c: '#B97A0F',
+      c: '#D8A500', // Official Brand Gold
       p: 519,
       i: 6,
       r: 'Medium Roast',
@@ -1356,7 +1376,7 @@ body {
     {
       id: 'fruity-bright',
       n: 'Fruity Bright',
-      c: '#8A2F3F',
+      c: '#A82B11', // Official Brand Red
       p: 549,
       i: 7,
       r: 'Light-Medium',
@@ -1380,7 +1400,7 @@ body {
     {
       id: 'decaf-smooth',
       n: 'Decaf Smooth',
-      c: '#3F5F73',
+      c: '#2D556E',
       p: 519,
       i: 5,
       r: 'Medium Roast',
@@ -1421,7 +1441,7 @@ body {
     cart: [],
     discountCode: null,
     discountRate: 0,
-    user: null // Stores authenticated user { phone, name, orders, ... }
+    user: null
   };
 
   // DOM Helper
@@ -1453,9 +1473,7 @@ body {
   function loadAuth() {
     try {
       var savedUser = localStorage.getItem('orelli_user');
-      if (savedUser) {
-        state.user = JSON.parse(savedUser);
-      }
+      if (savedUser) state.user = JSON.parse(savedUser);
     } catch(e) {}
     renderAuthUI();
   }
@@ -1490,11 +1508,9 @@ body {
 
   window.handleAuthClick = function() {
     if (state.user) {
-      // Open Account Dashboard
       renderAccountModal();
       window.openModal('accountModal');
     } else {
-      // Open Login Modal Step 1
       window.backToMobileStep();
       window.openModal('authModal');
     }
@@ -1513,7 +1529,6 @@ body {
     $('authStep1').classList.add('hidden');
     $('authStep2').classList.remove('hidden');
 
-    // Focus first OTP box
     setTimeout(function() {
       $('otp1').value = '';
       $('otp2').value = '';
@@ -1564,7 +1579,6 @@ body {
     showToast('New OTP sent! (Demo OTP: 1234)');
   };
 
-  // OTP inputs auto-advance
   ['otp1', 'otp2', 'otp3', 'otp4'].forEach(function(id, idx, arr) {
     var el = $(id);
     if (!el) return;
@@ -1593,7 +1607,6 @@ body {
       return;
     }
 
-    // Accept 1234 or any 4 digits in demo mode
     state.user = {
       phone: currentPendingPhone,
       name: 'Coffee Enthusiast',
@@ -1727,7 +1740,7 @@ body {
       container.innerHTML = `
         <div class="h-full flex flex-col items-center justify-center text-center p-8 text-mute">
           <span class="text-5xl mb-3">☕</span>
-          <p class="font-bold text-base text-ink">Your cart is empty</p>
+          <p class="font-bold text-base text-ink font-display">Your cart is empty</p>
           <p class="text-xs mt-1">Explore our artisanal blends and pick your favorites.</p>
           <button type="button" onclick="window.closeCart(); location.hash='series';" class="mt-4 bg-brand text-brandink px-5 py-2.5 rounded-full text-xs font-bold">
             Shop Capsules
@@ -1751,7 +1764,7 @@ body {
               <span class="w-6 text-center text-xs font-bold">${item.qty}</span>
               <button type="button" onclick="window.updateCartQty('${item.id}', 1)" class="w-7 h-7 text-sm font-bold hover:text-brand" aria-label="Increase">+</button>
             </div>
-            <button type="button" onclick="window.removeCartItem('${item.id}')" class="text-mute hover:text-red-500 p-1" title="Remove">
+            <button type="button" onclick="window.removeCartItem('${item.id}')" class="text-mute hover:text-brandred p-1" title="Remove">
               🗑️
             </button>
           </div>
@@ -1821,7 +1834,7 @@ body {
       msg.textContent = '';
     } else {
       msg.textContent = '✕ Invalid coupon code. Try WELCOME10.';
-      msg.className = 'text-xs font-bold text-red-500';
+      msg.className = 'text-xs font-bold text-brandred';
     }
   };
 
@@ -1862,7 +1875,6 @@ body {
     var total = subtotal - discount + shipping;
     $('checkoutTotalAmount').textContent = inr(total);
 
-    // Pre-fill if user logged in
     if (state.user) {
       $('custPhone').value = state.user.phone.replace('+91 ', '');
     }
@@ -1877,7 +1889,6 @@ body {
     var orderId = 'ORL-' + Math.floor(1000 + Math.random() * 9000);
     var total = $('checkoutTotalAmount').textContent;
 
-    // Add to user orders if logged in
     if (!state.user) {
       state.user = {
         phone: '+91 ' + phone,
@@ -1946,20 +1957,20 @@ body {
           <div>
             <div class="aspect-square rounded-xl bg-surface relative overflow-hidden cursor-pointer" onclick="window.selectBlendAndGo(${idx})">
               <div class="${b.bgClass} w-full h-full rounded-xl transition-transform duration-300 hover:scale-105" role="img" aria-label="${b.n}"></div>
-              <span class="absolute top-2 left-2 text-[10px] font-bold px-2 py-0.5 rounded-full ${b.s ? 'bg-ink text-bg' : 'bg-mute text-white'}">
+              <span class="absolute top-2 left-2 text-[10px] font-bold px-2 py-0.5 rounded-full ${b.s ? 'bg-brand text-brandink' : 'bg-mute text-white'}">
                 ${b.tag}
               </span>
             </div>
             
             <div class="mt-3.5">
-              <h3 class="font-bold text-base text-ink cursor-pointer hover:underline" onclick="window.selectBlendAndGo(${idx})">${b.n}</h3>
+              <h3 class="font-display font-bold text-base text-ink cursor-pointer hover:underline" onclick="window.selectBlendAndGo(${idx})">${b.n}</h3>
               <p class="text-xs text-mute mt-0.5 line-clamp-1">${b.t.split(',')[0]}</p>
             </div>
 
             <div class="mt-3 flex flex-wrap gap-1.5" id="homePacks-${idx}">
               ${PACKS.map(function(p, pkIdx) {
                 return `
-                  <button type="button" class="chip text-[11px] ${pkIdx === 0 ? 'bg-ink text-bg border-ink' : ''}" 
+                  <button type="button" class="chip text-[11px] ${pkIdx === 0 ? 'bg-brand text-brandink border-brand' : ''}" 
                     data-bidx="${idx}" data-pkidx="${pkIdx}" onclick="window.updateHomeCardPack(event, ${idx}, ${pkIdx})">
                     ${p.n} pods
                   </button>
@@ -1967,7 +1978,7 @@ body {
               }).join('')}
             </div>
 
-            <label class="mt-2.5 flex items-center gap-1.5 text-[11px] text-mute cursor-pointer">
+            <label class="mt-2.5 flex items-center gap-1.5 text-[11px] text-mute cursor-pointer font-medium">
               <input type="checkbox" id="homeSub-${idx}" class="accent-brand" onchange="window.updateHomeCardPrice(${idx})">
               <span>Subscribe & Save 10%</span>
             </label>
@@ -2000,9 +2011,9 @@ body {
     homeCardState[bIdx].pk = pkIdx;
     var container = $('homePacks-' + bIdx);
     container.querySelectorAll('.chip').forEach(function(btn, i) {
-      btn.classList.toggle('bg-ink', i === pkIdx);
-      btn.classList.toggle('text-bg', i === pkIdx);
-      btn.classList.toggle('border-ink', i === pkIdx);
+      btn.classList.toggle('bg-brand', i === pkIdx);
+      btn.classList.toggle('text-brandink', i === pkIdx);
+      btn.classList.toggle('border-brand', i === pkIdx);
     });
     window.updateHomeCardPrice(bIdx);
   };
@@ -2081,7 +2092,7 @@ body {
       badge.className = 'absolute top-4 left-4 bg-brand text-brandink text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full';
     } else {
       badge.textContent = 'Sold Out';
-      badge.className = 'absolute top-4 left-4 bg-accent text-ink text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full';
+      badge.className = 'absolute top-4 left-4 bg-brandred text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full';
     }
 
     var full = b.p * pk.m;
@@ -2219,7 +2230,7 @@ body {
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full" style="background:${b.c}"></span>
-              <p class="font-bold text-sm sm:text-base">${b.n}</p>
+              <p class="font-bold text-sm sm:text-base text-ink">${b.n}</p>
             </div>
             <p class="text-xs text-mute mt-0.5 line-clamp-1">${b.t.split(',')[0]}</p>
             <p class="text-[11px] text-mute font-medium mt-0.5">${inr(b.p / 10)} / capsule</p>
@@ -2371,7 +2382,7 @@ body {
         variant: breakdown.join(', '),
         price: totalPrice,
         qty: 1,
-        color: '#1F4A37',
+        color: '#154734',
         isSub: false
       };
 
