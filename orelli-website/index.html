@@ -259,13 +259,19 @@ body {
       <a href="#series" class="hover:text-brand transition-colors">Coffee Blends</a>
       <a href="#builder" class="hover:text-brand transition-colors">Custom Pack</a>
       <a href="#story" class="hover:text-brand transition-colors">Our Story</a>
-      <button type="button" onclick="window.openModal('machinesModal')" class="hover:text-brand transition-colors">Machines</button>
+      <a href="#contact" class="hover:text-brand transition-colors">Contact</a>
       <button type="button" onclick="window.openModal('businessModal')" class="hover:text-brand transition-colors">For Business</button>
       <button type="button" onclick="window.openModal('faqModal')" class="hover:text-brand transition-colors">FAQs</button>
     </nav>
 
     <!-- Header Actions -->
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-2.5 sm:gap-3">
+      <!-- User Login / Account Button (OTP Auth) -->
+      <button id="authBtn" type="button" onclick="window.handleAuthClick()" class="flex items-center gap-1.5 border border-line bg-surface rounded-full px-3 py-1.5 text-xs font-bold hover:border-brand transition text-ink shadow-sm">
+        <span id="authIcon">👤</span>
+        <span id="authLabel">Log in</span>
+      </button>
+
       <!-- Dark/Light Theme Toggle -->
       <button id="themeBtn" type="button" aria-label="Toggle theme" class="p-2 rounded-full border border-line bg-surface hover:border-brand transition-colors text-ink">
         <svg id="themeIconSun" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
@@ -273,10 +279,10 @@ body {
       </button>
 
       <!-- Cart Button -->
-      <button id="cartBtn" type="button" class="flex items-center gap-2 bg-ink text-bg rounded-full px-4 py-2 text-sm font-bold shadow-sm hover:opacity-90 transition-opacity">
+      <button id="cartBtn" type="button" class="flex items-center gap-1.5 bg-ink text-bg rounded-full px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold shadow-sm hover:opacity-90 transition-opacity">
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
         <span>Cart</span>
-        <span id="cartCountBadge" class="bg-accent text-ink rounded-full px-2 py-0.2 text-xs font-bold">0</span>
+        <span id="cartCountBadge" class="bg-accent text-ink rounded-full px-1.5 py-0.1 text-[11px] font-bold">0</span>
       </button>
 
       <!-- Mobile Hamburger Button -->
@@ -288,10 +294,16 @@ body {
 
   <!-- Mobile Dropdown Menu -->
   <div id="mobileMenu" class="hidden md:hidden border-t border-line bg-surface px-5 py-4 space-y-3 animate-fade-in">
+    <div class="pb-3 border-b border-line flex items-center justify-between">
+      <span class="text-xs font-bold text-mute">Account</span>
+      <button type="button" onclick="window.handleAuthClick(); window.closeMobileMenu();" class="text-xs font-bold text-brand hover:underline">
+        <span id="mobAuthLabel">Login with Mobile & OTP &rarr;</span>
+      </button>
+    </div>
     <a href="#series" class="block py-2 font-medium hover:text-brand" onclick="window.closeMobileMenu()">Coffee Blends</a>
     <a href="#builder" class="block py-2 font-medium hover:text-brand" onclick="window.closeMobileMenu()">Build Your Own Pack</a>
     <a href="#story" class="block py-2 font-medium hover:text-brand" onclick="window.closeMobileMenu()">Our Story</a>
-    <button type="button" onclick="window.openModal('machinesModal'); window.closeMobileMenu();" class="block w-full text-left py-2 font-medium hover:text-brand">Machines</button>
+    <a href="#contact" class="block py-2 font-medium hover:text-brand" onclick="window.closeMobileMenu()">Contact Us</a>
     <button type="button" onclick="window.openModal('businessModal'); window.closeMobileMenu();" class="block w-full text-left py-2 font-medium hover:text-brand">For Business</button>
     <button type="button" onclick="window.openModal('faqModal'); window.closeMobileMenu();" class="block w-full text-left py-2 font-medium hover:text-brand">FAQs</button>
   </div>
@@ -469,35 +481,38 @@ body {
     </div>
   </section>
 
-  <!-- Machines & Business Banners -->
+  <!-- Business & Contact Action Banners (Machines Removed) -->
   <section class="max-w-6xl mx-auto px-5 pb-16 grid md:grid-cols-2 gap-6">
-    <div id="machines" class="rounded-3xl bg-surface border border-line p-8 flex flex-col justify-between">
+    <div id="business" class="rounded-3xl bg-brand text-brandink p-8 flex flex-col justify-between shadow-sm">
       <div>
-        <span class="text-xs font-bold uppercase tracking-wider text-mute">Starter Kits</span>
-        <h2 class="font-display font-bold text-2xl sm:text-3xl mt-1">No capsule machine yet?</h2>
-        <p class="mt-2 text-mute text-sm leading-relaxed">
-          Get the Orelli Compact 19-Bar Espresso Machine bundled with 30 assorted capsules and a free milk frother for ₹5,999.
+        <span class="text-xs font-bold uppercase tracking-wider text-accent">Corporate & Hospitality</span>
+        <h2 class="font-display font-bold text-2xl sm:text-3xl mt-1">Coffee for your office or café</h2>
+        <p class="mt-2 text-sm opacity-90 leading-relaxed">
+          Special wholesale pricing, weekly automated refills, and curated tasting boxes for modern workspaces and boutique hotels.
         </p>
       </div>
       <div class="mt-6">
-        <button type="button" onclick="window.openModal('machinesModal')" class="border-2 border-ink rounded-full px-6 py-3 font-bold text-sm hover:bg-ink hover:text-bg transition">
-          View Starter Bundle Specs
+        <button type="button" onclick="window.openModal('businessModal')" class="bg-accent text-ink rounded-full px-6 py-3 font-bold text-sm shadow hover:opacity-95 transition">
+          Get Corporate Wholesale Quote
         </button>
       </div>
     </div>
 
-    <div id="business" class="rounded-3xl bg-accent text-ink p-8 flex flex-col justify-between">
+    <div class="rounded-3xl bg-surface border border-line p-8 flex flex-col justify-between shadow-sm">
       <div>
-        <span class="text-xs font-bold uppercase tracking-wider opacity-75">Corporate & Hospitality</span>
-        <h2 class="font-display font-bold text-2xl sm:text-3xl mt-1">Coffee for your office or café</h2>
-        <p class="mt-2 text-sm leading-relaxed">
-          Special bulk pricing, monthly automatic refills, and commercial machine placements for modern workspaces and boutique hotels.
+        <span class="text-xs font-bold uppercase tracking-wider text-mute">Dedicated Support</span>
+        <h2 class="font-display font-bold text-2xl sm:text-3xl mt-1">Need help or recommendations?</h2>
+        <p class="mt-2 text-sm text-mute leading-relaxed">
+          Chat with our master roasters on WhatsApp, request custom blend grind profiles, or manage your doorstep recycling pickups.
         </p>
       </div>
-      <div class="mt-6">
-        <button type="button" onclick="window.openModal('businessModal')" class="bg-ink text-bg rounded-full px-6 py-3 font-bold text-sm shadow hover:opacity-90 transition">
-          Get Corporate Wholesale Quote
-        </button>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="#contact" class="bg-ink text-bg rounded-full px-6 py-3 font-bold text-sm shadow hover:opacity-90 transition">
+          Visit Contact Page &rarr;
+        </a>
+        <a href="https://wa.me/919876543210?text=Hello%20Orelli%20Team%2C%20I%20need%20assistance" target="_blank" class="border-2 border-[#25D366] text-[#128C7E] hover:bg-[#25D366] hover:text-white rounded-full px-5 py-3 font-bold text-xs flex items-center gap-1.5 transition">
+          <span>💬</span> Chat on WhatsApp
+        </a>
       </div>
     </div>
   </section>
@@ -739,7 +754,136 @@ body {
 
 
 <!-- ========================================== -->
-<!-- 4. SHOPPING CART DRAWER (Slide-over)      -->
+<!-- 4. CONTACT PAGE VIEW (Dedicated View)      -->
+<!-- ========================================== -->
+<main id="contactView" hidden class="flex-1 max-w-6xl mx-auto px-5 py-10 w-full animate-fade-in">
+  <p class="text-sm text-mute mb-6 flex items-center gap-2">
+    <a href="#" class="underline hover:text-ink">Home</a>
+    <span>/</span>
+    <span class="text-ink font-bold">Contact Us</span>
+  </p>
+
+  <div class="max-w-2xl">
+    <span class="inline-block bg-accent text-ink text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">We're Here For You</span>
+    <h1 class="font-display font-extrabold text-3xl sm:text-5xl leading-tight">Get in touch with Orelli</h1>
+    <p class="mt-3 text-mute text-sm sm:text-base leading-relaxed">
+      Have a question about our roasts, your delivery, recycling pickup, or customized corporate orders? We’d love to assist you.
+    </p>
+  </div>
+
+  <div class="mt-10 grid lg:grid-cols-12 gap-10 items-start">
+    <!-- Contact Info Cards (5 Cols) -->
+    <div class="lg:col-span-5 space-y-4">
+      <!-- WhatsApp Card -->
+      <div class="p-6 rounded-3xl bg-surface border border-line shadow-sm">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="w-10 h-10 rounded-full bg-[#25D366]/20 text-[#128C7E] flex items-center justify-center text-xl">💬</span>
+          <div>
+            <h3 class="font-bold text-base text-ink">WhatsApp Concierge</h3>
+            <p class="text-xs text-mute">Instant response (9 AM - 8 PM)</p>
+          </div>
+        </div>
+        <p class="text-sm font-bold text-ink mt-2">+91 98765 43210</p>
+        <a href="https://wa.me/919876543210?text=Hello%20Orelli%20Team%2C%20I%20have%20an%20inquiry" target="_blank" class="mt-4 inline-flex items-center gap-2 bg-[#25D366] text-white text-xs font-bold rounded-full px-5 py-2.5 shadow hover:opacity-90 transition">
+          <span>Start WhatsApp Chat</span> &rarr;
+        </a>
+      </div>
+
+      <!-- Email Card -->
+      <div class="p-6 rounded-3xl bg-surface border border-line shadow-sm">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="w-10 h-10 rounded-full bg-brand/10 text-brand flex items-center justify-center text-xl">✉️</span>
+          <div>
+            <h3 class="font-bold text-base text-ink">Customer Support Email</h3>
+            <p class="text-xs text-mute">Within 4 business hours</p>
+          </div>
+        </div>
+        <p class="text-sm font-bold text-ink mt-2">help@orelli.coffee</p>
+        <p class="text-xs text-mute mt-1">For corporate: wholesale@orelli.coffee</p>
+      </div>
+
+      <!-- Roastery & Address -->
+      <div class="p-6 rounded-3xl bg-surface border border-line shadow-sm">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="w-10 h-10 rounded-full bg-accent/20 text-ink flex items-center justify-center text-xl">📍</span>
+          <div>
+            <h3 class="font-bold text-base text-ink">Roastery & Experience Lab</h3>
+            <p class="text-xs text-mute">Bengaluru Roastery</p>
+          </div>
+        </div>
+        <p class="text-xs text-mute leading-relaxed mt-2">
+          Orelli Specialty Coffee Roasters<br>
+          12th Main, 4th Cross, Indiranagar<br>
+          Bengaluru, Karnataka 560038, India
+        </p>
+        <div class="mt-3 pt-3 border-t border-line text-xs text-mute">
+          <p><span class="font-bold text-ink">Roasting Hours:</span> Mon – Sat: 9:00 AM – 7:00 PM</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form (7 Cols) -->
+    <div class="lg:col-span-7 bg-surface rounded-3xl border border-line p-6 sm:p-8 shadow-sm">
+      <h2 class="font-display font-bold text-2xl">Send us a message</h2>
+      <p class="text-xs text-mute mt-1">Fill out the form below and our team will get back to you promptly.</p>
+
+      <form id="contactForm" onsubmit="window.handleContactSubmit(event)" class="mt-6 space-y-4">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-mute mb-1">Your Name *</label>
+            <input type="text" required id="cntName" placeholder="e.g. Dhiraj Sharma" class="w-full rounded-xl border border-line bg-bg px-4 py-2.5 text-sm focus:outline-none focus:border-brand">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-mute mb-1">Mobile Number (WhatsApp) *</label>
+            <input type="tel" required id="cntPhone" placeholder="9876543210" class="w-full rounded-xl border border-line bg-bg px-4 py-2.5 text-sm focus:outline-none focus:border-brand">
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-mute mb-1">Email Address *</label>
+            <input type="email" required id="cntEmail" placeholder="name@example.com" class="w-full rounded-xl border border-line bg-bg px-4 py-2.5 text-sm focus:outline-none focus:border-brand">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-mute mb-1">Inquiry Topic</label>
+            <select id="cntTopic" class="w-full rounded-xl border border-line bg-bg px-4 py-2.5 text-sm focus:outline-none focus:border-brand">
+              <option>Order & Delivery Status</option>
+              <option>Blend Recommendations</option>
+              <option>Capsule Recycling Pickup</option>
+              <option>Corporate / Wholesale Orders</option>
+              <option>Roastery Visit & Tasting</option>
+              <option>Other Feedback</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-mute mb-1">Order ID (If applicable)</label>
+          <input type="text" id="cntOrderId" placeholder="e.g. ORL-8823" class="w-full rounded-xl border border-line bg-bg px-4 py-2.5 text-sm focus:outline-none focus:border-brand">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-mute mb-1">How can we help you? *</label>
+          <textarea required id="cntMessage" rows="4" placeholder="Tell us your questions, blend preferences, or feedback..." class="w-full rounded-xl border border-line bg-bg px-4 py-2.5 text-sm focus:outline-none focus:border-brand"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-brand text-brandink font-bold py-3.5 rounded-full text-sm shadow hover:opacity-95 transition">
+          Submit Message &rarr;
+        </button>
+      </form>
+
+      <div id="contactSuccess" class="hidden mt-6 p-4 rounded-2xl bg-brand/10 border border-brand/30 text-center animate-fade-in">
+        <span class="text-2xl">✓</span>
+        <h4 class="font-bold text-sm text-brand mt-1">Message Received!</h4>
+        <p class="text-xs text-mute mt-1">Thank you. Your support ticket <span id="ticketNum" class="font-bold font-mono text-ink">#ORL-9402</span> has been created. We'll reply within 4 hours.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<!-- ========================================== -->
+<!-- 5. SHOPPING CART DRAWER (Slide-over)      -->
 <!-- ========================================== -->
 <div id="cartDrawerBackdrop" class="fixed inset-0 bg-black/50 z-50 hidden opacity-0 transition-opacity duration-300" onclick="window.closeCart()"></div>
 <aside id="cartDrawer" class="fixed top-0 right-0 bottom-0 w-full sm:w-[440px] bg-surface z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out border-l border-line">
@@ -801,7 +945,140 @@ body {
 
 
 <!-- ========================================== -->
-<!-- 5. CHECKOUT MODAL                         -->
+<!-- 6. MOBILE NUMBER & OTP LOGIN MODAL        -->
+<!-- ========================================== -->
+<div id="authModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+  <div class="bg-surface rounded-3xl max-w-md w-full border border-line shadow-2xl p-6 sm:p-8 animate-fade-in relative">
+    <button type="button" onclick="window.closeModal('authModal')" class="absolute top-5 right-5 p-2 rounded-full hover:bg-bg text-mute hover:text-ink">✕</button>
+
+    <!-- Step 1: Mobile Number Input -->
+    <div id="authStep1">
+      <div class="w-12 h-12 rounded-2xl bg-brand text-brandink flex items-center justify-center text-xl font-bold mb-4 shadow-sm">
+        📱
+      </div>
+      <h2 class="font-display font-bold text-2xl text-ink">Login or Sign Up</h2>
+      <p class="text-xs text-mute mt-1">Enter your 10-digit mobile number to receive an instant OTP.</p>
+
+      <form onsubmit="window.handleSendOtp(event)" class="mt-6 space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-mute mb-1">Mobile Number</label>
+          <div class="flex items-center rounded-xl border border-line bg-bg overflow-hidden focus-within:border-brand">
+            <span class="px-3.5 py-2.5 text-xs font-bold text-ink bg-line/40 border-r border-line">+91</span>
+            <input type="tel" required id="authMobileInput" maxlength="10" placeholder="98765 43210" class="flex-1 px-4 py-2.5 text-sm bg-transparent focus:outline-none font-medium">
+          </div>
+        </div>
+
+        <p class="text-[11px] text-mute leading-snug">
+          By proceeding, you agree to Orelli's Terms of Service and Privacy Policy.
+        </p>
+
+        <button type="submit" class="w-full bg-brand text-brandink font-bold py-3.5 rounded-full text-sm shadow hover:opacity-95 transition">
+          Get OTP &rarr;
+        </button>
+      </form>
+    </div>
+
+    <!-- Step 2: OTP Verification -->
+    <div id="authStep2" class="hidden">
+      <div class="w-12 h-12 rounded-2xl bg-accent text-ink flex items-center justify-center text-xl font-bold mb-4 shadow-sm">
+        🔒
+      </div>
+      <h2 class="font-display font-bold text-2xl text-ink">Verify with OTP</h2>
+      <p class="text-xs text-mute mt-1">
+        Enter the 4-digit code sent to <span id="authOtpTarget" class="font-bold text-ink">+91 98765 43210</span>
+        <button type="button" onclick="window.backToMobileStep()" class="text-brand underline ml-1">Change</button>
+      </p>
+
+      <div class="my-4 p-2.5 rounded-xl bg-accent/20 border border-accent/40 text-xs text-ink text-center font-medium">
+        💡 Demo Test Mode: Enter <strong class="font-mono font-bold">1234</strong> (or any 4 digits).
+      </div>
+
+      <form onsubmit="window.handleVerifyOtp(event)" class="space-y-4">
+        <!-- 4 Digit OTP Inputs -->
+        <div class="flex justify-center gap-3 my-4">
+          <input type="text" maxlength="1" id="otp1" class="otp-box w-12 h-14 text-center font-display font-extrabold text-2xl rounded-2xl border-2 border-line bg-bg focus:outline-none focus:border-brand" autofocus>
+          <input type="text" maxlength="1" id="otp2" class="otp-box w-12 h-14 text-center font-display font-extrabold text-2xl rounded-2xl border-2 border-line bg-bg focus:outline-none focus:border-brand">
+          <input type="text" maxlength="1" id="otp3" class="otp-box w-12 h-14 text-center font-display font-extrabold text-2xl rounded-2xl border-2 border-line bg-bg focus:outline-none focus:border-brand">
+          <input type="text" maxlength="1" id="otp4" class="otp-box w-12 h-14 text-center font-display font-extrabold text-2xl rounded-2xl border-2 border-line bg-bg focus:outline-none focus:border-brand">
+        </div>
+
+        <div class="flex items-center justify-between text-xs">
+          <span id="otpTimerText" class="text-mute">Resend OTP in <span id="otpCountdown">28</span>s</span>
+          <button type="button" id="resendOtpBtn" onclick="window.resendOtp()" class="font-bold text-brand hover:underline hidden">Resend Code</button>
+        </div>
+
+        <button type="submit" class="w-full bg-brand text-brandink font-bold py-3.5 rounded-full text-sm shadow hover:opacity-95 transition">
+          Verify & Log In
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- ========================================== -->
+<!-- 7. USER ACCOUNT DASHBOARD MODAL           -->
+<!-- ========================================== -->
+<div id="accountModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+  <div class="bg-surface rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-line shadow-2xl p-6 sm:p-8 animate-fade-in relative">
+    <div class="flex items-center justify-between pb-4 border-b border-line">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-brand text-brandink flex items-center justify-center font-extrabold text-lg shadow-sm">
+          ☕
+        </div>
+        <div>
+          <h2 id="accUserPhone" class="font-display font-bold text-xl">+91 98765 43210</h2>
+          <span class="inline-block bg-accent/20 text-ink text-[11px] font-bold px-2 py-0.5 rounded-full mt-0.5">
+            Orelli Coffee Club Member
+          </span>
+        </div>
+      </div>
+      <button type="button" onclick="window.closeModal('accountModal')" class="p-2 rounded-full hover:bg-bg text-mute hover:text-ink">✕</button>
+    </div>
+
+    <!-- Bean Points Loyalty -->
+    <div class="mt-5 p-4 rounded-2xl bg-bg border border-line flex items-center justify-between">
+      <div>
+        <p class="text-xs text-mute font-bold">Orelli Bean Balance</p>
+        <p class="text-xl font-bold font-display text-brand">150 Beans</p>
+      </div>
+      <span class="text-xs bg-brand text-brandink font-bold px-3 py-1.5 rounded-full shadow-sm">
+        Worth ₹150 off
+      </span>
+    </div>
+
+    <!-- Recent Orders Section -->
+    <div class="mt-6">
+      <h3 class="font-bold text-sm text-ink mb-3">Recent Orders</h3>
+      <div id="accOrdersList" class="space-y-3">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- Saved Address Section -->
+    <div class="mt-6">
+      <h3 class="font-bold text-sm text-ink mb-2">Saved Delivery Address</h3>
+      <div class="p-4 rounded-2xl bg-bg border border-line text-xs space-y-1">
+        <p class="font-bold text-ink" id="accSavedName">Dhiraj Sharma</p>
+        <p class="text-mute" id="accSavedAddress">Flat 402, Green Glen Layout, Bellandur, Bengaluru, Karnataka 560103</p>
+      </div>
+    </div>
+
+    <!-- Logout Action -->
+    <div class="mt-6 pt-4 border-t border-line flex items-center justify-between">
+      <button type="button" onclick="window.logout()" class="text-xs font-bold text-red-600 hover:underline flex items-center gap-1.5">
+        <span>🚪</span> Log out from this device
+      </button>
+      <button type="button" onclick="window.closeModal('accountModal')" class="bg-ink text-bg font-bold px-5 py-2 rounded-full text-xs">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ========================================== -->
+<!-- 8. CHECKOUT MODAL                         -->
 <!-- ========================================== -->
 <div id="checkoutModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
   <div class="bg-surface rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-line shadow-2xl p-6 sm:p-8 animate-fade-in">
@@ -878,7 +1155,7 @@ body {
 
 
 <!-- ========================================== -->
-<!-- 6. ORDER CONFIRMATION MODAL               -->
+<!-- 9. ORDER CONFIRMATION MODAL               -->
 <!-- ========================================== -->
 <div id="orderSuccessModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
   <div class="bg-surface rounded-3xl max-w-md w-full border border-line shadow-2xl p-8 text-center animate-fade-in">
@@ -903,50 +1180,7 @@ body {
 
 
 <!-- ========================================== -->
-<!-- 7. STARTER KITS MODAL                     -->
-<!-- ========================================== -->
-<div id="machinesModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
-  <div class="bg-surface rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-line shadow-2xl p-6 sm:p-8 animate-fade-in">
-    <div class="flex items-center justify-between pb-4 border-b border-line">
-      <div>
-        <h2 class="font-display font-bold text-2xl">Orelli Capsule Starter Kit</h2>
-        <p class="text-xs text-mute">Everything you need for café coffee at home</p>
-      </div>
-      <button type="button" onclick="window.closeModal('machinesModal')" class="p-2 rounded-full hover:bg-bg text-mute hover:text-ink">✕</button>
-    </div>
-    <div class="mt-5 space-y-4">
-      <div class="aspect-video rounded-2xl bg-brand text-brandink flex flex-col items-center justify-center p-6 text-center">
-        <span class="text-4xl mb-2">⚡☕</span>
-        <h3 class="font-display font-bold text-xl">Orelli Compact 19-Bar Machine</h3>
-        <p class="text-xs opacity-80 mt-1">Italian high-pressure extraction with dual espresso/lungo buttons</p>
-      </div>
-      <div class="text-sm space-y-2">
-        <p class="font-bold">What's in the box:</p>
-        <ul class="list-disc pl-5 text-xs text-mute space-y-1">
-          <li>1× Orelli Compact Espresso Capsule Machine (Matte Black)</li>
-          <li>30× Assorted Specialty Capsules (10 Dark, 10 Caramel, 10 Fruity)</li>
-          <li>1× Handheld Stainless Steel Milk Frother</li>
-          <li>1× Pouch for Capsule Recycling</li>
-          <li>2-Year Comprehensive Replacement Warranty</li>
-        </ul>
-      </div>
-      <div class="p-4 rounded-2xl bg-bg border border-line flex items-center justify-between">
-        <div>
-          <span class="text-xs text-mute">Starter Bundle Price</span>
-          <p class="text-2xl font-bold font-display">₹5,999</p>
-          <span class="text-[10px] text-mute line-through">MRP ₹8,499</span>
-        </div>
-        <button type="button" onclick="window.addStarterKitToCart()" class="bg-brand text-brandink font-bold px-6 py-3 rounded-full text-xs shadow">
-          Add Kit to Cart
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ========================================== -->
-<!-- 8. CORPORATE BULK QUOTE MODAL             -->
+<!-- 10. CORPORATE BULK QUOTE MODAL            -->
 <!-- ========================================== -->
 <div id="businessModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
   <div class="bg-surface rounded-3xl max-w-lg w-full border border-line shadow-2xl p-6 sm:p-8 animate-fade-in">
@@ -990,7 +1224,7 @@ body {
 
 
 <!-- ========================================== -->
-<!-- 9. FAQS MODAL                             -->
+<!-- 11. FAQS MODAL                            -->
 <!-- ========================================== -->
 <div id="faqModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
   <div class="bg-surface rounded-3xl max-w-lg w-full max-h-[85vh] overflow-y-auto border border-line shadow-2xl p-6 sm:p-8 animate-fade-in">
@@ -1050,18 +1284,18 @@ body {
       <ul class="space-y-2 text-xs opacity-80">
         <li><a href="#series" class="hover:underline">All Coffee Blends</a></li>
         <li><a href="#builder" class="hover:underline">Custom Pack Builder</a></li>
-        <li><button type="button" onclick="window.openModal('machinesModal')" class="hover:underline">Starter Kits & Machines</button></li>
         <li><button type="button" onclick="window.openModal('businessModal')" class="hover:underline">Wholesale / For Offices</button></li>
+        <li><a href="#contact" class="hover:underline">Contact Roastery Team</a></li>
       </ul>
     </div>
 
     <div>
       <p class="font-bold text-xs uppercase tracking-wider text-accent mb-3">Customer Support</p>
       <ul class="space-y-2 text-xs opacity-80">
+        <li><a href="#contact" class="hover:underline">Contact Us Page</a></li>
         <li><button type="button" onclick="window.openModal('faqModal')" class="hover:underline">Frequently Asked Questions</button></li>
-        <li><a href="https://wa.me/919876543210?text=Hello%20Orelli%20Team%2C%20I%20have%20a%20question" target="_blank" class="hover:underline">WhatsApp Support: +91 98765 43210</a></li>
+        <li><a href="https://wa.me/919876543210?text=Hello%20Orelli%20Team%2C%20I%20have%20a%20question" target="_blank" class="hover:underline">WhatsApp: +91 98765 43210</a></li>
         <li><span>Email: help@orelli.coffee</span></li>
-        <li><span>Pan-India Shipping Policy</span></li>
       </ul>
     </div>
 
@@ -1076,11 +1310,11 @@ body {
   </div>
 
   <div class="max-w-6xl mx-auto px-5 pb-8 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] opacity-60 gap-4">
-    <p>© 2026 Orelli Coffee Co. All rights reserved. Nespresso® is a registered trademark of Société des Produits Nestlé S.A. Orelli is an independent roaster not affiliated with Nestlé.</p>
+    <p>© 2026 Orelli Coffee Co. All rights reserved. Nespresso® is a registered trademark of Nestlé S.A. Orelli is not affiliated with Nestlé.</p>
     <div class="flex gap-4">
       <a href="#" class="hover:underline">Privacy Policy</a>
       <a href="#" class="hover:underline">Terms of Service</a>
-      <a href="#" class="hover:underline">Recycling Program</a>
+      <a href="#contact" class="hover:underline">Contact</a>
     </div>
   </div>
 </footer>
@@ -1186,7 +1420,8 @@ body {
     },
     cart: [],
     discountCode: null,
-    discountRate: 0
+    discountRate: 0,
+    user: null // Stores authenticated user { phone, name, orders, ... }
   };
 
   // DOM Helper
@@ -1198,13 +1433,244 @@ body {
     return '₹' + Math.round(amount).toLocaleString('en-IN');
   }
 
-  // Local Storage Cart Sync
+  // Toast Notification
+  function showToast(msg) {
+    var t = $('toast');
+    $('toastMsg').textContent = msg;
+    t.classList.remove('hidden');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(function() {
+      t.classList.add('hidden');
+    }, 3200);
+  }
+
+  // -------------------------------------------------------------
+  // USER AUTHENTICATION & OTP SYSTEM
+  // -------------------------------------------------------------
+  var otpCountdownTimer = null;
+  var currentPendingPhone = '';
+
+  function loadAuth() {
+    try {
+      var savedUser = localStorage.getItem('orelli_user');
+      if (savedUser) {
+        state.user = JSON.parse(savedUser);
+      }
+    } catch(e) {}
+    renderAuthUI();
+  }
+
+  function saveAuth() {
+    try {
+      if (state.user) {
+        localStorage.setItem('orelli_user', JSON.stringify(state.user));
+      } else {
+        localStorage.removeItem('orelli_user');
+      }
+    } catch(e) {}
+    renderAuthUI();
+  }
+
+  function renderAuthUI() {
+    var btn = $('authBtn');
+    var label = $('authLabel');
+    var mobLabel = $('mobAuthLabel');
+
+    if (state.user) {
+      var shortPhone = state.user.phone.replace('+91 ', '');
+      label.textContent = shortPhone.slice(0, 5) + '..';
+      if (mobLabel) mobLabel.textContent = 'Account: ' + state.user.phone;
+      btn.title = 'Logged in as ' + state.user.phone;
+    } else {
+      label.textContent = 'Log in';
+      if (mobLabel) mobLabel.textContent = 'Login with Mobile & OTP →';
+      btn.title = 'Log in with mobile OTP';
+    }
+  }
+
+  window.handleAuthClick = function() {
+    if (state.user) {
+      // Open Account Dashboard
+      renderAccountModal();
+      window.openModal('accountModal');
+    } else {
+      // Open Login Modal Step 1
+      window.backToMobileStep();
+      window.openModal('authModal');
+    }
+  };
+
+  window.handleSendOtp = function(e) {
+    e.preventDefault();
+    var inp = $('authMobileInput').value.replace(/[^0-9]/g, '');
+    if (inp.length !== 10) {
+      alert('Please enter a valid 10-digit mobile number.');
+      return;
+    }
+    currentPendingPhone = '+91 ' + inp;
+    $('authOtpTarget').textContent = currentPendingPhone;
+
+    $('authStep1').classList.add('hidden');
+    $('authStep2').classList.remove('hidden');
+
+    // Focus first OTP box
+    setTimeout(function() {
+      $('otp1').value = '';
+      $('otp2').value = '';
+      $('otp3').value = '';
+      $('otp4').value = '';
+      $('otp1').focus();
+    }, 100);
+
+    startOtpTimer();
+    showToast('OTP sent to ' + currentPendingPhone + ' (Demo: 1234)');
+  };
+
+  window.backToMobileStep = function() {
+    clearInterval(otpCountdownTimer);
+    $('authStep1').classList.remove('hidden');
+    $('authStep2').classList.add('hidden');
+    setTimeout(function() {
+      var inp = $('authMobileInput');
+      if (inp) inp.focus();
+    }, 100);
+  };
+
+  function startOtpTimer() {
+    clearInterval(otpCountdownTimer);
+    var count = 30;
+    var timerEl = $('otpCountdown');
+    var resendBtn = $('resendOtpBtn');
+    var timerWrap = $('otpTimerText');
+
+    resendBtn.classList.add('hidden');
+    timerWrap.classList.remove('hidden');
+    timerEl.textContent = count;
+
+    otpCountdownTimer = setInterval(function() {
+      count--;
+      if (count <= 0) {
+        clearInterval(otpCountdownTimer);
+        timerWrap.classList.add('hidden');
+        resendBtn.classList.remove('hidden');
+      } else {
+        timerEl.textContent = count;
+      }
+    }, 1000);
+  }
+
+  window.resendOtp = function() {
+    startOtpTimer();
+    showToast('New OTP sent! (Demo OTP: 1234)');
+  };
+
+  // OTP inputs auto-advance
+  ['otp1', 'otp2', 'otp3', 'otp4'].forEach(function(id, idx, arr) {
+    var el = $(id);
+    if (!el) return;
+    el.addEventListener('input', function(e) {
+      if (el.value.length === 1 && idx < arr.length - 1) {
+        $(arr[idx + 1]).focus();
+      }
+    });
+    el.addEventListener('keydown', function(e) {
+      if (e.key === 'Backspace' && !el.value && idx > 0) {
+        $(arr[idx - 1]).focus();
+      }
+    });
+  });
+
+  window.handleVerifyOtp = function(e) {
+    e.preventDefault();
+    var o1 = $('otp1').value;
+    var o2 = $('otp2').value;
+    var o3 = $('otp3').value;
+    var o4 = $('otp4').value;
+    var enteredOtp = o1 + o2 + o3 + o4;
+
+    if (enteredOtp.length < 4) {
+      alert('Please enter the complete 4-digit OTP.');
+      return;
+    }
+
+    // Accept 1234 or any 4 digits in demo mode
+    state.user = {
+      phone: currentPendingPhone,
+      name: 'Coffee Enthusiast',
+      memberSince: 'Nov 2026',
+      points: 150,
+      orders: [
+        {
+          id: 'ORL-9210',
+          date: '18 Nov 2026',
+          items: '30 × Bold Dark Capsules',
+          total: '₹1,347',
+          status: 'In Transit'
+        }
+      ]
+    };
+
+    saveAuth();
+    clearInterval(otpCountdownTimer);
+    window.closeModal('authModal');
+    showToast('✓ Successfully logged in as ' + currentPendingPhone);
+  };
+
+  function renderAccountModal() {
+    if (!state.user) return;
+    $('accUserPhone').textContent = state.user.phone;
+    var list = $('accOrdersList');
+
+    if (!state.user.orders || state.user.orders.length === 0) {
+      list.innerHTML = '<p class="text-xs text-mute">No orders placed yet.</p>';
+    } else {
+      list.innerHTML = state.user.orders.map(function(ord) {
+        return `
+          <div class="p-3.5 rounded-2xl bg-bg border border-line flex items-center justify-between">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono font-bold text-xs text-brand">${ord.id}</span>
+                <span class="text-[10px] bg-brand/10 text-brand font-bold px-2 py-0.5 rounded-full">${ord.status}</span>
+              </div>
+              <p class="text-xs text-ink font-medium mt-1">${ord.items}</p>
+              <p class="text-[10px] text-mute mt-0.5">${ord.date}</p>
+            </div>
+            <span class="text-sm font-bold text-ink">${ord.total}</span>
+          </div>
+        `;
+      }).join('');
+    }
+  }
+
+  window.logout = function() {
+    state.user = null;
+    saveAuth();
+    window.closeModal('accountModal');
+    showToast('Logged out successfully.');
+  };
+
+  // -------------------------------------------------------------
+  // CONTACT PAGE HANDLING
+  // -------------------------------------------------------------
+  window.handleContactSubmit = function(e) {
+    e.preventDefault();
+    var name = $('cntName').value;
+    var topic = $('cntTopic').value;
+    var tkt = 'ORL-' + Math.floor(2000 + Math.random() * 8000);
+
+    $('ticketNum').textContent = '#' + tkt;
+    $('contactSuccess').classList.remove('hidden');
+    $('contactForm').reset();
+    showToast('Support ticket #' + tkt + ' created!');
+  };
+
+  // -------------------------------------------------------------
+  // CART OPERATIONS & SYNC
+  // -------------------------------------------------------------
   function loadCart() {
     try {
       var saved = localStorage.getItem('orelli_cart');
-      if (saved) {
-        state.cart = JSON.parse(saved);
-      }
+      if (saved) state.cart = JSON.parse(saved);
       var coupon = localStorage.getItem('orelli_coupon');
       if (coupon === 'WELCOME10') {
         state.discountCode = 'WELCOME10';
@@ -1224,19 +1690,251 @@ body {
     renderCart();
   }
 
-  // Toast Notification
-  function showToast(msg) {
-    var t = $('toast');
-    $('toastMsg').textContent = msg;
-    t.classList.remove('hidden');
-    clearTimeout(window.__toastTimer);
-    window.__toastTimer = setTimeout(function() {
-      t.classList.add('hidden');
-    }, 3200);
+  function addItemToCart(item) {
+    var existing = state.cart.find(function(it) { return it.id === item.id; });
+    if (existing) {
+      existing.qty += item.qty;
+    } else {
+      state.cart.push(item);
+    }
+    saveCart();
   }
 
+  window.updateCartQty = function(id, delta) {
+    var item = state.cart.find(function(it) { return it.id === id; });
+    if (!item) return;
+    item.qty += delta;
+    if (item.qty <= 0) {
+      state.cart = state.cart.filter(function(it) { return it.id !== id; });
+    }
+    saveCart();
+  };
+
+  window.removeCartItem = function(id) {
+    state.cart = state.cart.filter(function(it) { return it.id !== id; });
+    saveCart();
+  };
+
+  function renderCart() {
+    var totalQty = state.cart.reduce(function(sum, it) { return sum + it.qty; }, 0);
+    $('cartCountBadge').textContent = totalQty;
+    $('drawerBadge').textContent = totalQty;
+
+    var container = $('cartItemsList');
+    if (!container) return;
+
+    if (state.cart.length === 0) {
+      container.innerHTML = `
+        <div class="h-full flex flex-col items-center justify-center text-center p-8 text-mute">
+          <span class="text-5xl mb-3">☕</span>
+          <p class="font-bold text-base text-ink">Your cart is empty</p>
+          <p class="text-xs mt-1">Explore our artisanal blends and pick your favorites.</p>
+          <button type="button" onclick="window.closeCart(); location.hash='series';" class="mt-4 bg-brand text-brandink px-5 py-2.5 rounded-full text-xs font-bold">
+            Shop Capsules
+          </button>
+        </div>
+      `;
+    } else {
+      container.innerHTML = state.cart.map(function(item) {
+        return `
+          <div class="py-4 flex gap-3 items-center">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-white shrink-0 shadow-sm" style="background:${item.color || 'var(--brand)'}">
+              ☕
+            </div>
+            <div class="flex-1 min-w-0">
+              <h4 class="font-bold text-xs sm:text-sm text-ink truncate">${item.title}</h4>
+              <p class="text-[11px] text-mute line-clamp-1">${item.variant}</p>
+              <p class="text-xs font-bold text-ink mt-0.5">${inr(item.price)}</p>
+            </div>
+            <div class="flex items-center border border-line rounded-full bg-bg">
+              <button type="button" onclick="window.updateCartQty('${item.id}', -1)" class="w-7 h-7 text-sm font-bold hover:text-brand" aria-label="Decrease">−</button>
+              <span class="w-6 text-center text-xs font-bold">${item.qty}</span>
+              <button type="button" onclick="window.updateCartQty('${item.id}', 1)" class="w-7 h-7 text-sm font-bold hover:text-brand" aria-label="Increase">+</button>
+            </div>
+            <button type="button" onclick="window.removeCartItem('${item.id}')" class="text-mute hover:text-red-500 p-1" title="Remove">
+              🗑️
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    var subtotal = state.cart.reduce(function(sum, it) { return sum + (it.price * it.qty); }, 0);
+    var discount = Math.round(subtotal * state.discountRate);
+    var shipping = (subtotal - discount >= 999 || subtotal === 0) ? 0 : 99;
+    var total = Math.max(0, subtotal - discount + shipping);
+
+    $('cartSubtotal').textContent = inr(subtotal);
+
+    if (discount > 0) {
+      $('cartDiscountRow').classList.remove('hidden');
+      $('cartDiscountLbl').textContent = 'Discount (' + state.discountCode + ')';
+      $('cartDiscountVal').textContent = '−' + inr(discount);
+    } else {
+      $('cartDiscountRow').classList.add('hidden');
+    }
+
+    $('cartShippingVal').textContent = shipping === 0 ? 'FREE' : inr(shipping);
+    $('cartTotalVal').textContent = inr(total);
+
+    var shipRemain = Math.max(0, 999 - subtotal);
+    var shipPct = Math.min(100, Math.round((subtotal / 999) * 100));
+    $('freeShipBar').style.width = shipPct + '%';
+
+    if (subtotal === 0) {
+      $('freeShipText').textContent = 'Add items for free delivery';
+    } else if (shipRemain > 0) {
+      $('freeShipText').textContent = 'Add ' + inr(shipRemain) + ' more for FREE shipping';
+    } else {
+      $('freeShipText').textContent = '🎉 You unlocked FREE Pan-India Shipping!';
+    }
+  }
+
+  window.openCart = function() {
+    $('cartDrawerBackdrop').classList.remove('hidden');
+    setTimeout(function() {
+      $('cartDrawerBackdrop').classList.remove('opacity-0');
+      $('cartDrawer').classList.remove('translate-x-full');
+    }, 10);
+  };
+
+  window.closeCart = function() {
+    $('cartDrawerBackdrop').classList.add('opacity-0');
+    $('cartDrawer').classList.add('translate-x-full');
+    setTimeout(function() {
+      $('cartDrawerBackdrop').classList.add('hidden');
+    }, 300);
+  };
+
+  $('cartBtn').addEventListener('click', window.openCart);
+
+  window.applyCoupon = function() {
+    var code = $('couponInput').value.trim().toUpperCase();
+    var msg = $('couponMsg');
+    if (code === 'WELCOME10') {
+      state.discountCode = 'WELCOME10';
+      state.discountRate = 0.10;
+      msg.textContent = '✓ 10% WELCOME10 coupon applied!';
+      msg.className = 'text-xs font-bold text-brand';
+      saveCart();
+    } else if (!code) {
+      msg.textContent = '';
+    } else {
+      msg.textContent = '✕ Invalid coupon code. Try WELCOME10.';
+      msg.className = 'text-xs font-bold text-red-500';
+    }
+  };
+
+  window.orderViaWhatsApp = function() {
+    if (state.cart.length === 0) {
+      alert('Your cart is empty!');
+      return;
+    }
+    var lines = ['*Hello Orelli Coffee!* I would like to place an order:%0A'];
+    var subtotal = 0;
+    state.cart.forEach(function(it) {
+      lines.push('• ' + it.qty + 'x ' + it.title + ' (' + it.variant + ') - ' + inr(it.price * it.qty));
+      subtotal += it.price * it.qty;
+    });
+    var discount = Math.round(subtotal * state.discountRate);
+    var shipping = (subtotal - discount >= 999) ? 0 : 99;
+    var total = subtotal - discount + shipping;
+
+    lines.push('%0A*Subtotal:* ' + inr(subtotal));
+    if (discount > 0) lines.push('*Discount:* -' + inr(discount));
+    lines.push('*Shipping:* ' + (shipping === 0 ? 'FREE' : inr(shipping)));
+    lines.push('*Estimated Total:* ' + inr(total));
+    lines.push('%0APlease let me know the payment details and delivery timeline.');
+
+    var url = 'https://wa.me/919876543210?text=' + lines.join('%0A');
+    window.open(url, '_blank');
+  };
+
+  window.openCheckout = function() {
+    if (state.cart.length === 0) {
+      alert('Your cart is empty! Please add some coffee first.');
+      return;
+    }
+    window.closeCart();
+    var subtotal = state.cart.reduce(function(s, i) { return s + (i.price * i.qty); }, 0);
+    var discount = Math.round(subtotal * state.discountRate);
+    var shipping = (subtotal - discount >= 999) ? 0 : 99;
+    var total = subtotal - discount + shipping;
+    $('checkoutTotalAmount').textContent = inr(total);
+
+    // Pre-fill if user logged in
+    if (state.user) {
+      $('custPhone').value = state.user.phone.replace('+91 ', '');
+    }
+    window.openModal('checkoutModal');
+  };
+
+  window.submitOrder = function(e) {
+    e.preventDefault();
+    var name = $('custName').value;
+    var phone = $('custPhone').value;
+    var city = $('custCity').value;
+    var orderId = 'ORL-' + Math.floor(1000 + Math.random() * 9000);
+    var total = $('checkoutTotalAmount').textContent;
+
+    // Add to user orders if logged in
+    if (!state.user) {
+      state.user = {
+        phone: '+91 ' + phone,
+        name: name,
+        memberSince: 'Nov 2026',
+        points: 150,
+        orders: []
+      };
+    }
+    var itemsDesc = state.cart.map(function(i) { return i.qty + ' × ' + i.title; }).join(', ');
+    state.user.orders.unshift({
+      id: orderId,
+      date: 'Today',
+      items: itemsDesc,
+      total: total,
+      status: 'Processing'
+    });
+    saveAuth();
+
+    window.closeModal('checkoutModal');
+
+    $('confOrderId').textContent = orderId;
+    $('confName').textContent = name;
+    $('confCity').textContent = city;
+    $('confAmount').textContent = total;
+
+    state.cart = [];
+    saveCart();
+
+    window.openModal('orderSuccessModal');
+  };
+
+  window.closeSuccessModal = function() {
+    window.closeModal('orderSuccessModal');
+    location.hash = '';
+  };
+
+  window.handleBusinessQuote = function(e) {
+    e.preventDefault();
+    $('bizSuccess').classList.remove('hidden');
+    setTimeout(function() {
+      window.closeModal('businessModal');
+      $('bizSuccess').classList.add('hidden');
+    }, 2500);
+  };
+
+  window.handleNewsletter = function(e) {
+    e.preventDefault();
+    state.discountCode = 'WELCOME10';
+    state.discountRate = 0.10;
+    saveCart();
+    $('newsSuccess').classList.remove('hidden');
+    showToast('Code WELCOME10 applied (10% off)!');
+  };
+
   // -------------------------------------------------------------
-  // 1. HOME VIEW: Product Cards Generation
+  // HOME VIEW CARDS & ACTIONS
   // -------------------------------------------------------------
   function renderHomeProducts() {
     var grid = $('homeProductsGrid');
@@ -1258,7 +1956,6 @@ body {
               <p class="text-xs text-mute mt-0.5 line-clamp-1">${b.t.split(',')[0]}</p>
             </div>
 
-            <!-- Pack selector chips on card -->
             <div class="mt-3 flex flex-wrap gap-1.5" id="homePacks-${idx}">
               ${PACKS.map(function(p, pkIdx) {
                 return `
@@ -1296,10 +1993,7 @@ body {
     }).join('');
   }
 
-  // Home card interaction state
-  var homeCardState = BLENDS.map(function() {
-    return { pk: 0, sub: false };
-  });
+  var homeCardState = BLENDS.map(function() { return { pk: 0, sub: false }; });
 
   window.updateHomeCardPack = function(e, bIdx, pkIdx) {
     e.stopPropagation();
@@ -1363,7 +2057,7 @@ body {
   };
 
   // -------------------------------------------------------------
-  // 2. PRODUCT DETAIL VIEW
+  // PRODUCT VIEW
   // -------------------------------------------------------------
   function renderProductView() {
     var b = BLENDS[state.product.b];
@@ -1377,12 +2071,10 @@ body {
     $('pRoast').textContent = b.r;
     $('pInt').textContent = b.i + ' of 12';
 
-    // Intensity dot meter
     $('pBar').innerHTML = Array.from({ length: 12 }, function(_, j) {
       return `<span class="h-2 flex-1 rounded-full ${j < b.i ? 'bg-brand' : 'bg-line'}"></span>`;
     }).join('');
 
-    // Stock badge
     var badge = $('pStockBadge');
     if (b.s) {
       badge.textContent = 'In Stock';
@@ -1392,7 +2084,6 @@ body {
       badge.className = 'absolute top-4 left-4 bg-accent text-ink text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full';
     }
 
-    // Price calculation
     var full = b.p * pk.m;
     var base10 = (b.p * pk.n) / 10;
     var pricePerPack = state.product.buy === 'sub' ? full * 0.9 : full;
@@ -1408,7 +2099,6 @@ body {
     }
     $('pPer').textContent = inr(pricePerPack / pk.n) + ' per capsule';
 
-    // Render Blends Buttons
     $('pBlends').innerHTML = BLENDS.map(function(x, j) {
       return `
         <button type="button" class="opt text-xs ${j === state.product.b ? 'border-brand' : ''}" 
@@ -1422,7 +2112,6 @@ body {
       `;
     }).join('');
 
-    // Render Packs Buttons
     $('pPacks').innerHTML = PACKS.map(function(x, j) {
       var cost = b.p * x.m;
       return `
@@ -1434,16 +2123,13 @@ body {
       `;
     }).join('');
 
-    // Purchase type buttons
     document.querySelectorAll('[data-buy]').forEach(function(e) {
       e.setAttribute('aria-pressed', e.dataset.buy === state.product.buy);
     });
     $('pFreqWrap').classList.toggle('hidden', state.product.buy !== 'sub');
 
-    // Quantity
     $('pQty').textContent = state.product.q;
 
-    // CTA Button
     var cta = $('pCta');
     if (b.s) {
       cta.textContent = 'Add to Cart (' + inr(totalPrice) + ')';
@@ -1453,14 +2139,12 @@ body {
       cta.className = 'flex-1 bg-accent text-ink font-bold rounded-full py-3.5 text-sm shadow hover:opacity-95 transition';
     }
 
-    // Active Gallery Thumb
     $('pMain').innerHTML = '<use href="#' + state.product.v + '"/>';
     document.querySelectorAll('.pthumb').forEach(function(t) {
       t.style.borderColor = t.dataset.v === state.product.v ? 'var(--brand)' : 'var(--line)';
     });
   }
 
-  // Product View Event Listeners
   $('productView').addEventListener('click', function(e) {
     var t = e.target.closest('button');
     if (!t) return;
@@ -1511,7 +2195,7 @@ body {
   });
 
   // -------------------------------------------------------------
-  // 3. CUSTOM PACK BUILDER VIEW
+  // BUILDER VIEW
   // -------------------------------------------------------------
   var builderInitialized = false;
 
@@ -1566,24 +2250,20 @@ body {
     var current = sumBuilderPods();
     var remaining = target - current;
 
-    // Active size chip
     document.querySelectorAll('[data-size]').forEach(function(e) {
       e.setAttribute('aria-pressed', +e.dataset.size === state.builder.k);
     });
 
-    // Counts on items
     document.querySelectorAll('[data-q]').forEach(function(e) {
       e.textContent = state.builder.q[+e.dataset.q];
     });
 
-    // Disable plus buttons if target reached
     document.querySelectorAll('[data-d]').forEach(function(e) {
       var i = +e.dataset.i;
       var d = +e.dataset.d;
       e.disabled = d > 0 ? (remaining <= 0) : (state.builder.q[i] <= 0);
     });
 
-    // Subtotal calculation
     var subtotal = 0;
     state.builder.q.forEach(function(q, i) {
       subtotal += q * (BLENDS[i].p / 10);
@@ -1591,7 +2271,6 @@ body {
     var discount = subtotal * sz.d;
     var total = subtotal - discount;
 
-    // Progress updates
     var pct = Math.min(100, Math.round((current / target) * 100));
     $('bCount').textContent = current + ' of ' + target + ' capsules added';
     $('bPct').textContent = pct + '%';
@@ -1609,7 +2288,6 @@ body {
       remBadge.className = 'text-xs font-bold bg-brand text-brandink px-3 py-1 rounded-full';
     }
 
-    // Breakdown
     var breakdown = [];
     state.builder.q.forEach(function(q, i) {
       if (q > 0) breakdown.push(q + '× ' + BLENDS[i].n);
@@ -1704,258 +2382,7 @@ body {
   });
 
   // -------------------------------------------------------------
-  // 4. CART & CHECKOUT ENGINE
-  // -------------------------------------------------------------
-  function addItemToCart(item) {
-    var existing = state.cart.find(function(it) {
-      return it.id === item.id;
-    });
-    if (existing) {
-      existing.qty += item.qty;
-    } else {
-      state.cart.push(item);
-    }
-    saveCart();
-  }
-
-  window.updateCartQty = function(id, delta) {
-    var item = state.cart.find(function(it) { return it.id === id; });
-    if (!item) return;
-    item.qty += delta;
-    if (item.qty <= 0) {
-      state.cart = state.cart.filter(function(it) { return it.id !== id; });
-    }
-    saveCart();
-  };
-
-  window.removeCartItem = function(id) {
-    state.cart = state.cart.filter(function(it) { return it.id !== id; });
-    saveCart();
-  };
-
-  function renderCart() {
-    var totalQty = state.cart.reduce(function(sum, it) { return sum + it.qty; }, 0);
-    $('cartCountBadge').textContent = totalQty;
-    $('drawerBadge').textContent = totalQty;
-
-    var container = $('cartItemsList');
-    if (!container) return;
-
-    if (state.cart.length === 0) {
-      container.innerHTML = `
-        <div class="h-full flex flex-col items-center justify-center text-center p-8 text-mute">
-          <span class="text-5xl mb-3">☕</span>
-          <p class="font-bold text-base text-ink">Your cart is empty</p>
-          <p class="text-xs mt-1">Explore our artisanal blends and pick your favorites.</p>
-          <button type="button" onclick="window.closeCart(); location.hash='series';" class="mt-4 bg-brand text-brandink px-5 py-2.5 rounded-full text-xs font-bold">
-            Shop Capsules
-          </button>
-        </div>
-      `;
-    } else {
-      container.innerHTML = state.cart.map(function(item) {
-        return `
-          <div class="py-4 flex gap-3 items-center">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-white shrink-0 shadow-sm" style="background:${item.color || 'var(--brand)'}">
-              ☕
-            </div>
-            <div class="flex-1 min-w-0">
-              <h4 class="font-bold text-xs sm:text-sm text-ink truncate">${item.title}</h4>
-              <p class="text-[11px] text-mute line-clamp-1">${item.variant}</p>
-              <p class="text-xs font-bold text-ink mt-0.5">${inr(item.price)}</p>
-            </div>
-            <div class="flex items-center border border-line rounded-full bg-bg">
-              <button type="button" onclick="window.updateCartQty('${item.id}', -1)" class="w-7 h-7 text-sm font-bold hover:text-brand" aria-label="Decrease">−</button>
-              <span class="w-6 text-center text-xs font-bold">${item.qty}</span>
-              <button type="button" onclick="window.updateCartQty('${item.id}', 1)" class="w-7 h-7 text-sm font-bold hover:text-brand" aria-label="Increase">+</button>
-            </div>
-            <button type="button" onclick="window.removeCartItem('${item.id}')" class="text-mute hover:text-red-500 p-1" title="Remove">
-              🗑️
-            </button>
-          </div>
-        `;
-      }).join('');
-    }
-
-    // Calculations
-    var subtotal = state.cart.reduce(function(sum, it) {
-      return sum + (it.price * it.qty);
-    }, 0);
-
-    var discount = Math.round(subtotal * state.discountRate);
-    var shipping = (subtotal - discount >= 999 || subtotal === 0) ? 0 : 99;
-    var total = Math.max(0, subtotal - discount + shipping);
-
-    $('cartSubtotal').textContent = inr(subtotal);
-
-    if (discount > 0) {
-      $('cartDiscountRow').classList.remove('hidden');
-      $('cartDiscountLbl').textContent = 'Discount (' + state.discountCode + ')';
-      $('cartDiscountVal').textContent = '−' + inr(discount);
-    } else {
-      $('cartDiscountRow').classList.add('hidden');
-    }
-
-    $('cartShippingVal').textContent = shipping === 0 ? 'FREE' : inr(shipping);
-    $('cartTotalVal').textContent = inr(total);
-
-    // Free shipping bar (target 999)
-    var shipRemain = Math.max(0, 999 - subtotal);
-    var shipPct = Math.min(100, Math.round((subtotal / 999) * 100));
-    $('freeShipBar').style.width = shipPct + '%';
-
-    if (subtotal === 0) {
-      $('freeShipText').textContent = 'Add items for free delivery';
-    } else if (shipRemain > 0) {
-      $('freeShipText').textContent = 'Add ' + inr(shipRemain) + ' more for FREE shipping';
-    } else {
-      $('freeShipText').textContent = '🎉 You unlocked FREE Pan-India Shipping!';
-    }
-  }
-
-  // Cart Drawer open/close
-  window.openCart = function() {
-    $('cartDrawerBackdrop').classList.remove('hidden');
-    setTimeout(function() {
-      $('cartDrawerBackdrop').classList.remove('opacity-0');
-      $('cartDrawer').classList.remove('translate-x-full');
-    }, 10);
-  };
-
-  window.closeCart = function() {
-    $('cartDrawerBackdrop').classList.add('opacity-0');
-    $('cartDrawer').classList.add('translate-x-full');
-    setTimeout(function() {
-      $('cartDrawerBackdrop').classList.add('hidden');
-    }, 300);
-  };
-
-  $('cartBtn').addEventListener('click', window.openCart);
-
-  // Coupon handling
-  window.applyCoupon = function() {
-    var code = $('couponInput').value.trim().toUpperCase();
-    var msg = $('couponMsg');
-    if (code === 'WELCOME10') {
-      state.discountCode = 'WELCOME10';
-      state.discountRate = 0.10;
-      msg.textContent = '✓ 10% WELCOME10 coupon applied!';
-      msg.className = 'text-xs font-bold text-brand';
-      saveCart();
-    } else if (!code) {
-      msg.textContent = '';
-    } else {
-      msg.textContent = '✕ Invalid coupon code. Try WELCOME10.';
-      msg.className = 'text-xs font-bold text-red-500';
-    }
-  };
-
-  // WhatsApp Checkout
-  window.orderViaWhatsApp = function() {
-    if (state.cart.length === 0) {
-      alert('Your cart is empty!');
-      return;
-    }
-    var lines = ['*Hello Orelli Coffee!* I would like to place an order:%0A'];
-    var subtotal = 0;
-    state.cart.forEach(function(it) {
-      lines.push('• ' + it.qty + 'x ' + it.title + ' (' + it.variant + ') - ' + inr(it.price * it.qty));
-      subtotal += it.price * it.qty;
-    });
-    var discount = Math.round(subtotal * state.discountRate);
-    var shipping = (subtotal - discount >= 999) ? 0 : 99;
-    var total = subtotal - discount + shipping;
-
-    lines.push('%0A*Subtotal:* ' + inr(subtotal));
-    if (discount > 0) lines.push('*Discount:* -' + inr(discount));
-    lines.push('*Shipping:* ' + (shipping === 0 ? 'FREE' : inr(shipping)));
-    lines.push('*Estimated Total:* ' + inr(total));
-    lines.push('%0APlease let me know the payment details and delivery timeline.');
-
-    var url = 'https://wa.me/919876543210?text=' + lines.join('%0A');
-    window.open(url, '_blank');
-  };
-
-  // Checkout modal
-  window.openCheckout = function() {
-    if (state.cart.length === 0) {
-      alert('Your cart is empty! Please add some coffee first.');
-      return;
-    }
-    window.closeCart();
-    var subtotal = state.cart.reduce(function(s, i) { return s + (i.price * i.qty); }, 0);
-    var discount = Math.round(subtotal * state.discountRate);
-    var shipping = (subtotal - discount >= 999) ? 0 : 99;
-    var total = subtotal - discount + shipping;
-    $('checkoutTotalAmount').textContent = inr(total);
-    window.openModal('checkoutModal');
-  };
-
-  window.submitOrder = function(e) {
-    e.preventDefault();
-    var name = $('custName').value;
-    var city = $('custCity').value;
-    var orderId = 'ORL-' + Math.floor(1000 + Math.random() * 9000);
-    var total = $('checkoutTotalAmount').textContent;
-
-    window.closeModal('checkoutModal');
-
-    $('confOrderId').textContent = orderId;
-    $('confName').textContent = name;
-    $('confCity').textContent = city;
-    $('confAmount').textContent = total;
-
-    // Clear cart
-    state.cart = [];
-    saveCart();
-
-    window.openModal('orderSuccessModal');
-  };
-
-  window.closeSuccessModal = function() {
-    window.closeModal('orderSuccessModal');
-    location.hash = '';
-  };
-
-  // Starter Kit helper
-  window.addStarterKitToCart = function() {
-    var kit = {
-      id: 'starter-kit-5999',
-      title: 'Orelli Compact 19-Bar Starter Bundle',
-      variant: 'Machine (Black) + 30 Assorted Pods + Frother',
-      price: 5999,
-      qty: 1,
-      color: '#1F4A37',
-      isSub: false
-    };
-    addItemToCart(kit);
-    window.closeModal('machinesModal');
-    window.openCart();
-    showToast('Starter Bundle added to cart!');
-  };
-
-  // Corporate helper
-  window.handleBusinessQuote = function(e) {
-    e.preventDefault();
-    $('bizSuccess').classList.remove('hidden');
-    setTimeout(function() {
-      window.closeModal('businessModal');
-      $('bizSuccess').classList.add('hidden');
-    }, 2500);
-  };
-
-  // Newsletter helper
-  window.handleNewsletter = function(e) {
-    e.preventDefault();
-    state.discountCode = 'WELCOME10';
-    state.discountRate = 0.10;
-    saveCart();
-    $('newsSuccess').classList.remove('hidden');
-    showToast('Code WELCOME10 applied (10% off)!');
-  };
-
-  // -------------------------------------------------------------
-  // 5. MODAL MANAGEMENT
+  // MODALS & GENERAL EVENTS
   // -------------------------------------------------------------
   window.openModal = function(id) {
     var m = $(id);
@@ -1967,15 +2394,13 @@ body {
     if (m) m.classList.add('hidden');
   };
 
-  // Close modals on outside click or Escape
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-      ['checkoutModal', 'orderSuccessModal', 'machinesModal', 'businessModal', 'faqModal'].forEach(window.closeModal);
+      ['checkoutModal', 'orderSuccessModal', 'businessModal', 'faqModal', 'authModal', 'accountModal'].forEach(window.closeModal);
       window.closeCart();
     }
   });
 
-  // Mobile menu
   var mobileMenu = $('mobileMenu');
   $('mobileMenuBtn').addEventListener('click', function() {
     mobileMenu.classList.toggle('hidden');
@@ -2012,18 +2437,22 @@ body {
   });
 
   // -------------------------------------------------------------
-  // 6. SPA HASH ROUTING
+  // SPA ROUTING (Home, Product, Builder, Contact)
   // -------------------------------------------------------------
   function route() {
     var h = location.hash;
     var showProduct = (h === '#product');
     var showBuilder = (h === '#builder');
+    var showContact = (h === '#contact');
 
-    $('homeView').hidden = showProduct || showBuilder;
+    $('homeView').hidden = showProduct || showBuilder || showContact;
     $('productView').hidden = !showProduct;
     $('builderView').hidden = !showBuilder;
+    $('contactView').hidden = !showContact;
 
-    if (showBuilder) {
+    if (showContact) {
+      window.scrollTo(0, 0);
+    } else if (showBuilder) {
       renderBuilderView();
       window.scrollTo(0, 0);
     } else if (showProduct) {
@@ -2039,9 +2468,10 @@ body {
 
   window.addEventListener('hashchange', route);
 
-  // Initialize
+  // Initialize Application
   renderHomeProducts();
   loadCart();
+  loadAuth();
   route();
 
 })();
