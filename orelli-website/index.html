@@ -297,13 +297,14 @@ body {
     </a>
 
     <!-- Desktop Navigation (Figtree) -->
-    <nav class="hidden md:flex items-center gap-7 text-sm font-semibold tracking-wide text-ink">
+    <nav class="hidden md:flex items-center gap-5 lg:gap-7 text-sm font-semibold tracking-wide text-ink">
       <a href="#series" class="hover:text-brand transition-colors">Coffee Blends</a>
       <a href="#builder" class="hover:text-brand transition-colors">Custom Pack</a>
+      <a href="#origins" class="hover:text-brand transition-colors">Origins</a>
       <a href="#story" class="hover:text-brand transition-colors">Our Story</a>
-      <a href="#contact" class="hover:text-brand transition-colors">Contact</a>
-      <button type="button" onclick="window.openModal('businessModal')" class="hover:text-brand transition-colors">For Business</button>
+      <a href="#sustainability" class="hover:text-brand transition-colors">Sustainability</a>
       <a href="#faqs" class="hover:text-brand transition-colors">FAQs</a>
+      <a href="#contact" class="hover:text-brand transition-colors">Contact</a>
     </nav>
 
     <!-- Header Actions -->
@@ -344,10 +345,13 @@ body {
     </div>
     <a href="#series" class="block py-2 hover:text-brand" onclick="window.closeMobileMenu()">Coffee Blends</a>
     <a href="#builder" class="block py-2 hover:text-brand" onclick="window.closeMobileMenu()">Build Your Own Pack</a>
+    <a href="#origins" class="block py-2 hover:text-brand" onclick="window.closeMobileMenu()">Coffee Origins & Map</a>
     <a href="#story" class="block py-2 hover:text-brand" onclick="window.closeMobileMenu()">Our Story</a>
+    <a href="#sustainability" class="block py-2 hover:text-brand" onclick="window.closeMobileMenu()">Sustainability</a>
+    <a href="#faqs" class="block py-2 hover:text-brand" onclick="window.closeMobileMenu()">FAQs</a>
     <a href="#contact" class="block py-2 hover:text-brand" onclick="window.closeMobileMenu()">Contact Us</a>
-    <button type="button" onclick="window.openModal('businessModal'); window.closeMobileMenu();" class="block w-full text-left py-2 hover:text-brand">For Business</button>
-    <a href="#faqs" class="block py-2 hover:text-brand font-medium" onclick="window.closeMobileMenu()">FAQs</a>
+    <a href="#terms" class="block py-2 hover:text-brand text-xs text-mute" onclick="window.closeMobileMenu()">Terms & Conditions</a>
+    <a href="#privacy" class="block py-2 hover:text-brand text-xs text-mute" onclick="window.closeMobileMenu()">Privacy Policy</a>
   </div>
 </header>
 
@@ -573,6 +577,294 @@ body {
     </div>
   </section>
 
+  <!-- ========================================== -->
+  <!-- COFFEE ORIGINS & INTERACTIVE WORLD MAP       -->
+  <!-- ========================================== -->
+  <section id="origins" class="max-w-6xl mx-auto px-5 py-16">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="inline-block bg-accent text-ink text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Sourced from the World's Best Terroirs</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink">Coffee Origins</h2>
+      <p class="font-display italic text-lg sm:text-xl text-brand mt-1 font-semibold">Good coffee starts long before the capsule.</p>
+      <p class="mt-4 text-mute text-sm sm:text-base leading-relaxed">
+        High-altitude volcanic soil, pure mountain air, and generations of farming heritage—true quality begins at the source. We carefully select only 100% specialty grade green Arabica beans from the world’s most renowned coffee origins, working with growers who share our relentless commitment to excellence. Before a single bean is chosen, it is hand-picked, cupped, and evaluated to ensure it meets our exacting standards for density, sweetness, and complex aromatic potential.
+      </p>
+    </div>
+
+    <!-- Interactive World Map Container -->
+    <div class="rounded-3xl border border-line bg-surface p-6 sm:p-10 shadow-lg relative overflow-hidden">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-line gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-accent">Interactive Sourcing Map</span>
+          <h3 class="font-display font-bold text-xl sm:text-2xl text-ink mt-0.5">Where Our Coffee Comes From</h3>
+          <p class="text-xs text-mute mt-1">Click on any region or pin below to explore the origins behind our signature blends.</p>
+        </div>
+        <div class="flex items-center gap-2 bg-brand/10 border border-brand/20 px-3.5 py-1.5 rounded-full text-xs font-bold text-brand shrink-0">
+          <span class="w-2 h-2 rounded-full bg-brand animate-ping"></span>
+          <span>6 World-Renowned Regions</span>
+        </div>
+      </div>
+
+      <!-- Stylized SVG World Map with Highlighted Coffee Belt Origins -->
+      <div class="mt-8 relative w-full aspect-[16/9] max-h-[460px] bg-bg rounded-2xl border border-line overflow-hidden flex items-center justify-center">
+        <svg viewBox="0 0 960 500" class="w-full h-full object-cover select-none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Lat/Long Meridians & Tropics -->
+          <g stroke="currentColor" class="text-line/60" stroke-width="0.75" stroke-dasharray="4 4" fill="none">
+            <line x1="0" y1="250" x2="960" y2="250" stroke-width="1.2" stroke-dasharray="none" /> <!-- Equator -->
+            <line x1="0" y1="185" x2="960" y2="185" /> <!-- Tropic of Cancer -->
+            <line x1="0" y1="315" x2="960" y2="315" /> <!-- Tropic of Capricorn -->
+            <line x1="160" y1="0" x2="160" y2="500" />
+            <line x1="320" y1="0" x2="320" y2="500" />
+            <line x1="480" y1="0" x2="480" y2="500" />
+            <line x1="640" y1="0" x2="640" y2="500" />
+            <line x1="800" y1="0" x2="800" y2="500" />
+          </g>
+
+          <!-- Coffee Belt Equatorial Shading Band -->
+          <rect x="0" y="185" width="960" height="130" fill="currentColor" class="text-accent/5" />
+          <text x="30" y="200" class="text-[10px] font-bold fill-accent tracking-widest uppercase">The Global Coffee Belt (23.5° N - 23.5° S)</text>
+
+          <!-- Continents Outlines (Simplified World Geography Silhouette) -->
+          <g fill="currentColor" class="text-line/50 transition-colors">
+            <!-- North America -->
+            <path d="M120 80 Q160 70 200 90 T260 140 T220 200 T180 220 T150 170 Z" />
+            <!-- Central America -->
+            <path d="M180 220 Q210 240 230 260 T250 280 L230 290 Q200 260 180 220 Z" class="text-accent/30" />
+            <!-- South America -->
+            <path d="M240 280 Q320 290 340 350 T310 430 T250 460 T220 370 T230 300 Z" class="text-brand/20" />
+            <!-- Europe -->
+            <path d="M440 90 Q500 80 540 110 T510 160 T460 160 T430 120 Z" />
+            <!-- Africa -->
+            <path d="M440 180 Q520 180 550 240 T540 340 T480 410 T440 340 T420 250 Z" class="text-brand/20" />
+            <!-- Asia -->
+            <path d="M550 90 Q650 70 760 110 T800 200 T720 260 T620 260 T560 180 Z" />
+            <!-- Indian Subcontinent Highlight -->
+            <path d="M600 200 Q650 220 630 280 T600 290 T580 230 Z" class="text-accent/30" />
+            <!-- Australia -->
+            <path d="M740 320 Q820 310 830 370 T780 420 T720 380 Z" />
+          </g>
+
+          <!-- 6 ORIGIN MAP PINS & PULSES -->
+          
+          <!-- 1. GUATEMALA (x: 215, y: 242) -->
+          <g class="origin-pin cursor-pointer group" onclick="window.selectOrigin(0)">
+            <circle cx="215" cy="242" r="14" fill="#D8A500" opacity="0.25" class="animate-ping" />
+            <circle cx="215" cy="242" r="7" fill="#D8A500" stroke="#154734" stroke-width="2" />
+            <text x="215" y="230" text-anchor="middle" class="text-[9px] font-extrabold fill-ink">🇬🇹 Guatemala</text>
+          </g>
+
+          <!-- 2. HONDURAS (x: 236, y: 252) -->
+          <g class="origin-pin cursor-pointer group" onclick="window.selectOrigin(1)">
+            <circle cx="236" cy="252" r="14" fill="#D8A500" opacity="0.25" class="animate-ping" />
+            <circle cx="236" cy="252" r="7" fill="#D8A500" stroke="#154734" stroke-width="2" />
+            <text x="236" y="270" text-anchor="middle" class="text-[9px] font-extrabold fill-ink">🇭🇳 Honduras</text>
+          </g>
+
+          <!-- 3. COLOMBIA (x: 260, y: 300) -->
+          <g class="origin-pin cursor-pointer group" onclick="window.selectOrigin(2)">
+            <circle cx="260" cy="300" r="16" fill="#154734" opacity="0.3" class="animate-ping" />
+            <circle cx="260" cy="300" r="8" fill="#154734" stroke="#D8A500" stroke-width="2" />
+            <text x="260" y="322" text-anchor="middle" class="text-[10px] font-extrabold fill-ink">🇨🇴 Colombia (Andes)</text>
+          </g>
+
+          <!-- 4. BRAZIL (x: 330, y: 360) -->
+          <g class="origin-pin cursor-pointer group" onclick="window.selectOrigin(3)">
+            <circle cx="330" cy="360" r="16" fill="#154734" opacity="0.3" class="animate-ping" />
+            <circle cx="330" cy="360" r="8" fill="#154734" stroke="#D8A500" stroke-width="2" />
+            <text x="330" y="382" text-anchor="middle" class="text-[10px] font-extrabold fill-ink">🇧🇷 Brazil (Cerrado)</text>
+          </g>
+
+          <!-- 5. ETHIOPIA (x: 520, y: 275) -->
+          <g class="origin-pin cursor-pointer group" onclick="window.selectOrigin(4)">
+            <circle cx="520" cy="275" r="18" fill="#A82B11" opacity="0.35" class="animate-ping" />
+            <circle cx="520" cy="275" r="9" fill="#A82B11" stroke="#F7FAF5" stroke-width="2" />
+            <text x="520" y="260" text-anchor="middle" class="text-[10px] font-extrabold fill-ink">🇪🇹 Ethiopia (Sidamo)</text>
+          </g>
+
+          <!-- 6. PREMIUM INDIAN ARABICA (x: 615, y: 255) -->
+          <g class="origin-pin cursor-pointer group" onclick="window.selectOrigin(5)">
+            <circle cx="615" cy="255" r="16" fill="#154734" opacity="0.3" class="animate-ping" />
+            <circle cx="615" cy="255" r="8" fill="#154734" stroke="#D8A500" stroke-width="2" />
+            <text x="615" y="240" text-anchor="middle" class="text-[10px] font-extrabold fill-ink">🇮🇳 Premium Indian Arabica</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Country Selector Chips -->
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-2" id="originTabs">
+        <button type="button" onclick="window.selectOrigin(0)" class="origin-btn px-4 py-2 rounded-full text-xs font-bold border transition bg-brand text-brandink border-brand" data-oidx="0">🇬🇹 Guatemala</button>
+        <button type="button" onclick="window.selectOrigin(1)" class="origin-btn px-4 py-2 rounded-full text-xs font-bold border border-line bg-surface hover:border-brand text-ink transition" data-oidx="1">🇭🇳 Honduras</button>
+        <button type="button" onclick="window.selectOrigin(2)" class="origin-btn px-4 py-2 rounded-full text-xs font-bold border border-line bg-surface hover:border-brand text-ink transition" data-oidx="2">🇨🇴 Colombia</button>
+        <button type="button" onclick="window.selectOrigin(3)" class="origin-btn px-4 py-2 rounded-full text-xs font-bold border border-line bg-surface hover:border-brand text-ink transition" data-oidx="3">🇧🇷 Brazil</button>
+        <button type="button" onclick="window.selectOrigin(4)" class="origin-btn px-4 py-2 rounded-full text-xs font-bold border border-line bg-surface hover:border-brand text-ink transition" data-oidx="4">🇪🇹 Ethiopia (Sidamo)</button>
+        <button type="button" onclick="window.selectOrigin(5)" class="origin-btn px-4 py-2 rounded-full text-xs font-bold border border-line bg-surface hover:border-brand text-ink transition" data-oidx="5">🇮🇳 Premium Indian Arabica</button>
+      </div>
+
+      <!-- Dynamic Active Origin Card -->
+      <div id="originCard" class="mt-8 p-6 sm:p-8 rounded-2xl bg-bg border border-line transition-all duration-300">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+
+    <!-- Master Roasting, Single Facility Care Callout -->
+    <div class="mt-12 rounded-3xl bg-brand text-brandink p-8 sm:p-12 shadow-xl relative overflow-hidden">
+      <div class="max-w-3xl relative z-10">
+        <span class="inline-block bg-accent text-ink text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Artisan Precision</span>
+        <h3 class="font-display font-bold text-2xl sm:text-4xl text-brandink leading-tight">Master Roasting, Single Facility Care</h3>
+        <p class="mt-4 text-sm sm:text-base opacity-95 leading-relaxed font-normal">
+          To honor these extraordinary origins, every batch is master-roasted in our state-of-the-art, single roasting facility. Bringing all roasting under one roof allows us to maintain complete artisan control over roast profiles, temperature curves, and degassing times. By combining precision technology with human craftsmanship, we lock in peak freshness and flavor integrity, ensuring every capsule delivers a pristine, cafe-quality extraction in your cup.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-4 text-xs font-bold text-accent">
+          <span>✓ 100% Arabica Green Beans</span>
+          <span>•</span>
+          <span>✓ Single Facility Temperature Curves</span>
+          <span>•</span>
+          <span>✓ Freshly Degassed & Sealed</span>
+        </div>
+      </div>
+      <div class="absolute -right-12 -bottom-12 w-64 h-64 rounded-full bg-white/5 pointer-events-none"></div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- WHY ORELLI & BORN IN LONDON STORY            -->
+  <!-- ========================================== -->
+  <section id="story" class="max-w-6xl mx-auto px-5 py-16">
+    <!-- Why Orelli -->
+    <div class="rounded-3xl bg-surface border border-line p-8 sm:p-12 shadow-sm mb-12">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-accent text-ink text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+          INDIA'S FIRST NESPRESSO CAPSULE WITH GOURMET COFFEES FROM AROUND THE WORLD
+        </span>
+        <h2 class="font-display font-bold text-3xl sm:text-5xl text-ink leading-tight">
+          Why Orelli? <span class="text-brand font-serif italic block sm:inline">Beyond the Horizon</span>
+        </h2>
+        <div class="mt-5 space-y-4 text-mute text-sm sm:text-base leading-relaxed">
+          <p>
+            India produces incredible, world-class coffees—yet local beans represent just one small corner of a vast and vibrant coffee universe.
+          </p>
+          <p>
+            At Orelli, we believe your morning cup should be a passport, not a loop. We cross oceans to hand-select high-altitude 100% Arabica beans from the world’s most coveted growing regions: the lush highlands of Sidamo, the volcanic peaks of Colombia, and the heritage estates of Central America and East Africa.
+          </p>
+          <p>
+            To honor these global origins, every batch is master-roasted in a state-of-the-art facility right here in India, locking in peak freshness while crafting precise flavor profiles inspired by iconic global roasts. From the dark, brooding ristrettos of Northern Italy to the smooth, comforting brews of Scandinavia, Orelli brings the world’s finest coffee rituals straight to your home, one capsule at a time.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Coffee Story (Founders' Story) -->
+    <div class="grid lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-5 order-2 lg:order-1">
+        <div class="aspect-[4/5] rounded-3xl bg-brand/5 border border-brand/20 p-8 flex flex-col justify-between relative overflow-hidden shadow-md">
+          <div class="space-y-4 relative z-10">
+            <span class="w-12 h-12 rounded-2xl bg-brand text-brandink flex items-center justify-center text-2xl font-bold shadow">
+              ☕
+            </span>
+            <h3 class="font-display font-bold text-2xl text-ink">Founders Harsh & Sahil</h3>
+            <p class="text-xs text-mute leading-relaxed">
+              "We realised that coffee wasn't just a caffeine delivery system—it was an experience, a memory of a place, and a daily moment of connection."
+            </p>
+          </div>
+          <div class="pt-6 border-t border-brand/20 relative z-10">
+            <p class="font-display font-bold text-lg text-brand">Orelli Specialty Coffee Roasters</p>
+            <p class="text-xs text-mute mt-0.5">London Inspiration • Indian Roasting Excellence</p>
+          </div>
+          <div class="absolute -right-10 -bottom-10 w-44 h-44 rounded-full bg-accent/15 pointer-events-none"></div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 order-1 lg:order-2 space-y-4">
+        <span class="inline-block bg-brand/10 text-brand text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">The Coffee Story</span>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink leading-tight">
+          Born in London, Crafted for Your Daily Ritual
+        </h2>
+        <div class="space-y-4 text-mute text-sm sm:text-base leading-relaxed">
+          <p>
+            The Orelli story didn’t begin in a boardroom—it began in a tiny London kitchen over a freshly pulled morning espresso.
+          </p>
+          <p>
+            Founders <strong>Harsh</strong> and <strong>Sahil</strong> first met as college mates, a friendship that eventually led them to live together in London. Though their careers pulled them into entirely different industries and gruelling schedules, one constant held their days together: the non-negotiable morning coffee ritual.
+          </p>
+          <p>
+            Living in one of the world’s most vibrant coffee capitals exposed Harsh and Sahil to a breathtaking spectrum of origins, roast profiles, and preparation styles. They realised that coffee wasn't just a caffeine delivery system—it was an experience, a memory of a place, and a daily moment of connection.
+          </p>
+          <p>
+            When they returned to India, they noticed a gap. While the domestic coffee landscape was growing, coffee lovers were largely restricted to single-origin local beans, missing out on the world's most iconic coffee cultures.
+          </p>
+          <p>
+            Driven by their shared passion and firsthand exposure to global coffee houses, Orelli was born. Harsh and Sahil set out with a simple mission: to curate, roast, and package the world's finest specialty Arabicas into effortless, Nespresso-compatible pods. An invitation to slow down, explore new horizons, and make your morning ritual extraordinary.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- SUSTAINABILITY SECTION                       -->
+  <!-- ========================================== -->
+  <section id="sustainability" class="max-w-6xl mx-auto px-5 py-16">
+    <div class="rounded-3xl bg-surface border border-line p-8 sm:p-14 shadow-lg">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="inline-block bg-accent text-ink text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Conscious Coffee</span>
+        <h2 class="font-display font-bold text-3xl sm:text-5xl text-ink">Sustainability</h2>
+        <p class="font-display italic text-lg sm:text-2xl text-brand font-semibold mt-2">Good Coffee Should Leave a Good Impression.</p>
+        <p class="mt-3 text-mute text-sm sm:text-base leading-relaxed">
+          At Orelli, we believe the best things in life are worth slowing down for. A beautifully brewed espresso, the aroma of freshly roasted beans, a moment to yourself before the day begins. These small pleasures matter, and so do the choices behind them.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- 1. Footprint -->
+        <div class="p-6 rounded-2xl bg-bg border border-line flex flex-col justify-between">
+          <div>
+            <span class="w-10 h-10 rounded-xl bg-brand text-brandink flex items-center justify-center text-xl mb-4 shadow-sm">🌱</span>
+            <h3 class="font-display font-bold text-xl text-ink">Every Cup Has a Story. So Does Its Footprint.</h3>
+            <p class="mt-3 text-xs sm:text-sm text-mute leading-relaxed">
+              Coffee travels a remarkable journey before it reaches your cup. We believe that appreciating great coffee also means paying attention to how it is sourced, prepared, packaged and enjoyed. Sustainability isn't a single decision; it's a series of thoughtful choices made along the way.
+            </p>
+          </div>
+          <span class="mt-6 text-xs font-bold text-brand">Thoughtfully Sourced &rarr;</span>
+        </div>
+
+        <!-- 2. Zero Waste Portioning -->
+        <div class="p-6 rounded-2xl bg-bg border border-line flex flex-col justify-between">
+          <div>
+            <span class="w-10 h-10 rounded-xl bg-accent text-ink flex items-center justify-center text-xl mb-4 shadow-sm">🎯</span>
+            <h3 class="font-display font-bold text-xl text-ink">Nothing Extra. Just Exceptional Coffee.</h3>
+            <p class="mt-3 text-xs sm:text-sm text-mute leading-relaxed">
+              Our capsules are designed around one simple idea: a great cup, precisely portioned. Brewing one serving at a time gives you control over how much coffee you prepare, helping avoid leftover brewed coffee and unnecessary waste.
+            </p>
+          </div>
+          <span class="mt-6 text-xs font-bold text-brand">Zero Brewed Waste &rarr;</span>
+        </div>
+
+        <!-- 3. Infinitely Recyclable Aluminium -->
+        <div class="p-6 rounded-2xl bg-bg border border-line flex flex-col justify-between">
+          <div>
+            <span class="w-10 h-10 rounded-xl bg-brand text-brandink flex items-center justify-center text-xl mb-4 shadow-sm">♻️</span>
+            <h3 class="font-display font-bold text-xl text-ink">Protecting What Matters.</h3>
+            <p class="mt-3 text-xs sm:text-sm text-mute leading-relaxed">
+              The character of a coffee lies in its aroma, flavour and the nuances that make each origin unique. Our aluminium capsules help protect these qualities from oxygen, light and moisture, keeping the coffee sealed until the moment you brew. Aluminium can also be recycled repeatedly without losing its fundamental properties.
+            </p>
+          </div>
+          <span class="mt-6 text-xs font-bold text-brand">100% Recyclable Aluminium &rarr;</span>
+        </div>
+      </div>
+
+      <!-- Closing Manifesto Banner -->
+      <div class="mt-10 p-8 rounded-2xl bg-brand/5 border border-brand/20 text-center max-w-3xl mx-auto space-y-3">
+        <h4 class="font-display font-bold text-xl sm:text-2xl text-ink">A More Considered Kind of Everyday Luxury</h4>
+        <p class="text-xs sm:text-sm text-mute leading-relaxed">
+          We don't believe enjoying exceptional coffee and making thoughtful choices need to be mutually exclusive. For us, progress lies in questioning conventions, choosing materials with care and continually looking for ways to do better.
+          We may begin with a capsule, but our ambition extends beyond it: to make discovering the world's coffee cultures a daily pleasure that feels as considered as it tastes.
+        </p>
+        <p class="font-display font-bold text-base text-brand pt-2">
+          Orelli. Extraordinary coffee, thoughtfully enjoyed.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQs Showcase on Home -->
   <section class="max-w-6xl mx-auto px-5 py-16">
     <div class="text-center max-w-2xl mx-auto mb-10">
@@ -740,7 +1032,11 @@ body {
     <!-- Product Details & Purchase Form -->
     <div>
       <h1 id="pTitle" class="font-display font-bold text-3xl sm:text-4xl leading-tight text-ink">Torino Cacao</h1>
-      <p id="pNotes" class="mt-2 text-mute leading-relaxed text-sm sm:text-base">Dark chocolate, roasted hazelnuts, dense velvet body.</p>
+      <div class="mt-2.5 inline-flex items-center gap-2 bg-brand/10 border border-brand/20 px-3 py-1 rounded-full text-xs font-bold text-brand">
+        <span>Flavour Notes:</span>
+        <span id="pNotes" class="text-ink">Dark Chocolate • Cacao Nibs • Velvety</span>
+      </div>
+      <p id="pDesc" class="mt-3.5 text-mute leading-relaxed text-sm sm:text-base">Inspired by the historic espresso bars of northern Italy...</p>
       
       <!-- Price -->
       <div class="mt-5 flex items-baseline gap-3">
@@ -1350,6 +1646,157 @@ body {
 
 
 <!-- ========================================== -->
+<!-- 6. TERMS & CONDITIONS VIEW                -->
+<!-- ========================================== -->
+<main id="termsView" hidden class="flex-1 max-w-4xl mx-auto px-5 py-10 w-full animate-fade-in">
+  <p class="text-sm text-mute mb-6 flex items-center gap-2">
+    <a href="#" class="underline hover:text-ink">Home</a>
+    <span>/</span>
+    <span class="text-ink font-bold">Terms & Conditions</span>
+  </p>
+
+  <div class="mb-8">
+    <span class="inline-block bg-accent text-ink text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Legal & Compliance</span>
+    <h1 class="font-display font-bold text-3xl sm:text-5xl leading-tight text-ink">Terms & Conditions</h1>
+    <p class="mt-2 text-xs text-mute">Effective Date: November 2026 • Brand: ORELLI (ECOMIRAI LLP)</p>
+  </div>
+
+  <div class="space-y-8 text-sm text-mute leading-relaxed bg-surface border border-line rounded-3xl p-6 sm:p-10 shadow-sm divide-y divide-line">
+    <div>
+      <p class="text-ink font-medium">Welcome to ORELLI. By accessing or purchasing from our website, you agree to comply with and be bound by the following Terms & Conditions. Please read them carefully before placing an order.</p>
+    </div>
+
+    <div class="pt-6 space-y-2">
+      <h3 class="font-display font-bold text-lg text-ink">1. General & Intellectual Property</h3>
+      <p>All content on this website—including brand names, logos, product names (<em>Torino Cacao, Lisboa Glaze, Nordic Biscotti, Sidamo Berry, Andes Tostado</em>), packaging designs, text, graphics, and imagery—is the exclusive intellectual property of ORELLI and is protected under applicable Indian copyright and trademark laws.</p>
+      <p class="text-xs bg-bg p-3 rounded-xl border border-line">Nespresso® is a registered trademark of Société des Produits Nestlé S.A. ORELLI is an independent brand and is not affiliated with, endorsed, or sponsored by Nestlé or Nespresso®.</p>
+    </div>
+
+    <div class="pt-6 space-y-2">
+      <h3 class="font-display font-bold text-lg text-ink">2. Product Information & Pricing</h3>
+      <p>All prices listed on the website are in Indian Rupees (INR) and are inclusive of applicable Goods and Services Tax (GST), unless stated otherwise.</p>
+      <p>We strive to ensure all tasting notes, origin details, and capsule specifications are accurate. However, slight variations in roast color or flavor perception are natural to specialty agricultural products.</p>
+      <p>ORELLI reserves the right to modify product pricing, bundle configurations, or discontinue blends at any time without prior notice.</p>
+    </div>
+
+    <div class="pt-6 space-y-2">
+      <h3 class="font-display font-bold text-lg text-ink">3. Orders & Payments</h3>
+      <p>Placing an order constitutes an offer to purchase. All orders are subject to acceptance and stock availability.</p>
+      <p>Payments are processed securely through verified third-party payment gateways supporting UPI, Credit/Debit Cards, Net Banking, and Wallets. ORELLI does not store your sensitive financial card or banking details.</p>
+    </div>
+
+    <div class="pt-6 space-y-2">
+      <h3 class="font-display font-bold text-lg text-ink">4. Shipping & Delivery Policy</h3>
+      <p><strong>Pan-India Express Shipping:</strong> We offer Pan-India express delivery across major metros and serviceable pin codes, subject to geographical location and the operational availability of our third-party courier partners.</p>
+      <p><strong>Dispatch & Transit Timelines:</strong> Orders are typically dispatched within 1–2 business days from our facility. Standard express transit takes 2–5 business days depending on the destination pin code. Remote or non-metro locations may require additional transit time.</p>
+      <p><strong>Delivery Delays:</strong> While we partner with reliable logistics providers, ORELLI is not liable for delays caused by extreme weather, regional lockdowns, courier network disruptions, or incorrect shipping addresses provided by the customer.</p>
+    </div>
+
+    <div class="pt-6 space-y-2">
+      <h3 class="font-display font-bold text-lg text-ink">5. Returns, Replacements & Refunds Policy</h3>
+      <p>Because coffee is a consumable food product, we maintain strict hygiene and quality standards:</p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li><strong>Unopened Packaging:</strong> Returns or replacements are strictly eligible only if the outer capsule sleeves/boxes remain completely sealed, unopened, and in their original tamper-evident condition (requested within 7 days of delivery).</li>
+        <li><strong>Transit Damage:</strong> Eligible if the product arrives damaged in transit such that the capsule seal is punctured, leaking coffee grounds, or functionally unusable.</li>
+        <li><strong>Exclusions (Minor Cosmetic Dents):</strong> Due to the nature of aluminum and food-grade capsule handling during transit, minor cosmetic dents on the capsules or outer boxes that do not compromise the hermetic seal or cause any functional extraction issues in the machine shall not be considered as damage and will not be eligible for returns or refunds.</li>
+        <li><strong>Claim Process:</strong> To report a damaged or incorrect order, email us at <a href="mailto:info@ecomirai.co" class="text-brand underline font-bold">info@ecomirai.co</a> within 48 hours of delivery with your Order ID and clear unboxing photos/videos showing the issue. Approved refunds are processed back to the original payment method within 5–7 business days.</li>
+      </ul>
+    </div>
+
+    <div class="pt-6 space-y-2">
+      <h3 class="font-display font-bold text-lg text-ink">6. Limitation of Liability</h3>
+      <p>ORELLI shall not be liable for any indirect, incidental, or consequential damages arising from the use of our products, including improper use of third-party brewing machines. Always follow your machine manufacturer’s operating and descaling instructions.</p>
+    </div>
+
+    <div class="pt-6 space-y-2">
+      <h3 class="font-display font-bold text-lg text-ink">7. Governing Law & Jurisdiction</h3>
+      <p>These Terms & Conditions shall be governed by and construed in accordance with the laws of India. Any disputes arising out of or relating to these terms shall be subject to the exclusive jurisdiction of the courts located in Mumbai, Maharashtra.</p>
+    </div>
+  </div>
+</main>
+
+<!-- ========================================== -->
+<!-- 7. PRIVACY POLICY VIEW                    -->
+<!-- ========================================== -->
+<main id="privacyView" hidden class="flex-1 max-w-4xl mx-auto px-5 py-10 w-full animate-fade-in">
+  <p class="text-sm text-mute mb-6 flex items-center gap-2">
+    <a href="#" class="underline hover:text-ink">Home</a>
+    <span>/</span>
+    <span class="text-ink font-bold">Privacy Policy</span>
+  </p>
+
+  <div class="mb-8">
+    <span class="inline-block bg-accent text-ink text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">DPDP Act, 2023 Compliant</span>
+    <h1 class="font-display font-bold text-3xl sm:text-5xl leading-tight text-ink">Privacy Policy</h1>
+    <p class="mt-2 text-xs text-mute">Effective Date: November 2026 • Brand: ORELLI (ECOMIRAI LLP)</p>
+  </div>
+
+  <div class="space-y-8 text-sm text-mute leading-relaxed bg-surface border border-line rounded-3xl p-6 sm:p-10 shadow-sm divide-y divide-line">
+    <div>
+      <p class="text-ink font-medium">At ORELLI, we respect your privacy and are committed to protecting your personal data in accordance with the Digital Personal Data Protection (DPDP) Act, 2023, and applicable Indian IT laws. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website.</p>
+    </div>
+
+    <div class="pt-6 space-y-2">
+      <h3 class="font-display font-bold text-lg text-ink">1. Information We Collect</h3>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><strong>Contact & Delivery Information:</strong> Name, email address, phone number, billing address, and shipping address.</li>
+        <li><strong>Transaction Details:</strong> Order history, products purchased, and payment confirmation status (we do not store full credit/debit card numbers or UPI PINs).</li>
+        <li><strong>Technical & Usage Data:</strong> IP address, browser type, device information, and cookie data to optimize site performance and user experience.</li>
+      </ul>
+    </div>
+
+    <div class="pt-6 space-y-2">
+      <h3 class="font-display font-bold text-lg text-ink">2. How We Use Your Information</h3>
+      <p>We use your personal data strictly for legitimate business purposes, including:</p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>Processing, fulfilling, and shipping your coffee orders.</li>
+        <li>Sending transactional updates (order confirmations, shipping tracking links, and invoice receipts).</li>
+        <li>Managing subscriptions, customer support queries, and return requests.</li>
+        <li>Sending promotional newsletters, new blend launches, or exclusive offers (only if you have opted in; unsubscribe anytime).</li>
+        <li>Improving website layout, speed, and product recommendations.</li>
+      </ul>
+    </div>
+
+    <div class="pt-6 space-y-2">
+      <h3 class="font-display font-bold text-lg text-ink">3. Sharing of Information with Third Parties</h3>
+      <p>We never sell, rent, or trade your personal information. We share your data strictly on a need-to-know basis with trusted third-party service providers:</p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><strong>Logistics & Courier Partners:</strong> To deliver orders to your doorstep.</li>
+        <li><strong>Payment Gateways:</strong> To securely process online payments.</li>
+        <li><strong>E-Commerce & Analytics Tools:</strong> To host our storefront and analyze anonymized website traffic.</li>
+      </ul>
+    </div>
+
+    <div class="pt-6 space-y-2">
+      <h3 class="font-display font-bold text-lg text-ink">4. Cookies & Tracking Technologies</h3>
+      <p>Our website uses essential and analytical cookies to keep items in your shopping cart, remember your preferences, and understand how visitors navigate our pages. You can disable cookies through browser settings, though some site features may not function optimally.</p>
+    </div>
+
+    <div class="pt-6 space-y-2">
+      <h3 class="font-display font-bold text-lg text-ink">5. Data Security</h3>
+      <p>We implement industry-standard SSL encryption and security protocols to protect your personal information against unauthorized access, alteration, or disclosure.</p>
+    </div>
+
+    <div class="pt-6 space-y-2">
+      <h3 class="font-display font-bold text-lg text-ink">6. Your Rights Under Indian Law</h3>
+      <p>Under the DPDP Act 2023, you have the right to request access to your personal data, request correction of inaccurate details, or withdraw consent for marketing communications.</p>
+    </div>
+
+    <div class="pt-6 space-y-2">
+      <h3 class="font-display font-bold text-lg text-ink">7. Grievance Officer & Contact Details</h3>
+      <p>In accordance with the Information Technology Act, 2000, and Consumer Protection (E-Commerce) Rules, 2020, please contact our Grievance Officer for any queries or concerns:</p>
+      <div class="mt-3 p-4 rounded-2xl bg-bg border border-line text-xs space-y-1 text-ink">
+        <p><strong>Brand Name:</strong> ORELLI (ECOMIRAI LLP)</p>
+        <p><strong>Grievance Officer:</strong> Sahil Nathani</p>
+        <p><strong>Email:</strong> <a href="mailto:info@ecomirai.co" class="underline text-brand">info@ecomirai.co</a> ; <a href="mailto:sahil@ecomirai.co" class="underline text-brand">sahil@ecomirai.co</a></p>
+        <p><strong>Address:</strong> Unit 1 Karishma Industrial Estate, Waliv Road, Dhumal Nagar, Vasai East, Thane, Maharashtra 401208</p>
+        <p class="text-mute pt-1">Response Time: Acknowledged within 48 hours; resolved within 15 business days.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ========================================== -->
 <!-- 6. MOBILE NUMBER & OTP LOGIN MODAL        -->
 <!-- ========================================== -->
 <div id="authModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
@@ -1901,11 +2348,12 @@ body {
     {
       id: 'torino-cacao',
       n: 'Torino Cacao',
-      c: '#154734', // Brand Green
+      c: '#154734',
       p: 499,
-      i: 10,        // Intensity: 10/13
+      i: 10,
       r: 'Dark Roast',
-      t: 'Intense dark cocoa, roasted hazelnuts, dense velvet Italian body.',
+      t: 'Dark Chocolate • Cacao Nibs • Velvety',
+      desc: 'Inspired by the historic espresso bars of northern Italy, Torino Cacao celebrates the timeless art of the dark roast. We masterfully blended select Arabicas from Latin America, East Africa, and South Asia to craft a velvety, full-bodied cup. Enjoyed black, it reveals rich natural notes of bittersweet dark chocolate, roasted cacao nibs, and a lingering, syrupy finish. Pure Italian cafe indulgence, captured in every effortless pour.',
       s: true,
       tag: 'Italian Heritage',
       bgClass: 'img-box1',
@@ -1915,11 +2363,12 @@ body {
     {
       id: 'nordic-biscotti',
       n: 'Nordic Biscotti',
-      c: '#D8A500', // Brand Gold
+      c: '#D8A500',
       p: 519,
-      i: 7,         // Intensity: 7/13
+      i: 7,
       r: 'Medium Roast',
-      t: 'Toasted almonds, baked golden biscotti, spiced honey warmth, delicate aroma.',
+      t: 'Milk Chocolate • Malty • Biscuit • Hazelnut',
+      desc: 'In the quiet cafes of Scandinavia, coffee is an art of comfort and balance. Inspired by smooth Nordic roast profiles, we blended gentle Arabicas to craft a cup that blooms effortlessly when paired with milk. Rich yet low in bitterness, it delivers comforting natural notes of creamy milk chocolate, malted grain, toasted hazelnut, and freshly baked biscuit. It is your everyday morning latte, refined to pure perfection.',
       s: true,
       tag: 'Nordic Roast',
       bgClass: 'img-box2',
@@ -1929,11 +2378,12 @@ body {
     {
       id: 'lisboa-glaze',
       n: 'Lisboa Glaze',
-      c: '#C67D28', // Caramel Amber
+      c: '#C67D28',
       p: 499,
-      i: 6,         // Intensity: 6/13
+      i: 6,
       r: 'Medium-Light Roast',
-      t: 'Pastel de nata pastry sweetness, caramelized brown sugar, smooth silky glaze.',
+      t: 'Floral • Orange Citrus • Toffee',
+      desc: 'During our global tasting sessions, the distinct, intoxicating floral aroma of this singular blend immediately stood out—a true masterpiece we knew our drinkers had to experience. Inspired by Lisbon’s vibrant coffee houses, it offers a clean cup designed to transform with milk. Rare Arabicas from Latin America and Africa intertwine to reveal delicate floral notes, a sweet sparkle of orange citrus, and a rich, buttery toffee finish. A personal favourite from our curation journey, crafted to bring pure joy to your daily coffee ritual.',
       s: true,
       tag: 'Smooth & Sweet',
       bgClass: 'img-box3',
@@ -1943,11 +2393,12 @@ body {
     {
       id: 'sidamo-berry',
       n: 'Sidamo Berry',
-      c: '#A82B11', // Brand Red
+      c: '#A82B11',
       p: 549,
-      i: 9,         // Intensity: 9/13
+      i: 9,
       r: 'Light-Medium Roast',
-      t: 'Wild sun-dried berries, jasmine floral aroma, dark cherry, lively citrus acidity.',
+      t: 'Prunes • Wild Berry • Dark Chocolate',
+      desc: 'Sourced directly from Sidamo in the Ethiopian highlands, this single-origin Arabica thrives in volcanic soil to produce world-renowned wild aromatics. Hand-selected for its vibrant complexity, this coffee offers a juicy, syrupy texture that coats the palate. Served black, it unlocks striking natural notes of sweet prunes, sun-ripened wild berries, and a lingering dark chocolate finish. An extraordinary specialty coffee journey, brewed at the simple touch of a button.',
       s: true,
       tag: 'Single Origin',
       bgClass: 'img-box4',
@@ -1957,15 +2408,16 @@ body {
     {
       id: 'andes-tostado',
       n: 'Andes Tostado',
-      c: '#202B24', // Deep Andean Dark
+      c: '#202B24',
       p: 529,
-      i: 11,        // Intensity: 11/13
+      i: 11,
       r: 'Intense Dark Roast',
-      t: 'High-altitude Andean beans, intense smoky molasses, bold dark chocolate, thick crema.',
+      t: 'Cinnamon • Smoky • Oaky • Malty • Caramel',
+      desc: 'Traversing the high-altitude volcanic peaks of Colombia\'s Andes, these gourmet Arabica beans absorb the rugged character of mountain air. Master-roasted to reveal a brooding complexity, this versatile blend balances dark oakwood smoke with warming spice. Expect an intriguing cup layered with natural notes of aromatic cinnamon, toasted malt, and a smooth caramelized finish. Distinctive, bold, and memorable—whether enjoyed as a crisp black espresso or a velvety flat white.',
       s: true,
       tag: 'High Intensity',
       bgClass: 'img-box5',
-      serve: ['Ristretto (25ml)', 'Espresso (40ml)', 'Cortado'],
+      serve: ['Ristretto (25ml)', 'Espresso (40ml)', 'With Milk'],
       serveIcons: ['ristretto', 'espresso', 'milk']
     }
   ];
@@ -2710,6 +3162,7 @@ body {
     $('pTitle').textContent = b.n;
     $('pCrumb').textContent = b.n;
     $('pNotes').textContent = b.t;
+    if ($('pDesc')) $('pDesc').textContent = b.desc;
     $('pRoast').textContent = b.r;
     $('pInt').textContent = b.i + ' of 13';
 
@@ -3105,15 +3558,19 @@ body {
     var showBuilder = (h === '#builder');
     var showContact = (h === '#contact');
     var showFaqs = (h === '#faqs');
+    var showTerms = (h === '#terms');
+    var showPrivacy = (h === '#privacy');
 
-    $('homeView').hidden = showProduct || showBuilder || showContact || showFaqs;
+    var isPage = showProduct || showBuilder || showContact || showFaqs || showTerms || showPrivacy;
+    $('homeView').hidden = isPage;
     $('productView').hidden = !showProduct;
     $('builderView').hidden = !showBuilder;
     $('contactView').hidden = !showContact;
-    var fv = $('faqsView');
-    if (fv) fv.hidden = !showFaqs;
+    if ($('faqsView')) $('faqsView').hidden = !showFaqs;
+    if ($('termsView')) $('termsView').hidden = !showTerms;
+    if ($('privacyView')) $('privacyView').hidden = !showPrivacy;
 
-    if (showContact || showFaqs) {
+    if (showContact || showFaqs || showTerms || showPrivacy) {
       window.scrollTo(0, 0);
     } else if (showBuilder) {
       renderBuilderView();
@@ -3161,6 +3618,121 @@ body {
   };
 
   window.addEventListener('hashchange', route);
+
+  // -------------------------------------------------------------
+  // COFFEE ORIGINS INTERACTIVE WORLD MAP LOGIC
+  // -------------------------------------------------------------
+  var ORIGINS_DATA = [
+    {
+      country: 'Guatemala',
+      flag: '🇬🇹',
+      region: 'Antigua & Huehuetenango',
+      elevation: '1,500m – 1,900m',
+      soil: 'Rich volcanic valley soil & microclimates',
+      character: 'Candied orange citrus, delicate floral notes, sweet buttery toffee finish.',
+      blends: 'Featured in Lisboa Glaze & Torino Cacao',
+      badge: 'Volcanic Soil'
+    },
+    {
+      country: 'Honduras',
+      flag: '🇭🇳',
+      region: 'Montecillos & Marcala',
+      elevation: '1,400m – 1,700m',
+      soil: 'Highland mountainous loam',
+      character: 'Smooth caramelized sweetness, brown sugar, vibrant citrus sparkle.',
+      blends: 'Featured in Lisboa Glaze',
+      badge: 'High-Grown Arabica'
+    },
+    {
+      country: 'Colombia',
+      flag: '🇨🇴',
+      region: 'Andes Volcanic Peaks',
+      elevation: '1,700m – 2,100m',
+      soil: 'High-altitude volcanic Andean slopes',
+      character: 'Brooding complexity, aromatic cinnamon spice, toasted malt, dark oakwood smoke.',
+      blends: 'Featured in Andes Tostado & Torino Cacao',
+      badge: 'High Altitude Andes'
+    },
+    {
+      country: 'Brazil',
+      flag: '🇧🇷',
+      region: 'Cerrado Mineiro & Sul de Minas',
+      elevation: '950m – 1,250m',
+      soil: 'Sun-drenched plateau terroir',
+      character: 'Creamy milk chocolate, malted grain, toasted hazelnut, velvet body.',
+      blends: 'Featured in Torino Cacao & Nordic Biscotti',
+      badge: 'Heritage Arabica'
+    },
+    {
+      country: 'Ethiopia',
+      flag: '🇪🇹',
+      region: 'Sidamo Highlands',
+      elevation: '1,800m – 2,200m',
+      soil: 'Fertile volcanic highland soil',
+      character: 'Wild sun-ripened berries, sweet prunes, floral jasmine aromatics, dark chocolate finish.',
+      blends: 'Single Origin: Sidamo Berry',
+      badge: 'Single Origin Heirloom'
+    },
+    {
+      country: 'Premium Indian Arabica',
+      flag: '🇮🇳',
+      region: 'Western Ghats (Chikkamagaluru & Baba Budan)',
+      elevation: '1,100m – 1,450m',
+      soil: 'Biodiverse forest shade canopy & tropical rain mist',
+      character: 'Dense velvety body, roasted cacao nibs, subtle warming spice, thick golden crema.',
+      blends: 'Featured in Torino Cacao & Master Roasts',
+      badge: 'Shade-Grown Heritage'
+    }
+  ];
+
+  window.selectOrigin = function(idx) {
+    var o = ORIGINS_DATA[idx];
+    if (!o) return;
+
+    var container = $('originCard');
+    if (container) {
+      container.innerHTML = `
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-4 border-b border-line">
+          <div class="flex items-center gap-3">
+            <span class="text-3xl">${o.flag}</span>
+            <div>
+              <div class="flex items-center gap-2">
+                <h4 class="font-display font-bold text-xl sm:text-2xl text-ink">${o.country}</h4>
+                <span class="text-[10px] font-extrabold bg-brand text-brandink px-2.5 py-0.5 rounded-full">${o.badge}</span>
+              </div>
+              <p class="text-xs text-mute mt-0.5">${o.region} • ${o.elevation}</p>
+            </div>
+          </div>
+          <div class="bg-surface border border-line px-3.5 py-1.5 rounded-full text-xs font-bold text-brand">
+            ☕ ${o.blends}
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4 mt-4 text-xs">
+          <div class="p-3.5 rounded-xl bg-surface border border-line">
+            <span class="text-[10px] font-bold text-mute uppercase tracking-wider block mb-1">Terroir & Soil:</span>
+            <p class="text-ink font-medium">${o.soil}</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-surface border border-line">
+            <span class="text-[10px] font-bold text-mute uppercase tracking-wider block mb-1">Cup Profile & Tasting Notes:</span>
+            <p class="text-ink font-medium">${o.character}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    document.querySelectorAll('.origin-btn').forEach(function(btn) {
+      var bIdx = +btn.getAttribute('data-oidx');
+      if (bIdx === idx) {
+        btn.className = 'origin-btn px-4 py-2 rounded-full text-xs font-bold border transition bg-brand text-brandink border-brand';
+      } else {
+        btn.className = 'origin-btn px-4 py-2 rounded-full text-xs font-bold border border-line bg-surface hover:border-brand text-ink transition';
+      }
+    });
+  };
+
+  // Initialize first origin
+  window.selectOrigin(0);
+
 
   renderHomeProducts();
   loadCart();
