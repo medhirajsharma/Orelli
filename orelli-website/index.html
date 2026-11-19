@@ -284,7 +284,7 @@ body {
 
 <!-- Top Announcement Banner -->
 <div class="bg-brand text-brandink text-xs sm:text-sm py-2 px-4 text-center font-medium transition-colors">
-  ⚡ <span class="font-bold">Pan India Express Shipping 1-2 Business Days</span> • Free delivery above ₹999 • Code <span class="bg-accent text-ink px-2 py-0.5 rounded font-bold">WELCOME10</span>
+  ⚡ <span class="font-bold">Pan India Express Shipping 1-2 Business Days</span> • Free delivery above ₹899 (Standard shipping ₹139) • Code <span class="bg-accent text-ink px-2 py-0.5 rounded font-bold">WELCOME10</span>
 </div>
 
 <!-- Header -->
@@ -1382,7 +1382,7 @@ body {
 
   <div class="px-5 py-3 bg-bg border-b border-line text-xs">
     <div class="flex justify-between font-bold mb-1">
-      <span id="freeShipText">Add ₹999 for free express shipping</span>
+      <span id="freeShipText">Add ₹899 for free express shipping</span>
       <span id="freeShipStatus">🚚</span>
     </div>
     <div class="h-2 rounded-full bg-surface border border-line overflow-hidden">
@@ -1404,7 +1404,7 @@ body {
     <dl class="text-xs sm:text-sm space-y-1.5 pt-2 border-t border-line">
       <div class="flex justify-between text-mute"><dt>Subtotal</dt><dd id="cartSubtotal" class="font-bold text-ink">₹0</dd></div>
       <div id="cartDiscountRow" class="flex justify-between text-brand font-bold hidden"><dt id="cartDiscountLbl">Discount</dt><dd id="cartDiscountVal">−₹0</dd></div>
-      <div class="flex justify-between text-mute"><dt>Pan-India Express (1-2 Days)</dt><dd id="cartShippingVal" class="font-bold text-ink">₹99</dd></div>
+      <div class="flex justify-between text-mute"><dt>Pan-India Express (1-2 Days)</dt><dd id="cartShippingVal" class="font-bold text-ink">₹139</dd></div>
       <div class="flex justify-between text-base font-extrabold text-ink pt-2 border-t border-line"><dt>Estimated Total</dt><dd id="cartTotalVal">₹0</dd></div>
     </dl>
 
@@ -2812,7 +2812,7 @@ body {
 
     var subtotal = state.cart.reduce(function(sum, it) { return sum + (it.price * it.qty); }, 0);
     var discount = Math.round(subtotal * state.discountRate);
-    var shipping = (subtotal - discount >= 999 || subtotal === 0) ? 0 : 99;
+    var shipping = (subtotal - discount >= 899 || subtotal === 0) ? 0 : 139;
     var total = Math.max(0, subtotal - discount + shipping);
 
     $('cartSubtotal').textContent = inr(subtotal);
@@ -2828,8 +2828,8 @@ body {
     $('cartShippingVal').textContent = shipping === 0 ? 'FREE (1-2 Days)' : inr(shipping);
     $('cartTotalVal').textContent = inr(total);
 
-    var shipRemain = Math.max(0, 999 - subtotal);
-    var shipPct = Math.min(100, Math.round((subtotal / 999) * 100));
+    var shipRemain = Math.max(0, 899 - subtotal);
+    var shipPct = Math.min(100, Math.round((subtotal / 899) * 100));
     $('freeShipBar').style.width = shipPct + '%';
 
     if (subtotal === 0) {
@@ -2888,7 +2888,7 @@ body {
       subtotal += it.price * it.qty;
     });
     var discount = Math.round(subtotal * state.discountRate);
-    var shipping = (subtotal - discount >= 999) ? 0 : 99;
+    var shipping = (subtotal - discount >= 899) ? 0 : 139;
     var total = subtotal - discount + shipping;
 
     lines.push('%0A*Subtotal:* ' + inr(subtotal));
@@ -2909,7 +2909,7 @@ body {
     window.closeCart();
     var subtotal = state.cart.reduce(function(s, i) { return s + (i.price * i.qty); }, 0);
     var discount = Math.round(subtotal * state.discountRate);
-    var shipping = (subtotal - discount >= 999) ? 0 : 99;
+    var shipping = (subtotal - discount >= 899) ? 0 : 139;
     var total = subtotal - discount + shipping;
     $('checkoutTotalAmount').textContent = inr(total);
 
@@ -3413,9 +3413,9 @@ body {
     $('bTotal').textContent = inr(total);
     $('bPer').textContent = current > 0 ? inr(total / current) : '—';
 
-    $('bShip').textContent = total >= 999 
+    $('bShip').textContent = total >= 899 
       ? '✓ Free Pan India Express Shipping (1-2 Days) applied!' 
-      : 'Add ' + inr(999 - total) + ' more to get free express delivery.';
+      : 'Add ' + inr(899 - total) + ' more for Free Delivery (Standard shipping ₹139).';
 
     document.querySelectorAll('.bCta').forEach(function(btn) {
       btn.disabled = (remaining !== 0);
