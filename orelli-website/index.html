@@ -565,7 +565,7 @@ body {
             <span>UI Option 2</span> • <span>Aapke Request Par (Fixed Height & Scroll Strip)</span>
           </div>
           <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">Shop Capsules — Variant 2 (Fixed & Scroll Strip)</h2>
-          <p class="mt-1 text-xs sm:text-sm text-mute">Cards ki height exactly 585px fix hai. Serving suggestions aur pack size single line mein horizontal scroll hote hain (no vertical wrapping).</p>
+          <p class="mt-1 text-xs sm:text-sm text-mute">Compact uniform cards without empty gaps. Serving suggestions aur pack size single-line horizontal scroll strip mein smoothly scroll hote hain.</p>
         </div>
         <span class="text-xs font-bold bg-brand text-brandink px-3 py-1.5 rounded-full shrink-0">
           ★ Uniform Height & Baseline
@@ -3142,17 +3142,19 @@ body {
         return `<span class="h-1.5 flex-1 rounded-full ${j < b.i ? 'bg-brand' : 'bg-line'}"></span>`;
       }).join('');
 
+      var shortRoast = b.r.replace(' Roast', '').replace('Medium-Light', 'Med-Light').replace('Light-Medium', 'Light-Med');
+
       // ========================================================
-      // VARIANT 2: FIXED HEIGHT (585px) & HORIZONTAL SCROLL STRIP
+      // VARIANT 2: COMPACT FIXED-HEIGHT CARD (NO DEAD SPACE) & HORIZONTAL SCROLL
       // ========================================================
       if (variantKey === 'v2') {
         return `
-          <article class="rounded-2xl border-2 border-line hover:border-brand bg-surface p-4 flex flex-col justify-between h-[585px] shadow-sm hover:shadow-md transition">
+          <article class="rounded-2xl border-2 border-line hover:border-brand bg-surface p-3.5 flex flex-col justify-between shadow-sm hover:shadow-md transition">
             <div>
               <div class="aspect-square rounded-xl bg-bg relative overflow-hidden cursor-pointer shrink-0" onclick="window.selectBlendAndGo(${idx})">
                 <div class="${b.bgClass} w-full h-full rounded-xl transition-transform duration-300 hover:scale-105" role="img" aria-label="${b.n}"></div>
                 <div class="absolute top-2 left-2 flex items-center gap-1.5">
-                  <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-brand text-brandink shadow-sm">
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand text-brandink shadow-sm">
                     ${b.tag}
                   </span>
                   <span class="w-4 h-4 bg-surface border border-green-600 rounded flex items-center justify-center p-0.5 shadow-sm" title="100% Vegetarian">
@@ -3161,15 +3163,15 @@ body {
                 </div>
               </div>
 
-              <div class="mt-3">
-                <div class="flex items-center justify-between">
-                  <h3 class="font-display font-bold text-base text-ink cursor-pointer hover:underline truncate" onclick="window.selectBlendAndGo(${idx})">${b.n}</h3>
-                  <span class="text-[10px] font-bold text-mute shrink-0 ml-1">${b.r}</span>
+              <div class="mt-2.5">
+                <div class="flex items-baseline justify-between gap-1">
+                  <h3 class="font-display font-bold text-base text-ink cursor-pointer hover:underline leading-snug leading-tight" onclick="window.selectBlendAndGo(${idx})">${b.n}</h3>
+                  <span class="text-[10px] font-bold text-mute bg-bg px-1.5 py-0.2 rounded border border-line shrink-0">${shortRoast}</span>
                 </div>
-                <p class="text-xs text-mute mt-0.5 line-clamp-1">${b.t}</p>
+                <p class="text-[11px] text-mute mt-0.5 line-clamp-1">${b.t}</p>
 
                 <!-- Intensity Scale 13-Point Indicator -->
-                <div class="mt-2.5">
+                <div class="mt-2">
                   <div class="flex justify-between items-center text-[10px] text-mute font-bold mb-1">
                     <span>Intensity Scale</span>
                     <span class="text-brand font-extrabold">${b.i}/13</span>
@@ -3177,20 +3179,20 @@ body {
                   <div class="flex gap-0.5">${miniBar}</div>
                 </div>
 
-                <!-- Serving Suggestions: Single Line Horizontal Scroll (Fixed Height) -->
-                <div class="mt-3 pt-2.5 border-t border-line">
-                  <div class="flex items-center justify-between text-[10px] text-mute font-bold mb-1.5">
+                <!-- Serving Suggestions: Single Line Horizontal Scroll -->
+                <div class="mt-2.5 pt-2 border-t border-line">
+                  <div class="flex items-center justify-between text-[10px] text-mute font-bold mb-1">
                     <span class="uppercase tracking-wider">Serving Suggestions:</span>
                     <span class="text-[9px] text-mute font-normal flex items-center gap-0.5"><span>⇄</span> scroll</span>
                   </div>
-                  <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 whitespace-nowrap scroll-smooth">
+                  <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5 whitespace-nowrap scroll-smooth">
                     ${b.serveIcons.map(function(sKey) {
                       var sObj = SERVING_TYPES.find(function(s) { return s.key === sKey; });
                       if (!sObj) return '';
                       return `
-                        <span class="inline-flex items-center gap-1.5 bg-bg border border-line text-ink text-[10px] font-bold px-2 py-1 rounded-md shadow-2xs hover:border-brand shrink-0 transition" title="${sObj.name} (${sObj.vol}) - ${sObj.desc}">
+                        <span class="inline-flex items-center gap-1 bg-bg border border-line text-ink text-[10px] font-bold px-2 py-0.5 rounded-md shadow-2xs hover:border-brand shrink-0 transition" title="${sObj.name} (${sObj.vol}) - ${sObj.desc}">
                           <span class="text-brand shrink-0">
-                            ${sObj.iconSvg.replace('w-6 h-6 mx-auto', 'w-3.5 h-3.5')}
+                            ${sObj.iconSvg.replace('w-6 h-6 mx-auto', 'w-3 h-3')}
                           </span>
                           <span>${sObj.name}</span>
                           <span class="text-mute font-medium text-[9px]">(${sObj.vol})</span>
@@ -3202,8 +3204,8 @@ body {
               </div>
 
               <!-- Pack Selection: Single Line Horizontal Scroll -->
-              <div class="mt-2.5">
-                <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 whitespace-nowrap scroll-smooth" id="homePacks-v2-${idx}">
+              <div class="mt-2">
+                <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5 whitespace-nowrap scroll-smooth" id="homePacks-v2-${idx}">
                   ${PACKS.map(function(p, pkIdx) {
                     return `
                       <button type="button" class="chip text-[11px] shrink-0 whitespace-nowrap ${pkIdx === 0 ? 'bg-brand text-brandink border-brand' : ''}" 
@@ -3215,14 +3217,14 @@ body {
                 </div>
               </div>
 
-              <label class="mt-2 flex items-center gap-1.5 text-[11px] text-mute cursor-pointer font-medium select-none">
+              <label class="mt-1.5 flex items-center gap-1.5 text-[11px] text-mute cursor-pointer font-medium select-none">
                 <input type="checkbox" id="homeSub-v2-${idx}" class="accent-brand" onchange="window.updateHomeCardPrice('v2', ${idx})">
                 <span>Subscribe & Save 10%</span>
               </label>
             </div>
 
-            <!-- Pinned Bottom Price & Action Row -->
-            <div class="mt-3 pt-3 border-t border-line flex items-center justify-between shrink-0">
+            <!-- Compact Bottom Price & Action Row (Zero Dead Space) -->
+            <div class="mt-3 pt-2.5 border-t border-line flex items-center justify-between shrink-0">
               <div>
                 <span id="homePrice-v2-${idx}" class="font-bold text-base text-ink">${inr(b.p)}</span>
                 <span id="homePer-v2-${idx}" class="block text-[10px] text-mute">${inr(b.p / 10)} / pod</span>
@@ -3242,11 +3244,11 @@ body {
       }
 
       // ========================================================
-      // VARIANT 3: BOUTIQUE LUXE & SEGMENTED CONTROL
+      // VARIANT 3: BOUTIQUE LUXE & COMPACT INTEGRATED PILL (NO DEAD SPACE)
       // ========================================================
       if (variantKey === 'v3') {
         return `
-          <article class="rounded-3xl border border-line bg-surface/70 hover:bg-surface p-4 flex flex-col justify-between h-[585px] shadow-sm hover:shadow-xl hover:border-brand transition-all duration-300 group">
+          <article class="rounded-3xl border border-line bg-surface/70 hover:bg-surface p-3.5 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-brand transition-all duration-300 group">
             <div>
               <div class="aspect-square rounded-2xl bg-bg relative overflow-hidden cursor-pointer shrink-0" onclick="window.selectBlendAndGo(${idx})">
                 <div class="${b.bgClass} w-full h-full rounded-2xl transition-transform duration-500 group-hover:scale-108" role="img" aria-label="${b.n}"></div>
@@ -3260,15 +3262,15 @@ body {
                 </div>
               </div>
 
-              <div class="mt-3">
-                <div class="flex items-center justify-between">
-                  <h3 class="font-display font-bold text-lg text-ink cursor-pointer hover:text-brand transition truncate" onclick="window.selectBlendAndGo(${idx})">${b.n}</h3>
-                  <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-brand/10 text-brand shrink-0 ml-1">${b.r}</span>
+              <div class="mt-2.5">
+                <div class="flex items-baseline justify-between gap-1">
+                  <h3 class="font-display font-bold text-base sm:text-lg text-ink cursor-pointer hover:text-brand transition leading-tight" onclick="window.selectBlendAndGo(${idx})">${b.n}</h3>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-brand/10 text-brand shrink-0">${shortRoast}</span>
                 </div>
-                <p class="text-xs text-mute mt-1 line-clamp-1 italic">${b.t}</p>
+                <p class="text-[11px] text-mute mt-0.5 line-clamp-1 italic">${b.t}</p>
 
                 <!-- Intensity Scale Minimal Strip -->
-                <div class="mt-2.5 flex items-center justify-between">
+                <div class="mt-2 flex items-center justify-between">
                   <span class="text-[10px] font-bold uppercase tracking-wider text-mute">Intensity:</span>
                   <div class="flex items-center gap-1">
                     <div class="flex gap-0.5 w-20">${miniBar}</div>
@@ -3277,15 +3279,16 @@ body {
                 </div>
 
                 <!-- Extraction Icons Row (Visual Bar) -->
-                <div class="mt-3 pt-2.5 border-t border-line">
-                  <span class="text-[10px] font-bold text-mute uppercase tracking-wider block mb-1">Recommended Extraction:</span>
+                <div class="mt-2.5 pt-2 border-t border-line">
+                  <span class="text-[10px] font-bold text-mute uppercase tracking-wider block mb-1">Extraction Profile:</span>
                   <div class="grid grid-cols-4 gap-1">
                     ${SERVING_TYPES.map(function(s) {
                       var isRec = b.serveIcons.includes(s.key);
+                      var label = s.key === 'milk' ? 'Milk' : (s.key === 'ristretto' ? 'Ristretto' : (s.key === 'espresso' ? 'Espresso' : 'Lungo'));
                       return `
                         <div class="p-1 rounded-lg border text-center transition ${isRec ? 'border-brand bg-brand/10 text-brand font-bold shadow-2xs' : 'border-line/60 bg-bg/50 text-mute opacity-40'}" title="${s.name} (${s.vol})">
                           <div class="w-4 h-4 mx-auto">${s.iconSvg.replace('w-6 h-6 mx-auto', 'w-3.5 h-3.5 mx-auto')}</div>
-                          <span class="text-[8px] block truncate mt-0.5">${s.name}</span>
+                          <span class="text-[8px] block font-semibold mt-0.5 truncate">${label}</span>
                         </div>
                       `;
                     }).join('')}
@@ -3294,11 +3297,11 @@ body {
               </div>
 
               <!-- Segmented Pack Controller (Apple / Boutique style single-row) -->
-              <div class="mt-3">
+              <div class="mt-2.5">
                 <div class="bg-bg border border-line p-0.5 rounded-xl flex items-center justify-between text-xs" id="homePacks-v3-${idx}">
                   ${PACKS.map(function(p, pkIdx) {
                     return `
-                      <button type="button" class="flex-1 py-1.5 text-center text-[11px] font-bold rounded-lg transition ${pkIdx === 0 ? 'bg-brand text-brandink shadow-xs' : 'text-mute hover:text-ink'}"
+                      <button type="button" class="flex-1 py-1 text-center text-[11px] font-bold rounded-lg transition ${pkIdx === 0 ? 'bg-brand text-brandink shadow-xs' : 'text-mute hover:text-ink'}"
                         onclick="window.updateHomeCardPack(event, 'v3', ${idx}, ${pkIdx})">
                         ${p.n} pods
                       </button>
@@ -3307,14 +3310,14 @@ body {
                 </div>
               </div>
 
-              <label class="mt-2 flex items-center gap-1.5 text-[11px] text-mute cursor-pointer font-medium select-none">
+              <label class="mt-1.5 flex items-center gap-1.5 text-[11px] text-mute cursor-pointer font-medium select-none">
                 <input type="checkbox" id="homeSub-v3-${idx}" class="accent-brand" onchange="window.updateHomeCardPrice('v3', ${idx})">
                 <span>Subscribe & Save 10%</span>
               </label>
             </div>
 
-            <!-- Integrated Luxury Buy CTA Button with Instant Price Pill -->
-            <div class="mt-3 pt-3 border-t border-line shrink-0">
+            <!-- Integrated Luxury Buy CTA Button (Zero Dead Space) -->
+            <div class="mt-2.5 pt-2.5 border-t border-line shrink-0">
               ${b.s ? `
                 <button type="button" onclick="window.addHomeCardToCart('v3', ${idx})" class="w-full bg-brand text-brandink py-2.5 px-3.5 rounded-xl text-xs font-bold flex items-center justify-between shadow hover:opacity-95 transition">
                   <span class="flex items-center gap-1"><span>🛒</span> + Add to Cart</span>
@@ -3339,7 +3342,7 @@ body {
       // VARIANT 1: STANDARD (MULTI-LINE WRAP)
       // ========================================================
       return `
-        <article class="rounded-2xl border border-line bg-bg p-4 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+        <article class="rounded-2xl border border-line bg-bg p-3.5 flex flex-col justify-between shadow-sm hover:shadow-md transition">
           <div>
             <div class="aspect-square rounded-xl bg-surface relative overflow-hidden cursor-pointer" onclick="window.selectBlendAndGo(${idx})">
               <div class="${b.bgClass} w-full h-full rounded-xl transition-transform duration-300 hover:scale-105" role="img" aria-label="${b.n}"></div>
@@ -3353,15 +3356,15 @@ body {
               </div>
             </div>
             
-            <div class="mt-3.5">
-              <div class="flex items-center justify-between">
-                <h3 class="font-display font-bold text-base text-ink cursor-pointer hover:underline" onclick="window.selectBlendAndGo(${idx})">${b.n}</h3>
-                <span class="text-[10px] font-bold text-mute">${b.r}</span>
+            <div class="mt-2.5">
+              <div class="flex items-baseline justify-between gap-1">
+                <h3 class="font-display font-bold text-base text-ink cursor-pointer hover:underline leading-snug leading-tight" onclick="window.selectBlendAndGo(${idx})">${b.n}</h3>
+                <span class="text-[10px] font-bold text-mute bg-surface px-1.5 py-0.2 rounded border border-line shrink-0">${shortRoast}</span>
               </div>
-              <p class="text-xs text-mute mt-0.5 line-clamp-1">${b.t}</p>
+              <p class="text-[11px] text-mute mt-0.5 line-clamp-1">${b.t}</p>
 
               <!-- Intensity Scale 13-Point Indicator -->
-              <div class="mt-2.5">
+              <div class="mt-2">
                 <div class="flex justify-between items-center text-[10px] text-mute font-bold mb-1">
                   <span>Intensity Scale</span>
                   <span class="text-brand font-extrabold">${b.i}/13</span>
@@ -3370,16 +3373,16 @@ body {
               </div>
 
               <!-- Serving Suggestions Icons (Wrap) -->
-              <div class="mt-3 pt-2.5 border-t border-line">
-                <span class="block text-[10px] font-bold text-mute uppercase tracking-wider mb-1.5">Serving Suggestions:</span>
-                <div class="flex flex-wrap gap-1.5">
+              <div class="mt-2.5 pt-2 border-t border-line">
+                <span class="block text-[10px] font-bold text-mute uppercase tracking-wider mb-1">Serving Suggestions:</span>
+                <div class="flex flex-wrap gap-1">
                   ${b.serveIcons.map(function(sKey) {
                     var sObj = SERVING_TYPES.find(function(s) { return s.key === sKey; });
                     if (!sObj) return '';
                     return `
-                      <span class="inline-flex items-center gap-1.5 bg-surface border border-line text-ink text-[10px] font-bold px-2 py-1 rounded-md shadow-2xs hover:border-brand transition" title="${sObj.name} (${sObj.vol}) - ${sObj.desc}">
+                      <span class="inline-flex items-center gap-1 bg-surface border border-line text-ink text-[10px] font-bold px-2 py-0.5 rounded-md shadow-2xs hover:border-brand transition" title="${sObj.name} (${sObj.vol}) - ${sObj.desc}">
                         <span class="text-brand shrink-0">
-                          ${sObj.iconSvg.replace('w-6 h-6 mx-auto', 'w-3.5 h-3.5')}
+                          ${sObj.iconSvg.replace('w-6 h-6 mx-auto', 'w-3 h-3')}
                         </span>
                         <span>${sObj.name}</span>
                         <span class="text-mute font-medium text-[9px]">(${sObj.vol})</span>
@@ -3391,7 +3394,7 @@ body {
             </div>
 
             <!-- Pack Selection Chips (Wrap) -->
-            <div class="mt-3 flex flex-wrap gap-1.5" id="homePacks-v1-${idx}">
+            <div class="mt-2 flex flex-wrap gap-1" id="homePacks-v1-${idx}">
               ${PACKS.map(function(p, pkIdx) {
                 return `
                   <button type="button" class="chip text-[11px] ${pkIdx === 0 ? 'bg-brand text-brandink border-brand' : ''}" 
@@ -3402,13 +3405,13 @@ body {
               }).join('')}
             </div>
 
-            <label class="mt-2.5 flex items-center gap-1.5 text-[11px] text-mute cursor-pointer font-medium">
+            <label class="mt-1.5 flex items-center gap-1.5 text-[11px] text-mute cursor-pointer font-medium">
               <input type="checkbox" id="homeSub-v1-${idx}" class="accent-brand" onchange="window.updateHomeCardPrice('v1', ${idx})">
               <span>Subscribe & Save 10%</span>
             </label>
           </div>
 
-          <div class="mt-4 pt-3 border-t border-line flex items-center justify-between">
+          <div class="mt-3 pt-2.5 border-t border-line flex items-center justify-between">
             <div>
               <span id="homePrice-v1-${idx}" class="font-bold text-base text-ink">${inr(b.p)}</span>
               <span id="homePer-v1-${idx}" class="block text-[10px] text-mute">${inr(b.p / 10)} / pod</span>
