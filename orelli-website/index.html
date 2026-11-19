@@ -514,12 +514,28 @@ body {
   <!-- Best Sellers Grid -->
   <section class="bg-surface border-y border-line">
     <div class="max-w-6xl mx-auto px-5 py-16">
-      <div class="flex items-end justify-between gap-4 mb-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 pb-4 border-b border-line">
         <div>
           <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">Shop Capsules</h2>
           <p class="mt-1 text-sm text-mute">100% Recyclable Aluminium • Vegetarian • Pan India Express 1-2 Days</p>
         </div>
-        <a href="#builder" class="text-sm font-bold underline underline-offset-4 hover:text-brand">Build a custom pack</a>
+        
+        <!-- Interactive UI Variant Switcher -->
+        <div class="flex flex-wrap items-center gap-3">
+          <div class="inline-flex items-center p-1 bg-bg border border-line rounded-2xl shadow-xs">
+            <span class="text-[10px] font-bold text-mute px-2 uppercase tracking-wider hidden sm:inline">Card Style:</span>
+            <button type="button" onclick="window.setCardVariant('v1')" id="vBtn-v1" class="variant-toggle-btn px-3 py-1.5 rounded-xl text-xs font-bold transition">
+              Variant 1 (Wrap)
+            </button>
+            <button type="button" onclick="window.setCardVariant('v2')" id="vBtn-v2" class="variant-toggle-btn px-3 py-1.5 rounded-xl text-xs font-bold transition">
+              Variant 2 (Fixed & Scroll)
+            </button>
+            <button type="button" onclick="window.setCardVariant('v3')" id="vBtn-v3" class="variant-toggle-btn px-3 py-1.5 rounded-xl text-xs font-bold transition">
+              Variant 3 (Boutique Luxe)
+            </button>
+          </div>
+          <a href="#builder" class="text-xs font-bold text-brand hover:underline shrink-0 hidden lg:inline-block">Build a custom pack &rarr;</a>
+        </div>
       </div>
 
       <div id="homeProductsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
@@ -2985,9 +3001,39 @@ body {
   // -------------------------------------------------------------
   // HOME VIEW CARDS & PRODUCTS RENDERING
   // -------------------------------------------------------------
+  // Initialize card variant from storage or default to Variant 2 (Fixed Height & Scroll)
+  state.cardVariant = localStorage.getItem('orelli_card_variant') || 'v2';
+
+  function updateVariantButtons() {
+    var v = state.cardVariant;
+    ['v1', 'v2', 'v3'].forEach(function(key) {
+      var btn = $('vBtn-' + key);
+      if (btn) {
+        if (key === v) {
+          btn.className = 'variant-toggle-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-brand text-brandink shadow-xs';
+        } else {
+          btn.className = 'variant-toggle-btn px-3 py-1.5 rounded-xl text-xs font-bold transition text-mute hover:text-ink';
+        }
+      }
+    });
+  }
+
+  window.setCardVariant = function(variantKey) {
+    state.cardVariant = variantKey;
+    localStorage.setItem('orelli_card_variant', variantKey);
+    renderHomeProducts();
+    updateVariantButtons();
+    showToast('Switched to ' + (variantKey === 'v1' ? 'Variant 1 (Wrap)' : variantKey === 'v2' ? 'Variant 2 (Fixed & Scroll)' : 'Variant 3 (Boutique Luxe)'));
+  };
+
+  // -------------------------------------------------------------
+  // HOME VIEW CARDS & PRODUCTS RENDERING (VARIANTS 1, 2, 3)
+  // -------------------------------------------------------------
   function renderHomeProducts() {
     var grid = $('homeProductsGrid');
     if (!grid) return;
+
+    updateVariantButtons();
 
     grid.innerHTML = BLENDS.map(function(b, idx) {
       // 13-point intensity mini bar
@@ -2995,13 +3041,211 @@ body {
         return `<span class="h-1.5 flex-1 rounded-full ${j < b.i ? 'bg-brand' : 'bg-line'}"></span>`;
       }).join('');
 
+      var v = state.cardVariant;
+
+      // ========================================================
+      // VARIANT 2: FIXED HEIGHT & HORIZONTAL SCROLL STRIP
+      // (User request: height fix rakho aur uper niche content ko ek line me scroll bana do)
+      // ========================================================
+      if (v === 'v2') {
+        return `
+          <article class="rounded-2xl border border-line bg-bg p-4 flex flex-col justify-between h-[585px] shadow-sm hover:shadow-md transition">
+            <div>
+              <div class="aspect-square rounded-xl bg-surface relative overflow-hidden cursor-pointer shrink-0" onclick="window.selectBlendAndGo(${idx})">
+                <div class="${b.bgClass} w-full h-full rounded-xl transition-transform duration-300 hover:scale-105" role="img" aria-label="${b.n}"></div>
+                <div class="absolute top-2 left-2 flex items-center gap-1.5">
+                  <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-brand text-brandink shadow-sm">
+                    ${b.tag}
+                  </span>
+                  <span class="w-4 h-4 bg-surface border border-green-600 rounded flex items-center justify-center p-0.5 shadow-sm" title="100% Vegetarian">
+                    <span class="w-2 h-2 rounded-full bg-green-600"></span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="mt-3">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-display font-bold text-base text-ink cursor-pointer hover:underline truncate" onclick="window.selectBlendAndGo(${idx})">${b.n}</h3>
+                  <span class="text-[10px] font-bold text-mute shrink-0 ml-1">${b.r}</span>
+                </div>
+                <p class="text-xs text-mute mt-0.5 line-clamp-1">${b.t}</p>
+
+                <!-- Intensity Scale 13-Point Indicator -->
+                <div class="mt-2.5">
+                  <div class="flex justify-between items-center text-[10px] text-mute font-bold mb-1">
+                    <span>Intensity Scale</span>
+                    <span class="text-brand font-extrabold">${b.i}/13</span>
+                  </div>
+                  <div class="flex gap-0.5">${miniBar}</div>
+                </div>
+
+                <!-- Serving Suggestions: Single Line Horizontal Scroll (Fixed Height) -->
+                <div class="mt-3 pt-2.5 border-t border-line">
+                  <div class="flex items-center justify-between text-[10px] text-mute font-bold mb-1.5">
+                    <span class="uppercase tracking-wider">Serving Suggestions:</span>
+                    <span class="text-[9px] text-mute font-normal flex items-center gap-0.5"><span>⇄</span> scroll</span>
+                  </div>
+                  <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 whitespace-nowrap scroll-smooth">
+                    ${b.serveIcons.map(function(sKey) {
+                      var sObj = SERVING_TYPES.find(function(s) { return s.key === sKey; });
+                      if (!sObj) return '';
+                      return `
+                        <span class="inline-flex items-center gap-1.5 bg-surface border border-line text-ink text-[10px] font-bold px-2 py-1 rounded-md shadow-2xs hover:border-brand shrink-0 transition" title="${sObj.name} (${sObj.vol}) - ${sObj.desc}">
+                          <span class="text-brand shrink-0">
+                            ${sObj.iconSvg.replace('w-6 h-6 mx-auto', 'w-3.5 h-3.5')}
+                          </span>
+                          <span>${sObj.name}</span>
+                          <span class="text-mute font-medium text-[9px]">(${sObj.vol})</span>
+                        </span>
+                      `;
+                    }).join('')}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pack Selection: Single Line Horizontal Scroll -->
+              <div class="mt-2.5">
+                <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 whitespace-nowrap scroll-smooth" id="homePacks-${idx}">
+                  ${PACKS.map(function(p, pkIdx) {
+                    return `
+                      <button type="button" class="chip text-[11px] shrink-0 whitespace-nowrap ${pkIdx === 0 ? 'bg-brand text-brandink border-brand' : ''}" 
+                        data-bidx="${idx}" data-pkidx="${pkIdx}" onclick="window.updateHomeCardPack(event, ${idx}, ${pkIdx})">
+                        ${p.n} pods
+                      </button>
+                    `;
+                  }).join('')}
+                </div>
+              </div>
+
+              <label class="mt-2 flex items-center gap-1.5 text-[11px] text-mute cursor-pointer font-medium select-none">
+                <input type="checkbox" id="homeSub-${idx}" class="accent-brand" onchange="window.updateHomeCardPrice(${idx})">
+                <span>Subscribe & Save 10%</span>
+              </label>
+            </div>
+
+            <!-- Pinned Bottom Price & Action Row -->
+            <div class="mt-3 pt-3 border-t border-line flex items-center justify-between shrink-0">
+              <div>
+                <span id="homePrice-${idx}" class="font-bold text-base text-ink">${inr(b.p)}</span>
+                <span id="homePer-${idx}" class="block text-[10px] text-mute">${inr(b.p / 10)} / pod</span>
+              </div>
+              ${b.s ? `
+                <button type="button" onclick="window.addHomeCardToCart(${idx})" class="bg-brand text-brandink text-xs font-bold rounded-full px-4 py-2 hover:opacity-90 shadow-sm transition">
+                  + Add
+                </button>
+              ` : `
+                <button type="button" onclick="window.notifySoldOut('${b.n}')" class="bg-mute text-white text-[11px] font-bold rounded-full px-3 py-2">
+                  Notify
+                </button>
+              `}
+            </div>
+          </article>
+        `;
+      }
+
+      // ========================================================
+      // VARIANT 3: BOUTIQUE LUXE / MINIMALIST SPECIALTY
+      // (Custom segmented pack controller + extraction icon bar + full width smart CTA)
+      // ========================================================
+      if (v === 'v3') {
+        return `
+          <article class="rounded-3xl border border-line bg-surface/70 hover:bg-surface p-4 flex flex-col justify-between h-[585px] shadow-sm hover:shadow-xl hover:border-brand transition-all duration-300 group">
+            <div>
+              <div class="aspect-square rounded-2xl bg-bg relative overflow-hidden cursor-pointer shrink-0" onclick="window.selectBlendAndGo(${idx})">
+                <div class="${b.bgClass} w-full h-full rounded-2xl transition-transform duration-500 group-hover:scale-108" role="img" aria-label="${b.n}"></div>
+                <div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+                  <span class="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full bg-brand text-brandink shadow">
+                    ${b.tag}
+                  </span>
+                  <span class="w-4 h-4 bg-surface border border-green-600 rounded flex items-center justify-center p-0.5 shadow-xs" title="100% Vegetarian">
+                    <span class="w-2 h-2 rounded-full bg-green-600"></span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="mt-3">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-display font-bold text-lg text-ink cursor-pointer hover:text-brand transition truncate" onclick="window.selectBlendAndGo(${idx})">${b.n}</h3>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-brand/10 text-brand shrink-0 ml-1">${b.r}</span>
+                </div>
+                <p class="text-xs text-mute mt-1 line-clamp-1 italic">${b.t}</p>
+
+                <!-- Intensity Scale Minimal Strip -->
+                <div class="mt-2.5 flex items-center justify-between">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-mute">Intensity:</span>
+                  <div class="flex items-center gap-1">
+                    <div class="flex gap-0.5 w-20">${miniBar}</div>
+                    <span class="text-[10px] font-extrabold text-brand bg-bg px-1.5 py-0.2 rounded border border-line">${b.i}/13</span>
+                  </div>
+                </div>
+
+                <!-- Extraction Icons Row (Visual Bar) -->
+                <div class="mt-3 pt-2.5 border-t border-line">
+                  <span class="text-[10px] font-bold text-mute uppercase tracking-wider block mb-1">Recommended Extraction:</span>
+                  <div class="grid grid-cols-4 gap-1">
+                    ${SERVING_TYPES.map(function(s) {
+                      var isRec = b.serveIcons.includes(s.key);
+                      return `
+                        <div class="p-1 rounded-lg border text-center transition ${isRec ? 'border-brand bg-brand/10 text-brand font-bold shadow-2xs' : 'border-line/60 bg-bg/50 text-mute opacity-40'}" title="${s.name} (${s.vol})">
+                          <div class="w-4 h-4 mx-auto">${s.iconSvg.replace('w-6 h-6 mx-auto', 'w-3.5 h-3.5 mx-auto')}</div>
+                          <span class="text-[8px] block truncate mt-0.5">${s.name}</span>
+                        </div>
+                      `;
+                    }).join('')}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Segmented Pack Controller (Apple / Boutique style single-row) -->
+              <div class="mt-3">
+                <div class="bg-bg border border-line p-0.5 rounded-xl flex items-center justify-between text-xs" id="homePacks-${idx}">
+                  ${PACKS.map(function(p, pkIdx) {
+                    return `
+                      <button type="button" class="flex-1 py-1.5 text-center text-[11px] font-bold rounded-lg transition ${pkIdx === 0 ? 'bg-brand text-brandink shadow-xs' : 'text-mute hover:text-ink'}"
+                        data-bidx="${idx}" data-pkidx="${pkIdx}" onclick="window.updateHomeCardPack(event, ${idx}, ${pkIdx})">
+                        ${p.n} pods
+                      </button>
+                    `;
+                  }).join('')}
+                </div>
+              </div>
+
+              <label class="mt-2 flex items-center gap-1.5 text-[11px] text-mute cursor-pointer font-medium select-none">
+                <input type="checkbox" id="homeSub-${idx}" class="accent-brand" onchange="window.updateHomeCardPrice(${idx})">
+                <span>Subscribe & Save 10%</span>
+              </label>
+            </div>
+
+            <!-- Integrated Luxury Buy CTA Button with Instant Price Pill -->
+            <div class="mt-3 pt-3 border-t border-line shrink-0">
+              ${b.s ? `
+                <button type="button" onclick="window.addHomeCardToCart(${idx})" class="w-full bg-brand text-brandink py-2.5 px-3.5 rounded-xl text-xs font-bold flex items-center justify-between shadow hover:opacity-95 transition">
+                  <span class="flex items-center gap-1"><span>🛒</span> + Add to Cart</span>
+                  <span id="homePrice-${idx}" class="bg-accent text-ink font-extrabold px-2 py-0.5 rounded-md text-[11px] shadow-xs">
+                    ${inr(b.p)}
+                  </span>
+                </button>
+              ` : `
+                <button type="button" onclick="window.notifySoldOut('${b.n}')" class="w-full bg-mute text-white py-2.5 rounded-xl text-xs font-bold">
+                  Sold Out • Notify Me
+                </button>
+              `}
+              <span id="homePer-${idx}" class="block text-center text-[10px] text-mute mt-1 font-medium">
+                ${inr(b.p / 10)} / pod • 1-2 day express
+              </span>
+            </div>
+          </article>
+        `;
+      }
+
+      // ========================================================
+      // VARIANT 1: STANDARD (WRAP MULTI-LINE)
+      // ========================================================
       return `
         <article class="rounded-2xl border border-line bg-bg p-4 flex flex-col justify-between shadow-sm hover:shadow-md transition">
           <div>
             <div class="aspect-square rounded-xl bg-surface relative overflow-hidden cursor-pointer" onclick="window.selectBlendAndGo(${idx})">
               <div class="${b.bgClass} w-full h-full rounded-xl transition-transform duration-300 hover:scale-105" role="img" aria-label="${b.n}"></div>
-              
-              <!-- Badges on image -->
               <div class="absolute top-2 left-2 flex items-center gap-1.5">
                 <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-brand text-brandink shadow-sm">
                   ${b.tag}
@@ -3038,7 +3282,7 @@ body {
                     return `
                       <span class="inline-flex items-center gap-1.5 bg-surface border border-line text-ink text-[10px] font-bold px-2 py-1 rounded-md shadow-2xs hover:border-brand transition" title="${sObj.name} (${sObj.vol}) - ${sObj.desc}">
                         <span class="text-brand shrink-0">
-                          ${sObj.iconSvg.replace('w-6 h-6 mx-auto', 'w-3 h-3')}
+                          ${sObj.iconSvg.replace('w-6 h-6 mx-auto', 'w-3.5 h-3.5')}
                         </span>
                         <span>${sObj.name}</span>
                         <span class="text-mute font-medium text-[9px]">(${sObj.vol})</span>
