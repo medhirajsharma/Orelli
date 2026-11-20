@@ -1191,7 +1191,7 @@ body {
           <h4 class="font-bold text-sm text-ink">Serving Suggestions</h4>
           <span class="text-[11px] text-mute font-medium">Optimal extraction profiles</span>
         </div>
-        <div id="pServingIcons" class="grid grid-cols-4 gap-2 text-center text-xs">
+        <div id="pServingIcons" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 text-center text-xs">
           <!-- Populated dynamically by JS -->
         </div>
       </div>
@@ -3630,11 +3630,15 @@ body {
     $('pServingIcons').innerHTML = SERVING_TYPES.map(function(s) {
       var isRecommended = b.serveIcons.includes(s.key);
       return `
-        <div class="p-2.5 rounded-2xl border transition-all ${isRecommended ? 'border-brand bg-brand/10 shadow-sm' : 'border-line bg-surface opacity-60'}">
-          <div class="${isRecommended ? 'text-brand' : 'text-mute'}">${s.iconSvg}</div>
-          <p class="font-bold text-xs mt-1 text-ink">${s.name}</p>
-          <p class="text-[10px] text-mute">${s.vol}</p>
-          ${isRecommended ? '<span class="inline-block mt-1 bg-brand text-brandink text-[9px] font-bold px-1.5 py-0.2 rounded-full">Recommended</span>' : '<span class="inline-block mt-1 text-[9px] text-mute">Compatible</span>'}
+        <div class="p-2.5 sm:p-3 rounded-2xl border transition-all flex flex-col justify-between items-center text-center ${isRecommended ? 'border-brand bg-brand/10 shadow-sm' : 'border-line bg-surface opacity-60'}">
+          <div>
+            <div class="${isRecommended ? 'text-brand' : 'text-mute'} mb-1">${s.iconSvg}</div>
+            <p class="font-bold text-xs sm:text-sm text-ink">${s.name}</p>
+            <p class="text-[10px] sm:text-[11px] text-mute font-medium mt-0.5">${s.vol}</p>
+          </div>
+          <div class="mt-2 pt-0.5">
+            ${isRecommended ? '<span class="inline-block bg-brand text-brandink text-[9px] sm:text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-2xs whitespace-nowrap">Recommended</span>' : '<span class="inline-block text-[9px] sm:text-[10px] text-mute font-medium bg-line/40 px-2 py-0.5 rounded-full whitespace-nowrap">Compatible</span>'}
+          </div>
         </div>
       `;
     }).join('');
