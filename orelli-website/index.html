@@ -310,9 +310,9 @@ body {
     <!-- Header Actions -->
     <div class="flex items-center gap-2.5 sm:gap-3">
       <!-- User Login / Account Button (OTP Auth) -->
-      <button id="authBtn" type="button" onclick="window.handleAuthClick()" class="flex items-center gap-1.5 border border-line bg-surface rounded-full px-3 py-1.5 text-xs font-bold hover:border-brand transition text-ink shadow-sm">
+      <button id="authBtn" type="button" onclick="window.handleAuthClick()" class="flex items-center gap-1.5 border border-line bg-surface rounded-full px-2.5 sm:px-3 py-1.5 text-xs font-bold hover:border-brand transition text-ink shadow-sm" title="Account / Login">
         <span id="authIcon">👤</span>
-        <span id="authLabel">Log in</span>
+        <span id="authLabel" class="hidden sm:inline">Log in</span>
       </button>
 
       <!-- Dark/Light Theme Toggle -->
@@ -322,9 +322,9 @@ body {
       </button>
 
       <!-- Cart Button -->
-      <button id="cartBtn" type="button" class="flex items-center gap-1.5 bg-brand text-brandink rounded-full px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold shadow-sm hover:opacity-95 transition-opacity">
+      <button id="cartBtn" type="button" class="flex items-center gap-1.5 bg-brand text-brandink rounded-full px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold shadow-sm hover:opacity-95 transition-opacity" title="Shopping Cart">
         <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-        <span>Cart</span>
+        <span class="hidden sm:inline">Cart</span>
         <span id="cartCountBadge" class="bg-accent text-ink rounded-full px-1.5 py-0.1 text-[11px] font-bold">0</span>
       </button>
 
@@ -425,7 +425,7 @@ body {
         <span class="text-xs text-brand font-bold">1–2 Business Days</span>
       </div>
       <!-- 5. Intensity Scale -->
-      <div class="flex flex-col items-center gap-1">
+      <div class="col-span-2 md:col-span-1 flex flex-col items-center gap-1">
         <span class="text-2xl">📊</span>
         <span class="font-bold text-ink">Coffee Intensity Scale</span>
         <span class="text-xs text-mute">Calibrated 1 to 13 rating</span>
@@ -443,9 +443,9 @@ body {
       <a href="#builder" class="text-sm font-bold text-brand hover:underline">Or mix any in a custom pack &rarr;</a>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+    <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 overflow-x-auto sm:overflow-visible no-scrollbar pb-2 snap-x snap-mandatory">
       <!-- 1. Torino Cacao (10/13) -->
-      <div class="rounded-3xl bg-brand text-brandink p-5 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(0)">
+      <div class="w-[250px] sm:w-auto shrink-0 snap-start rounded-3xl bg-brand text-brandink p-5 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(0)">
         <div class="flex items-center justify-between">
           <div class="pod w-12 h-12"></div>
           <span class="bg-accent text-ink text-[10px] font-bold px-2 py-0.5 rounded-full">10 / 13</span>
@@ -471,7 +471,7 @@ body {
       </div>
 
       <!-- 3. Lisboa Glaze (6/13) -->
-      <div class="rounded-3xl bg-[#C67D28] text-white p-5 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(2)">
+      <div class="w-[250px] sm:w-auto shrink-0 snap-start rounded-3xl bg-[#C67D28] text-white p-5 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(2)">
         <div class="flex items-center justify-between">
           <div class="pod w-12 h-12"></div>
           <span class="bg-white text-ink text-[10px] font-bold px-2 py-0.5 rounded-full">6 / 13</span>
@@ -484,7 +484,7 @@ body {
       </div>
 
       <!-- 4. Sidamo Berry (9/13) -->
-      <div class="rounded-3xl bg-brandred text-white p-5 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(3)">
+      <div class="w-[250px] sm:w-auto shrink-0 snap-start rounded-3xl bg-brandred text-white p-5 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(3)">
         <div class="flex items-center justify-between">
           <div class="pod w-12 h-12"></div>
           <span class="bg-white text-brandred text-[10px] font-bold px-2 py-0.5 rounded-full">9 / 13</span>
@@ -497,7 +497,7 @@ body {
       </div>
 
       <!-- 5. Andes Tostado (11/13) -->
-      <div class="rounded-3xl bg-[#202B24] text-white p-5 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(4)">
+      <div class="w-[250px] sm:w-auto shrink-0 snap-start rounded-3xl bg-[#202B24] text-white p-5 min-h-56 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md transition" onclick="window.selectBlendAndGo(4)">
         <div class="flex items-center justify-between">
           <div class="pod w-12 h-12"></div>
           <span class="bg-accent text-ink text-[10px] font-bold px-2 py-0.5 rounded-full">11 / 13</span>
@@ -516,20 +516,20 @@ body {
   <!-- ========================================== -->
 
   <!-- Sticky / Quick Jump Bar for the 3 Variants -->
-  <div class="bg-surface/95 backdrop-blur border-y border-line sticky top-16 z-20 py-3 shadow-xs">
-    <div class="max-w-6xl mx-auto px-5 flex flex-wrap items-center justify-between gap-3">
-      <div class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-accent animate-ping"></span>
-        <span class="font-bold text-xs uppercase tracking-wider text-ink">Compare UI Variants:</span>
+  <div class="bg-surface/95 backdrop-blur border-y border-line sticky top-16 z-20 py-2 sm:py-3 shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-5 flex items-center justify-between gap-2 overflow-x-auto no-scrollbar whitespace-nowrap scroll-smooth">
+      <div class="flex items-center gap-1.5 shrink-0">
+        <span class="w-2 h-2 rounded-full bg-accent animate-ping"></span>
+        <span class="font-bold text-[11px] sm:text-xs uppercase tracking-wider text-ink">Variants:</span>
       </div>
-      <div class="flex flex-wrap items-center gap-2">
-        <a href="#variant-1-section" class="px-3.5 py-1.5 rounded-xl text-xs font-bold border border-line bg-bg hover:border-brand text-ink transition">
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <a href="#variant-1-section" class="px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold border border-line bg-bg hover:border-brand text-ink transition shrink-0">
           1️⃣ Variant 1 (Wrap)
         </a>
-        <a href="#variant-2-section" class="px-3.5 py-1.5 rounded-xl text-xs font-bold border-2 border-brand bg-brand/10 text-brand transition shadow-xs">
-          2️⃣ Variant 2 (Fixed & Scroll Strip) ★
+        <a href="#variant-2-section" class="px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold border-2 border-brand bg-brand/10 text-brand transition shadow-xs shrink-0">
+          2️⃣ Variant 2 (Scroll Strip) ★
         </a>
-        <a href="#variant-3-section" class="px-3.5 py-1.5 rounded-xl text-xs font-bold border border-line bg-bg hover:border-brand text-ink transition">
+        <a href="#variant-3-section" class="px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold border border-line bg-bg hover:border-brand text-ink transition shrink-0">
           3️⃣ Variant 3 (Boutique Luxe)
         </a>
       </div>
@@ -550,7 +550,7 @@ body {
         <a href="#builder" class="text-xs font-bold text-brand hover:underline shrink-0">Build custom pack &rarr;</a>
       </div>
 
-      <div id="homeProductsGrid-v1" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 items-start">
+      <div id="homeProductsGrid-v1" class="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3.5 sm:gap-5 overflow-x-auto sm:overflow-visible no-scrollbar pb-3 sm:pb-0 snap-x snap-mandatory items-start px-1 sm:px-0">
         <!-- Rendered by JS -->
       </div>
     </div>
@@ -572,7 +572,7 @@ body {
         </span>
       </div>
 
-      <div id="homeProductsGrid-v2" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 items-stretch">
+      <div id="homeProductsGrid-v2" class="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3.5 sm:gap-5 overflow-x-auto sm:overflow-visible no-scrollbar pb-3 sm:pb-0 snap-x snap-mandatory items-stretch px-1 sm:px-0">
         <!-- Rendered by JS -->
       </div>
     </div>
@@ -594,7 +594,7 @@ body {
         </span>
       </div>
 
-      <div id="homeProductsGrid-v3" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 items-stretch">
+      <div id="homeProductsGrid-v3" class="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3.5 sm:gap-5 overflow-x-auto sm:overflow-visible no-scrollbar pb-3 sm:pb-0 snap-x snap-mandatory items-stretch px-1 sm:px-0">
         <!-- Rendered by JS -->
       </div>
     </div>
@@ -741,35 +741,35 @@ body {
           <g id="origin-pin-0" class="origin-pin cursor-pointer group" onclick="window.selectOrigin(0)">
             <circle cx="249" cy="209" r="15" fill="#D8A500" opacity="0.35" class="animate-ping" />
             <circle cx="249" cy="209" r="6.5" fill="#154734" stroke="#D8A500" stroke-width="2" class="group-hover:scale-125 transition-transform" />
-            <text x="249" y="197" text-anchor="middle" class="text-[9.5px] font-extrabold fill-ink drop-shadow-sm select-none">🇬🇹 Guatemala</text>
+            <text x="249" y="197" text-anchor="middle" class="hidden sm:inline text-[9.5px] font-extrabold fill-ink drop-shadow-sm select-none">🇬🇹 Guatemala</text><text x="249" y="197" text-anchor="middle" class="sm:hidden text-[11px] select-none">🇬🇹</text>
           </g>
 
           <!-- 2. HONDURAS (x: 260, y: 214) -->
           <g id="origin-pin-1" class="origin-pin cursor-pointer group" onclick="window.selectOrigin(1)">
             <circle cx="260" cy="214" r="15" fill="#D8A500" opacity="0.35" class="animate-ping" />
             <circle cx="260" cy="214" r="6.5" fill="#154734" stroke="#D8A500" stroke-width="2" class="group-hover:scale-125 transition-transform" />
-            <text x="260" y="234" text-anchor="middle" class="text-[9.5px] font-extrabold fill-ink drop-shadow-sm select-none">🇭🇳 Honduras</text>
+            <text x="260" y="234" text-anchor="middle" class="hidden sm:inline text-[9.5px] font-extrabold fill-ink drop-shadow-sm select-none">🇭🇳 Honduras</text><text x="260" y="234" text-anchor="middle" class="sm:hidden text-[11px] select-none">🇭🇳</text>
           </g>
 
           <!-- 3. COLOMBIA (x: 290, y: 242) -->
           <g id="origin-pin-2" class="origin-pin cursor-pointer group" onclick="window.selectOrigin(2)">
             <circle cx="290" cy="242" r="15" fill="#D8A500" opacity="0.35" class="animate-ping" />
             <circle cx="290" cy="242" r="6.5" fill="#154734" stroke="#D8A500" stroke-width="2" class="group-hover:scale-125 transition-transform" />
-            <text x="290" y="262" text-anchor="middle" class="text-[9.5px] font-extrabold fill-ink drop-shadow-sm select-none">🇨🇴 Colombia (Andes)</text>
+            <text x="290" y="262" text-anchor="middle" class="hidden sm:inline text-[9.5px] font-extrabold fill-ink drop-shadow-sm select-none">🇨🇴 Colombia</text><text x="290" y="262" text-anchor="middle" class="sm:hidden text-[11px] select-none">🇨🇴</text>
           </g>
 
           <!-- 4. BRAZIL (x: 371, y: 301) -->
           <g id="origin-pin-3" class="origin-pin cursor-pointer group" onclick="window.selectOrigin(3)">
             <circle cx="371" cy="301" r="15" fill="#D8A500" opacity="0.35" class="animate-ping" />
             <circle cx="371" cy="301" r="6.5" fill="#154734" stroke="#D8A500" stroke-width="2" class="group-hover:scale-125 transition-transform" />
-            <text x="371" y="321" text-anchor="middle" class="text-[9.5px] font-extrabold fill-ink drop-shadow-sm select-none">🇧🇷 Brazil (Cerrado)</text>
+            <text x="371" y="321" text-anchor="middle" class="hidden sm:inline text-[9.5px] font-extrabold fill-ink drop-shadow-sm select-none">🇧🇷 Brazil</text><text x="371" y="321" text-anchor="middle" class="sm:hidden text-[11px] select-none">🇧🇷</text>
           </g>
 
           <!-- 5. ETHIOPIA (x: 607, y: 232) -->
           <g id="origin-pin-4" class="origin-pin cursor-pointer group" onclick="window.selectOrigin(4)">
             <circle cx="607" cy="232" r="15" fill="#D8A500" opacity="0.35" class="animate-ping" />
             <circle cx="607" cy="232" r="6.5" fill="#154734" stroke="#D8A500" stroke-width="2" class="group-hover:scale-125 transition-transform" />
-            <text x="607" y="220" text-anchor="middle" class="text-[9.5px] font-extrabold fill-ink drop-shadow-sm select-none">🇪🇹 Ethiopia (Sidamo)</text>
+            <text x="607" y="220" text-anchor="middle" class="hidden sm:inline text-[9.5px] font-extrabold fill-ink drop-shadow-sm select-none">🇪🇹 Ethiopia</text><text x="607" y="220" text-anchor="middle" class="sm:hidden text-[11px] select-none">🇪🇹</text>
           </g>
 
           <!-- 6. INDIA (x: 710, y: 225) -->
@@ -783,7 +783,7 @@ body {
       </div>
 
       <!-- Country Selector Chips -->
-      <div class="mt-6 flex flex-wrap items-center justify-center gap-2" id="originTabs">
+      <div class="mt-4 sm:mt-6 flex items-center sm:justify-center gap-2 overflow-x-auto no-scrollbar pb-1 whitespace-nowrap" id="originTabs">
         <button type="button" onclick="window.selectOrigin(0)" class="origin-btn px-4 py-2 rounded-full text-xs font-bold border transition bg-brand text-brandink border-brand" data-oidx="0">🇬🇹 Guatemala</button>
         <button type="button" onclick="window.selectOrigin(1)" class="origin-btn px-4 py-2 rounded-full text-xs font-bold border border-line bg-surface hover:border-brand text-ink transition" data-oidx="1">🇭🇳 Honduras</button>
         <button type="button" onclick="window.selectOrigin(2)" class="origin-btn px-4 py-2 rounded-full text-xs font-bold border border-line bg-surface hover:border-brand text-ink transition" data-oidx="2">🇨🇴 Colombia</button>
@@ -3216,7 +3216,7 @@ body {
       // ========================================================
       if (variantKey === 'v2') {
         return `
-          <article class="rounded-2xl border-2 border-line hover:border-brand bg-surface p-3.5 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+          <article class="w-[80vw] max-w-[285px] sm:w-auto shrink-0 snap-start rounded-2xl border-2 border-line hover:border-brand bg-surface p-3.5 flex flex-col justify-between shadow-sm hover:shadow-md transition">
             <div>
               <div class="aspect-square rounded-xl bg-bg relative overflow-hidden cursor-pointer shrink-0" onclick="window.selectBlendAndGo(${idx})">
                 <div class="${b.bgClass} w-full h-full rounded-xl transition-transform duration-300 hover:scale-105" role="img" aria-label="${b.n}"></div>
@@ -3315,7 +3315,7 @@ body {
       // ========================================================
       if (variantKey === 'v3') {
         return `
-          <article class="rounded-3xl border border-line bg-surface/70 hover:bg-surface p-3.5 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-brand transition-all duration-300 group">
+          <article class="w-[80vw] max-w-[285px] sm:w-auto shrink-0 snap-start rounded-3xl border border-line bg-surface/70 hover:bg-surface p-3.5 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-brand transition-all duration-300 group">
             <div>
               <div class="aspect-square rounded-2xl bg-bg relative overflow-hidden cursor-pointer shrink-0" onclick="window.selectBlendAndGo(${idx})">
                 <div class="${b.bgClass} w-full h-full rounded-2xl transition-transform duration-500 group-hover:scale-108" role="img" aria-label="${b.n}"></div>
@@ -3409,7 +3409,7 @@ body {
       // VARIANT 1: STANDARD (MULTI-LINE WRAP)
       // ========================================================
       return `
-        <article class="rounded-2xl border border-line bg-bg p-3.5 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+        <article class="w-[80vw] max-w-[285px] sm:w-auto shrink-0 snap-start rounded-2xl border border-line bg-bg p-3.5 flex flex-col justify-between shadow-sm hover:shadow-md transition">
           <div>
             <div class="aspect-square rounded-xl bg-surface relative overflow-hidden cursor-pointer" onclick="window.selectBlendAndGo(${idx})">
               <div class="${b.bgClass} w-full h-full rounded-xl transition-transform duration-300 hover:scale-105" role="img" aria-label="${b.n}"></div>
