@@ -305,6 +305,7 @@ body {
       <a href="#sustainability" class="hover:text-brand transition-colors">Sustainability</a>
       <a href="#faqs" class="hover:text-brand transition-colors">FAQs</a>
       <a href="#contact" class="hover:text-brand transition-colors">Contact</a>
+      <a href="#quiz" onclick="window.openQuizModal(); return false;" class="text-brand font-bold flex items-center gap-1 hover:opacity-85 transition bg-brand/10 border border-brand/20 px-2.5 py-1 rounded-full text-xs"><span>✨</span> Coffee Quiz</a>
     </nav>
 
     <!-- Header Actions -->
@@ -364,9 +365,14 @@ body {
       <p class="mt-5 text-base sm:text-lg text-mute max-w-md leading-relaxed font-normal">
         Artisanal specialty coffee roasted in small batches, nitrogen-sealed in 100% recyclable aluminium capsules. Precision 1-13 intensity calibrated. Ready in 30 seconds.
       </p>
-      <div class="mt-8 flex flex-wrap gap-4">
+      <div class="mt-8 flex flex-wrap gap-3 sm:gap-4 items-center">
         <a href="#series" class="bg-brand text-brandink font-bold rounded-full px-7 py-3.5 shadow-sm hover:opacity-95 transition">Shop Capsules</a>
         <a href="#builder" class="border-2 border-brand text-brand rounded-full px-7 py-3.5 font-bold hover:bg-brand hover:text-brandink transition">Build Custom Pack</a>
+        <button type="button" onclick="window.openQuizModal()" class="inline-flex items-center gap-2 bg-surface hover:bg-bg border border-brand/40 text-ink rounded-full px-5 py-3 font-bold text-xs sm:text-sm shadow-sm hover:border-brand transition">
+          <span>✨</span>
+          <span>Find My Blend (45s Quiz)</span>
+          <span class="text-brand">&rarr;</span>
+        </button>
       </div>
       <p class="mt-4 text-xs text-mute font-medium">☕ Over 250,000+ recyclable capsules brewed across India</p>
     </div>
@@ -1499,6 +1505,10 @@ body {
           <span class="text-lg">✉️</span>
           <span>Contact Us</span>
         </a>
+        <a href="#quiz" onclick="window.closeMobileMenu(); window.openQuizModal(); return false;" class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-brand/10 border border-brand/20 text-brand font-bold">
+          <span class="text-lg">✨</span>
+          <span>Find My Coffee (Quiz)</span>
+        </a>
       </div>
 
       <!-- Legal & Policies -->
@@ -2085,6 +2095,125 @@ body {
 
 
 <!-- ========================================== -->
+
+<!-- ========================================== -->
+<!-- 10. COFFEE SOULMATE MATCH QUIZ MODAL       -->
+<!-- ========================================== -->
+<div id="quizModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-5 animate-fade-in" onclick="if(event.target === this) window.closeQuizModal()">
+  <div class="bg-surface border border-line rounded-3xl w-full max-w-xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden relative text-ink">
+    
+    <!-- Modal Header -->
+    <div class="px-5 py-4 border-b border-line flex items-center justify-between bg-bg/60">
+      <div class="flex items-center gap-2.5">
+        <span class="w-8 h-8 rounded-full bg-brand text-brandink flex items-center justify-center text-sm font-bold shadow-sm">✨</span>
+        <div>
+          <h3 class="font-display font-bold text-base sm:text-lg text-ink leading-tight">Coffee Soulmate Match</h3>
+          <p id="quizStepIndicator" class="text-[11px] text-mute font-medium">45-Second Sensory Calibration</p>
+        </div>
+      </div>
+      
+      <!-- Progress Bar (Visible during questions) -->
+      <div id="quizProgressWrap" class="hidden flex items-center gap-2.5">
+        <div class="w-20 sm:w-28 h-2 rounded-full bg-line overflow-hidden">
+          <div id="quizProgressBar" class="h-full bg-brand transition-all duration-300" style="width: 20%"></div>
+        </div>
+        <span id="quizProgressPercent" class="text-xs font-bold text-brand">20%</span>
+      </div>
+
+      <button type="button" onclick="window.closeQuizModal()" class="p-1.5 sm:p-2 rounded-full hover:bg-bg text-mute hover:text-ink transition" aria-label="Close quiz">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Modal Content Area -->
+    <div class="p-5 sm:p-7 overflow-y-auto flex-1">
+      
+      <!-- 1. Start Screen -->
+      <div id="quizStartScreen" class="text-center py-4 space-y-6">
+        <div class="w-20 h-20 mx-auto rounded-3xl bg-brand/10 border border-brand/30 flex items-center justify-center text-4xl shadow-inner animate-pulse">
+          ☕
+        </div>
+        <div>
+          <span class="inline-block bg-accent text-ink text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Interactive Ritual</span>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink">Find Your Coffee Soulmate</h2>
+          <p class="mt-2.5 text-xs sm:text-sm text-mute max-w-md mx-auto leading-relaxed">
+            Answer 5 simple sensory questions. Our master roaster algorithm calibrates your exact extraction, roast body, and flavor terroir.
+          </p>
+        </div>
+
+        <!-- 3 Feature Badges -->
+        <div class="grid grid-cols-3 gap-2 sm:gap-3 py-2 text-left">
+          <div class="p-3 rounded-2xl border border-line bg-bg/50">
+            <span class="text-lg block mb-1">⏱️</span>
+            <p class="text-xs font-bold text-ink">45 Seconds</p>
+            <p class="text-[10px] text-mute">Quick & effortless</p>
+          </div>
+          <div class="p-3 rounded-2xl border border-line bg-bg/50">
+            <span class="text-lg block mb-1">🎯</span>
+            <p class="text-xs font-bold text-ink">Precision Fit</p>
+            <p class="text-[10px] text-mute">1-13 Intensity match</p>
+          </div>
+          <div class="p-3 rounded-2xl border border-line bg-bg/50">
+            <span class="text-lg block mb-1">🎁</span>
+            <p class="text-xs font-bold text-ink">Top 2 Blends</p>
+            <p class="text-[10px] text-mute">Best match & runner-up</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button type="button" onclick="window.startQuiz()" class="w-full sm:w-auto px-8 py-3.5 bg-brand text-brandink font-bold rounded-full text-sm shadow hover:opacity-95 transition">
+            Start Coffee Match Ritual &rarr;
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. Question Screen -->
+      <div id="quizQuestionScreen" class="hidden space-y-5">
+        <div class="flex items-center justify-between text-xs">
+          <span id="quizQuestionCategory" class="font-bold uppercase tracking-wider text-brand">Question 1 of 5 • Brew Style</span>
+          <span id="quizQuestionStep" class="text-mute font-medium">Single Tap</span>
+        </div>
+        
+        <h3 id="quizQuestionText" class="font-display font-bold text-lg sm:text-xl text-ink leading-snug">
+          How do you usually take your coffee?
+        </h3>
+
+        <!-- Options Container -->
+        <div id="quizOptionsContainer" class="space-y-2.5 pt-1">
+          <!-- Populated dynamically by JS -->
+        </div>
+
+        <!-- Back Button -->
+        <div class="pt-2 flex justify-between items-center border-t border-line">
+          <button id="quizBackBtn" type="button" onclick="window.prevQuizQuestion()" class="text-xs font-bold text-mute hover:text-ink flex items-center gap-1.5 py-1.5 px-3 rounded-lg hover:bg-bg transition">
+            <span>&larr;</span> Previous Question
+          </button>
+          <span class="text-[11px] text-mute font-medium">Orelli Sommelier Calibration</span>
+        </div>
+      </div>
+
+      <!-- 3. Brewing / Loading Screen -->
+      <div id="quizLoadingScreen" class="hidden text-center py-12 space-y-6">
+        <div class="relative w-24 h-24 mx-auto flex items-center justify-center">
+          <div class="w-20 h-20 rounded-full border-4 border-line border-t-brand animate-spin"></div>
+          <span class="absolute text-3xl">☕</span>
+        </div>
+        <div>
+          <h3 class="font-display font-bold text-xl text-ink">Calibrating Your Flavor Profile...</h3>
+          <p id="quizLoadingStatus" class="mt-2 text-xs text-brand font-medium">Analyzing roast body & extraction notes...</p>
+        </div>
+      </div>
+
+      <!-- 4. Results Screen -->
+      <div id="quizResultsScreen" class="hidden space-y-5">
+        <!-- Rendered dynamically by JS with Rank #1, Rank #2, Duo Bundle, and Retake -->
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 <!-- 8. CHECKOUT MODAL                         -->
 <!-- ========================================== -->
 <div id="checkoutModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
@@ -2880,7 +3009,7 @@ body {
   // -------------------------------------------------------------
   // CART OPERATIONS & SYNC
   // -------------------------------------------------------------
-  function loadCart() {
+  window.loadCart = function() {
     try {
       var saved = localStorage.getItem('orelli_cart');
       if (saved) state.cart = JSON.parse(saved);
@@ -2893,7 +3022,7 @@ body {
     renderCart();
   }
 
-  function saveCart() {
+  window.saveCart = function() {
     try {
       localStorage.setItem('orelli_cart', JSON.stringify(state.cart));
       if (state.discountCode) {
@@ -2903,7 +3032,7 @@ body {
     renderCart();
   }
 
-  function addItemToCart(item) {
+  window.addItemToCart = function(item) {
     var existing = state.cart.find(function(it) { return it.id === item.id; });
     if (existing) {
       existing.qty += item.qty;
@@ -3968,7 +4097,7 @@ body {
 
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-      ['checkoutModal', 'orderSuccessModal', 'businessModal', 'faqModal', 'authModal', 'accountModal'].forEach(window.closeModal);
+      ['checkoutModal', 'orderSuccessModal', 'businessModal', 'faqModal', 'authModal', 'accountModal', 'quizModal'].forEach(window.closeModal);
       window.closeCart();
       window.closeMobileMenu();
     }
@@ -4038,6 +4167,509 @@ body {
     localStorage.setItem('orelli_theme', next);
   });
 
+
+  // -------------------------------------------------------------
+  // COFFEE SOULMATE MATCH QUIZ ENGINE & DATA
+  // -------------------------------------------------------------
+  var QUIZ_BLENDS = {
+    'torino': {
+      id: 'torino-cacao',
+      name: 'Torino Cacao',
+      price: 499,
+      intensity: '10/13',
+      roast: 'Dark Roast',
+      color: '#154734',
+      pillBg: 'bg-[#154734]',
+      badge: 'Italian Heritage',
+      notes: 'Dark Chocolate • Roasted Hazelnuts • Dense Velvet Body',
+      desc: 'Crafted for lovers of bold, dark roasts with rich midnight cocoa depth. Perfect for authentic Italian espressos and intense morning kicks.'
+    },
+    'nordic': {
+      id: 'nordic-biscotti',
+      name: 'Nordic Biscotti',
+      price: 519,
+      intensity: '7/13',
+      roast: 'Medium Roast',
+      color: '#D8A500',
+      pillBg: 'bg-[#D8A500]',
+      badge: 'Nordic Roast',
+      notes: 'Milk Chocolate • Malty • Baked Biscotti • Honey Warmth',
+      desc: 'Smooth, balanced, and deeply comforting. Inspired by Swedish bakery cafes, it shines as a silky latte, cappuccino, or relaxed morning brew.'
+    },
+    'lisboa': {
+      id: 'lisboa-glaze',
+      name: 'Lisboa Glaze',
+      price: 499,
+      intensity: '6/13',
+      roast: 'Medium-Light Roast',
+      color: '#C67D28',
+      pillBg: 'bg-[#C67D28]',
+      badge: 'Smooth & Sweet',
+      notes: 'Pastel de Nata Pastry • Brown Sugar Glaze • Candied Citrus',
+      desc: 'Bright, sweet, and approachable with vibrant European terrace charm. Delivers a delicate caramel glaze finish that is smooth from first sip to last.'
+    },
+    'sidamo': {
+      id: 'sidamo-berry',
+      name: 'Sidamo Berry',
+      price: 549,
+      intensity: '9/13',
+      roast: 'Light-Medium Roast',
+      color: '#A63A26',
+      pillBg: 'bg-[#A63A26]',
+      badge: 'Single Origin',
+      notes: 'Wild Blackberry • Prunes • Floral Jasmine • Vibrant Acidity',
+      desc: 'Exotic Ethiopian single-origin high-altitude beans. Crisp, juicy, and expressive, perfect for aromatic black cups and refreshing iced Americanos.'
+    },
+    'andes': {
+      id: 'andes-tostado',
+      name: 'Andes Tostado',
+      price: 529,
+      intensity: '11/13',
+      roast: 'Intense Dark Roast',
+      color: '#1E2322',
+      pillBg: 'bg-[#1E2322]',
+      badge: 'High Intensity',
+      notes: 'Cinnamon • Smoky Oak • High Altitude Complexity',
+      desc: 'Grown on steep Colombian Andean slopes. A masterclass in spicy warmth, oak complexity, and commanding intensity that handles both milk and black extractions flawlessly.'
+    }
+  };
+
+  var QUIZ_QUESTIONS = [
+    {
+      id: 'q1',
+      topic: 'Brew Style',
+      category: 'Question 1 of 5 • Extraction Ritual',
+      question: 'How do you usually take your coffee?',
+      options: [
+        { code: 'A', title: 'Hot & Black', subtitle: 'Espresso, Lungo, or Americano (No milk, pure terroir)' },
+        { code: 'B', title: 'Hot with Milk', subtitle: 'Creamy Lattes, Cappuccinos, or Flat Whites' },
+        { code: 'C', title: 'Iced & Black', subtitle: 'Crisp Iced Americano or Espresso over ice' },
+        { code: 'D', title: 'Iced with Milk', subtitle: 'Chilled Iced Lattes or cold milk brews' },
+        { code: 'E', title: 'A bit of everything', subtitle: 'Depends on my mood, weather, or time of day' }
+      ]
+    },
+    {
+      id: 'q2',
+      topic: 'Guilty Pleasure',
+      category: 'Question 2 of 5 • Flavor Palette',
+      question: 'Which of these sounds most like your guilty pleasure?',
+      options: [
+        { code: 'A', title: 'Dark chocolate at midnight', subtitle: 'Decadent 85% cocoa, dense & bittersweet' },
+        { code: 'B', title: 'Caramel popcorn at the movies', subtitle: 'Buttery, golden caramel with sweet warmth' },
+        { code: 'C', title: 'Fresh berries on a summer afternoon', subtitle: 'Juicy blackberries, tart cherries & vibrant sweetness' },
+        { code: 'D', title: 'Warm cinnamon rolls on a rainy day', subtitle: 'Spiced bakery crust, brown sugar & comforting warmth' }
+      ]
+    },
+    {
+      id: 'q3',
+      topic: 'Roast Body',
+      category: 'Question 3 of 5 • Roast Intensity',
+      question: 'How intense do you like your roast?',
+      options: [
+        { code: 'A', title: 'Bold & full-bodied', subtitle: 'Give me that commanding, authentic Italian café kick' },
+        { code: 'B', title: 'Smooth & balanced', subtitle: 'Rich comforting flavor without harsh bitterness' },
+        { code: 'C', title: 'Juicy, crisp & aromatic', subtitle: 'Nuanced, floral, and complex rather than heavy' }
+      ]
+    },
+    {
+      id: 'q4',
+      topic: 'Destination',
+      category: 'Question 4 of 5 • Terroir Vibe',
+      question: 'Imagine your dream morning coffee spot. Where are you?',
+      options: [
+        { code: 'A', title: 'A classic standing espresso bar in Milan or Turin', subtitle: 'Fast-paced, copper counter, thick crema' },
+        { code: 'B', title: 'A cozy, sunlit bakery-café in Stockholm', subtitle: 'Fika tradition, warm wood, cardamoms & pastries' },
+        { code: 'C', title: 'A vibrant terrace overlooking Lisbon’s tiled streets', subtitle: 'Breezy mornings, pastel de nata & sweet sun' },
+        { code: 'D', title: 'A crisp mountain lodge high in the Colombian Andes', subtitle: 'Clean air, misty ridges, rich earthy roast' },
+        { code: 'E', title: 'A specialty pour-over bar exploring rare African origins', subtitle: 'Artisanal single origins, floral notes & sensory focus' }
+      ]
+    },
+    {
+      id: 'q5',
+      topic: 'Coffee Personality',
+      category: 'Question 5 of 5 • Coffee Character',
+      question: 'If your ideal coffee had a personality, what would it be?',
+      options: [
+        { code: 'A', title: 'Bold & intense', subtitle: 'Makes an unforgettable, authoritative first impression' },
+        { code: 'B', title: 'Smooth & comforting', subtitle: 'Warm, approachable, friendly, and easy to love daily' },
+        { code: 'C', title: 'Intriguing & complex', subtitle: 'Layered with smoky, unexpected depth and character' },
+        { code: 'D', title: 'Vibrant & expressive', subtitle: 'Bright, lively, playful, and full of surprises' }
+      ]
+    }
+  ];
+
+  var QUIZ_SCORING = {
+    'q1': {
+      'A': { torino: 4, nordic: 0, lisboa: 0, sidamo: 4, andes: 2 },
+      'B': { torino: 0, nordic: 4, lisboa: 4, sidamo: 0, andes: 2 },
+      'C': { torino: 3, nordic: 0, lisboa: 0, sidamo: 4, andes: 2 },
+      'D': { torino: 0, nordic: 4, lisboa: 4, sidamo: 0, andes: 2 },
+      'E': { torino: 1, nordic: 1, lisboa: 1, sidamo: 1, andes: 4 }
+    },
+    'q2': {
+      'A': { torino: 5, nordic: 1, lisboa: 0, sidamo: 1, andes: 1 },
+      'B': { torino: 0, nordic: 4, lisboa: 4, sidamo: 0, andes: 1 },
+      'C': { torino: 0, nordic: 0, lisboa: 2, sidamo: 5, andes: 0 },
+      'D': { torino: 1, nordic: 3, lisboa: 1, sidamo: 0, andes: 5 }
+    },
+    'q3': {
+      'A': { torino: 3, nordic: 0, lisboa: 0, sidamo: 0, andes: 3 },
+      'B': { torino: 1, nordic: 3, lisboa: 3, sidamo: 1, andes: 2 },
+      'C': { torino: 0, nordic: 1, lisboa: 3, sidamo: 3, andes: 1 }
+    },
+    'q4': {
+      'A': { torino: 3, nordic: 0, lisboa: 0, sidamo: 0, andes: 0 },
+      'B': { torino: 0, nordic: 3, lisboa: 0, sidamo: 0, andes: 0 },
+      'C': { torino: 0, nordic: 0, lisboa: 3, sidamo: 0, andes: 0 },
+      'D': { torino: 0, nordic: 0, lisboa: 0, sidamo: 0, andes: 3 },
+      'E': { torino: 0, nordic: 0, lisboa: 0, sidamo: 3, andes: 0 }
+    },
+    'q5': {
+      'A': { torino: 3, nordic: 0, lisboa: 0, sidamo: 1, andes: 2 },
+      'B': { torino: 1, nordic: 3, lisboa: 3, sidamo: 0, andes: 1 },
+      'C': { torino: 1, nordic: 1, lisboa: 1, sidamo: 1, andes: 3 },
+      'D': { torino: 0, nordic: 0, lisboa: 2, sidamo: 3, andes: 1 }
+    }
+  };
+
+  var QUIZ_FALLBACK_ORDER = ['andes', 'torino', 'lisboa', 'nordic', 'sidamo'];
+
+  var quizState = window.quizState = {
+    step: 0, // 0 = start, 1..5 = questions, 6 = loading, 7 = results
+    answers: {},
+    result: null
+  };
+
+  window.openQuizModal = function() {
+    window.openModal('quizModal');
+    if (quizState.step === 0) {
+      window.showQuizStart();
+    }
+  };
+
+  window.closeQuizModal = function() {
+    window.closeModal('quizModal');
+    if (location.hash === '#quiz') {
+      history.replaceState(null, null, ' ');
+    }
+  };
+
+  window.showQuizStart = function() {
+    quizState.step = 0;
+    quizState.answers = {};
+    quizState.result = null;
+
+    $('quizProgressWrap').classList.add('hidden');
+    $('quizStepIndicator').textContent = '45-Second Sensory Calibration';
+
+    $('quizStartScreen').classList.remove('hidden');
+    $('quizQuestionScreen').classList.add('hidden');
+    $('quizLoadingScreen').classList.add('hidden');
+    $('quizResultsScreen').classList.add('hidden');
+  };
+
+  window.startQuiz = function() {
+    quizState.step = 1;
+    $('quizStartScreen').classList.add('hidden');
+    $('quizQuestionScreen').classList.remove('hidden');
+    $('quizProgressWrap').classList.remove('hidden');
+    window.renderQuizQuestion();
+  };
+
+  window.renderQuizQuestion = function() {
+    var qIdx = quizState.step - 1;
+    var qData = QUIZ_QUESTIONS[qIdx];
+    if (!qData) return;
+
+    var pct = Math.round((quizState.step / 5) * 100);
+    $('quizProgressBar').style.width = pct + '%';
+    $('quizProgressPercent').textContent = pct + '%';
+    $('quizStepIndicator').textContent = 'Step ' + quizState.step + ' of 5: ' + qData.topic;
+
+    $('quizQuestionCategory').textContent = qData.category;
+    $('quizQuestionText').textContent = qData.question;
+
+    if (quizState.step === 1) {
+      $('quizBackBtn').classList.add('invisible');
+    } else {
+      $('quizBackBtn').classList.remove('invisible');
+    }
+
+    var selectedCode = quizState.answers['q' + quizState.step] || null;
+
+    var html = qData.options.map(function(opt) {
+      var isSel = (opt.code === selectedCode);
+      return `
+        <div onclick="window.selectQuizOption('${opt.code}')" class="p-3.5 sm:p-4 rounded-2xl border transition-all cursor-pointer flex items-center justify-between group ${isSel ? 'border-brand bg-brand/10 shadow-sm' : 'border-line bg-bg/50 hover:border-brand/60 hover:bg-bg'}">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <span class="w-7 h-7 rounded-xl flex items-center justify-center font-bold text-xs shrink-0 transition ${isSel ? 'bg-brand text-brandink' : 'bg-surface border border-line text-mute group-hover:text-ink'}">
+              ${opt.code}
+            </span>
+            <div class="min-w-0">
+              <h4 class="font-bold text-xs sm:text-sm text-ink leading-snug">${opt.title}</h4>
+              <p class="text-[11px] text-mute line-clamp-1 mt-0.5">${opt.subtitle}</p>
+            </div>
+          </div>
+          <div class="shrink-0 text-mute group-hover:text-brand pl-2 transition">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    $('quizOptionsContainer').innerHTML = html;
+  };
+
+  window.selectQuizOption = function(code) {
+    quizState.answers['q' + quizState.step] = code;
+
+    if (quizState.step < 5) {
+      quizState.step++;
+      window.renderQuizQuestion();
+    } else {
+      window.finishQuiz();
+    }
+  };
+
+  window.prevQuizQuestion = function() {
+    if (quizState.step > 1) {
+      quizState.step--;
+      window.renderQuizQuestion();
+    }
+  };
+
+  window.finishQuiz = function() {
+    quizState.step = 6;
+    $('quizQuestionScreen').classList.add('hidden');
+    $('quizProgressWrap').classList.add('hidden');
+    $('quizLoadingScreen').classList.remove('hidden');
+    $('quizStepIndicator').textContent = 'Brewing Match...';
+
+    var statuses = [
+      'Analyzing roast body & extraction notes...',
+      'Matching flavor terroir & aroma preferences...',
+      'Calibrating your top 2 signature blends...'
+    ];
+    var sIdx = 0;
+    var statusInterval = setInterval(function() {
+      sIdx++;
+      if ($('quizLoadingStatus') && statuses[sIdx]) {
+        $('quizLoadingStatus').textContent = statuses[sIdx];
+      }
+    }, 450);
+
+    setTimeout(function() {
+      clearInterval(statusInterval);
+      window.computeQuizResults();
+    }, 1400);
+  };
+
+  window.computeQuizResults = function() {
+    var scores = { torino: 0, nordic: 0, lisboa: 0, sidamo: 0, andes: 0 };
+
+    for (var q = 1; q <= 5; q++) {
+      var code = quizState.answers['q' + q];
+      var matrix = QUIZ_SCORING['q' + q][code];
+      if (matrix) {
+        for (var b in scores) {
+          scores[b] += (matrix[b] || 0);
+        }
+      }
+    }
+
+    // Sort blends with the 3-step tie-breaker
+    var blendsList = ['torino', 'nordic', 'lisboa', 'sidamo', 'andes'];
+    blendsList.sort(function(a, b) {
+      // Primary: total score
+      if (scores[b] !== scores[a]) return scores[b] - scores[a];
+
+      // Step 1: Higher score on Q2 (Guilty Pleasure)
+      var q2A = QUIZ_SCORING.q2[quizState.answers.q2][a] || 0;
+      var q2B = QUIZ_SCORING.q2[quizState.answers.q2][b] || 0;
+      if (q2B !== q2A) return q2B - q2A;
+
+      // Step 2: Higher score on Q1 (Brew Style)
+      var q1A = QUIZ_SCORING.q1[quizState.answers.q1][a] || 0;
+      var q1B = QUIZ_SCORING.q1[quizState.answers.q1][b] || 0;
+      if (q1B !== q1A) return q1B - q1A;
+
+      // Step 3: Fallback priority
+      return QUIZ_FALLBACK_ORDER.indexOf(a) - QUIZ_FALLBACK_ORDER.indexOf(b);
+    });
+
+    quizState.result = {
+      bestKey: blendsList[0],
+      runnerKey: blendsList[1],
+      scores: scores
+    };
+
+    window.renderQuizResults();
+  };
+
+  window.renderQuizResults = function() {
+    quizState.step = 7;
+    $('quizLoadingScreen').classList.add('hidden');
+    $('quizResultsScreen').classList.remove('hidden');
+    $('quizStepIndicator').textContent = 'Your Taste Profile';
+
+    var best = QUIZ_BLENDS[quizState.result.bestKey];
+    var runner = QUIZ_BLENDS[quizState.result.runnerKey];
+
+    var duoSubtotal = best.price + runner.price;
+    var duoDiscount = Math.round(duoSubtotal * 0.10);
+    var duoTotal = duoSubtotal - duoDiscount;
+
+    var html = `
+      <div class="space-y-4 animate-fade-in">
+        <!-- Celebration Header -->
+        <div class="text-center pb-2">
+          <span class="inline-flex items-center gap-1.5 bg-brand/10 text-brand border border-brand/20 text-xs font-bold px-3 py-1 rounded-full mb-1">
+            <span>🎉</span> 98% Match Calibrated
+          </span>
+          <h3 class="font-display font-bold text-2xl text-ink">Here is Your Coffee Soulmate!</h3>
+        </div>
+
+        <!-- RANK #1: THE SOULMATE (Hero Card) -->
+        <div class="p-4 sm:p-5 rounded-3xl border-2 border-brand bg-brand/5 shadow-md relative overflow-hidden">
+          <div class="flex items-center justify-between mb-3">
+            <span class="bg-brand text-brandink text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
+              ★ Rank #1 • Your Soulmate
+            </span>
+            <span class="text-xs font-bold text-brand bg-surface border border-line px-2.5 py-0.5 rounded-full">
+              Intensity ${best.intensity}
+            </span>
+          </div>
+
+          <div class="flex gap-4 items-start">
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-white text-2xl shrink-0 shadow-sm" style="background:${best.color}">
+              ☕
+            </div>
+            <div class="flex-1 min-w-0">
+              <span class="text-[10px] font-bold text-mute uppercase tracking-wider">${best.badge} • ${best.roast}</span>
+              <h4 class="font-display font-bold text-xl text-ink leading-tight">${best.name}</h4>
+              <p class="text-xs text-brand font-semibold mt-0.5">${best.notes}</p>
+              <p class="text-xs text-mute mt-1.5 leading-relaxed">${best.desc}</p>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-line flex items-center justify-between gap-3">
+            <div>
+              <span class="text-xs text-mute block font-medium">10 Aluminium Pods</span>
+              <span class="font-bold text-lg text-ink">₹${best.price}</span>
+            </div>
+            <button type="button" onclick="window.addQuizBlendToCart('${quizState.result.bestKey}')" class="bg-brand text-brandink px-5 py-2.5 rounded-full text-xs font-bold hover:opacity-95 transition shadow flex items-center gap-1.5">
+              <span>Add 10-Pack to Cart</span> <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- RANK #2: THE RUNNER-UP (Secondary Card) -->
+        <div class="p-3.5 sm:p-4 rounded-2xl border border-line bg-surface/70 flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white text-base shrink-0 shadow-2xs" style="background:${runner.color}">
+              ☕
+            </div>
+            <div class="min-w-0">
+              <span class="text-[9px] font-bold bg-accent/30 text-accent px-1.5 py-0.2 rounded">🥈 Rank #2 • Runner-Up</span>
+              <h5 class="font-bold text-xs sm:text-sm text-ink truncate mt-0.5">${runner.name} (${runner.intensity})</h5>
+              <p class="text-[11px] text-mute truncate">${runner.notes}</p>
+            </div>
+          </div>
+          <button type="button" onclick="window.addQuizBlendToCart('${quizState.result.runnerKey}')" class="border border-line hover:border-brand text-ink hover:text-brand px-3 py-1.5 rounded-full text-xs font-bold transition shrink-0">
+            Add ₹${runner.price}
+          </button>
+        </div>
+
+        <!-- BUNDLE ACCELERATOR: TASTE THE DUO -->
+        <div class="p-4 rounded-2xl bg-gradient-to-r from-brand/15 to-accent/15 border border-brand/30 space-y-2">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-1.5 text-xs font-bold text-ink">
+              <span>🎁</span>
+              <span>Taste The Duo Bundle (Rank #1 + #2)</span>
+            </div>
+            <span class="bg-accent text-ink text-[10px] font-bold px-2 py-0.5 rounded">10% OFF</span>
+          </div>
+          <p class="text-[11px] text-mute">
+            Explore both signature profiles together. Unlocks <span class="text-brand font-bold">FREE Pan-India Express Delivery</span> + 10% discount!
+          </p>
+          <div class="flex items-center justify-between pt-1">
+            <div class="flex items-baseline gap-2">
+              <span class="font-bold text-base text-ink">₹${duoTotal}</span>
+              <span class="text-xs text-mute line-through">₹${duoSubtotal}</span>
+            </div>
+            <button type="button" onclick="window.addQuizDuoToCart('${quizState.result.bestKey}', '${quizState.result.runnerKey}')" class="bg-brand text-brandink px-4 py-2 rounded-full text-xs font-bold hover:opacity-95 transition shadow flex items-center gap-1">
+              <span>Add Both as Duo Pack</span> <span>⚡</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Footer / Retake -->
+        <div class="pt-2 text-center">
+          <button type="button" onclick="window.showQuizStart()" class="text-xs font-semibold text-mute hover:text-ink underline">
+            ↺ Retake Coffee Quiz
+          </button>
+        </div>
+      </div>
+    `;
+
+    $('quizResultsScreen').innerHTML = html;
+  };
+
+  window.addQuizBlendToCart = function(blendKey) {
+    var b = QUIZ_BLENDS[blendKey];
+    if (!b) return;
+
+    window.addItemToCart({
+      id: 'blend-' + b.id + '-10-false',
+      blendId: b.id,
+      title: b.name,
+      variant: '10 pods (' + b.intensity + ' Intensity)',
+      price: b.price,
+      qty: 1,
+      color: b.color,
+      isSub: false
+    });
+
+    window.saveCart();
+    window.closeQuizModal();
+    window.openCart();
+  };
+
+  window.addQuizDuoToCart = function(bestKey, runnerKey) {
+    var b1 = QUIZ_BLENDS[bestKey];
+    var b2 = QUIZ_BLENDS[runnerKey];
+    if (!b1 || !b2) return;
+
+    window.addItemToCart({
+      id: 'blend-' + b1.id + '-10-false',
+      blendId: b1.id,
+      title: b1.name,
+      variant: '10 pods (' + b1.intensity + ' Intensity)',
+      price: b1.price,
+      qty: 1,
+      color: b1.color,
+      isSub: false
+    });
+
+    window.addItemToCart({
+      id: 'blend-' + b2.id + '-10-false',
+      blendId: b2.id,
+      title: b2.name,
+      variant: '10 pods (' + b2.intensity + ' Intensity)',
+      price: b2.price,
+      qty: 1,
+      color: b2.color,
+      isSub: false
+    });
+
+    state.discountCode = 'WELCOME10';
+    state.discountRate = 0.10;
+    window.saveCart();
+    window.closeQuizModal();
+    window.openCart();
+  };
+
+
   // -------------------------------------------------------------
   // SPA ROUTING
   // -------------------------------------------------------------
@@ -4049,6 +4681,12 @@ body {
     var showFaqs = (h === '#faqs');
     var showTerms = (h === '#terms');
     var showPrivacy = (h === '#privacy');
+    var showQuiz = (h === '#quiz');
+
+    if (showQuiz) {
+      window.openQuizModal();
+      return;
+    }
 
     var isPage = showProduct || showBuilder || showContact || showFaqs || showTerms || showPrivacy;
     $('homeView').hidden = isPage;
