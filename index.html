@@ -1270,6 +1270,48 @@ body {
       <div id="bList" class="border-t border-line divide-y divide-line">
         <!-- Rendered by JS -->
       </div>
+
+      <!-- Step 3: Purchase Preference -->
+      <div class="mt-8 pt-6 border-t border-line">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="font-display font-bold text-lg text-ink">Step 3: Select delivery frequency</h2>
+          <span class="text-xs font-bold bg-accent/20 text-ink border border-accent/40 px-2.5 py-0.5 rounded-full">Save Extra 10%</span>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <button type="button" class="bBuyStepBtn opt p-3.5 rounded-2xl border text-left transition flex items-center justify-between" data-bbuy="once" aria-pressed="true">
+            <div>
+              <p class="font-bold text-sm text-ink">One-time purchase</p>
+              <p class="text-xs text-mute mt-0.5">Order once whenever you need</p>
+            </div>
+            <span class="w-4 h-4 rounded-full border border-line flex items-center justify-center shrink-0">
+              <span class="bBuyDotOnce w-2 h-2 rounded-full bg-brand"></span>
+            </span>
+          </button>
+          <button type="button" class="bBuyStepBtn opt p-3.5 rounded-2xl border text-left transition flex items-center justify-between relative" data-bbuy="sub" aria-pressed="false">
+            <div>
+              <div class="flex items-center gap-1.5">
+                <p class="font-bold text-sm text-ink">Subscribe & Save 10%</p>
+                <span class="bg-accent text-ink text-[10px] font-extrabold px-1.5 py-0.2 rounded">Save 10%</span>
+              </div>
+              <p class="text-xs text-mute mt-0.5">Auto-refill to your door • Cancel anytime</p>
+            </div>
+            <span class="w-4 h-4 rounded-full border border-line flex items-center justify-center shrink-0">
+              <span class="bBuyDotSub w-2 h-2 rounded-full bg-transparent"></span>
+            </span>
+          </button>
+        </div>
+        <div id="bStepFreqWrap" class="hidden mt-3 p-3 rounded-2xl bg-surface border border-line flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <label class="text-xs font-bold text-ink flex items-center gap-2">
+            <span>⚡ Delivery cadence:</span>
+            <select id="bStepFreq" class="rounded-lg border border-line bg-bg text-ink px-3 py-1.5 text-xs font-bold" onchange="if($('bFreq')) $('bFreq').value=this.value;">
+              <option value="Every 2 weeks">Every 2 weeks</option>
+              <option value="Every 4 weeks (Most Popular)" selected>Every 4 weeks (Most Popular)</option>
+              <option value="Every 8 weeks">Every 8 weeks</option>
+            </select>
+          </label>
+          <span class="text-xs text-brand font-medium">✓ Pause, skip, or cancel anytime</span>
+        </div>
+      </div>
     </div>
 
     <!-- Right Column: Sticky Summary (Desktop) -->
@@ -1291,9 +1333,39 @@ body {
           Nothing added yet. Use the + buttons to fill your box.
         </div>
 
+        <!-- Plan Selection inside Box Summary -->
+        <div class="mt-4 pt-4 border-t border-line">
+          <label class="block font-bold text-xs uppercase tracking-wider text-mute mb-2">Purchase Type</label>
+          <div class="grid grid-cols-2 gap-2" id="bBuyToggleGroup">
+            <button type="button" class="bBuyBtn opt p-2.5 rounded-xl border text-left text-xs transition flex flex-col justify-between" data-bbuy="once" aria-pressed="true">
+              <span class="font-bold text-ink">One-time</span>
+              <span class="text-[10px] text-mute mt-0.5">Single delivery</span>
+            </button>
+            <button type="button" class="bBuyBtn opt p-2.5 rounded-xl border text-left text-xs transition flex flex-col justify-between relative" data-bbuy="sub" aria-pressed="false">
+              <span class="absolute -top-2.5 right-1.5 bg-accent text-ink text-[9px] font-extrabold px-1.5 py-0.5 rounded-full shadow-2xs">Save 10%</span>
+              <span class="font-bold text-ink">Subscribe</span>
+              <span class="text-[10px] text-mute mt-0.5">Auto-refill</span>
+            </button>
+          </div>
+          <div id="bFreqWrap" class="hidden mt-2.5 p-2.5 rounded-xl bg-bg border border-line">
+            <label class="flex items-center justify-between text-xs font-medium text-mute">
+              <span>Auto-deliver:</span>
+              <select id="bFreq" class="rounded-lg border border-line bg-surface text-ink px-2 py-1 text-xs font-bold" onchange="if($('bStepFreq')) $('bStepFreq').value=this.value;">
+                <option value="Every 2 weeks">Every 2 weeks</option>
+                <option value="Every 4 weeks (Most Popular)" selected>Every 4 weeks (Most Popular)</option>
+                <option value="Every 8 weeks">Every 8 weeks</option>
+              </select>
+            </label>
+            <p class="text-[10px] text-brand font-medium mt-1.5 flex items-center gap-1">
+              <span>✓</span> Skip, pause or cancel anytime in 1-click
+            </p>
+          </div>
+        </div>
+
         <dl class="mt-4 text-xs sm:text-sm space-y-2 border-t border-line pt-4">
           <div class="flex justify-between"><dt class="text-mute">Subtotal</dt><dd id="bSub" class="font-bold">₹0</dd></div>
           <div class="flex justify-between text-brand font-bold"><dt id="bDiscLbl">Pack discount (10%)</dt><dd id="bDisc">−₹0</dd></div>
+          <div id="bSubRow" class="hidden flex justify-between text-brand font-bold"><dt>Subscription discount (10%)</dt><dd id="bSubDisc">−₹0</dd></div>
           <div class="flex justify-between text-mute"><dt>Pan India Shipping (1-2 Days)</dt><dd id="bShipFee" class="font-bold text-brand">FREE</dd></div>
           <div class="flex justify-between text-base font-bold border-t border-line pt-3 text-ink"><dt>Total Amount</dt><dd id="bTotal">₹0</dd></div>
           <div class="flex justify-between text-xs text-mute"><dt>Cost per capsule</dt><dd id="bPer" class="font-bold">—</dd></div>
@@ -1312,7 +1384,12 @@ body {
   <!-- Mobile Bottom Sticky Bar for Builder -->
   <div class="lg:hidden fixed bottom-0 inset-x-0 z-30 bg-surface/95 backdrop-blur border-t border-line px-5 py-3 flex items-center justify-between gap-3 shadow-lg">
     <div>
-      <p id="bMobCount" class="text-xs font-bold text-ink">0 of 30 selected</p>
+      <div class="flex items-center gap-1.5">
+        <p id="bMobCount" class="text-xs font-bold text-ink">0 of 30 selected</p>
+        <button type="button" data-act="toggle-sub" id="bMobSubToggle" class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-line bg-bg text-mute hover:border-brand transition">
+          + Subscribe & Save 10%
+        </button>
+      </div>
       <p id="bMobTotal" class="text-sm font-extrabold text-brand">₹0</p>
     </div>
     <button type="button" data-act="add" class="bCta bg-brand text-brandink font-bold rounded-full px-6 py-2.5 text-xs shadow disabled:opacity-40 disabled:cursor-not-allowed">
@@ -2770,13 +2847,17 @@ body {
     },
     builder: {
       k: 1,
-      q: [10, 5, 5, 5, 5]
+      q: [10, 5, 5, 5, 5],
+      buy: 'once',
+      freq: 'Every 4 weeks (Most Popular)'
     },
     cart: [],
     discountCode: null,
     discountRate: 0,
     user: null
   };
+  window.state = state;
+  window.BUILDER_SIZES = BUILDER_SIZES;
 
   function $(id) {
     return document.getElementById(id);
@@ -3009,7 +3090,7 @@ body {
   // -------------------------------------------------------------
   // CART OPERATIONS & SYNC
   // -------------------------------------------------------------
-  window.loadCart = function() {
+  function loadCart() {
     try {
       var saved = localStorage.getItem('orelli_cart');
       if (saved) state.cart = JSON.parse(saved);
@@ -3021,8 +3102,9 @@ body {
     } catch(e) {}
     renderCart();
   }
+  window.loadCart = loadCart;
 
-  window.saveCart = function() {
+  function saveCart() {
     try {
       localStorage.setItem('orelli_cart', JSON.stringify(state.cart));
       if (state.discountCode) {
@@ -3031,8 +3113,9 @@ body {
     } catch(e) {}
     renderCart();
   }
+  window.saveCart = saveCart;
 
-  window.addItemToCart = function(item) {
+  function addItemToCart(item) {
     var existing = state.cart.find(function(it) { return it.id === item.id; });
     if (existing) {
       existing.qty += item.qty;
@@ -3041,6 +3124,7 @@ body {
     }
     saveCart();
   }
+  window.addItemToCart = addItemToCart;
 
   window.updateCartQty = function(id, delta) {
     var item = state.cart.find(function(it) { return it.id === id; });
@@ -3086,6 +3170,7 @@ body {
             <div class="flex-1 min-w-0">
               <h4 class="font-bold text-xs sm:text-sm text-ink truncate">${item.title}</h4>
               <p class="text-[10px] sm:text-[11px] text-mute line-clamp-1">${item.variant}</p>
+              ${item.isSub ? '<span class="inline-block mt-0.5 bg-accent/20 border border-accent/40 text-ink text-[9px] font-extrabold px-1.5 py-0.2 rounded-full">⚡ Subscribed (10% Off)</span>' : ''}
               <p class="text-xs font-bold text-ink mt-0.5">${inr(item.price)}</p>
             </div>
             <div class="flex items-center border border-line rounded-full bg-bg shrink-0">
@@ -3362,12 +3447,18 @@ body {
     var priceEl = $('homePrice-' + variantKey + '-' + bIdx) || $('homePrice-' + bIdx);
     var perEl = $('homePer-' + variantKey + '-' + bIdx) || $('homePer-' + bIdx);
 
-    if (priceEl) priceEl.textContent = inr(finalPrice);
+    if (priceEl) {
+      if (isSub) {
+        priceEl.innerHTML = '<span class="line-through text-mute text-xs mr-1 font-normal">' + inr(basePrice) + '</span>' + inr(finalPrice) + ' <span class="bg-accent text-ink text-[9px] font-extrabold px-1.5 py-0.2 rounded shadow-2xs">Save 10%</span>';
+      } else {
+        priceEl.textContent = inr(finalPrice);
+      }
+    }
     if (perEl) {
       if (variantKey === 'v3') {
-        perEl.textContent = inr(Math.round(finalPrice / pk.n)) + ' / pod • 1-2 day express';
+        perEl.textContent = inr(Math.round(finalPrice / pk.n)) + ' / pod' + (isSub ? ' • Subscribed (Monthly)' : ' • 1-2 day express');
       } else {
-        perEl.textContent = inr(Math.round(finalPrice / pk.n)) + ' / pod';
+        perEl.textContent = inr(Math.round(finalPrice / pk.n)) + ' / pod' + (isSub ? ' • Subscribed (10% Off)' : '');
       }
     }
   };
@@ -3498,9 +3589,12 @@ body {
                 </div>
               </div>
 
-              <label class="mt-1.5 flex items-center gap-1.5 text-[11px] text-mute cursor-pointer font-medium select-none">
-                <input type="checkbox" id="homeSub-v2-${idx}" class="accent-brand" onchange="window.updateHomeCardPrice('v2', ${idx})">
-                <span>Subscribe & Save 10%</span>
+              <label class="mt-2 flex items-center justify-between text-[11px] cursor-pointer font-medium select-none bg-bg/70 border border-line hover:border-brand px-2 py-1.5 rounded-lg transition" for="homeSub-v2-${idx}">
+                <span class="flex items-center gap-1.5 text-ink font-semibold">
+                  <input type="checkbox" id="homeSub-v2-${idx}" class="accent-brand rounded cursor-pointer" onchange="window.updateHomeCardPrice('v2', ${idx})">
+                  <span>Subscribe & Save</span>
+                </span>
+                <span class="bg-accent text-ink text-[9px] font-extrabold px-1.5 py-0.2 rounded shadow-2xs">10% OFF</span>
               </label>
             </div>
 
@@ -3591,9 +3685,12 @@ body {
                 </div>
               </div>
 
-              <label class="mt-1.5 flex items-center gap-1.5 text-[11px] text-mute cursor-pointer font-medium select-none">
-                <input type="checkbox" id="homeSub-v3-${idx}" class="accent-brand" onchange="window.updateHomeCardPrice('v3', ${idx})">
-                <span>Subscribe & Save 10%</span>
+              <label class="mt-2 flex items-center justify-between text-[11px] cursor-pointer font-medium select-none bg-bg border border-line hover:border-brand px-2 py-1.5 rounded-lg transition" for="homeSub-v3-${idx}">
+                <span class="flex items-center gap-1.5 text-ink font-semibold">
+                  <input type="checkbox" id="homeSub-v3-${idx}" class="accent-brand rounded cursor-pointer" onchange="window.updateHomeCardPrice('v3', ${idx})">
+                  <span>Subscribe & Save</span>
+                </span>
+                <span class="bg-accent text-ink text-[9px] font-extrabold px-1.5 py-0.2 rounded shadow-2xs">10% OFF</span>
               </label>
             </div>
 
@@ -3686,9 +3783,12 @@ body {
               }).join('')}
             </div>
 
-            <label class="mt-1.5 flex items-center gap-1.5 text-[11px] text-mute cursor-pointer font-medium">
-              <input type="checkbox" id="homeSub-v1-${idx}" class="accent-brand" onchange="window.updateHomeCardPrice('v1', ${idx})">
-              <span>Subscribe & Save 10%</span>
+            <label class="mt-2 flex items-center justify-between text-[11px] cursor-pointer font-medium select-none bg-surface border border-line hover:border-brand px-2 py-1.5 rounded-lg transition" for="homeSub-v1-${idx}">
+              <span class="flex items-center gap-1.5 text-ink font-semibold">
+                <input type="checkbox" id="homeSub-v1-${idx}" class="accent-brand rounded cursor-pointer" onchange="window.updateHomeCardPrice('v1', ${idx})">
+                <span>Subscribe & Save</span>
+              </span>
+              <span class="bg-accent text-ink text-[9px] font-extrabold px-1.5 py-0.2 rounded shadow-2xs">10% OFF</span>
             </label>
           </div>
 
@@ -3969,16 +4069,31 @@ body {
     state.builder.q.forEach(function(q, i) {
       subtotal += q * (BLENDS[i].p / 10);
     });
-    var discount = subtotal * sz.d;
-    var total = subtotal - discount;
+    var packDiscount = Math.round(subtotal * sz.d);
+    var packPrice = subtotal - packDiscount;
+
+    var isSub = state.builder.buy === 'sub';
+    var subDiscount = isSub ? Math.round(packPrice * 0.10) : 0;
+    var total = packPrice - subDiscount;
 
     var pct = Math.min(100, Math.round((current / target) * 100));
     $('bCount').textContent = current + ' of ' + target + ' capsules added';
     $('bPct').textContent = pct + '%';
     $('bFill').style.width = pct + '%';
 
-    $('bMobCount').textContent = current + ' of ' + target + ' selected';
+    $('bMobCount').textContent = current + ' of ' + target + ' selected' + (isSub ? ' • Subscribed' : '');
     $('bMobTotal').textContent = inr(total);
+
+    var mobSubToggle = $('bMobSubToggle');
+    if (mobSubToggle) {
+      if (isSub) {
+        mobSubToggle.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full border border-brand bg-brand/10 text-brand shadow-xs';
+        mobSubToggle.textContent = '✓ Subscribed (10% Off)';
+      } else {
+        mobSubToggle.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full border border-line bg-bg text-mute hover:border-brand';
+        mobSubToggle.textContent = '+ Subscribe & Save 10%';
+      }
+    }
 
     var remBadge = $('bRemainingBadge');
     if (remaining > 0) {
@@ -3997,9 +4112,46 @@ body {
 
     $('bSub').textContent = inr(subtotal);
     $('bDiscLbl').textContent = 'Pack discount (' + Math.round(sz.d * 100) + '%)';
-    $('bDisc').textContent = '−' + inr(discount);
+    $('bDisc').textContent = '−' + inr(packDiscount);
+
+    if ($('bSubRow')) {
+      if (isSub) {
+        $('bSubRow').classList.remove('hidden');
+        $('bSubDisc').textContent = '−' + inr(subDiscount);
+      } else {
+        $('bSubRow').classList.add('hidden');
+      }
+    }
+
     $('bTotal').textContent = inr(total);
     $('bPer').textContent = current > 0 ? inr(total / current) : '—';
+
+    // Update Plan UI active states
+    document.querySelectorAll('[data-bbuy]').forEach(function(btn) {
+      var active = btn.dataset.bbuy === state.builder.buy;
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+      if (btn.classList.contains('bBuyBtn')) {
+        btn.className = 'bBuyBtn opt p-2.5 rounded-xl border text-left text-xs transition flex flex-col justify-between ' + 
+          (active ? 'border-brand bg-brand/10 font-bold text-brand shadow-xs' : 'border-line bg-surface text-ink');
+      } else if (btn.classList.contains('bBuyStepBtn')) {
+        btn.className = 'bBuyStepBtn opt p-3.5 rounded-2xl border text-left transition flex items-center justify-between ' + 
+          (active ? 'border-brand bg-brand/10 shadow-xs' : 'border-line bg-surface');
+      }
+    });
+
+    document.querySelectorAll('.bBuyDotOnce').forEach(function(dot) {
+      dot.className = 'bBuyDotOnce w-2 h-2 rounded-full ' + (isSub ? 'bg-transparent' : 'bg-brand');
+    });
+    document.querySelectorAll('.bBuyDotSub').forEach(function(dot) {
+      dot.className = 'bBuyDotSub w-2 h-2 rounded-full ' + (isSub ? 'bg-brand' : 'bg-transparent');
+    });
+
+    if ($('bFreqWrap')) {
+      $('bFreqWrap').classList.toggle('hidden', !isSub);
+    }
+    if ($('bStepFreqWrap')) {
+      $('bStepFreqWrap').classList.toggle('hidden', !isSub);
+    }
 
     $('bShip').textContent = total >= 899 
       ? '✓ Free Pan India Express Shipping (1-2 Days) applied!' 
@@ -4007,15 +4159,24 @@ body {
 
     document.querySelectorAll('.bCta').forEach(function(btn) {
       btn.disabled = (remaining !== 0);
-      btn.textContent = remaining > 0 ? ('Add ' + remaining + ' more pods') : 'Add Pack to Cart (' + inr(total) + ')';
+      btn.textContent = remaining > 0 ? ('Add ' + remaining + ' more pods') : ('Add Pack to Cart (' + inr(total) + (isSub ? ' • Sub' : '') + ')');
     });
   }
+  window.renderBuilderView = renderBuilderView;
 
   $('builderView').addEventListener('click', function(e) {
     var t = e.target.closest('button');
     if (!t) return;
 
-    if (t.dataset.size !== undefined) {
+    if (t.dataset.bbuy !== undefined) {
+      state.builder.buy = t.dataset.bbuy;
+      $('bMsg').textContent = '';
+      renderBuilderView();
+    } else if (t.dataset.act === 'toggle-sub') {
+      state.builder.buy = (state.builder.buy === 'sub') ? 'once' : 'sub';
+      $('bMsg').textContent = '';
+      renderBuilderView();
+    } else if (t.dataset.size !== undefined) {
       state.builder.k = +t.dataset.size;
       $('bMsg').textContent = '';
       while (sumBuilderPods() > BUILDER_SIZES[state.builder.k].n) {
@@ -4064,21 +4225,26 @@ body {
           subtotal += q * (BLENDS[i].p / 10);
         }
       });
-      var totalPrice = Math.round(subtotal * (1 - sz.d));
+      var packDiscount = Math.round(subtotal * sz.d);
+      var packPrice = subtotal - packDiscount;
+      var isSub = state.builder.buy === 'sub';
+      var subDiscount = isSub ? Math.round(packPrice * 0.10) : 0;
+      var totalPrice = packPrice - subDiscount;
+      var freq = $('bFreq') ? $('bFreq').value : 'Every 4 weeks (Most Popular)';
 
       var item = {
-        id: 'custom-pack-' + sz.n + '-' + Date.now(),
+        id: 'custom-pack-' + sz.n + (isSub ? '-sub' : '') + '-' + Date.now(),
         title: 'Custom ' + sz.n + '-Capsule Pack',
-        variant: breakdown.join(', '),
+        variant: breakdown.join(', ') + (isSub ? ' (' + freq + ' • 10% Sub Off)' : ' (One-time)'),
         price: totalPrice,
         qty: 1,
         color: '#154734',
-        isSub: false
+        isSub: isSub
       };
 
       addItemToCart(item);
-      $('bMsg').textContent = '✓ Custom pack added to cart!';
-      showToast('Custom ' + sz.n + '-pack added to cart');
+      $('bMsg').textContent = '✓ Custom pack ' + (isSub ? 'subscription ' : '') + 'added to cart!';
+      showToast('Custom ' + sz.n + '-pack' + (isSub ? ' subscription' : '') + ' added to cart');
     }
   });
 
