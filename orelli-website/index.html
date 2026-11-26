@@ -289,31 +289,31 @@ body {
 
 <!-- Header -->
 <header class="sticky top-0 z-40 bg-bg/95 backdrop-blur border-b border-line">
-  <div class="max-w-6xl mx-auto flex items-center justify-between px-5 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4">
     <!-- Logo with Gilden Typography -->
-    <a href="#" class="flex items-center gap-2.5 font-display font-bold text-2xl sm:text-3xl tracking-tight text-brand">
+    <a href="#" class="flex items-center gap-2 sm:gap-2.5 font-display font-bold text-2xl sm:text-3xl tracking-tight text-brand shrink-0 mr-3 lg:mr-6">
       <span class="w-8 h-8 rounded-full bg-brand text-accent flex items-center justify-center text-base font-bold shadow-sm">O</span>
       <span>Orelli</span>
     </a>
 
     <!-- Desktop Navigation (Figtree) -->
-    <nav class="hidden md:flex items-center gap-5 lg:gap-7 text-sm font-semibold tracking-wide text-ink">
-      <a href="#series" class="hover:text-brand transition-colors">Coffee Blends</a>
-      <a href="#builder" class="hover:text-brand transition-colors">Custom Pack</a>
-      <a href="#origins" class="hover:text-brand transition-colors">Origins</a>
-      <a href="#story" class="hover:text-brand transition-colors">Our Story</a>
-      <a href="#sustainability" class="hover:text-brand transition-colors">Sustainability</a>
-      <a href="#faqs" class="hover:text-brand transition-colors">FAQs</a>
-      <a href="#contact" class="hover:text-brand transition-colors">Contact</a>
-      <a href="#quiz" onclick="window.openQuizModal(); return false;" class="text-brand font-bold flex items-center gap-1 hover:opacity-85 transition bg-brand/10 border border-brand/20 px-2.5 py-1 rounded-full text-xs"><span>✨</span> Coffee Quiz</a>
+    <nav class="hidden lg:flex items-center gap-3.5 xl:gap-5 text-xs xl:text-sm font-semibold tracking-wide text-ink whitespace-nowrap">
+      <a href="#series" class="hover:text-brand transition-colors whitespace-nowrap">Coffee Blends</a>
+      <a href="#builder" class="hover:text-brand transition-colors whitespace-nowrap">Custom Pack</a>
+      <a href="#origins" class="hover:text-brand transition-colors whitespace-nowrap">Origins</a>
+      <a href="#story" class="hover:text-brand transition-colors whitespace-nowrap">Our Story</a>
+      <a href="#sustainability" class="hover:text-brand transition-colors whitespace-nowrap">Sustainability</a>
+      <a href="#faqs" class="hover:text-brand transition-colors whitespace-nowrap">FAQs</a>
+      <a href="#contact" class="hover:text-brand transition-colors whitespace-nowrap">Contact</a>
+      <a href="#quiz" onclick="window.openQuizModal(); return false;" class="text-brand font-bold flex items-center gap-1.5 hover:opacity-85 transition bg-brand/10 border border-brand/20 px-3 py-1.5 rounded-full text-xs whitespace-nowrap shrink-0 shadow-2xs"><span>✨</span> Coffee Quiz</a>
     </nav>
 
     <!-- Header Actions -->
-    <div class="flex items-center gap-2.5 sm:gap-3">
+    <div class="flex items-center gap-2 sm:gap-2.5 lg:gap-3 shrink-0 ml-2 lg:ml-4">
       <!-- User Login / Account Button (OTP Auth) -->
       <button id="authBtn" type="button" onclick="window.handleAuthClick()" class="flex items-center gap-1.5 border border-line bg-surface rounded-full px-2.5 sm:px-3 py-1.5 text-xs font-bold hover:border-brand transition text-ink shadow-sm" title="Account / Login">
         <span id="authIcon">👤</span>
-        <span id="authLabel" class="hidden sm:inline">Log in</span>
+        <span id="authLabel" class="hidden sm:inline whitespace-nowrap">Log in</span>
       </button>
 
       <!-- Dark/Light Theme Toggle -->
@@ -325,12 +325,12 @@ body {
       <!-- Cart Button -->
       <button id="cartBtn" type="button" class="flex items-center gap-1.5 bg-brand text-brandink rounded-full px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold shadow-sm hover:opacity-95 transition-opacity" title="Shopping Cart">
         <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-        <span class="hidden sm:inline">Cart</span>
+        <span class="hidden sm:inline whitespace-nowrap">Cart</span>
         <span id="cartCountBadge" class="bg-accent text-ink rounded-full px-1.5 py-0.1 text-[11px] font-bold">0</span>
       </button>
 
       <!-- Mobile Hamburger Button -->
-      <button id="mobileMenuBtn" type="button" aria-label="Open menu" class="md:hidden p-2 rounded-xl border border-line bg-surface text-ink">
+      <button id="mobileMenuBtn" type="button" aria-label="Open menu" class="lg:hidden p-2 rounded-xl border border-line bg-surface text-ink hover:border-brand transition">
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
